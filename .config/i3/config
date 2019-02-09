@@ -1,0 +1,122 @@
+set $mod Mod1
+set $term --no-startup-id urxvt
+
+
+font pango:monospace 9
+# focus_follows_mouse no
+
+
+exec --no-startup-id feh --bg-fill ~/.config/wall.jpg
+exec --no-startup-id setxkbmap gb
+exec --no-startup-id sudo mount /dev/sdb1 /media/d/
+
+
+for_window [title="Growtopia"] move right 438px move up 138px
+
+
+set $FOCUS #a9a9a9
+set $UNFOCUS #2c2b27
+
+# Layout colors         bord    	bg     		text    	indicator(split) 	child border
+client.focused          $FOCUS 		$FOCUS 		$FOCUS 		#00ff55				$FOCUS
+client.focused_inactive $UNFOCUS 	$UNFOCUS 	$UNFOCUS 	$UNFOCUS
+client.unfocused        $UNFOCUS 	$UNFOCUS 	$UNFOCUS 	$UNFOCUS
+client.urgent           $FOCUS 		$FOCUS 		$FOCUS 		$FOCUS
+client.background       $UNFOCUS
+
+
+for_window [class="^.*"] border pixel 4
+gaps inner 10
+gaps outer 5
+
+
+bindsym $mod+q kill
+bindsym $mod+Return exec $term
+bindsym $mod+d exec dmenu_run
+bindsym $mod+w exec qutebrowser
+bindsym $mod+g exec google-chrome-stable
+
+bindsym $mod+Tab exec setxkbmap gb
+bindsym $mod+Shift+Tab exec setxkbmap tr
+
+bindsym XF86MonBrightnessUp 	exec --no-startup-id sudo ~/.scripts/brgh_set.sh i
+bindsym XF86MonBrightnessDown 	exec --no-startup-id sudo ~/.scripts/brgh_set.sh d
+bindsym XF86AudioMute 			exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume 	exec --no-startup-id pactl set-sink-volume 0 +5% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume 	exec --no-startup-id pactl set-sink-volume 0 -5% && killall -SIGUSR1 i3status
+
+bindsym Print --release 		exec scrot -q 100 '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym Shift+Print --release 	exec scrot -q 100 -s '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym $mod+Print --release 	exec scrot -q 100 -u '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+
+bindsym $mod+h 			focus left
+bindsym $mod+j 			focus down
+bindsym $mod+k 			focus up
+bindsym $mod+l 			focus right
+bindsym $mod+Shift+h	move left
+bindsym $mod+Shift+j 	move down
+bindsym $mod+Shift+k 	move up
+bindsym $mod+Shift+l 	move right
+
+bindsym $mod+t 				split toggle
+bindsym $mod+f 				fullscreen toggle
+bindsym $mod+s 				layout stacking
+bindsym $mod+e 				layout toggle split
+bindsym $mod+a 				focus parent
+bindsym $mod+c 				focus child
+bindsym $mod+space 			focus mode_toggle
+bindsym $mod+Shift+s 		layout tabbed
+bindsym $mod+Shift+space 	floating toggle
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+y resize shrink 	width 	5 px or 5 ppt
+bindsym $mod+i resize grow 		height 	5 px or 5 ppt
+bindsym $mod+u resize shrink 	height 	5 px or 5 ppt
+bindsym $mod+o resize grow 		width 	5 px or 5 ppt
+bindsym $mod+Shift+y resize shrink 		width 	2 px or 2 ppt
+bindsym $mod+Shift+i resize grow 		height 	2 px or 2 ppt
+bindsym $mod+Shift+u resize shrink 		height 	2 px or 2 ppt
+bindsym $mod+Shift+o resize grow 		width 	2 px or 2 ppt
+
+
+bar 
+{
+	position top
+	font pango:Inconsolata\ for\ Powerline:antialas=true: 9
+    status_command i3status --config ~/.config/i3status/config
+	separator_symbol ":|:"
+	colors 
+	{
+		background #272727
+		separator #666666
+		statusline #eeeeee
+
+		focused_workspace #99bb88 #99bb88 #000000
+		urgent_workspace #000000 #cc5555 #000000
+	}
+}
