@@ -1,0 +1,24 @@
+# after editing the /etc/default/grub file# update grub command:
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# pacman list 
+pacman -Qn
+
+# for en-uk Keyboard layout
+setxkbmap gb
+
+# opening nvidia settings with optirun
+optirun -b none nvidia-settings -c :8
+
+# turn the card off, respectively on
+tee /proc/acpi/bbswitch <<<OFF
+tee /proc/acpi/bbswitch <<<ON
+
+# get card status
+cat /proc/acpi/bbswitch  
+
+# connect a wifi from command line that the wifi already saved
+nmcli device wifi connect KSU-OGRENCI password [password]
+
+# git fix your current pushed commit without creating a new commit
+git commit --amend

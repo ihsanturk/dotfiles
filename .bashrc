@@ -22,7 +22,7 @@ export BROWSER="qutebrowser"
 
 
 #=== colors ===#
-#source "$HOME/.vim/pack/default/start/gruvbox/gruvbox_256palette.sh"
+source "$HOME/.vim/pack/default/start/gruvbox/gruvbox_256palette.sh"
 
 man() {
     env \
