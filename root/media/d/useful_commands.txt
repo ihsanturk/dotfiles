@@ -7,18 +7,24 @@ pacman -Qn
 # for en-uk Keyboard layout
 setxkbmap gb
 
-# opening nvidia settings with optirun
+# opening "nvidia settings" with optirun
 optirun -b none nvidia-settings -c :8
 
-# turn the card off, respectively on
+# turn the graphic card off, respectively on
 tee /proc/acpi/bbswitch <<<OFF
 tee /proc/acpi/bbswitch <<<ON
 
-# get card status
+# get external graphic card status
 cat /proc/acpi/bbswitch  
 
 # connect a wifi from command line that the wifi already saved
-nmcli device wifi connect KSU-OGRENCI password [password]
+nmcli device wifi connect [WIFI SSID] password [PASSWORD]
 
 # git fix your current pushed commit without creating a new commit
 git commit --amend
+
+# just print readable string characters from a (data) file 
+string [FILENAME]
+
+# just print the line that occours only once
+sort [FILENAME] | uniq -u
