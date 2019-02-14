@@ -5,7 +5,7 @@
 
 
 #=== PS1 ===#
-export PS1="\[$(tput bold)\]\[$(tput setaf 8)\][\[$(tput setaf 3)\]\[$(tput setaf 2)\]\[$(tput setaf 4)\]\\[$(tput setaf 5)\]\w\[$(tput setaf 8)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)\]\[$(tput setaf 8)\][\[$(tput setaf 3)\]\[$(tput setaf 2)\]\[$(tput setaf 4)\]\\[$(tput setaf 5)\]\W\[$(tput setaf 8)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 
 #=== paths ===#
@@ -13,12 +13,14 @@ export PATH=~/.scripts:$PATH
 export PYTHONPATH="${PYTHONPATH}:/media/d/softwares/my_creation/useful_python"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64"
 export CUDA_HOME=/opt/cuda
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 
 
 #=== default apps ===# 
 export VISUAL="vim"
 export EDITOR="vim"
 export BROWSER="qutebrowser"
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --preview 'head -75 {}'"
 
 
 #=== colors ===#

@@ -18,7 +18,7 @@ set $FOCUS #a9a9a9
 set $UNFOCUS #2c2b27
 
 # Layout colors         bord    	bg     		text    	indicator(split) 	child border
-client.focused          $FOCUS 		$FOCUS 		$FOCUS 		#00ff55				$FOCUS
+client.focused          $FOCUS 		$FOCUS 		$FOCUS 		#007744				$FOCUS
 client.focused_inactive $UNFOCUS 	$UNFOCUS 	$UNFOCUS 	$UNFOCUS
 client.unfocused        $UNFOCUS 	$UNFOCUS 	$UNFOCUS 	$UNFOCUS
 client.urgent           $FOCUS 		$FOCUS 		$FOCUS 		$FOCUS
@@ -26,8 +26,8 @@ client.background       $UNFOCUS
 
 
 for_window [class="^.*"] border pixel 4
-gaps inner 10
-gaps outer 5
+gaps inner 0
+gaps outer 0
 
 
 bindsym $mod+q kill

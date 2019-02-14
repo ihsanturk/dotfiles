@@ -2,9 +2,10 @@ set number
 set nohlsearch
 set incsearch
 set tabstop=4
+set expandtab
+set shiftwidth=4
 set viminfo=""
 set smartindent
-set shiftwidth=4
 set ruler
 
 syntax on
@@ -26,6 +27,7 @@ let g:livepreview_cursorhold_recompile = 0
 
 "goyo
 let g:goyo_linenr = 1
+let g:goyo_width = 90
 
 "=== color scheme ==="
 set background=dark
@@ -42,21 +44,27 @@ augroup templates
 augroup END
 
 
-
 "=== SINPPETS ==="
 
 "reload vimrc even when vim open
-map <F5> :so ~/.vimrc<CR>
-map <F2> :Goyo<Enter>
-map <C-n> :let g:goyo_linenr=!g:goyo_linenr<Enter><F2><F2>
+map <F5> <Esc>:so ~/.vimrc<CR>
+map <S-Tab> <Esc>d4hi
+map <F2> :Goyo<CR>
+map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>
 
 "comment out a line(s)
-autocmd FileType py 	map	<C-u> <Esc>mx:s/^#//g<Esc>`x
-autocmd FileType py 	map	<C-c> <Esc>mx0i#<Esc>`x
-autocmd FileType c 		map	<C-u> <Esc>mx:s/^\/\///g<Esc>`x
-autocmd FileType c 		map	<C-c> <Esc>mx0i//<Esc>`x
-autocmd FileType vim	map	<C-u> <Esc>mx:s/^\"//g<Esc>`x
-autocmd FileType vim	map	<C-c> <Esc>mx0i"<Esc>`x
+autocmd FileType c map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
+autocmd FileType c map <C-c> <Esc>mx0i//<Esc>`x
+autocmd FileType python map <C-u> <Esc>mx:s/^#//g<Esc>`x
+autocmd FileType python map	<C-c> <Esc>mx0i#<Esc>`x
+autocmd FileType vim map <C-u> <Esc>mx:s/^\"//g<Esc>`x
+autocmd FileType vim map <C-c> <Esc>mx0i"<Esc>`x
+autocmd FileType vimrc map <C-u> <Esc>mx:s/^\"//g<Esc>`x
+autocmd FileType vimrc map <C-c> <Esc>mx0i"<Esc>`x
+
+"put/take quote marks around current word
+map <C-a> <Esc>mxciw'<Esc>pa'<Esc>`xl
+map <C-x> <Esc>mxvi'vlxF'x<Esc>`xh
 
 "highlighting the search toggle
 map <C-h> :set nohlsearch !<Enter>
@@ -72,3 +80,10 @@ autocmd FileType c inoremap ,for for(<++>; <++>; <++>)<Enter>{<Enter><++><Enter>
 autocmd FileType c inoremap ,if if(<++>)<Enter>{<Enter><++><Enter>}
 autocmd FileType c inoremap ,while while(<++>)<Enter>{<Enter><++><Enter>}
 autocmd FileType c inoremap ,do do{<Enter><++><Enter>}while();<Esc>hi
+""" C++
+autocmd FileType cpp inoremap ,for for(<++>; <++>; <++>)<Enter>{<Enter><++><Enter>}
+autocmd FileType cpp inoremap ,if if(<++>)<Enter>{<Enter><++><Enter>}
+autocmd FileType cpp inoremap ,while while(<++>)<Enter>{<Enter><++><Enter>}
+autocmd FileType cpp inoremap ,do do{<Enter><++><Enter>}while();<Esc>hi
+""" Python
+autocmd FileType python inoremap ,ifname if __name__ == :<Enter>
