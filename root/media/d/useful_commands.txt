@@ -28,3 +28,9 @@ string [FILENAME]
 
 # just print the line that occours only once
 sort [FILENAME] | uniq -u
+
+# To change all the existing tab characters to match the current tab settings, use in vim
+:retab
+
+#vim source codes and config files
+/usr/share/vim/vim81
