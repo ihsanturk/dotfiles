@@ -5,26 +5,54 @@
 
 
 #=== PS1 ===#
-export PS1="\[$(tput bold)\]\[$(tput setaf 8)\][\[$(tput setaf 3)\]\[$(tput setaf 2)\]\[$(tput setaf 4)\]\\[$(tput setaf 5)\]\W\[$(tput setaf 8)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+function _PS1_command()
+{
+    local lastexit=$?
+    (( lastexit )) && g_PS1_Qcolor=1 || g_PS1_Qcolor=65
+    return $lastexit
+}
 
-
-#=== paths ===#
-export PATH=~/.scripts:$PATH
-export PYTHONPATH="${PYTHONPATH}:/media/d/softwares/my_creation/useful_python"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64"
-export CUDA_HOME=/opt/cuda
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-
-
-#=== default apps ===# 
-export VISUAL="vim"
-export EDITOR="vim"
-export BROWSER="qutebrowser"
-export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --preview 'head -75 {}'"
+PROMPT_COMMAND=_PS1_command
+export PS1='\
+\[$(tput bold)\]\
+\[$(tput setaf ${g_PS1_Qcolor})\][\
+\[$(tput setaf 3)\]\W\
+\[$(tput setaf ${g_PS1_Qcolor})\]]\
+\[$(tput setaf ${g_PS1_Qcolor})\]\\$ \
+\[$(tput sgr0)\]'
 
 
 #=== colors ===#
 source "$HOME/.vim/pack/default/start/gruvbox/gruvbox_256palette.sh"
+
+#=== PATHs ===#
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/path.bash.inc' ]; then
+    . '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/path.bash.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/completion.bash.inc' ]; then
+    . '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/completion.bash.inc'; fi
+export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PYTHONPATH="${PYTHONPATH}:$(du "/media/d/softwares/my_creation/useful_python/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export CUDA_HOME=/opt/cuda
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+
+
+#=== default apps ===#
+export BROWSER="google-chrome-stable"
+export SHELL="/bin/bash"
+export TERMINAL="urxvt"
+export READER="mupdf"
+export EDITOR="vim"
+export VISUAL="vim"
+
+
+#=== options ===#
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --preview 'head -75 {}'"
+export LC_CTYPE=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+
 
 man() {
     env \
@@ -41,7 +69,7 @@ man() {
 
 #=== shopt ===#
 shopt -s checkwinsize
-#shopt -s cdable_vars
+stty -ixon #Disable ctrl-s and ctrl-q
 
 
 #=== history ===#
@@ -67,10 +95,6 @@ fi
 
 
 #=== default directory ===#
+#todo
 #cd ~
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/path.bash.inc' ]; then . '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/completion.bash.inc' ]; then . '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/completion.bash.inc'; fi
+export WINEDEBUG=-ALL

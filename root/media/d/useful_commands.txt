@@ -1,10 +1,8 @@
 # after editing the /etc/default/grub file# update grub command:
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# pacman list 
-pacman -Qn
-
 # for en-uk Keyboard layout
+setxkbmap [COUNTRY CODE]
 setxkbmap gb
 
 # opening "nvidia settings" with optirun
@@ -18,6 +16,8 @@ tee /proc/acpi/bbswitch <<<ON
 cat /proc/acpi/bbswitch  
 
 # connect a wifi from command line that the wifi already saved
+nmcli device wifi rescan
+nmcli device wifi list
 nmcli device wifi connect [WIFI SSID] password [PASSWORD]
 
 # git fix your current pushed commit without creating a new commit
@@ -32,5 +32,24 @@ sort [FILENAME] | uniq -u
 # To change all the existing tab characters to match the current tab settings, use in vim
 :retab
 
+#fold specified lines in vim
+:[BEGGINING],[END]fo 
+:18,24fo
+
 #vim source codes and config files
 /usr/share/vim/vim81
+
+#date & time
+date +%Y/%m/%d_%H:%M:%S
+
+#print size of a folder (but just the folder not inside)
+du [FOLDER] -hx | grep -v /
+
+#required package for ranger preview
+sudo pacman -S w3m
+
+#login, suspend, lid... settings
+/etc/systemd/logind.conf
+
+#Print just specified line
+[OUTPUT] | sed -n [X]p

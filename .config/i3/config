@@ -1,5 +1,7 @@
 set $mod Mod1
+set $sup Mod4
 set $term --no-startup-id urxvt
+set $browser --no-startup-id google-chrome-stable
 
 
 font pango:monospace 9
@@ -33,8 +35,7 @@ gaps outer 0
 bindsym $mod+q kill
 bindsym $mod+Return exec $term
 bindsym $mod+d exec dmenu_run
-bindsym $mod+w exec qutebrowser
-bindsym $mod+g exec google-chrome-stable
+bindsym $mod+w exec $browser
 
 bindsym $mod+Tab exec setxkbmap gb
 bindsym $mod+Shift+Tab exec setxkbmap tr
@@ -47,7 +48,7 @@ bindsym XF86AudioLowerVolume 	exec --no-startup-id pactl set-sink-volume 0 -5% &
 
 bindsym Print --release 		exec scrot -q 100 '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
 bindsym Shift+Print --release 	exec scrot -q 100 -s '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
-bindsym $mod+Print --release 	exec scrot -q 100 -u '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym $sup+Print --release 	exec scrot -q 100 -u '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
 
 bindsym $mod+h 			focus left
 bindsym $mod+j 			focus down

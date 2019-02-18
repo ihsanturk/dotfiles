@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-//Prototypes
+//Function Headers
 
 
 //Main

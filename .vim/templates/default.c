@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-//Prototypes
+//Function Headers
 
 
 //Main

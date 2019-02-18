@@ -1,5 +1,5 @@
 set number
-set nohlsearch
+set hlsearch
 set incsearch
 set tabstop=4
 set expandtab
@@ -7,6 +7,7 @@ set shiftwidth=4
 set viminfo=""
 set smartindent
 set ruler
+set clipboard=unnamed
 
 syntax on
 filetype plugin indent on
@@ -52,9 +53,13 @@ map <S-Tab> <Esc>d4hi
 map <F2> :Goyo<CR>
 map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>
 
-"comment out a line(s)
+"comment out a line
 autocmd FileType c map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
 autocmd FileType c map <C-c> <Esc>mx0i//<Esc>`x
+autocmd FileType sh map <C-u> <Esc>mx:s/^#//g<Esc>`x
+autocmd FileType sh map	<C-c> <Esc>mx0i#<Esc>`x
+autocmd FileType bash map <C-u> <Esc>mx:s/^#//g<Esc>`x
+autocmd FileType bash map <C-c> <Esc>mx0i#<Esc>`x
 autocmd FileType python map <C-u> <Esc>mx:s/^#//g<Esc>`x
 autocmd FileType python map	<C-c> <Esc>mx0i#<Esc>`x
 autocmd FileType vim map <C-u> <Esc>mx:s/^\"//g<Esc>`x
@@ -86,4 +91,4 @@ autocmd FileType cpp inoremap ,if if(<++>)<Enter>{<Enter><++><Enter>}
 autocmd FileType cpp inoremap ,while while(<++>)<Enter>{<Enter><++><Enter>}
 autocmd FileType cpp inoremap ,do do{<Enter><++><Enter>}while();<Esc>hi
 """ Python
-autocmd FileType python inoremap ,ifname if __name__ == :<Enter>
+autocmd FileType python inoremap ,ifname if __name__ == '__main__':<Enter>
