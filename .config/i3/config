@@ -17,7 +17,7 @@ for_window [title="Growtopia"] move right 438px move up 138px
 
 
 set $FOCUS #a9a9a9
-set $UNFOCUS #2c2b27
+set $UNFOCUS #22222282
 
 # Layout colors         bord    	bg     		text    	indicator(split) 	child border
 client.focused          $FOCUS 		$FOCUS 		$FOCUS 		#007744				$FOCUS
@@ -104,17 +104,16 @@ bindsym $mod+Shift+i resize grow 		height 	2 px or 2 ppt
 bindsym $mod+Shift+u resize shrink 		height 	2 px or 2 ppt
 bindsym $mod+Shift+o resize grow 		width 	2 px or 2 ppt
 
-
 bar 
 {
 	position top
-	font pango:Inconsolata\ for\ Powerline:antialas=true: 9
+	font pango:DejaVu Sans Mono Nerd Font Complete Mono:antialas=true: 9
     status_command i3status --config ~/.config/i3status/config
-	separator_symbol ":|:"
-	colors 
+	separator_symbol ||
+	colors
 	{
 		background #272727
-		separator #666666
+		separator #ccbb66
 		statusline #eeeeee
 
 		focused_workspace #99bb88 #99bb88 #000000

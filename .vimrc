@@ -23,12 +23,12 @@ Plug 'junegunn/goyo.vim'
 call plug#end()
 
 "live LaTeX preview
-let g:livepreview_previewer = 'mupdf'
+let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
 
 "goyo
 let g:goyo_linenr = 1
-let g:goyo_width = 90
+let g:goyo_width = 80
 
 "=== color scheme ==="
 set background=dark
