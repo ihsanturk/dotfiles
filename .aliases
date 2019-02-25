@@ -10,15 +10,10 @@ alias diff="diff --color=auto"
 
 
 #=== short commands ===#
-#alias acp='git add *; git commit -m $2; git push -u'
-alias prj_grow='cd /media/d/softwares/my_creation/grow_v3.1'
 alias usc='cat /media/d/useful_commands.txt | less'
 alias books='cd /media/d/documents/school/books'
 alias sof='cd /media/d/softwares/'
 alias wpf='cd ~/.wine/drive_c/Program\ Files'
-alias garch='ssh ihsan@35.226.201.165'
-alias tusu='ssh ihsan@35.228.211.77'
-alias iparch='echo 35.226.201.165'
 alias blur='python -m blur_image'
 alias pi='sudo pacman -S'
 alias clla='clear; ll -a'
@@ -38,13 +33,10 @@ alias qr='generate_qrimage.sh'
 alias clc='clc.sh'
 
 #=== softwares ===#
-alias grw='/home/ihsan/.wine/drive_c/users/ihsan/Local\ Settings/Application\ Data/Growtopia/Growtopia.exe'
 alias itunes='.wine/drive_c/Program\ Files/iTunes/iTunes.exe'
 alias r='ranger'
 alias v='vim'
 alias vf='vim $(fzf)'
 alias f='$(fzf)'
-alias vpnpass='python -m vpnbook_password_get s'
-alias grwbot='cd /media/d/softwares/my_creation/grow; python growbot.py'
 alias push='python3 -m pushover'
 alias ctre='clear; tree'
