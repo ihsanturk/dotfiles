@@ -8,7 +8,7 @@ Xterm*selecttoClipboard: true
 ! -----------------------------------------------------------------------------
 
 ! hard contrast: *background: #1d2021
-*background: #212226
+*background: #0a0a0a
 ! *background: #212226
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
@@ -39,13 +39,18 @@ Xterm*selecttoClipboard: true
 
 urxvt*fading: 10
 urxvt*scrollBar: false
+!urxvt*transparent: true
+!urxvt*shading: 20
 
-urxvt*transparent: true
-urxvt*shading: 20
-
+URxvt.perl-ext-common: ...,font-size
 Xft*antialias: True
-urxvt*background: rgba:0000/0000/0200/c800
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=15:antialias=true:hinting=true
-URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=15:antialias=true:hinting=true
-urxvt.letterspace: -2
 
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+
+URxvt*font: xft:DejaVuSansMono Nerd Font:pixelsize=16:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVuSansMono Nerd Font:style=Bold:bold:pixelsize=16:antialias=true:hinting=true

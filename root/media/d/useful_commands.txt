@@ -53,3 +53,9 @@ sudo pacman -S w3m
 
 #Print just specified line
 [OUTPUT] | sed -n [X]p
+
+#Reload Xresources
+xrdb -merge ~/.Xresources
+
+#sed groups, search digits and put : after digits
+cat [FILE] | sed -r 's/([[:digit:]]) /\1:/' > [NEW_FILE]

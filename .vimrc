@@ -56,6 +56,8 @@ map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>
 "comment out a line
 autocmd FileType c map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
 autocmd FileType c map <C-c> <Esc>mx0i//<Esc>`x
+autocmd FileType cpp map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
+autocmd FileType cpp map <C-c> <Esc>mx0i//<Esc>`x
 autocmd FileType sh map <C-u> <Esc>mx:s/^#//g<Esc>`x
 autocmd FileType sh map	<C-c> <Esc>mx0i#<Esc>`x
 autocmd FileType bash map <C-u> <Esc>mx:s/^#//g<Esc>`x
