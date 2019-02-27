@@ -53,4 +53,5 @@ URxvt.keysym.C-equal:  font-size:reset
 URxvt.keysym.C-slash:  font-size:show
 
 URxvt*font: xft:DejaVuSansMono Nerd Font:pixelsize=16:antialias=true:hinting=true
+
 URxvt*boldFont: xft:DejaVuSansMono Nerd Font:style=Bold:bold:pixelsize=16:antialias=true:hinting=true

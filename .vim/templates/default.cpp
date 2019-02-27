@@ -1,4 +1,5 @@
 #include <iostream>
+//Class Headers
 
 //Function Headers
 
@@ -9,5 +10,7 @@ int main(int argc, char* argv[])
 	<++>
 }
 
+
+//Classes
 
 //Functions

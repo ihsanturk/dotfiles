@@ -8,6 +8,10 @@ set viminfo=""
 set smartindent
 set ruler
 set clipboard=unnamed
+set cursorline
+set laststatus=2
+set statusline=%f\ %y\ %m%=%P
+
 
 syntax on
 filetype plugin indent on
@@ -19,6 +23,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/goyo.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf.vim'
+
 
 call plug#end()
 
@@ -29,6 +36,10 @@ let g:livepreview_cursorhold_recompile = 0
 "goyo
 let g:goyo_linenr = 1
 let g:goyo_width = 80
+
+"nerdtree
+map <F3> :NERDTreeToggle<CR>
+
 
 "=== color scheme ==="
 set background=dark
@@ -77,9 +88,9 @@ map <C-x> <Esc>mxvi'vlxF'x<Esc>`xh
 map <C-h> :set nohlsearch !<Enter>
 
 "navigating with guides
-inoremap 	<F3> <Esc>/<++><Enter>"_c4l
-vnoremap 	<F3> <Esc>/<++><Enter>"_c4l
-map 		<F3> <Esc>/<++><Enter>"_c4l
+inoremap 	<F4> <Esc>/<++><Enter>"_c4l
+vnoremap 	<F4> <Esc>/<++><Enter>"_c4l
+map 		<F4> <Esc>/<++><Enter>"_c4l
 
 
 """ C

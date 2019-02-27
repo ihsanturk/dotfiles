@@ -1,14 +1,25 @@
 set $mod Mod1
 set $sup Mod4
 set $term --no-startup-id urxvt
-set $browser google-chrome-stable
+set $browser --no-startup-id google-chrome-stable
+set $gimp --no-startup-id gimp
 
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8:[img]
+set $ws9 9:[web]
+set $ws10 10:[stf]
 
 font pango:monospace 9
 # focus_follows_mouse no
 
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id feh --bg-fill ~/.config/wall.jpg
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-fill ~/jupiter_wall.jpg
 exec --no-startup-id setxkbmap gb
 exec --no-startup-id sudo mount /dev/sdb1 /media/d/
 
@@ -27,7 +38,7 @@ client.urgent           $FOCUS 		$FOCUS 		$FOCUS 		$FOCUS
 client.background       $UNFOCUS
 
 
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 3
 gaps inner 0
 gaps outer 0
 
@@ -35,7 +46,8 @@ gaps outer 0
 bindsym $mod+q kill
 bindsym $mod+Return exec $term
 bindsym $mod+d exec dmenu_run
-bindsym $mod+w exec --no-startup-id i3-msg 'workspace 9:[web]'; exec $browser
+bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec $browser
+bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec $gimp
 
 bindsym $mod+Tab exec setxkbmap gb
 bindsym $mod+Shift+Tab exec setxkbmap tr
@@ -69,27 +81,27 @@ bindsym $mod+space 			focus mode_toggle
 bindsym $mod+Shift+s 		layout tabbed
 bindsym $mod+Shift+space 	floating toggle
 
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9:[web]
-bindsym $mod+0 workspace 10:[stuff]
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -104,20 +116,20 @@ bindsym $mod+Shift+i resize grow 		height 	1 px or 1 ppt
 bindsym $mod+Shift+u resize shrink 		height 	1 px or 1 ppt
 bindsym $mod+Shift+o resize grow 		width 	1 px or 1 ppt
 
-bar 
-{
-	position top
-	#font pango:DejaVuSansMono Nerd Font Mono:antialas=true: 9
-    status_command i3status --config ~/.config/i3status/config
-	separator_symbol ""
-	#separator_symbol " || "
-	colors
-	{
-		background #272727
-		separator #aaddff
-		statusline #eeeeee
-
-		focused_workspace #99bb88 #99bb88 #000000
-		urgent_workspace #000000 #cc5555 #000000
-	}
-}
+#bar 
+#{
+#	position top
+#	#font pango:DejaVuSansMono Nerd Font Mono:antialas=true: 9
+#    status_command i3status --config ~/.config/i3status/config
+#	#separator_symbol ""
+#	#separator_symbol "||"
+#	colors
+#	{
+#		background #272727
+#		separator #aaddff
+#		statusline #eeeeee
+#
+#		focused_workspace #99bb88 #99bb88 #000000
+#		urgent_workspace #000000 #cc5555 #000000
+#	}
+#}
