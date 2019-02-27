@@ -26,7 +26,6 @@ exec --no-startup-id sudo mount /dev/sdb1 /media/d/
 
 for_window [title="Growtopia"] move right 438px move up 138px
 
-
 set $FOCUS #a9a9a9
 set $UNFOCUS #050505
 
@@ -42,12 +41,16 @@ for_window [class="^.*"] border pixel 3
 gaps inner 0
 gaps outer 0
 
+bindsym $mod+s        gaps inner current plus 5
+bindsym $mod+Shift+s  gaps inner current minus 5
 
 bindsym $mod+q kill
 bindsym $mod+Return exec $term
 bindsym $mod+d exec dmenu_run
 bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec $browser
 bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec $gimp
+bindsym $mod+Shift+t  gaps inner current set 0; gaps outer current set 0
+bindsym $mod+p        exec $term -e htop
 
 bindsym $mod+Tab exec setxkbmap gb
 bindsym $mod+Shift+Tab exec setxkbmap tr
@@ -73,12 +76,12 @@ bindsym $mod+Shift+l 	move right
 
 bindsym $mod+t 				split toggle
 bindsym $mod+f 				fullscreen toggle
-bindsym $mod+s 				layout stacking
+#bindsym $mod+s 				layout stacking
 bindsym $mod+e 				layout toggle split
 bindsym $mod+a 				focus parent
 bindsym $mod+c 				focus child
 bindsym $mod+space 			focus mode_toggle
-bindsym $mod+Shift+s 		layout tabbed
+#bindsym $mod+Shift+s 		layout tabbed
 bindsym $mod+Shift+space 	floating toggle
 
 bindsym $mod+1 workspace $ws1

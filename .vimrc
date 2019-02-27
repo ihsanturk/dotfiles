@@ -40,6 +40,10 @@ let g:goyo_width = 80
 "nerdtree
 map <F3> :NERDTreeToggle<CR>
 
+"FZF
+let g:fzf_command_prefix = 'Fzf'
+let g:fzf_layout = { 'down': '~20%' }
+
 
 "=== color scheme ==="
 set background=dark
@@ -62,7 +66,10 @@ augroup END
 map <F5> <Esc>:so ~/.vimrc<CR>
 map <S-Tab> <Esc>d4hi
 map <F2> :Goyo<CR>
-map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>
+map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>:set number!<CR>
+map :W :w
+map q: :q
+map :F :FZF<Enter>
 
 "comment out a line
 autocmd FileType c map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
