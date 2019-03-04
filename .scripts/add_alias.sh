@@ -1,4 +1,4 @@
-fp=~/.bash_aliases
+fp=~/.aliases
 if ! [ -r $fp ]; then
 	echo "$fp not found!"
 	exit 1

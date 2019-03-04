@@ -1,7 +1,7 @@
 set $mod Mod1
 set $sup Mod4
 set $term --no-startup-id urxvt
-set $browser --no-startup-id google-chrome-stable
+set $browser --no-startup-id chromium
 set $gimp --no-startup-id gimp
 
 set $ws1 1
@@ -11,15 +11,14 @@ set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 7
-set $ws8 8:[img]
-set $ws9 9:[web]
-set $ws10 10:[stf]
+set $ws8 8
+set $ws9 9
+set $ws10 10
 
 font pango:monospace 9
 # focus_follows_mouse no
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id feh --bg-fill ~/jupiter_wall.jpg
+exec_always --no-startup-id feh --bg-max $HOME/Pictures/planets/mars.jpg
 exec --no-startup-id setxkbmap gb
 exec --no-startup-id sudo mount /dev/sdb1 /media/d/
 
@@ -37,14 +36,16 @@ client.urgent           $FOCUS 		$FOCUS 		$FOCUS 		$FOCUS
 client.background       $UNFOCUS
 
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 gaps inner 0
 gaps outer 0
 
 bindsym $mod+s        gaps inner current plus 5
 bindsym $mod+Shift+s  gaps inner current minus 5
-
+bindsym $sup+0 exec xdotool mousemove 1920 1080
 bindsym $mod+q kill
+bindsym $sup+p exec --no-startup-id $HOME/.config/polybar/launch.sh
+bindsym $sup+Shift+p exec pkill polybar
 bindsym $mod+Return exec $term
 bindsym $mod+d exec dmenu_run
 bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec $browser
@@ -76,7 +77,7 @@ bindsym $mod+Shift+l 	move right
 
 bindsym $mod+t 				split toggle
 bindsym $mod+f 				fullscreen toggle
-#bindsym $mod+s 				layout stacking
+#bindsym $mod+s 			 layout stacking
 bindsym $mod+e 				layout toggle split
 bindsym $mod+a 				focus parent
 bindsym $mod+c 				focus child

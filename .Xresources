@@ -37,10 +37,18 @@ Xterm*selecttoClipboard: true
 *color7:  #a89984
 *color15: #ebdbb2
 
-urxvt*fading: 10
+URxvt.cursorColor: #aaccaa
+
+! change to dark background
+URxvt.keysym.C-1: command:\033]11;#0a0a0a\007
+
+! change to light background
+URxvt.keysym.C-2: command:\033]11;#fbf1c7\007
+
+! urxvt*fading: 3
 urxvt*scrollBar: false
-!urxvt*transparent: true
-!urxvt*shading: 20
+! urxvt*transparent: true
+! urxvt*shading: 20
 
 URxvt.perl-ext-common: ...,font-size
 Xft*antialias: True
@@ -51,6 +59,7 @@ URxvt.keysym.C-S-Up:   font-size:incglobal
 URxvt.keysym.C-S-Down: font-size:decglobal
 URxvt.keysym.C-equal:  font-size:reset
 URxvt.keysym.C-slash:  font-size:show
+
 
 URxvt*font: xft:DejaVuSansMono Nerd Font:pixelsize=16:antialias=true:hinting=true
 

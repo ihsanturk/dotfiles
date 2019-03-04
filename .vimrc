@@ -7,11 +7,10 @@ set shiftwidth=4
 set viminfo=""
 set smartindent
 set ruler
-set clipboard=unnamed
+set clipboard=unnamedplus
 set cursorline
 set laststatus=2
 set statusline=%f\ %y\ %m%=%P
-
 
 syntax on
 filetype plugin indent on
@@ -39,6 +38,8 @@ let g:goyo_width = 80
 
 "nerdtree
 map <F3> :NERDTreeToggle<CR>
+let NERDTreeMapActivateNode='<space>'
+
 
 "FZF
 let g:fzf_command_prefix = 'Fzf'
@@ -47,10 +48,19 @@ let g:fzf_layout = { 'down': '~20%' }
 
 "=== color scheme ==="
 set background=dark
+
+if  &background == 'dark'
+    hi CursorLine ctermbg=15
+endif
+
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
+
+"=== cursor type ==="
+let &t_SI="\e[6 q"
+let &t_EI="\e[2 q"
 
 "=== default templates ==="
 augroup templates
@@ -68,26 +78,23 @@ map <S-Tab> <Esc>d4hi
 map <F2> :Goyo<CR>
 map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>:set number!<CR>
 map :W :w
+map :qw :wq
+map :Q :q
+map :Q! :q!
 map q: :q
 map :F :FZF<Enter>
 
 "comment out a line
-autocmd FileType c map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
-autocmd FileType c map <C-c> <Esc>mx0i//<Esc>`x
-autocmd FileType cpp map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
-autocmd FileType cpp map <C-c> <Esc>mx0i//<Esc>`x
-autocmd FileType sh map <C-u> <Esc>mx:s/^#//g<Esc>`x
-autocmd FileType sh map	<C-c> <Esc>mx0i#<Esc>`x
-autocmd FileType bash map <C-u> <Esc>mx:s/^#//g<Esc>`x
-autocmd FileType bash map <C-c> <Esc>mx0i#<Esc>`x
-autocmd FileType python map <C-u> <Esc>mx:s/^#//g<Esc>`x
-autocmd FileType python map	<C-c> <Esc>mx0i#<Esc>`x
+autocmd FileType c,cpp map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
+autocmd FileType c,cpp map <C-c> <Esc>mx0i//<Esc>`x
+autocmd FileType python,readline,sh map <C-u> <Esc>mx:s/^#//g<Esc>`x
+autocmd FileType python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x
 autocmd FileType vim map <C-u> <Esc>mx:s/^\"//g<Esc>`x
 autocmd FileType vim map <C-c> <Esc>mx0i"<Esc>`x
-autocmd FileType vimrc map <C-u> <Esc>mx:s/^\"//g<Esc>`x
-autocmd FileType vimrc map <C-c> <Esc>mx0i"<Esc>`x
+autocmd FileType xdefaults map <C-u> <Esc>mx:s/^\!//g<Esc>`x
+autocmd FileType xdefaults map <C-c> <Esc>mx0i! <Esc>`x
 
-"put/take quote marks around current word
+"put/take quote marks around the current word
 map <C-a> <Esc>mxciw'<Esc>pa'<Esc>`xl
 map <C-x> <Esc>mxvi'vlxF'x<Esc>`xh
 
@@ -100,15 +107,10 @@ vnoremap 	<F4> <Esc>/<++><Enter>"_c4l
 map 		<F4> <Esc>/<++><Enter>"_c4l
 
 
-""" C
-autocmd FileType c inoremap ,for for(<++>; <++>; <++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType c inoremap ,if if(<++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType c inoremap ,while while(<++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType c inoremap ,do do{<Enter><++><Enter>}while();<Esc>hi
-""" C++
-autocmd FileType cpp inoremap ,for for(<++>; <++>; <++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType cpp inoremap ,if if(<++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType cpp inoremap ,while while(<++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType cpp inoremap ,do do{<Enter><++><Enter>}while();<Esc>hi
+""" C,CPP
+autocmd FileType c,cpp inoremap ,for for(<++>; <++>; <++>)<Enter>{<Enter><++><Enter>}
+autocmd FileType c,cpp inoremap ,if if(<++>)<Enter>{<Enter><++><Enter>}
+autocmd FileType c,cpp inoremap ,while while(<++>)<Enter>{<Enter><++><Enter>}
+autocmd FileType c,cpp inoremap ,do do{<Enter><++><Enter>}while();<Esc>hi
 """ Python
 autocmd FileType python inoremap ,ifname if __name__ == '__main__':<Enter>

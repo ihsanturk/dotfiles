@@ -1,5 +1,5 @@
 export ZSH="/home/ihsan/.oh-my-zsh"
-export LANG=en_US.UTF-8
+export LANG=en_GB.UTF-8
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 ZSH_THEME="robbyrussell"
