@@ -8,6 +8,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git 
     vi-mode
+    zsh-syntax-highlighting
 )
 
 #=== sources ===#

@@ -1,7 +1,7 @@
 set $mod Mod1
 set $sup Mod4
 set $term --no-startup-id urxvt
-set $browser --no-startup-id chromium
+set $browser --no-startup-id firefox
 set $gimp --no-startup-id gimp
 
 set $ws1 1
@@ -44,6 +44,7 @@ bindsym $mod+s        gaps inner current plus 5
 bindsym $mod+Shift+s  gaps inner current minus 5
 bindsym $sup+0 exec xdotool mousemove 1920 1080
 bindsym $mod+q kill
+bindsym $sup+n exec dunstify "Test"
 bindsym $sup+p exec --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym $sup+Shift+p exec pkill polybar
 bindsym $mod+Return exec $term

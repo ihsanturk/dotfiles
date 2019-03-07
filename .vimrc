@@ -7,10 +7,15 @@ set shiftwidth=4
 set viminfo=""
 set smartindent
 set ruler
-set clipboard=unnamedplus
 set cursorline
 set laststatus=2
 set statusline=%f\ %y\ %m%=%P
+set noswapfile
+set nobackup
+set ttyfast
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
 
 syntax on
 filetype plugin indent on
@@ -24,6 +29,7 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf.vim'
+Plug 'jistr/vim-nerdtree-tabs'
 
 
 call plug#end()
@@ -37,7 +43,7 @@ let g:goyo_linenr = 1
 let g:goyo_width = 80
 
 "nerdtree
-map <F3> :NERDTreeToggle<CR>
+map <F3> :NERDTreeTabsToggle<CR>
 let NERDTreeMapActivateNode='<space>'
 
 
@@ -69,26 +75,38 @@ augroup templates
     autocmd BufNewFile *.c   0r ~/.vim/templates/default.c
 augroup END
 
+"=== remember cursor position ==="
+augroup vimrc-remember-cursor-position
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
 
 "=== SINPPETS ==="
+set timeout           " for mappings
+set timeoutlen=1000   " default value
+set ttimeout          " for key codes
+set ttimeoutlen=10    " unnoticeable small value
 
-"reload vimrc even when vim open
-map <F5> <Esc>:so ~/.vimrc<CR>
-map <S-Tab> <Esc>d4hi
+nmap <Tab> <Esc>:tabnext<CR>
+nmap <S-Tab> <Esc>:tabprevious<CR>
+nmap <F5> <Esc>:so ~/.vimrc<CR>
 map <F2> :Goyo<CR>
 map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>:set number!<CR>
-map :W :w
-map :qw :wq
-map :Q :q
-map :Q! :q!
-map q: :q
-map :F :FZF<Enter>
+cnoreabbrev W w<CR>
+cnoreabbrev Wq wq<CR>
+cnoreabbrev qw wq<CR>
+cnoreabbrev Q! q!<CR>
+cnoreabbrev Q q<CR>
+cnoreabbrev q: q<CR>
+cmap F FZF<Enter><CR>
 
 "comment out a line
 autocmd FileType c,cpp map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
 autocmd FileType c,cpp map <C-c> <Esc>mx0i//<Esc>`x
 autocmd FileType python,readline,sh map <C-u> <Esc>mx:s/^#//g<Esc>`x
 autocmd FileType python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x
+autocmd FileType css map <C-u> <Esc>mx:s/^\/\*//g<Esc>`x
+autocmd FileType css map <C-c> <Esc>mx0i/*<Esc>`x
 autocmd FileType vim map <C-u> <Esc>mx:s/^\"//g<Esc>`x
 autocmd FileType vim map <C-c> <Esc>mx0i"<Esc>`x
 autocmd FileType xdefaults map <C-u> <Esc>mx:s/^\!//g<Esc>`x
@@ -102,15 +120,15 @@ map <C-x> <Esc>mxvi'vlxF'x<Esc>`xh
 map <C-h> :set nohlsearch !<Enter>
 
 "navigating with guides
-inoremap 	<F4> <Esc>/<++><Enter>"_c4l
-vnoremap 	<F4> <Esc>/<++><Enter>"_c4l
-map 		<F4> <Esc>/<++><Enter>"_c4l
+imap  <F4> <Esc>/<++><Enter>"_c4l
+vmap  <F4> <Esc>/<++><Enter>"_c4l
+map   <F4> <Esc>/<++><Enter>"_c4l
 
 
 """ C,CPP
-autocmd FileType c,cpp inoremap ,for for(<++>; <++>; <++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType c,cpp inoremap ,if if(<++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType c,cpp inoremap ,while while(<++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType c,cpp inoremap ,do do{<Enter><++><Enter>}while();<Esc>hi
+autocmd FileType c,cpp imap ,for for(<++>; <++>; <++>)<Enter>{<Enter><++><Enter>}
+autocmd FileType c,cpp imap ,if if(<++>)<Enter>{<Enter><++><Enter>}
+autocmd FileType c,cpp imap ,while while(<++>)<Enter>{<Enter><++><Enter>}
+autocmd FileType c,cpp imap ,do do{<Enter><++><Enter>}while();<Esc>hi
 """ Python
-autocmd FileType python inoremap ,ifname if __name__ == '__main__':<Enter>
+autocmd FileType python imap ,ifname if __name__ == '__main__':<Enter>
