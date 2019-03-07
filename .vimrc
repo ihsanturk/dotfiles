@@ -13,6 +13,8 @@ set statusline=%f\ %y\ %m%=%P
 set noswapfile
 set nobackup
 set ttyfast
+set ignorecase
+set smartcase
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif

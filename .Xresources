@@ -20,9 +20,9 @@ Xterm*selecttoClipboard: true
 *color9:  #fb4934
 ! DarkGreen + Green
 ! *color2:  #98971a
-*color2:  #77bb00
 ! *color10: #b8bb26
-*color10: #cfdf11
+*color2:  #8CB73D
+*color10: #71BA3A
 ! DarkYellow + Yellow
 *color3:  #d79921
 *color11: #fabd2f
