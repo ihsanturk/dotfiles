@@ -12,8 +12,9 @@ alias diff="diff --color=auto"
 #=== short commands ===#
 alias usc='cat /media/d/useful_commands.txt | less'
 alias books='cd /media/d/documents/school/books'
-alias sof='cd /media/d/softwares/'
 alias wpf='cd ~/.wine/drive_c/Program\ Files'
+alias i3con='vim ~/.config/i3/config'
+alias sof='cd /media/d/softwares/'
 alias blur='python -m blur_image'
 alias pr='sudo pacman -R'
 alias pi='sudo pacman -S'

@@ -26,7 +26,7 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export PKG_CONFIG_PATH=":/usr/lib/pkgconfig:/usr/lib64/pkgconfig"
 
 #=== default apps ===#
-export BROWSER="google-chrome-stable"
+export BROWSER="firefox"
 export SHELL="/bin/zsh"
 export TERMINAL="urxvt"
 export READER="mupdf"

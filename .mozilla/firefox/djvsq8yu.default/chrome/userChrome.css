@@ -12,7 +12,7 @@
     --tab-fonts: "Lemon"; 
     --tab-font-size: 9pt;
     --tab-text-align: center;
-    --tab-min-height: 20px !important;
+    --tab-min-height: 5px !important;
 
 /*********************************/
 /**** URL BAR VARIABLES ****/
@@ -40,20 +40,20 @@
 /*********************************/
 /**** TAB BAR CONFIG ****/
 /*********************************/
-/*tab, .tabbrowser-tabs *|tab {
+tab, .tabbrowser-tabs *|tab {
     background: var(--bg-dark) !important; 
     color: var(--fg-light) !important;
     font-family: var(--tab-fonts) !important;
     font-size: var(--tab-font-size); 
     text-shadow: none !important; 
     text-align: var(--tab-text-align) !important;
-/*}
+}
 
 /**** TAB LABEL (DEFAULT=CENTER) ****/
-/*.tab-label {
+.tab-label {
     -moz-box-flex: 1 !important; 
     text-align: var(--tab-text-align) !important;
-/*}
+}
 
 /**** TAB WIDTH ****/
 .tabbrowser-tab[fadein]:not([pinned]) { 

@@ -1,9 +1,9 @@
 set number
 set hlsearch
 set incsearch
-set tabstop=4
+set tabstop=2
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 set viminfo=""
 set smartindent
 set ruler
@@ -43,6 +43,7 @@ let g:livepreview_cursorhold_recompile = 0
 "goyo
 let g:goyo_linenr = 1
 let g:goyo_width = 80
+let g:goyo_height = 95
 
 "nerdtree
 map <F3> :NERDTreeTabsToggle<CR>
@@ -78,10 +79,17 @@ augroup templates
 augroup END
 
 "=== remember cursor position ==="
-augroup vimrc-remember-cursor-position
-  autocmd!
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-augroup END
+"function! ResCur()
+"  if line("'\"") <= line("$")
+"    normal! g`"
+"    return 1
+"  endif
+"endfunction
+
+"augroup resCur
+"  autocmd!
+"  autocmd BufWinEnter * call ResCur()
+"augroup END
 
 "=== SINPPETS ==="
 set timeout           " for mappings
@@ -99,8 +107,8 @@ cnoreabbrev Wq wq<CR>
 cnoreabbrev qw wq<CR>
 cnoreabbrev Q! q!<CR>
 cnoreabbrev Q q<CR>
-cnoreabbrev q: q<CR>
-cmap F FZF<Enter><CR>
+cnoreabbrev F FZF<Enter><CR>
+map q: :q
 
 "comment out a line
 autocmd FileType c,cpp map <C-u> <Esc>mx:s/^\/\///g<Esc>`x

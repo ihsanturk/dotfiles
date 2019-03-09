@@ -15,7 +15,8 @@ set $ws8 8
 set $ws9 9
 set $ws10 10
 
-font pango:monospace 9
+# font pango:monospace 9
+font DejaVuSansMono Nerd Font Mono:antialas=true: 9
 # focus_follows_mouse no
 
 exec_always --no-startup-id feh --bg-max $HOME/Pictures/planets/mars.jpg
@@ -50,6 +51,7 @@ bindsym $sup+Shift+p exec pkill polybar
 bindsym $mod+Return exec $term
 bindsym $mod+d exec dmenu_run
 bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec $browser
+bindsym $sup+w exec --no-startup-id exec surf duckduckgo.com &!
 bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec $gimp
 bindsym $mod+Shift+t  gaps inner current set 0; gaps outer current set 0
 bindsym $mod+p        exec $term -e htop
