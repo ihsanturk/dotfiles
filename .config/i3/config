@@ -19,16 +19,46 @@ set $ws10 10
 font DejaVuSansMono Nerd Font Mono:antialas=true: 9
 # focus_follows_mouse no
 
-exec_always --no-startup-id feh --bg-max $HOME/Pictures/planets/mars.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/walls/blurred/roberto-nickson.jpg
 exec --no-startup-id setxkbmap gb
 exec --no-startup-id sudo mount /dev/sdb1 /media/d/
 
 
 for_window [title="Growtopia"] move right 438px move up 138px
+assign [class="Firefox"] $ws9
+
+set_from_resource $term_background background
+set_from_resource $term_foreground foreground
+set_from_resource $term_color0     color0
+set_from_resource $term_color1     color1
+set_from_resource $term_color2     color2
+set_from_resource $term_color3     color3
+set_from_resource $term_color4     color4
+set_from_resource $term_color5     color5
+set_from_resource $term_color6     color6
+set_from_resource $term_color7     color7
+set_from_resource $term_color8     color8
+set_from_resource $term_color9     color9
+set_from_resource $term_color10    color10
+set_from_resource $term_color11    color11
+set_from_resource $term_color12    color12
+set_from_resource $term_color13    color13
+set_from_resource $term_color14    color14
+set_from_resource $term_color15    color15
+
+# Theme colors
+# class                   border  backgr.   text    indic.   child_border
+#  client.focused          #556064 #666666   #80FFF9 #cccccc
+#  client.focused_inactive #2F3D44 #2F3D44   #AD69AF #454948
+#  client.unfocused        #2F3D44 #66666633 #AD69AF #454948
+#  client.urgent           #CB4B16 #FDF6E3   #AD69AF #268BD2
+#  client.placeholder      #000000 #0c0c0c   #ffffff #000000 
+#
+#  client.background       #2B2C2B
+
 
 set $FOCUS #a9a9a9
-set $UNFOCUS #050505
-
+set $UNFOCUS #151515
 # Layout colors         bord    	bg     		text    	indicator(split) 	child border
 client.focused          $FOCUS 		$FOCUS 		$FOCUS 		#007744				$FOCUS
 client.focused_inactive $UNFOCUS 	$UNFOCUS 	$UNFOCUS 	$UNFOCUS
@@ -38,8 +68,13 @@ client.background       $UNFOCUS
 
 
 for_window [class="^.*"] border pixel 2
-gaps inner 0
-gaps outer 0
+#hide_edge_borders smart
+
+# Set inner/outer gaps
+set $gapsi 25
+set $gapso -4 
+gaps inner $gapsi
+gaps outer $gapso
 
 bindsym $mod+s        gaps inner current plus 5
 bindsym $mod+Shift+s  gaps inner current minus 5
@@ -53,8 +88,10 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec $browser
 bindsym $sup+w exec --no-startup-id exec surf duckduckgo.com &!
 bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec $gimp
-bindsym $mod+Shift+t  gaps inner current set 0; gaps outer current set 0
+bindsym $mod+Shift+t  gaps inner current set $gapsi; gaps outer current set $gapso
 bindsym $mod+p        exec $term -e htop
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 bindsym $mod+Tab exec setxkbmap gb
 bindsym $mod+Shift+Tab exec setxkbmap tr

@@ -9,19 +9,22 @@ set smartindent
 set ruler
 set cursorline
 set laststatus=2
-set statusline=%f\ %y\ %m%=%P
+set statusline=\ \ \ %f\ %m%=%y\ %P
 set noswapfile
 set nobackup
 set ttyfast
 set ignorecase
 set smartcase
+set relativenumber
+set numberwidth=4
+
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
 syntax on
 filetype plugin indent on
-highlight LineNr ctermfg=grey ctermbg=black
+"highlight LineNr ctermfg=grey ctermbg=black 
 
 
 "=== vim plug plugins ==="
@@ -101,7 +104,7 @@ nmap <Tab> <Esc>:tabnext<CR>
 nmap <S-Tab> <Esc>:tabprevious<CR>
 nmap <F5> <Esc>:so ~/.vimrc<CR>
 map <F2> :Goyo<CR>
-map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>:set number!<CR>
+map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>:set relativenumber !<CR>:set number !<CR>
 cnoreabbrev W w<CR>
 cnoreabbrev Wq wq<CR>
 cnoreabbrev qw wq<CR>
@@ -119,7 +122,7 @@ autocmd FileType css map <C-u> <Esc>mx:s/^\/\*//g<Esc>`x
 autocmd FileType css map <C-c> <Esc>mx0i/*<Esc>`x
 autocmd FileType vim map <C-u> <Esc>mx:s/^\"//g<Esc>`x
 autocmd FileType vim map <C-c> <Esc>mx0i"<Esc>`x
-autocmd FileType xdefaults map <C-u> <Esc>mx:s/^\!//g<Esc>`x
+autocmd FileType xdefaults map <C-u> <Esc>mx:s/^\! //g<Esc>`x
 autocmd FileType xdefaults map <C-c> <Esc>mx0i! <Esc>`x
 
 "put/take quote marks around the current word

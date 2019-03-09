@@ -43,8 +43,8 @@ URxvt.cursorColor: #bbccbb
 
 ! urxvt*fading: 3
 urxvt*scrollBar: false
-! urxvt*transparent: true
-! urxvt*shading: 20
+urxvt*transparent: true
+urxvt*shading: 30
 
 URxvt.perl-ext-common: ...,font-size
 Xft*antialias: True
