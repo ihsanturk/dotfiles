@@ -131,15 +131,15 @@ map q: :q
 
 
 "comment out a line
-autocmd FileType c,cpp map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
+autocmd FileType c,cpp map <C-u> <Esc>mx:s/^\s*\/\///g<Esc>`x
 autocmd FileType c,cpp map <C-c> <Esc>mx0i//<Esc>`x
-autocmd FileType conf,python,readline,sh map <C-u> <Esc>mx:s/^#//g<Esc>`x
+autocmd FileType conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x
 autocmd FileType conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x
-autocmd FileType css map <C-u> <Esc>mx:s/^\/\*//g<Esc>`x
+autocmd FileType css map <C-u> <Esc>mx:s/^\s*\/\*//g<Esc>`x
 autocmd FileType css map <C-c> <Esc>mx0i/*<Esc>`x
-autocmd FileType vim map <C-u> <Esc>mx:s/^\"//g<Esc>`x
+autocmd FileType vim map <C-u> <Esc>mx:s/^\s*\"//g<Esc>`x
 autocmd FileType vim map <C-c> <Esc>mx0i"<Esc>`x
-autocmd FileType xdefaults map <C-u> <Esc>mx:s/^\! //g<Esc>`x
+autocmd FileType xdefaults map <C-u> <Esc>mx:s/^\s*\! //g<Esc>`x
 autocmd FileType xdefaults map <C-c> <Esc>mx0i! <Esc>`x
 
 "put/take quote marks around the current word
