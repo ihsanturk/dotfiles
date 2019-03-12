@@ -12,11 +12,16 @@ set laststatus=2
 set statusline=\ \ \ %f\ %m%=%y\ %P
 set noswapfile
 set nobackup
-set ttyfast
 set ignorecase
 set smartcase
-set relativenumber
 set numberwidth=4
+set ttyfast
+
+set timeout           " for mappings
+set timeoutlen=1000   " default value
+set ttimeout          " for key codes
+set ttimeoutlen=10    " unnoticeable small value
+
 
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
@@ -35,9 +40,19 @@ Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf.vim'
 Plug 'jistr/vim-nerdtree-tabs'
-
+Plug 'sbdchd/neoformat'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 call plug#end()
+
+""Neoformat (while saving)
+"augroup fmt
+"  autocmd!
+"  autocmd BufWritePre * undojoin | silent Neoformat
+"augroup END
+
+"Neoformat (with shortcut)
+nmap <C-h> :silent Neoformat<CR>
 
 "live LaTeX preview
 let g:livepreview_previewer = 'zathura'
@@ -51,7 +66,6 @@ let g:goyo_height = 95
 "nerdtree
 map <F3> :NERDTreeTabsToggle<CR>
 let NERDTreeMapActivateNode='<space>'
-
 
 "FZF
 let g:fzf_command_prefix = 'Fzf'
@@ -68,6 +82,7 @@ endif
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
+"colorscheme solarized
 
 
 "=== cursor type ==="
@@ -91,33 +106,35 @@ augroup END
 
 "augroup resCur
 "  autocmd!
-"  autocmd BufWinEnter * call ResCur()
+"  autocmd BufWinreturn * call ResCur()
 "augroup END
 
 "=== SINPPETS ==="
-set timeout           " for mappings
-set timeoutlen=1000   " default value
-set ttimeout          " for key codes
-set ttimeoutlen=10    " unnoticeable small value
-
 nmap <Tab> <Esc>:tabnext<CR>
 nmap <S-Tab> <Esc>:tabprevious<CR>
 nmap <F5> <Esc>:so ~/.vimrc<CR>
 map <F2> :Goyo<CR>
-map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>:set relativenumber !<CR>:set number !<CR>
+
+"For normal line numbers
+map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>:set number !<CR>
+
+" For relative line numbers
+"map <C-n> :let g:goyo_linenr=!g:goyo_linenr<CR><F2><F2>:set relativenumber !<CR>:set number !<CR>
+"
 cnoreabbrev W w<CR>
 cnoreabbrev Wq wq<CR>
 cnoreabbrev qw wq<CR>
 cnoreabbrev Q! q!<CR>
 cnoreabbrev Q q<CR>
-cnoreabbrev F FZF<Enter><CR>
+cnoreabbrev F FZF<return><CR>
 map q: :q
+
 
 "comment out a line
 autocmd FileType c,cpp map <C-u> <Esc>mx:s/^\/\///g<Esc>`x
 autocmd FileType c,cpp map <C-c> <Esc>mx0i//<Esc>`x
-autocmd FileType python,readline,sh map <C-u> <Esc>mx:s/^#//g<Esc>`x
-autocmd FileType python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x
+autocmd FileType conf,python,readline,sh map <C-u> <Esc>mx:s/^#//g<Esc>`x
+autocmd FileType conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x
 autocmd FileType css map <C-u> <Esc>mx:s/^\/\*//g<Esc>`x
 autocmd FileType css map <C-c> <Esc>mx0i/*<Esc>`x
 autocmd FileType vim map <C-u> <Esc>mx:s/^\"//g<Esc>`x
@@ -130,18 +147,18 @@ map <C-a> <Esc>mxciw'<Esc>pa'<Esc>`xl
 map <C-x> <Esc>mxvi'vlxF'x<Esc>`xh
 
 "highlighting the search toggle
-map <C-h> :set nohlsearch !<Enter>
+nmap <esc><esc> :noh<return>
 
 "navigating with guides
-imap  <F4> <Esc>/<++><Enter>"_c4l
-vmap  <F4> <Esc>/<++><Enter>"_c4l
-map   <F4> <Esc>/<++><Enter>"_c4l
+imap  <F4> <Esc>/<++><return>"_c4l
+vmap  <F4> <Esc>/<++><return>"_c4l
+map   <F4> <Esc>/<++><return>"_c4l
 
 
 """ C,CPP
-autocmd FileType c,cpp imap ,for for(<++>; <++>; <++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType c,cpp imap ,if if(<++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType c,cpp imap ,while while(<++>)<Enter>{<Enter><++><Enter>}
-autocmd FileType c,cpp imap ,do do{<Enter><++><Enter>}while();<Esc>hi
+autocmd FileType c,cpp imap ,for for(<++>; <++>; <++>)<return>{<return><++><return>}<F4>
+autocmd FileType c,cpp imap ,if if(<++>)<return>{<return><++><return>}<F4>
+autocmd FileType c,cpp imap ,while while(<++>)<return>{<return><++><return>}<F4>
+autocmd FileType c,cpp imap ,do do{<return><++><return>}while();<Esc>hi<F4>
 """ Python
-autocmd FileType python imap ,ifname if __name__ == '__main__':<Enter>
+autocmd FileType python imap ,ifname if __name__ == '__main__':<return>

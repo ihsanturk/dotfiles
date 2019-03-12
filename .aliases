@@ -3,7 +3,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 #=== adding colors ===#
-alias ls='ls -hN --color=auto --group-directories-first'
+#alias ls='exa -hN --color=auto --group-directories-first'
+alias ls='exa'
 alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
@@ -24,8 +25,8 @@ alias cll='clear; ll'
 alias yr='yaourt -R'
 alias yi='yaourt -S'
 alias cd..='cd ..'
-alias la='ls -la'
-alias ll='ls -lX'
+alias la='exa -la'
+alias ll='exa -l'
 
 #=== scripts ===#
 alias colors='python -m colors_terminal'
@@ -44,3 +45,4 @@ alias f='$(fzf)'
 alias push='python3 -m pushover'
 alias ctre='clear; tree'
 alias ytd='youtube-dl'
+alias vim='nvim'

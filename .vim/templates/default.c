@@ -1,13 +1,12 @@
 #include <stdio.h>
 
-//Function Headers
+// Function Headers
 
 
-//Main
-int main(int argc, char* argv[])
-{
-	<++>
+// Main
+int main(int argc, char *argv[]) { 
+  <++>
 }
 
 
-//Functions
+// Functions

@@ -6,4 +6,5 @@ xrandr --auto
 
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 exec i3
+exec syndaemon -K -i 0.2 -R -d
 #exec dwm

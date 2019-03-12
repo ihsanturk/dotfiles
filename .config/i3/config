@@ -22,6 +22,7 @@ font DejaVuSansMono Nerd Font Mono:antialas=true: 9
 exec_always --no-startup-id feh --bg-fill $HOME/Pictures/walls/blurred/roberto-nickson.jpg
 exec --no-startup-id setxkbmap gb
 exec --no-startup-id sudo mount /dev/sdb1 /media/d/
+exec --no-startup-id syndaemon -K -i 0.2 -R -d
 
 
 for_window [title="Growtopia"] move right 438px move up 138px

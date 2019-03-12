@@ -79,6 +79,7 @@ tab, .tabbrowser-tabs *|tab {
 .tabbrowser-tab *, .tabs-newtab-button * {
     background: none !important; 
     list-style-image: none !important;
+    margin: 0px 2px 0px 2px !important;
     padding: 0px 0px 0px 0px !important;
     -moz-appearance: none !important;
 }
