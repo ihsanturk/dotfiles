@@ -1,8 +1,10 @@
 set $mod Mod1
 set $sup Mod4
-set $term --no-startup-id urxvt
-set $browser --no-startup-id firefox
+set $term --no-startup-id xterm
+set $browser --no-startup-id chromium
 set $gimp --no-startup-id gimp
+
+exec setxkbmap gb
 
 set $ws1 1
 set $ws2 2
@@ -19,10 +21,9 @@ set $ws10 10
 font DejaVuSansMono Nerd Font Mono:antialas=true: 9
 # focus_follows_mouse no
 
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/walls/blurred/roberto-nickson.jpg
-exec --no-startup-id setxkbmap gb
-exec --no-startup-id sudo mount /dev/sdb1 /media/d/
-exec --no-startup-id syndaemon -K -i 0.2 -R -d
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/walls/josh-garcia-773992-unsplash.jpg
+exec --no-startup-id compton -b --active-opacity 0.85 -i 0.85
+exec --no-startup-id xset r rate 240
 
 
 for_window [title="Growtopia"] move right 438px move up 138px
@@ -69,11 +70,10 @@ client.background       $UNFOCUS
 
 
 for_window [class="^.*"] border pixel 2
-#hide_edge_borders smart
 
 # Set inner/outer gaps
 set $gapsi 25
-set $gapso -4 
+set $gapso 0
 gaps inner $gapsi
 gaps outer $gapso
 
@@ -88,9 +88,11 @@ bindsym $mod+Return exec $term
 bindsym $mod+d exec dmenu_run
 bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec $browser
 bindsym $sup+w exec --no-startup-id exec surf duckduckgo.com &!
+bindsym $sup+s exec --no-startup-id exec spotify
 bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec $gimp
 bindsym $mod+Shift+t  gaps inner current set $gapsi; gaps outer current set $gapso
 bindsym $mod+p        exec $term -e htop
+bindsym $sup+g        exec urxvt -e gtop
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 

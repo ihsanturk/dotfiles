@@ -1,48 +1,64 @@
 if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
 #=== adding colors ===#
 #alias ls='exa -hN --color=auto --group-directories-first'
 alias ls='exa'
-alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
+alias cls='clear; exa'
+#alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 
 
 #=== short commands ===#
+alias mii='ideviceimagemounter "/media/d/archive_program/ios_dev_img/12.1 (16B5059d)/DeveloperDiskImage.dmg" "/media/d/archive_program/ios_dev_img/12.1 (16B5059d)/DeveloperDiskImage.dmg.signature"'
+alias ok='cd /media/d/softwares/my_creation/automations/competition/old/ok'
+alias wget="wget --hsts-file ~/mess/wget/wget-hsts"
 alias usc='cat /media/d/useful_commands.txt | less'
 alias books='cd /media/d/documents/school/books'
-alias wpf='cd ~/.wine/drive_c/Program\ Files'
+
+#alias wpf='cd ~/.wine/drive_c/Program\ Files'
+alias mcr='cd /media/d/softwares/my_creation/'
 alias i3con='vim ~/.config/i3/config'
 alias sof='cd /media/d/softwares/'
 alias blur='python -m blur_image'
+alias clla='clear; exa -la'
+alias pacman='pacman --color auto'
 alias pr='sudo pacman -R'
 alias pi='sudo pacman -S'
-alias clla='clear; ll -a'
+alias cla='clear; exa -a'
 alias find='sudo find'
 alias cll='clear; ll'
 alias yr='yaourt -R'
 alias yi='yaourt -S'
 alias cd..='cd ..'
-alias la='exa -la'
+alias la='exa -a'
 alias ll='exa -l'
 
 #=== scripts ===#
 alias colors='python -m colors_terminal'
 alias dic='python -m cambridge_dict'
-alias todo='python -m todo'
 alias vpn='bash connect_vpnbook.sh'
 alias qr='generate_qrimage.sh'
+alias todo='python -m todo'
 alias clc='clc.sh'
 
 #=== softwares ===#
-alias itunes='.wine/drive_c/Program\ Files/iTunes/iTunes.exe'
-alias r='ranger'
-alias v='vim'
-alias vf='vim $(fzf)'
-alias f='$(fzf)'
+alias usp='cd /media/d/softwares/my_creation/useful/python'
+alias tmux='tmux -2 -f .config/tmux/tmux.conf'
 alias push='python3 -m pushover'
+alias webcam='python -m webcam'
+alias tls='tmux list-sessions'
+alias tlw='tmux list-windows'
+alias tlp='tmux list-panes'
 alias ctre='clear; tree'
 alias ytd='youtube-dl'
+alias ta='tmux attach'
+alias td='tmux detach'
+alias vf='vim $(fzf)'
 alias vim='nvim'
+alias rm='trash'
+alias r='ranger'
+alias f='$(fzf)'
+alias t='tmux'
