@@ -1,15 +1,12 @@
-Xterm*selecttoClipboard: true
-! -----------------------------------------------------------------------------
-! File: gruvbox-dark.xresources
-! Description: Retro groove colorscheme generalized
-! Author: morhetz <morhetz@gmail.com>
-! Source: https://github.com/morhetz/gruvbox-generalized
-! Last Modified: 6 Sep 2014
-! -----------------------------------------------------------------------------
+xterm*selectToClipboard: true
+urxvt*selectToClipboard: true
+
+! Without this Ctrl+h is not working in vim:
+xterm*ptyInitialErase: true
 
 ! hard contrast: *background: #1d2021
-*background: #0a0a0a
-! *background: #212226
+! *background: #0a0a0a
+*background: #181818
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
@@ -39,26 +36,45 @@ Xterm*selecttoClipboard: true
 *color7:  #a89984
 *color15: #ebdbb2
 
-URxvt.cursorColor: #bbccbb
+! urxvt.cursorColor: #bbbbbb
+
+! xterm*fading: 3
+! xterm*scrollBar: false
+Xterm*transparent: true
+Xterm*shading: 50
 
 ! urxvt*fading: 3
 urxvt*scrollBar: false
 urxvt*transparent: true
-urxvt*shading: 30
+urxvt*shading: 50
 
-URxvt.perl-ext-common: ...,font-size
+urxvt.perl-ext-common: ...,font-size
+
 Xft*antialias: True
 
-URxvt.keysym.C-Up:     font-size:increase
-URxvt.keysym.C-Down:   font-size:decrease
-URxvt.keysym.C-S-Up:   font-size:incglobal
-URxvt.keysym.C-S-Down: font-size:decglobal
-URxvt.keysym.C-equal:  font-size:reset
-URxvt.keysym.C-slash:  font-size:show
+xterm.keysym.C-Up:     font-size:increase
+xterm.keysym.C-Down:   font-size:decrease
+xterm.keysym.C-S-Up:   font-size:incglobal
+xterm.keysym.C-S-Down: font-size:decglobal
+xterm.keysym.C-equal:  font-size:reset
+xterm.keysym.C-slash:  font-size:show
 
-URxvt.iso14755: false
-URxvt.iso14755_52: false
+urxvt.keysym.C-Up:     font-size:increase
+urxvt.keysym.C-Down:   font-size:decrease
+urxvt.keysym.C-S-Up:   font-size:incglobal
+urxvt.keysym.C-S-Down: font-size:decglobal
+urxvt.keysym.C-equal:  font-size:reset
+urxvt.keysym.C-slash:  font-size:show
 
-URxvt*font: xft:DejaVuSansMono Nerd Font:pixelsize=16:antialias=true:hinting=true
+urxvt.iso14755: false
+urxvt.iso14755_52: false
+xterm.iso14755: false
+xterm.iso14755_52: false
 
-! URxvt*boldFont: xft:DejaVuSansMono Nerd Font:style=Bold:bold:pixelsize=16:antialias=true:hinting=true
+xterm*font: xft:DejaVuSansMono Nerd Font:pixelsize=16:antialias=true:hinting=true
+urxvt*font: xft:DejaVuSansMono Nerd Font:pixelsize=16:antialias=true:hinting=true
+
+! Ctrl +: larger-vt-font()
+! Ctrl -: smaller-vt-font()
+
+urxvt*boldFont: xft:DejaVuSansMono Nerd Font:style=Bold:bold:pixelsize=16:antialias=true:hinting=true

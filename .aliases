@@ -46,6 +46,7 @@ alias clc='clc.sh'
 
 #=== softwares ===#
 alias usp='cd /media/d/softwares/my_creation/useful/python'
+alias vpnpass='python -m vpnbook_password_get s'
 alias tmux='tmux -2 -f $HOME/.config/tmux/tmux.conf'
 alias push='python3 -m pushover'
 alias webcam='python -m webcam'
