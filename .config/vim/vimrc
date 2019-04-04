@@ -37,7 +37,7 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'sbdchd/neoformat'
+"Plug 'sbdchd/neoformat'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
@@ -51,7 +51,7 @@ call plug#end()
 "augroup END
 
 "Neoformat (with shortcut)
-nmap <C-h> :silent Neoformat<CR>
+"nmap <C-h> :silent Neoformat<CR>
 
 "live LaTeX preview
 let g:livepreview_previewer = 'zathura'
@@ -115,8 +115,8 @@ map q: :q
 nnoremap <esc><esc> :noh<CR>
 
 "comment out a line
-autocmd FileType javascript,c,cpp map <C-u> <Esc>mx:s/^\s*\/\///g<Esc>`x:noh<Enter>
-autocmd FileType javascript,c,cpp map <C-c> <Esc>mx0i//<Esc>`x:noh<Enter>
+autocmd FileType go,javascript,c,cpp map <C-u> <Esc>mx:s/^\s*\/\///g<Esc>`x:noh<Enter>
+autocmd FileType go,javascript,c,cpp map <C-c> <Esc>mx0i//<Esc>`x:noh<Enter>
 
 autocmd FileType resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
 autocmd FileType resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
@@ -141,9 +141,9 @@ map   <F4> <Esc>/<++><return>"_c4l
 
 
 """ C,CPP
-autocmd FileType c,cpp imap ,for for(<++>; <++>; <++>)<return>{<return><++><return>}<F4>
-autocmd FileType c,cpp imap ,if if(<++>)<return>{<return><++><return>}<F4>
-autocmd FileType c,cpp imap ,while while(<++>)<return>{<return><++><return>}<F4>
+autocmd FileType c,cpp imap ,for for(<++>; <++>; <++>) {<return><++><return>}<F4>
+autocmd FileType c,cpp imap ,if if(<++>) {<return><++><return>}<F4>
+autocmd FileType c,cpp imap ,while while(<++>) {<return><++><return>}<F4>
 autocmd FileType c,cpp imap ,do do{<return><++><return>}while();<Esc>hi<F4>
 """ Python
 autocmd FileType python imap ,ifname if __name__ == '__main__':<return>

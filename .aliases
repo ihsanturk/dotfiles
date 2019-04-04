@@ -12,12 +12,12 @@ alias diff="diff --color=auto"
 
 
 #=== short commands ===#
-alias mii='ideviceimagemounter "/media/d/archive_program/ios_dev_img/12.1 (16B5059d)/DeveloperDiskImage.dmg" "/media/d/archive_program/ios_dev_img/12.1 (16B5059d)/DeveloperDiskImage.dmg.signature"'
+alias mii='ideviceimagemounter "/media/d/archive_program/ios_dev_img/12.2 (16E5191d)/DeveloperDiskImage.dmg" "/media/d/archive_program/ios_dev_img/12.2 (16E5191d)/DeveloperDiskImage.dmg.signature"'
 alias ok='cd /media/d/softwares/my_creation/automations/competition/old/ok'
+alias nk='xset r rate 240; setxkbmap gb'
 alias wget="wget --hsts-file ~/mess/wget/wget-hsts"
 alias usc='cat /media/d/useful_commands.txt | less'
 alias books='cd /media/d/documents/school/books'
-
 #alias wpf='cd ~/.wine/drive_c/Program\ Files'
 alias mcr='cd /media/d/softwares/my_creation/'
 alias i3con='vim ~/.config/i3/config'
@@ -30,11 +30,13 @@ alias pi='sudo pacman -S'
 alias cla='clear; exa -a'
 alias find='sudo find'
 alias cll='clear; ll'
-alias yr='yaourt -R'
-alias yi='yaourt -S'
+alias yr='yay -R'
+alias yi='yay -S'
 alias cd..='cd ..'
 alias la='exa -a'
 alias ll='exa -l'
+alias clear_real='tput clear'
+alias clear='echo'
 
 #=== scripts ===#
 alias colors='python -m colors_terminal'
@@ -64,3 +66,4 @@ alias r='ranger'
 alias f='$(fzf)'
 alias t='tmux'
 alias pdf='mupdf'
+alias con='connmanctl'

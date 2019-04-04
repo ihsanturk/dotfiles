@@ -120,3 +120,9 @@ grep -rniwl '.' -e 'just black'
   -n is line number, and
   -w stands for match the whole word.
   -l (lower-case L) can be added to just give the file name of matching files.
+
+#Disable Junk Notes just show valuable Errors on compile, compiling
+g++ [whatever.cpp] -Wfatal-errors
+
+make netctl work
+ip link set wlp2s0 down

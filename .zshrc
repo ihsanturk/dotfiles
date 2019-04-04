@@ -10,6 +10,7 @@ plugins=(
     zsh-syntax-highlighting
     auto-suggestion
 )
+
 #=== sources ===#
 source "/media/d/colors/gruvbox_256palette.sh"
 source "$HOME/.inputrc"
@@ -26,7 +27,7 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export PKG_CONFIG_PATH=":/usr/lib/pkgconfig:/usr/lib64/pkgconfig"
 
 #=== default apps ===#
-export BROWSER="firefox"
+export BROWSER="chromium"
 export SHELL="/bin/zsh"
 export TERMINAL="screen-256color-bce"
 #export TERMINAL="urxvt"
@@ -55,6 +56,7 @@ man() {
         LESS_TERMCAP_us=$(printf "\e[2;33m") \
         man "$@"
 }
+
 extract () {
   if [ -f $1 ] ; then
     case $1 in

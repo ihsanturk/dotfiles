@@ -4,7 +4,8 @@ set $term --no-startup-id xterm
 set $browser --no-startup-id chromium
 set $gimp --no-startup-id gimp
 
-exec setxkbmap gb
+exec --no-startup-id setxkbmap gb
+exec --no-startup-id setxkbmap -option caps:escape
 
 set $ws1 1
 set $ws2 2
@@ -21,8 +22,8 @@ set $ws10 10
 font DejaVuSansMono Nerd Font Mono:antialas=true: 9
 # focus_follows_mouse no
 
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/walls/josh-garcia-773992-unsplash.jpg
-exec --no-startup-id compton -b --active-opacity 0.85 -i 0.85
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/walls/best_always.png
+#exec --no-startup-id compton -b --active-opacity 0.85 -i 0.85
 exec --no-startup-id xset r rate 240
 
 
@@ -72,32 +73,31 @@ client.background       $UNFOCUS
 for_window [class="^.*"] border pixel 2
 
 # Set inner/outer gaps
-set $gapsi 25
+set $gapsi 61
 set $gapso 0
 gaps inner $gapsi
 gaps outer $gapso
 
 bindsym $mod+s        gaps inner current plus 5
 bindsym $mod+Shift+s  gaps inner current minus 5
-bindsym $sup+0 exec xdotool mousemove 1920 1080
+bindsym $sup+0 exec --no-startup-id xdotool mousemove 1920 1080
 bindsym $mod+q kill
-bindsym $sup+n exec dunstify "Test"
 bindsym $sup+p exec --no-startup-id $HOME/.config/polybar/launch.sh
-bindsym $sup+Shift+p exec pkill polybar
-bindsym $mod+Return exec $term
-bindsym $mod+d exec dmenu_run
-bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec $browser
-bindsym $sup+w exec --no-startup-id exec surf duckduckgo.com &!
-bindsym $sup+s exec --no-startup-id exec spotify
-bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec $gimp
+bindsym $sup+Shift+p exec --no-startup-id pkill polybar
+bindsym $mod+Return exec --no-startup-id $term
+bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec --no-startup-id $browser
+bindsym $sup+w exec --no-startup-id exec --no-startup-id surf duckduckgo.com &!
+bindsym $sup+s exec --no-startup-id exec --no-startup-id spotify
+bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec --no-startup-id $gimp
 bindsym $mod+Shift+t  gaps inner current set $gapsi; gaps outer current set $gapso
-bindsym $mod+p        exec $term -e htop
-bindsym $sup+g        exec urxvt -e gtop
+bindsym $mod+p        exec --no-startup-id $term -e htop
+bindsym $sup+g        exec --no-startup-id urxvt -e gtop
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-bindsym $mod+Tab exec setxkbmap gb
-bindsym $mod+Shift+Tab exec setxkbmap tr
+bindsym $mod+Tab exec --no-startup-id setxkbmap gb
+bindsym $mod+Shift+Tab exec --no-startup-id setxkbmap tr
 
 bindsym XF86MonBrightnessUp 	exec --no-startup-id sudo ~/.scripts/brgh_set.sh i
 bindsym XF86MonBrightnessDown 	exec --no-startup-id sudo ~/.scripts/brgh_set.sh d
@@ -105,9 +105,9 @@ bindsym XF86AudioMute 			exec --no-startup-id pactl set-sink-mute 0 toggle && ki
 bindsym XF86AudioRaiseVolume 	exec --no-startup-id pactl set-sink-volume 0 +5% && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume 	exec --no-startup-id pactl set-sink-volume 0 -5% && killall -SIGUSR1 i3status
 
-bindsym Print --release 		exec scrot -q 100 '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
-bindsym Shift+Print --release 	exec scrot -q 100 -s '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
-bindsym $sup+Print --release 	exec scrot -q 100 -u '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym Print --release 		exec --no-startup-id scrot -q 100 '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym Shift+Print --release 	exec --no-startup-id scrot -q 100 -s '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym $sup+Print --release 	exec --no-startup-id scrot -q 100 -u '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
 
 bindsym $mod+h 			focus left
 bindsym $mod+j 			focus down
@@ -152,7 +152,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+y resize shrink 	width 	5 px or 5 ppt
 bindsym $mod+i resize grow 		height 	5 px or 5 ppt
