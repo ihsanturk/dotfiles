@@ -13,3 +13,4 @@ exec syndaemon -K -i 0.2 -R -d # When typing disable mouse
 exec sudo mount /dev/sdb1 /media/d/
 #exec xcalib -co 80 -b 10 -a    # Filmic Lut effect on the screen
 ## You can restart with "xcalib -clear"
+exec xcompmgr -c

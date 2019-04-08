@@ -6,7 +6,7 @@ xterm*ptyInitialErase: true
 
 ! hard contrast: *background: #1d2021
 ! *background: #0a0a0a
-*background: #181818
+*background: #242424
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
