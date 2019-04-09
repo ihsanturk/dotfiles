@@ -8,27 +8,40 @@ set viminfo='0
 set smartindent
 set cursorline
 set laststatus=2
-set statusline=\ \ \ %f\ %m%=%y\ %P
+"set statusline=\ \ \ %f\ %m%=%y\ %P
 set noswapfile
 set nobackup
 set ignorecase
 set smartcase
 set numberwidth=4
 set lazyredraw
-
 set timeout           " for mappings
 set timeoutlen=1000   " default value
 set ttimeout          " for key codes
 set ttimeoutlen=10    " unnoticeable small value
-
+syntax on
+filetype plugin indent on
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
-syntax on
-filetype plugin indent on
-"highlight LineNr ctermfg=grey ctermbg=black 
-
+" Set status line display
+set laststatus=2
+set statusline=\        " Padding
+set statusline+=%f      " Path to the file
+set statusline+=\ %1*\  " Padding & switch colour
+set statusline+=%y      " File type
+set statusline+=\ %2*\  " Padding & switch colour
+set statusline+=%=      " Switch to right-side
+set statusline+=\ %3*\  " Padding & switch colour
+set statusline+=line    " of Text
+set statusline+=\       " Padding
+set statusline+=%l      " Current line
+set statusline+=\ %4*\  " Padding & switch colour
+set statusline+=of      " of Text
+set statusline+=\       " Padding
+set statusline+=%L      " Total line
+set statusline+=\       " Padding
 
 "=== vim plug plugins ==="
 call plug#begin('~/.config/vim/plugged')
@@ -39,16 +52,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 "Plug 'sbdchd/neoformat'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 call plug#end()
-
-""Neoformat (while saving)
-"augroup fmt
-"  autocmd!
-"  autocmd BufWritePre * undojoin | silent Neoformat
-"augroup END
 
 "Neoformat (with shortcut)
 "nmap <C-h> :silent Neoformat<CR>
@@ -75,6 +82,12 @@ let g:fzf_layout = { 'down': '~20%' }
 let g:gruvbox_italic=1
 "let g:gruvbox_contrast_dark='medium'
 colorscheme gruvbox
+
+"=== some filetypes ==="
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.config/i3/config set filetype=config
+aug end
 
 
 "=== cursor type ==="

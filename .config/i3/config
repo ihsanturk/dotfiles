@@ -1,11 +1,9 @@
 set $mod Mod1
 set $sup Mod4
-set $term --no-startup-id xterm
+
+set $term --no-startup-id termite
 set $browser --no-startup-id chromium
 set $gimp --no-startup-id gimp
-
-exec --no-startup-id setxkbmap gb
-exec --no-startup-id setxkbmap -option caps:escape
 
 set $ws1 1
 set $ws2 2
@@ -18,7 +16,6 @@ set $ws8 8
 set $ws9 9
 set $ws10 10
 
-# font pango:monospace 9
 font DejaVuSansMono Nerd Font Mono:antialas=true: 9
 # focus_follows_mouse no
 

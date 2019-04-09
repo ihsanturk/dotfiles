@@ -42,87 +42,91 @@ sort [FILENAME] | uniq -u
 :retab
 
 
-#fold specified lines in vim
+# fold specified lines in vim
 :[BEGGINING],[END]fo 
 :18,24fo
 
 
-#vim source codes and config files
+# vim source codes and config files
 /usr/share/vim/vim81
 
 
-#date & time
+# date & time
 date +%Y/%m/%d_%H:%M:%S
 
 
-#print size of a folder (but just the folder not inside)
+# print size of a folder (but just the folder not inside)
 du [FOLDER] -hx | grep -v /
 
 
-#required package for ranger preview
+# required package for ranger preview
 sudo pacman -S w3m
 
 
-#login, suspend, lid... settings
+# login, suspend, lid... settings
 /etc/systemd/logind.conf
 
 
-#Print just specified line
+# Print just specified line
 [OUTPUT] | sed -n [X]p
 
 
-#Reload Xresources
+# Reload Xresources
 xrdb -merge ~/.Xresources
 
 
-#sed groups, search digits and put : after digits
+# sed groups, search digits and put : after digits
 cat [FILE] | sed -r 's/([[:digit:]]) /\1:/' > [NEW_FILE]
 
 
-#keyboard repeat
+# keyboard repeat
 xset r rate [MS_DELAY_TIME]
 xset r rate 200
 
 
-#Vim Search for replace
+# Vim Search for replace
 press c
 press /
 
 
-#List all the application on the ios device that plugged in
+# List all the application on the ios device that plugged in
 ideviceinstaller -l | awk -F ', ' '{printf $3 "\n"}' | cat -n
 
 
-#pick random file from ls
+# pick random file from ls
 ls | shuf -n1
 
 
-#get full path of a file
+# get full path of a file
 readlink -f [FILE_NAME]
 
 
-#delete spaces before end of the line
+# delete spaces before end of the line
 %s/\s*$//g
 
 
-#paste (add) default set up tmux conf
+# paste (add) default set up tmux conf
 tmux show -g >> ~/.tmux.conf
 
 
-#set permenately tmux configuration file
+# set permenately tmux configuration file
 tmux source-file [CONFIG_FILE]
 tmux source-file .config/tmux/tmux.conf
 
 
-#Search pattern in a folder (inside all files)
+# Search pattern in a folder (inside all files)
 grep -rniwl '.' -e 'just black'
   -r or -R is recursive,
   -n is line number, and
   -w stands for match the whole word.
   -l (lower-case L) can be added to just give the file name of matching files.
 
-#Disable Junk Notes just show valuable Errors on compile, compiling
+# Disable Junk Notes just show valuable Errors on compile, compiling
 g++ [whatever.cpp] -Wfatal-errors
 
 make netctl work
 ip link set wlp2s0 down
+
+
+# Netctl doing nothing? Maybe its running in the background as a "service" Try:
+systemctl restart netctl@[NAME OF YOUR PROFILE]
