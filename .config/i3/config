@@ -5,6 +5,12 @@ set $term --no-startup-id termite
 set $browser --no-startup-id chromium
 set $gimp --no-startup-id gimp
 
+exec --no-startup-id setxkbmap gb
+exec --no-startup-id syndaemon -K -i 0.1 -R -d # When typing disable mouse
+exec --no-startup-id setxkbmap -option caps:escape
+# exec --no-startup-id xcalib -co 85 -b 5 -a    # Filmic Lut effect on the screen. You can restart with "xcalib -clear"
+exec --no-startup-id compton -c -o 0.4 -l -18 -t -15 -G
+
 set $ws1 1
 set $ws2 2
 set $ws3 3
@@ -20,7 +26,7 @@ font DejaVuSansMono Nerd Font Mono:antialas=true: 9
 # focus_follows_mouse no
 
 exec_always --no-startup-id feh --bg-fill $HOME/Pictures/walls/best_always.png
-#exec --no-startup-id compton -b --active-opacity 0.85 -i 0.85
+# exec --no-startup-id compton -b --active-opacity 0.85 -i 0.85
 exec --no-startup-id xset r rate 240
 
 
@@ -46,30 +52,18 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
-# Theme colors
-# class                   border  backgr.   text    indic.   child_border
-#  client.focused          #556064 #666666   #80FFF9 #cccccc
-#  client.focused_inactive #2F3D44 #2F3D44   #AD69AF #454948
-#  client.unfocused        #2F3D44 #66666633 #AD69AF #454948
-#  client.urgent           #CB4B16 #FDF6E3   #AD69AF #268BD2
-#  client.placeholder      #000000 #0c0c0c   #ffffff #000000 
-#
-#  client.background       #2B2C2B
-
-
 set $FOCUS #a9a9a9
 set $UNFOCUS #151515
-# Layout colors         bord    	bg     		text    	indicator(split) 	child border
+#  Layout colors         bord    	bg     		text    	indicator(split) 	child border
 client.focused          $FOCUS 		$FOCUS 		$FOCUS 		#007744				$FOCUS
 client.focused_inactive $UNFOCUS 	$UNFOCUS 	$UNFOCUS 	$UNFOCUS
 client.unfocused        $UNFOCUS 	$UNFOCUS 	$UNFOCUS 	$UNFOCUS
 client.urgent           $FOCUS 		$FOCUS 		$FOCUS 		$FOCUS
 client.background       $UNFOCUS
 
-
 for_window [class="^.*"] border pixel 0
 
-# Set inner/outer gaps
+#  Set inner/outer gaps
 set $gapsi 61
 set $gapso 0
 gaps inner $gapsi
@@ -88,8 +82,8 @@ bindsym $sup+w exec --no-startup-id exec --no-startup-id surf duckduckgo.com &!
 bindsym $sup+s exec --no-startup-id exec --no-startup-id spotify
 bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec --no-startup-id $gimp
 bindsym $mod+Shift+t  gaps inner current set $gapsi; gaps outer current set $gapso
-bindsym $mod+p        exec --no-startup-id $term -e htop
-bindsym $sup+g        exec --no-startup-id urxvt -e gotop
+bindsym $sup+h        exec --no-startup-id $term -e htop
+bindsym $sup+g        exec --no-startup-id $term -e gotop
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
@@ -117,12 +111,12 @@ bindsym $mod+Shift+l 	move right
 
 bindsym $mod+t 				split toggle
 bindsym $mod+f 				fullscreen toggle
-#bindsym $mod+s 			 layout stacking
+# bindsym $mod+s 			 layout stacking
 bindsym $mod+e 				layout toggle split
 bindsym $mod+a 				focus parent
 bindsym $mod+c 				focus child
 bindsym $mod+space 			focus mode_toggle
-#bindsym $mod+Shift+s 		layout tabbed
+# bindsym $mod+Shift+s 		layout tabbed
 bindsym $mod+Shift+space 	floating toggle
 
 bindsym $mod+1 workspace $ws1
@@ -160,20 +154,20 @@ bindsym $mod+Shift+i resize grow 		height 	1 px or 1 ppt
 bindsym $mod+Shift+u resize shrink 		height 	1 px or 1 ppt
 bindsym $mod+Shift+o resize grow 		width 	1 px or 1 ppt
 
-#bar 
-#{
-#	position top
-#	#font pango:DejaVuSansMono Nerd Font Mono:antialas=true: 9
-#    status_command i3status --config ~/.config/i3status/config
-#	#separator_symbol ""
-#	#separator_symbol "||"
-#	colors
-#	{
-#		background #272727
-#		separator #aaddff
-#		statusline #eeeeee
-#
-#		focused_workspace #99bb88 #99bb88 #000000
-#		urgent_workspace #000000 #cc5555 #000000
-#	}
-#}
+# bar 
+# {
+# 	position top
+# 	#font pango:DejaVuSansMono Nerd Font Mono:antialas=true: 9
+#     status_command i3status --config ~/.config/i3status/config
+# 	#separator_symbol ""
+# 	#separator_symbol "||"
+# 	colors
+# 	{
+# 		background #272727
+# 		separator #aaddff
+# 		statusline #eeeeee
+# 
+# 		focused_workspace #99bb88 #99bb88 #000000
+# 		urgent_workspace #000000 #cc5555 #000000
+# 	}
+# }

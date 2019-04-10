@@ -131,8 +131,8 @@ nnoremap <esc><esc> :noh<CR>
 autocmd FileType go,javascript,c,cpp map <C-u> <Esc>mx:s/^\s*\/\///g<Esc>`x:noh<Enter>
 autocmd FileType go,javascript,c,cpp map <C-c> <Esc>mx0i//<Esc>`x:noh<Enter>
 
-autocmd FileType tmux,resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
-autocmd FileType tmux,resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
+autocmd FileType config,tmux,resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
+autocmd FileType config,tmux,resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
 
 autocmd FileType css map <C-u> <Esc>mx:s/^\s*\/\*//g<Esc>`x:noh<Enter>
 autocmd FileType css map <C-c> <Esc>mx0i/*<Esc>`x:noh<Enter>
