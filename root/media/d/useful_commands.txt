@@ -1,53 +1,53 @@
-# after editing the /etc/default/grub file# update grub command:
+# After editing the /etc/default/grub file# update grub command:
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
-# for en-uk Keyboard layout
-setxkbmap [COUNTRY CODE]
+# For en-uk Keyboard layout
+setxkbmap [ COUNTRY CODE ]
 setxkbmap gb
 
 
-# opening "nvidia settings" with optirun
+# Opening "nvidia settings" with optirun
 optirun -b none nvidia-settings -c :8
 
 
-# turn the graphic card off, respectively on
+# Turn the graphic card off, respectively on
 tee /proc/acpi/bbswitch <<<OFF
 tee /proc/acpi/bbswitch <<<ON
 
 
-# get external graphic card status
+# Get external graphic card status
 cat /proc/acpi/bbswitch  
 
 
-# connect a wifi from command line that the wifi already saved
+# Connect a wifi from command line that the wifi already saved
 nmcli device wifi rescan
 nmcli device wifi list
-nmcli device wifi connect [WIFI SSID] password [PASSWORD]
+nmcli device wifi connect [ WIFI SSID ] password [ PASSWORD ]
 
 
-# git fix your current pushed commit without creating a new commit
+# Git fix your current pushed commit without creating a new commit
 git commit --amend
 
 
-# just print readable string characters from a (data) file 
-string [FILENAME]
+# Just print readable string characters from a (data) file 
+string [ FILENAME ]
 
 
-# just print the line that occours only once
-sort [FILENAME] | uniq -u
+# Just print the line that occours only once
+sort [ FILENAME ] | uniq -u
 
 
 # To change all the existing tab characters to match the current tab settings, use in vim
 :retab
 
 
-# fold specified lines in vim
-:[BEGGINING],[END]fo 
+# Fold specified lines in vim
+:[ BEGGINING ],[ END ]fo 
 :18,24fo
 
 
-# vim source codes and config files
+# Vim source codes and config files
 /usr/share/vim/vim81
 
 
@@ -55,32 +55,32 @@ sort [FILENAME] | uniq -u
 date +%Y/%m/%d_%H:%M:%S
 
 
-# print size of a folder (but just the folder not inside)
-du [FOLDER] -hx | grep -v /
+# Print size of a folder (but just the folder not inside)
+du [ FOLDER ] -hx | grep -v /
 
 
-# required package for ranger preview
+# Required package for ranger preview
 sudo pacman -S w3m
 
 
-# login, suspend, lid... settings
+# Login, suspend, lid... settings
 /etc/systemd/logind.conf
 
 
 # Print just specified line
-[OUTPUT] | sed -n [X]p
+[ OUTPUT ] | sed -n [X]p
 
 
 # Reload Xresources
 xrdb -merge ~/.Xresources
 
 
-# sed groups, search digits and put : after digits
-cat [FILE] | sed -r 's/([[:digit:]]) /\1:/' > [NEW_FILE]
+# Sed groups, search digits and put : after digits
+cat [ FILE ] | sed -r 's/([ [:digit:] ]) /\1:/' > [ NEW_FILE ]
 
 
-# keyboard repeat
-xset r rate [MS_DELAY_TIME]
+# Keyboard repeat
+xset r rate [ MS_DELAY_TIME ]
 xset r rate 200
 
 
@@ -93,24 +93,24 @@ press /
 ideviceinstaller -l | awk -F ', ' '{printf $3 "\n"}' | cat -n
 
 
-# pick random file from ls
+# Pick random file from ls
 ls | shuf -n1
 
 
-# get full path of a file
-readlink -f [FILE_NAME]
+# Get full path of a file
+readlink -f [ FILE_NAME ]
 
 
-# delete spaces before end of the line
+# Delete spaces before end of the line
 %s/\s*$//g
 
 
-# paste (add) default set up tmux conf
+# Paste (add) default set up tmux conf
 tmux show -g >> ~/.tmux.conf
 
 
-# set permenately tmux configuration file
-tmux source-file [CONFIG_FILE]
+# Set permenately tmux configuration file
+tmux source-file [ CONFIG_FILE ]
 tmux source-file .config/tmux/tmux.conf
 
 
@@ -121,12 +121,19 @@ grep -rniwl '.' -e 'just black'
   -w stands for match the whole word.
   -l (lower-case L) can be added to just give the file name of matching files.
 
-# Disable Junk Notes just show valuable Errors on compile, compiling
-g++ [whatever.cpp] -Wfatal-errors
 
-make netctl work
+# Disable Junk Notes just show valuable Errors on compile, compiling
+g++ [ whatever.cpp ] -Wfatal-errors
+
+
+# Make netctl work sory for not obvious comment
 ip link set wlp2s0 down
 
 
 # Netctl doing nothing? Maybe its running in the background as a "service" Try:
-systemctl restart netctl@[NAME OF YOUR PROFILE]
+systemctl restart netctl@[ NAME OF YOUR PROFILE ]
+
+
+# Format a disk
+sudo mkfs.[ FILE_SYSTEM ] [ DISK ]
+sudo mkfs.vfat /dev/sdc1
