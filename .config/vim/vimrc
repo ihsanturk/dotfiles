@@ -54,6 +54,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'octol/vim-cpp-enhanced-highlight'
 "Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'elzr/vim-json'
 
 call plug#end()
 
@@ -99,7 +100,7 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 "=== default templates ==="
 augroup templates
     autocmd!
-    autocmd BufNewFile *.cpp 0r ~/.config/vim/templates/default.cpp
+    autocmd BufNewFile *.cpp,*cc 0r ~/.config/vim/templates/default.cpp
     autocmd BufNewFile *.c   0r ~/.config/vim/templates/default.c
 augroup END
 

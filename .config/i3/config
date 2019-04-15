@@ -6,8 +6,21 @@ set $browser --no-startup-id chromium
 set $gimp --no-startup-id gimp
 
 exec --no-startup-id setxkbmap gb
-exec --no-startup-id syndaemon -K -i 0.1 -R -d # When typing disable mouse
+
+# For my stupid keyboard
+exec --no-startup-id xmodmap -e 'keycode 80 = w'
+exec --no-startup-id xmodmap -e 'keycode 83 = a'
+exec --no-startup-id xmodmap -e 'keycode 81 = e'
+exec --no-startup-id xmodmap -e 'keycode 85 = d'
+exec --no-startup-id xmodmap -e 'keycode 79 = q'
+exec --no-startup-id xmodmap -e 'keycode 88 = x'
+exec --no-startup-id xmodmap -e 'keycode 87 = grave'
 exec --no-startup-id setxkbmap -option caps:escape
+###
+
+# When typing disable mouse
+exec --no-startup-id syndaemon -K -i 0.1 -R -d
+
 # exec --no-startup-id xcalib -co 85 -b 5 -a    # Filmic Lut effect on the screen. You can restart with "xcalib -clear"
 exec --no-startup-id compton -c -o 0.4 -l -18 -t -15 -G
 
