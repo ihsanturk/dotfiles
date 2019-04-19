@@ -5,7 +5,7 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 set viminfo='0
-set smartindent
+"set smartindent
 set cursorline
 set laststatus=2
 "set statusline=\ \ \ %f\ %m%=%y\ %P
@@ -55,6 +55,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 "Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'elzr/vim-json'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 

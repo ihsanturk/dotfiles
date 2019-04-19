@@ -153,3 +153,11 @@ all the names can be found in this file:
 
 # Compile with 4 thread
 make -j4
+
+
+# Get ip address of wlp2s0
+ifconfig wlp2s0 | grep -E 'inet .* netmask' -o | grep -E '[[:digit:]]*\.?*' -o | tr -d '\n'
+
+
+# Make JSON Formatted in vim
+:execute '%!python -m json.tool'
