@@ -137,3 +137,31 @@ systemctl restart netctl@[ NAME OF YOUR PROFILE ]
 # Format a disk
 sudo mkfs.[ FILE_SYSTEM ] [ DISK ]
 sudo mkfs.vfat /dev/sdc1
+
+
+# Replace a key with another key (acting)
+exec --no-startup-id setxkbmap -option caps:escape
+or
+xmodmap -e 'keycode 87 = grave'
+xmodmap -e 'keycode 85 = d'
+
+all the names can be found in this file:
+  /usr/include/X11/keysymdef.h
+  or
+  https://fsymbols.com/keyboard/linux/compose/
+
+
+# Compile with 4 thread
+make -j4
+
+
+# Get ip address of wlp2s0
+ifconfig wlp2s0 | grep -E 'inet .* netmask' -o | grep -E '[[:digit:]]*\.?*' -o | tr -d '\n'
+
+
+# Make JSON Formatted in vim
+:execute '%!python -m json.tool'
+
+
+# Learn so much things
+curl cht.sh

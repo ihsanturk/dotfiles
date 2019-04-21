@@ -10,11 +10,10 @@ set cursorline
 set laststatus=2
 "set statusline=\ \ \ %f\ %m%=%y\ %P
 set noswapfile
-set nobackup
+"set nobackup
 set ignorecase
 set smartcase
 set numberwidth=4
-set lazyredraw
 set timeout           " for mappings
 set timeoutlen=1000   " default value
 set ttimeout          " for key codes
@@ -133,8 +132,8 @@ nnoremap <esc><esc> :noh<CR>
 autocmd FileType go,javascript,c,cpp map <C-u> <Esc>mx:s/^\s*\/\///g<Esc>`x:noh<Enter>
 autocmd FileType go,javascript,c,cpp map <C-c> <Esc>mx0i//<Esc>`x:noh<Enter>
 
-autocmd FileType config,tmux,resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
-autocmd FileType config,tmux,resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
+autocmd FileType desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
+autocmd FileType desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
 
 autocmd FileType css map <C-u> <Esc>mx:s/^\s*\/\*//g<Esc>`x:noh<Enter>
 autocmd FileType css map <C-c> <Esc>mx0i/*<Esc>`x:noh<Enter>

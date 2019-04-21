@@ -8,14 +8,14 @@ set $gimp --no-startup-id gimp
 exec --no-startup-id setxkbmap gb
 
 # For my stupid keyboard
-exec_alway--no-startup-id xmodmap -e 'keycode 80 = w'
-exec_alway--no-startup-id xmodmap -e 'keycode 83 = a'
-exec_alway--no-startup-id xmodmap -e 'keycode 81 = e'
-exec_alway--no-startup-id xmodmap -e 'keycode 85 = d'
-exec_alway--no-startup-id xmodmap -e 'keycode 79 = q'
-exec_alway--no-startup-id xmodmap -e 'keycode 88 = x'
-exec_alway--no-startup-id xmodmap -e 'keycode 87 = grave'
-exec_alway--no-startup-id setxkbmap -option caps:escape
+exec_alway --no-startup-id xmodmap -e 'keycode 80 = w'
+exec_alway --no-startup-id xmodmap -e 'keycode 83 = a'
+exec_alway --no-startup-id xmodmap -e 'keycode 81 = e'
+exec_alway --no-startup-id xmodmap -e 'keycode 85 = d'
+exec_alway --no-startup-id xmodmap -e 'keycode 79 = q'
+exec_alway --no-startup-id xmodmap -e 'keycode 88 = x'
+exec_alway --no-startup-id xmodmap -e 'keycode 87 = grave'
+exec_alway --no-startup-id setxkbmap -option caps:escape
 ###
 
 # When typing disable mouse

@@ -1,6 +1,7 @@
 export LANG=en_GB.UTF-8
 export ZSH="/home/ihsan/.oh-my-zsh"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+export DISPLAY=:0.0
 
 ZSH_THEME="robbyrussell"
 
@@ -32,7 +33,6 @@ export PKG_CONFIG_PATH=":/usr/lib/pkgconfig:/usr/lib64/pkgconfig"
 export BROWSER="chromium"
 export SHELL="/bin/zsh"
 export TERMINAL="screen-256color-bce"
-#export TERMINAL="urxvt"
 export READER="mupdf"
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -42,6 +42,7 @@ export FZF_DEFAULT_OPTS="--height 70% --layout=reverse --preview 'head -75 {}'"
 export LC_CTYPE=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export KEYTIMEOUT=1
+export NNN_TMPFILE=/tmp/nnn
 
 #=== history ===#
 LESSHISTFILE=-

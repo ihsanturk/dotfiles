@@ -23,7 +23,7 @@ export PS1='\
 '
 
 #=== colors ===#
-source "$HOME/.vim/pack/default/start/gruvbox/gruvbox_256palette.sh"
+source "/media/d/colors/gruvbox_256palette.sh"
 
 #=== inputrc ===#
 source "$HOME/.inputrc"
@@ -36,7 +36,7 @@ if [ -f '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/path.bash.inc' ]; 
 if [ -f '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/completion.bash.inc' ]; then
     . '/media/d/softwares/google-cloud-sdk/google-cloud-sdk/completion.bash.inc'; fi
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export PYTHONPATH="${PYTHONPATH}:$(du "/media/d/softwares/my_creation/useful_python/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PYTHONPATH="${PYTHONPATH}:$(du "/media/d/softwares/my_creation/useful/python/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export CUDA_HOME=/opt/cuda
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64"
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
