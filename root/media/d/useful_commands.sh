@@ -149,6 +149,8 @@ all the names can be found in this file:
   /usr/include/X11/keysymdef.h
   or
   https://fsymbols.com/keyboard/linux/compose/
+  or
+  https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 
 
 # Compile with 4 thread
