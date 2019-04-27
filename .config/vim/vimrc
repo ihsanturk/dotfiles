@@ -1,3 +1,4 @@
+scriptencoding utf-8
 set number
 set hlsearch
 set incsearch
@@ -20,8 +21,34 @@ set ttimeout          " for key codes
 set ttimeoutlen=10    " unnoticeable small value
 syntax on
 filetype plugin indent on
+
+"=== cursor type ==="
+"let &t_SI ="\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=6\x7\<Esc>\\"
+"let &t_SR ="\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=3\x7\<Esc>\\"
+"let &t_EI ="\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+
+if exists('$TMUX')
+  let &t_SI = "\ePtmux;\e\e[6 q\e\\"
+  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+else
+  let &t_SI = "\e[6 q"
+  let &t_EI = "\e[2 q"
+endif
+
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
+    " see also http://sunaku.github.io/vim-256color-bce.html
+    set t_ut=
+endif
+
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
+endif
+
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.cache/vim
 endif
 
 " Set status line display
@@ -42,6 +69,7 @@ set statusline+=\       " Padding
 set statusline+=%L      " Total line
 set statusline+=\       " Padding
 
+
 "=== vim plug plugins ==="
 call plug#begin('~/.config/vim/plugged')
 
@@ -49,17 +77,13 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-"Plug 'sbdchd/neoformat'
 Plug 'octol/vim-cpp-enhanced-highlight'
-"Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'elzr/vim-json'
 Plug 'vim-syntastic/syntastic'
+Plug 'farmergreg/vim-lastplace'
 
 call plug#end()
-
-"Neoformat (with shortcut)
-"nmap <C-h> :silent Neoformat<CR>
 
 "live LaTeX preview
 let g:livepreview_previewer = 'zathura'
@@ -84,17 +108,25 @@ let g:gruvbox_italic=1
 "let g:gruvbox_contrast_dark='medium'
 colorscheme gruvbox
 
+
+"=== when saving all files ==="
+augroup fmt
+  autocmd!
+  autocmd BufWritePost,FileWritePost * :silent! %s/\s\+$//
+augroup END
+
+"=== when saving xresources ==="
+augroup fmt
+  autocmd!
+  autocmd BufWritePost,FileWritePost ~/.Xresources :silent! !xrdb ~/.Xresources
+augroup END
+
+
 "=== some filetypes ==="
 aug i3config_ft_detection
   au!
-  au BufNewFile,BufRead ~/.config/i3/config set filetype=config
+  au BufNewFile,BufRead *config set filetype=config
 aug end
-
-
-"=== cursor type ==="
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=6\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=3\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 
 
 "=== default templates ==="
@@ -132,8 +164,8 @@ nnoremap <esc><esc> :noh<CR>
 autocmd FileType go,javascript,c,cpp map <C-u> <Esc>mx:s/^\s*\/\///g<Esc>`x:noh<Enter>
 autocmd FileType go,javascript,c,cpp map <C-c> <Esc>mx0i//<Esc>`x:noh<Enter>
 
-autocmd FileType desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
-autocmd FileType desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
+autocmd FileType sed,desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
+autocmd FileType sed,desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
 
 autocmd FileType css map <C-u> <Esc>mx:s/^\s*\/\*//g<Esc>`x:noh<Enter>
 autocmd FileType css map <C-c> <Esc>mx0i/*<Esc>`x:noh<Enter>
