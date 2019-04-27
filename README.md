@@ -5,9 +5,10 @@
 | OS              | *I use **[arch](https://www.archlinux.org/)** btw*          || 
 | WM              | ***[i3gaps](https://github.com/Airblader/i3)***             ||
 | Bar             | ***[polybar](https://github.com/jaagr/polybar)***           ||
+| Terminal        | ***[xterm](https://invisible-island.net/xterm/)***          |*[st](https://st.suckless.org/)*|
 | Editor          | ***[nvim](https://neovim.io/)***                            |*[vim](https://www.vim.org/)*                 |
 | Browser         | ***[chromium](https://www.chromium.org/)***                 |*[surf](https://surf.suckless.org/)*          |
-| Viewer          | ***[mupdf](https://mupdf.com/)***                           |*[zathura](https://pwmt.org/projects/zathura)*|
+| PDF Viewer      | ***[mupdf](https://mupdf.com/)***                           |*[zathura](https://pwmt.org/projects/zathura)*|
 | Shell           | ***[zsh](https://www.zsh.org/)***                           |*[bash](https://www.gnu.org/software/bash/)*  |
 | Comp Manager    | ***[compton](https://github.com/chjj/compton)***            ||
 | Network Manager | ***[netctl](https://wiki.archlinux.org/index.php/Netctl)*** ||

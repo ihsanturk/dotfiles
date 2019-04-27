@@ -1,13 +1,4 @@
-xterm*selectToClipboard: true
-urxvt*selectToClipboard: true
-
-! Without this Ctrl+h is not working in vim:
-xterm*ptyInitialErase: true
-
-! hard contrast: *background: #1d2021
-! *background: #0a0a0a
-*background: #242424
-! soft contrast: *background: #32302f
+*background: #111111
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #212226
@@ -16,8 +7,6 @@ xterm*ptyInitialErase: true
 *color1:  #d83a3d
 *color9:  #fb4934
 ! DarkGreen + Green
-! *color2:  #98971a
-! *color10: #b8bb26
 *color2:  #8CB73D
 *color10: #71BA3A
 ! DarkYellow + Yellow
@@ -36,28 +25,29 @@ xterm*ptyInitialErase: true
 *color7:  #a89984
 *color15: #ebdbb2
 
-! urxvt.cursorColor: #bbbbbb
+! XTerm
+XTerm*selectToClipboard: true
+XTerm*BorderWidth: 0
+! Without this Ctrl+h is not working in vim:
+XTerm*ptyInitialErase: true
+XTerm.keysym.C-Up:     font-size:increase
+XTerm.keysym.C-Down:   font-size:decrease
+XTerm.keysym.C-S-Up:   font-size:incglobal
+XTerm.keysym.C-S-Down: font-size:decglobal
+XTerm.keysym.C-equal:  font-size:reset
+XTerm.keysym.C-slash:  font-size:show
+XTerm*font: xft:DejaVuSansMono Nerd Font:pixelsize=16:antialias=true:hinting=true
+XTerm.iso14755: false
+XTerm.iso14755_52: false
 
-! xterm*fading: 3
-! xterm*scrollBar: false
-Xterm*transparent: true
-Xterm*shading: 50
 
-! urxvt*fading: 3
+! RXVT-UNICODE
+urxvt*selectToClipboard: true
 urxvt*scrollBar: false
 urxvt*transparent: true
 urxvt*shading: 50
 
 urxvt.perl-ext-common: ...,font-size
-
-Xft*antialias: True
-
-xterm.keysym.C-Up:     font-size:increase
-xterm.keysym.C-Down:   font-size:decrease
-xterm.keysym.C-S-Up:   font-size:incglobal
-xterm.keysym.C-S-Down: font-size:decglobal
-xterm.keysym.C-equal:  font-size:reset
-xterm.keysym.C-slash:  font-size:show
 
 urxvt.keysym.C-Up:     font-size:increase
 urxvt.keysym.C-Down:   font-size:decrease
@@ -68,13 +58,10 @@ urxvt.keysym.C-slash:  font-size:show
 
 urxvt.iso14755: false
 urxvt.iso14755_52: false
-xterm.iso14755: false
-xterm.iso14755_52: false
-
-xterm*font: xft:DejaVuSansMono Nerd Font:pixelsize=16:antialias=true:hinting=true
 urxvt*font: xft:DejaVuSansMono Nerd Font:pixelsize=16:antialias=true:hinting=true
 
-! Ctrl +: larger-vt-font()
-! Ctrl -: smaller-vt-font()
-
 urxvt*boldFont: xft:DejaVuSansMono Nerd Font:style=Bold:bold:pixelsize=16:antialias=true:hinting=true
+! urxvt.cursorColor: #bbbbbb
+! urxvt*fading: 3
+
+Xft*antialias: True

@@ -1,3 +1,5 @@
+#!/dev/null
+
 # After editing the /etc/default/grub file# update grub command:
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -167,3 +169,11 @@ ifconfig wlp2s0 | grep -E 'inet .* netmask' -o | grep -E '[[:digit:]]*\.?*' -o |
 
 # Learn so much things
 curl cht.sh
+
+
+# Find all files with the name ".c" and add the following code block to this file
+/*
+ * Konu: <++>
+ */
+
+find . -type f -name "*.c*" -exec sed -i -e '1s/^/\/\*\n \* Konu: \<++\>\n \*\/\n\n/' {} \;
