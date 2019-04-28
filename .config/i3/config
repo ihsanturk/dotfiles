@@ -1,7 +1,7 @@
 set $mod Mod1
 set $sup Mod4
 
-set $term --no-startup-id termite
+set $term --no-startup-id st
 set $browser --no-startup-id chromium
 set $gimp --no-startup-id gimp
 
@@ -12,13 +12,14 @@ exec --no-startup-id xmodmap -e 'keycode 79 = q'
 exec --no-startup-id xmodmap -e 'keycode 80 = w'
 exec --no-startup-id xmodmap -e 'keycode 81 = e'
 exec --no-startup-id xmodmap -e 'keycode 83 = a'
-#TODO find the s keycode 
-#exe --no-startup-id xmodmap -e 'keycode 83 = s'
 exec --no-startup-id xmodmap -e 'keycode 85 = d'
 exec --no-startup-id xmodmap -e 'keycode 88 = x'
 exec --no-startup-id xmodmap -e 'keycode 87 = grave'
 exec --no-startup-id setxkbmap -option caps:escape
 ###
+
+# Cerebro
+exec --no-startup-id cd /media/d/softwares/cerebro && yarn run dev &!
 
 # When typing disable mouse
 exec --no-startup-id syndaemon -K -i 0.1 -R -d
@@ -91,14 +92,14 @@ bindsym $mod+q kill
 bindsym $sup+p exec --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym $sup+Shift+p exec --no-startup-id pkill polybar
 bindsym $mod+Return exec --no-startup-id $term
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show combi
 bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec --no-startup-id $browser
 bindsym $sup+w exec --no-startup-id exec --no-startup-id surf duckduckgo.com &!
 bindsym $sup+s exec --no-startup-id exec --no-startup-id spotify
 bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec --no-startup-id $gimp
 bindsym $mod+Shift+t  gaps inner current set $gapsi; gaps outer current set $gapso
 bindsym $sup+h        exec --no-startup-id $term -e htop
-bindsym $sup+g        exec --no-startup-id $term -e gotop
+bindsym $sup+g        exec --no-startup-id st -e gotop
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
@@ -169,7 +170,7 @@ bindsym $mod+Shift+i resize grow 		height 	1 px or 1 ppt
 bindsym $mod+Shift+u resize shrink 		height 	1 px or 1 ppt
 bindsym $mod+Shift+o resize grow 		width 	1 px or 1 ppt
 
-# bar 
+# bar
 # {
 # 	position top
 # 	#font pango:DejaVuSansMono Nerd Font Mono:antialas=true: 9
@@ -181,7 +182,7 @@ bindsym $mod+Shift+o resize grow 		width 	1 px or 1 ppt
 # 		background #272727
 # 		separator #aaddff
 # 		statusline #eeeeee
-# 
+#
 # 		focused_workspace #99bb88 #99bb88 #000000
 # 		urgent_workspace #000000 #cc5555 #000000
 # 	}
