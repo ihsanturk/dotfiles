@@ -1,6 +1,6 @@
-# Default
+# Current
 
-|Default|1st|2nd|
+|Current|1st|2nd|
 |-------------:|:---------------------------------------------------|:-|
 | OS              | *I use **[arch](https://www.archlinux.org/)** btw*          || 
 | WM              | ***[i3gaps](https://github.com/Airblader/i3)***             ||
