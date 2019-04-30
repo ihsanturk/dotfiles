@@ -6,6 +6,6 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
-#exec dwm
+exec dwm
 #exec bspwm
-exec i3
+#exec i3

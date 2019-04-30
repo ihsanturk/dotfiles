@@ -1,43 +1,12 @@
-br_path="/sys/class/backlight/intel_backlight"
-brgh=$(cat ${br_path}/brightness)
-max_brgh=$(cat ${br_path}/max_brightness)
+br_path="/sys/class/backlight/intel_backlight/brightness"
 
-if [ $1 ]; then
-	if [ $1 == "m" ]; then 
-		sudo echo "$max_brgh" > ${br_path}/brightness
-	elif [ $1 == "i" ]; then
-		if [ $2 ]; then
-			if [ $brgh -ge 7500 ]; then
-				exit 1
-			else
-				sudo echo "$(($brgh+$2))" > ${br_path}/brightness
-			fi
-		else
-			if [ $brgh -ge 7500 ]; then
-				exit 1
-			else
-				sudo echo "$(($brgh+300))" > ${br_path}/brightness
-			fi
-		fi
-	elif [ $1 == "d" ]; then
-		if [ $2 ]; then
-			if [ $brgh -le 1000 ]; then
-				exit 1
-			else
-				sudo echo "$(($brgh-$2))" > ${br_path}/brightness
-			fi
-		else
-			if [ $brgh -le 1000 ]; then
-				exit 1
-			else
-				sudo echo "$(($brgh-300))" > ${br_path}/brightness
-			fi
-		fi
-	fi
+if [ $1 -lt 1 ]; then
+  value=1
+elif [ $1 -gt 100 ];then
+  value=100
 else
-	if [ $brgh  -ge 6500 ]; then
-		exit 1
-	else
-		sudo echo "$(($brgh+300))" > ${br_path}/brightness
-	fi
+  value=$1
 fi
+
+value=$((${value}*75))
+sudo echo "${value}" > ${br_path}

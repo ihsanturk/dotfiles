@@ -70,11 +70,11 @@ set_from_resource $term_color15    color15
 
 set $FOCUS #a9a9a9
 set $UNFOCUS #151515
-#  Layout colors         bord    	bg     		text    	indicator(split) 	child border
-client.focused          $FOCUS 		$FOCUS 		$FOCUS 		#007744				$FOCUS
-client.focused_inactive $UNFOCUS 	$UNFOCUS 	$UNFOCUS 	$UNFOCUS
-client.unfocused        $UNFOCUS 	$UNFOCUS 	$UNFOCUS 	$UNFOCUS
-client.urgent           $FOCUS 		$FOCUS 		$FOCUS 		$FOCUS
+#  Layout colors         bord     bg        text      indicator(split)  child border
+client.focused          $FOCUS    $FOCUS    $FOCUS    #007744       $FOCUS
+client.focused_inactive $UNFOCUS  $UNFOCUS  $UNFOCUS  $UNFOCUS
+client.unfocused        $UNFOCUS  $UNFOCUS  $UNFOCUS  $UNFOCUS
+client.urgent           $FOCUS    $FOCUS    $FOCUS    $FOCUS
 client.background       $UNFOCUS
 
 for_window [class="^.*"] border pixel 0
@@ -106,34 +106,34 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Tab exec --no-startup-id setxkbmap gb
 bindsym $mod+Shift+Tab exec --no-startup-id setxkbmap tr
 
-bindsym XF86MonBrightnessUp 	exec --no-startup-id sudo ~/.scripts/brgh_set.sh i
-bindsym XF86MonBrightnessDown 	exec --no-startup-id sudo ~/.scripts/brgh_set.sh d
-bindsym XF86AudioMute 			exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume 	exec --no-startup-id pactl set-sink-volume 0 +5% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume 	exec --no-startup-id pactl set-sink-volume 0 -5% && killall -SIGUSR1 i3status
+bindsym XF86MonBrightnessUp   exec --no-startup-id sudo ~/.scripts/brgh_set.sh i
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo ~/.scripts/brgh_set.sh d
+bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume 0 +5% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume 0 -5% && killall -SIGUSR1 i3status
 
-bindsym Print --release 		exec --no-startup-id scrot -q 100 '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
-bindsym Shift+Print --release 	exec --no-startup-id scrot -q 100 -s '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
-bindsym $sup+Print --release 	exec --no-startup-id scrot -q 100 -u '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym Print --release     exec --no-startup-id scrot -q 100 '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym Shift+Print --release   exec --no-startup-id scrot -q 100 -s '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+bindsym $sup+Print --release  exec --no-startup-id scrot -q 100 -u '%H%M_%d.%m.%Y_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
 
-bindsym $mod+h 			focus left
-bindsym $mod+j 			focus down
-bindsym $mod+k 			focus up
-bindsym $mod+l 			focus right
-bindsym $mod+Shift+h	move left
-bindsym $mod+Shift+j 	move down
-bindsym $mod+Shift+k 	move up
-bindsym $mod+Shift+l 	move right
+bindsym $mod+h      focus left
+bindsym $mod+j      focus down
+bindsym $mod+k      focus up
+bindsym $mod+l      focus right
+bindsym $mod+Shift+h  move left
+bindsym $mod+Shift+j  move down
+bindsym $mod+Shift+k  move up
+bindsym $mod+Shift+l  move right
 
-bindsym $mod+t 				split toggle
-bindsym $mod+f 				fullscreen toggle
-# bindsym $mod+s 			 layout stacking
-bindsym $mod+e 				layout toggle split
-bindsym $mod+a 				focus parent
-bindsym $mod+c 				focus child
-bindsym $mod+space 			focus mode_toggle
-# bindsym $mod+Shift+s 		layout tabbed
-bindsym $mod+Shift+space 	floating toggle
+bindsym $mod+t        split toggle
+bindsym $mod+f        fullscreen toggle
+# bindsym $mod+s       layout stacking
+bindsym $mod+e        layout toggle split
+bindsym $mod+a        focus parent
+bindsym $mod+c        focus child
+bindsym $mod+space      focus mode_toggle
+# bindsym $mod+Shift+s    layout tabbed
+bindsym $mod+Shift+space  floating toggle
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -161,29 +161,29 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+y resize shrink 	width 	5 px or 5 ppt
-bindsym $mod+i resize grow 		height 	5 px or 5 ppt
-bindsym $mod+u resize shrink 	height 	5 px or 5 ppt
-bindsym $mod+o resize grow 		width 	5 px or 5 ppt
-bindsym $mod+Shift+y resize shrink 		width 	1 px or 1 ppt
-bindsym $mod+Shift+i resize grow 		height 	1 px or 1 ppt
-bindsym $mod+Shift+u resize shrink 		height 	1 px or 1 ppt
-bindsym $mod+Shift+o resize grow 		width 	1 px or 1 ppt
+bindsym $mod+y resize shrink  width   5 px or 5 ppt
+bindsym $mod+i resize grow    height  5 px or 5 ppt
+bindsym $mod+u resize shrink  height  5 px or 5 ppt
+bindsym $mod+o resize grow    width   5 px or 5 ppt
+bindsym $mod+Shift+y resize shrink    width   1 px or 1 ppt
+bindsym $mod+Shift+i resize grow    height  1 px or 1 ppt
+bindsym $mod+Shift+u resize shrink    height  1 px or 1 ppt
+bindsym $mod+Shift+o resize grow    width   1 px or 1 ppt
 
 # bar
 # {
-# 	position top
-# 	#font pango:DejaVuSansMono Nerd Font Mono:antialas=true: 9
+#   position top
+#   #font pango:DejaVuSansMono Nerd Font Mono:antialas=true: 9
 #     status_command i3status --config ~/.config/i3status/config
-# 	#separator_symbol ""
-# 	#separator_symbol "||"
-# 	colors
-# 	{
-# 		background #272727
-# 		separator #aaddff
-# 		statusline #eeeeee
+#   #separator_symbol ""
+#   #separator_symbol "||"
+#   colors
+#   {
+#     background #272727
+#     separator #aaddff
+#     statusline #eeeeee
 #
-# 		focused_workspace #99bb88 #99bb88 #000000
-# 		urgent_workspace #000000 #cc5555 #000000
-# 	}
+#     focused_workspace #99bb88 #99bb88 #000000
+#     urgent_workspace #000000 #cc5555 #000000
+#   }
 # }

@@ -1,3 +1,5 @@
+let mapleader = ","
+
 scriptencoding utf-8
 set number
 set hlsearch
@@ -109,15 +111,10 @@ let g:gruvbox_italic=1
 colorscheme gruvbox
 
 
-"=== when saving all files ==="
+"=== while saving ==="
 augroup fmt
   autocmd!
   autocmd BufWritePost,FileWritePost * :silent! %s/\s\+$//
-augroup END
-
-"=== when saving xresources ==="
-augroup fmt
-  autocmd!
   autocmd BufWritePost,FileWritePost ~/.Xresources :silent! !xrdb ~/.Xresources
 augroup END
 
@@ -156,23 +153,30 @@ cnoreabbrev Q! q!<CR>
 cnoreabbrev Q q<CR>
 cnoreabbrev F FZF<return><CR>
 map q: :q
+" do the last ex mode command
+nmap <leader>. :&<CR>
 
 "remove search highlight
 nnoremap <esc><esc> :noh<CR>
 
 "comment out a line
+" //
 autocmd FileType go,javascript,c,cpp map <C-u> <Esc>mx:s/^\s*\/\///g<Esc>`x:noh<Enter>
 autocmd FileType go,javascript,c,cpp map <C-c> <Esc>mx0i//<Esc>`x:noh<Enter>
 
+" #
 autocmd FileType sed,desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
 autocmd FileType sed,desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
 
+" /*
 autocmd FileType css map <C-u> <Esc>mx:s/^\s*\/\*//g<Esc>`x:noh<Enter>
 autocmd FileType css map <C-c> <Esc>mx0i/*<Esc>`x:noh<Enter>
 
+" "
 autocmd FileType vim map <C-u> <Esc>mx:s/^\s*\"//g<Esc>`x:noh<Enter>
 autocmd FileType vim map <C-c> <Esc>mx0i"<Esc>`x:noh<Enter>
 
+" !
 autocmd FileType xdefaults map <C-u> <Esc>mx:s/^\s*\! //g<Esc>`x:noh<Enter>
 autocmd FileType xdefaults map <C-c> <Esc>mx0i! <Esc>`x:noh<Enter>
 
