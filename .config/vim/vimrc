@@ -84,6 +84,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'elzr/vim-json'
 Plug 'vim-syntastic/syntastic'
 Plug 'farmergreg/vim-lastplace'
+Plug 'freitass/todo.txt-vim'
 
 call plug#end()
 
@@ -165,8 +166,8 @@ autocmd FileType go,javascript,c,cpp map <C-u> <Esc>mx:s/^\s*\/\///g<Esc>`x:noh<
 autocmd FileType go,javascript,c,cpp map <C-c> <Esc>mx0i//<Esc>`x:noh<Enter>
 
 " #
-autocmd FileType sed,desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
-autocmd FileType sed,desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
+autocmd FileType fstab,sed,desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map <C-u> <Esc>mx:s/^\s*#//g<Esc>`x:noh<Enter>
+autocmd FileType fstab,sed,desktop,config,tmux,resolv,zsh,make,conf,python,readline,sh map	<C-c> <Esc>mx0i#<Esc>`x:noh<Enter>
 
 " /*
 autocmd FileType css map <C-u> <Esc>mx:s/^\s*\/\*//g<Esc>`x:noh<Enter>

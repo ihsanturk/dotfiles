@@ -4,53 +4,47 @@ fi
 
 #=== adding colors ===#
 #alias ls='exa -hN --color=auto --group-directories-first'
-alias ls='exa'
-alias cls='clear; exa'
-#alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
+alias ls='exa -s ext'
+alias cls='clear; ls'
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 
 
 #=== short commands ===#
 alias mii='ideviceimagemounter "/media/d/archive_program/ios_dev_img/12.2 (16E5191d)/DeveloperDiskImage.dmg" "/media/d/archive_program/ios_dev_img/12.2 (16E5191d)/DeveloperDiskImage.dmg.signature"'
-alias ok='cd /media/d/softwares/my_creation/automations/competition/old/ok'
-alias nk='setxkbmap -option caps:escape; xset r rate 240; setxkbmap gb'
+alias shhh='sudo umount /dev/sdb1; sudo hdparm -Y /dev/sdb1'
+alias ok='cd ${HOME}/softwares/my_creation/automations/competition/old/ok'
+alias nk='setxkbmap -option caps:escape; xset r rate 230; setxkbmap gb'
 alias wget="wget --hsts-file ~/mess/wget/wget-hsts"
-alias eusc='vim /media/d/useful_commands.sh'
-alias usc='cat /media/d/useful_commands.sh | less'
+alias eusc='vim ${HOME}/useful_commands.sh'
+alias usc='cat ${HOME}/useful_commands.sh | less'
 alias books='cd /media/d/documents/school/books'
-#alias wpf='cd ~/.wine/drive_c/Program\ Files'
-alias mcr='cd /media/d/softwares/my_creation/'
+alias mcr='cd ${HOME}/softwares/my_creation/'
 alias cpwd='pwd | tr -d "\n" | xclip -selection clipboard'
 alias i3con='vim ~/.config/i3/config'
-alias dwmcon='vim /media/d/softwares/dwm/config.h'
-alias sof='cd /media/d/softwares/'
+alias dwmcon='vim ${HOME}/softwares/dwm/config.h'
 alias pacman='pacman --color auto'
 alias blur='python -m blur_image'
-#alias clear_real='tput clear'
-alias clla='clear; exa -la'
+alias clla='clear; ls -la'
 alias pr='sudo pacman -R'
 alias pi='sudo pacman -S'
-alias cla='clear; exa -a'
-#alias find='sudo find'
+alias cla='clear; ls -a'
 alias cll='clear; ll'
 alias yr='yay -R'
 alias yi='yay -S'
 alias cd..='cd ..'
-alias la='exa -a'
-alias ll='exa -l'
-#alias clear='echo'
+alias la='ls -a'
+alias ll='ls -l'
 
 #=== scripts ===#
 alias colors='python -m colors_terminal'
 alias dic='python -m cambridge_dict'
 alias vpn='bash connect_vpnbook.sh'
 alias qr='generate_qrimage.sh'
-alias todo='python -m todo'
+alias todo='vim /home/ihsan/documents/list.todo'
 alias clc='clc.sh'
 
 #=== softwares ===#
-alias usp='cd /media/d/softwares/my_creation/useful/python'
 alias vpnpass='python -m vpnbook_password_get s'
 alias tmux='tmux -2 -f $HOME/.config/tmux/tmux.conf'
 alias push='python3 -m pushover'
@@ -75,3 +69,4 @@ alias pdf='mupdf'
 alias con='connmanctl'
 alias netcut='sudo netctl stop-all'
 alias connect='sudo netctl start'
+alias brgh='sudo brgh'

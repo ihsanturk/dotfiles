@@ -6,6 +6,8 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
+#exec chromium
+#exec st
 exec dwm
 #exec bspwm
 #exec i3

@@ -1,0 +1,7 @@
+xmodmap -e 'keycode 79 = q'
+xmodmap -e 'keycode 80 = w'
+xmodmap -e 'keycode 81 = e'
+xmodmap -e 'keycode 83 = a'
+xmodmap -e 'keycode 85 = d'
+xmodmap -e 'keycode 88 = x'
+xmodmap -e 'keycode 87 = grave'

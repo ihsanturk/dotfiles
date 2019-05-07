@@ -6,24 +6,25 @@ export DISPLAY=:0.0
 ZSH_THEME="robbyrussell"
 
 plugins=(
-    git 
+    git
     vi-mode
     zsh-syntax-highlighting
     auto-suggestion
 )
 
 #=== sources ===#
-source "/media/d/colors/gruvbox_256palette.sh"
-source "$HOME/.inputrc"
-source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
-source $HOME/.useful_func
+source "${HOME}/softwares/z/z.sh"
+source "${HOME}/colors/gruvbox_256palette.sh"
+source "${HOME}/.inputrc"
+source ${ZSH}/oh-my-zsh.sh
+source ${HOME}/.aliases
+source ${HOME}/.useful_func
 
 #=== PATHs ===#
 export PATH="$PATH:$(du "${HOME}.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export PATH="$PATH:${HOME}.local/bin"
 export PATH="$PATH:${HOME}.gem/ruby/2.6.0/bin"
-export PYTHONPATH="${PYTHONPATH}:$(du "/media/d/softwares/my_creation/useful/python/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PYTHONPATH="${PYTHONPATH}:$(du "${HOME}/softwares/my_creation/useful/python/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export CUDA_HOME=/opt/cuda
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64"
 export VIRTUALENVWRAPPER_PYTHON='/usr/bin/env python'

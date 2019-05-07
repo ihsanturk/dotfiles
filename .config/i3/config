@@ -85,23 +85,23 @@ set $gapso 0
 gaps inner $gapsi
 gaps outer $gapso
 
-bindsym $mod+s        gaps inner current plus 5
-bindsym $mod+Shift+s  gaps inner current minus 5
-bindsym $sup+0 exec --no-startup-id xdotool mousemove 0 1080
-bindsym $mod+q kill
-bindsym $sup+p exec --no-startup-id $HOME/.config/polybar/launch.sh
+bindsym $mod+s       gaps inner current plus 5
+bindsym $mod+Shift+s gaps inner current minus 5
+bindsym $mod+Shift+t gaps inner current set $gapsi; gaps outer current set $gapso
+bindsym $sup+0       exec --no-startup-id xdotool mousemove 0 1080
+bindsym $sup+p       exec --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym $sup+Shift+p exec --no-startup-id pkill polybar
-bindsym $mod+Return exec --no-startup-id $term
-bindsym $mod+d exec --no-startup-id rofi -show combi
-bindsym $mod+w exec --no-startup-id i3-msg 'workspace $ws9'; exec --no-startup-id $browser
-bindsym $sup+w exec --no-startup-id exec --no-startup-id surf duckduckgo.com &!
-bindsym $sup+s exec --no-startup-id exec --no-startup-id spotify
-bindsym $mod+g exec --no-startup-id i3-msg 'workspace $ws8'; exec --no-startup-id $gimp
-bindsym $mod+Shift+t  gaps inner current set $gapsi; gaps outer current set $gapso
-bindsym $sup+h        exec --no-startup-id $term -e htop
-bindsym $sup+g        exec --no-startup-id st -e gotop
+bindsym $mod+Return  exec --no-startup-id $term
+bindsym $mod+d       exec --no-startup-id rofi -show combi
+bindsym $mod+w       exec --no-startup-id i3-msg 'workspace $ws9'; exec --no-startup-id $browser
+bindsym $sup+w       exec --no-startup-id exec --no-startup-id surf duckduckgo.com &!
+bindsym $sup+s       exec --no-startup-id exec --no-startup-id spotify
+bindsym $mod+g       exec --no-startup-id i3-msg 'workspace $ws8'; exec --no-startup-id $gimp
+bindsym $sup+h       exec --no-startup-id $term -e htop
+bindsym $sup+g       exec --no-startup-id st -e gotop
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+bindsym $mod+q kill
 
 bindsym $mod+Tab exec --no-startup-id setxkbmap gb
 bindsym $mod+Shift+Tab exec --no-startup-id setxkbmap tr
