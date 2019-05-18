@@ -1,0 +1,52 @@
+void
+	-fix:
+		surf compilation error glib.h
+		libimobiledevice not installed
+		vim cursor in tmux not switching
+		github requires login for push
+		runit not configured for my keyboard scripts at startup
+		pointer is ugly
+		ll alias is different from my alias (there are different aliases... strange)
+
+
+	+fixed:
+		when searched in man page colors are changing
+			don't know how it solved
+
+		bash was not completing if I write a part of a command from middle of the word
+			(installed zsh)
+
+		nvim statusbar bg color was white
+
+		libXi was giving error for chrome, firefox and surf
+			(reinstalled)
+			$ sudo xbps-remove -F lbiXi
+			$ sudo xbps-install lbiXi
+
+
+what do I do with computer?
+	I program useful tools
+	nothing else :D
+	but I need to use my graphic card for ai trainings
+
+	wish environment:
+		o - stali, operating system
+		o - st,    terminal
+		o - dwm,   window manager
+		o - nvim,  editor
+		o - surf,  browser
+		o - ksh,   daily terminal shell
+		o - dash,  script shell
+
+	[plan] current2wishenv
+		test gnu stow (tested)
+		create a repo dot files: (created)
+			o - nvim
+			o - zshrc
+			o - aliases
+			...
+			..
+			.
+			(done)
+
+different from the folder that in the 'dot'
