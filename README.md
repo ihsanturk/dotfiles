@@ -1,3 +1,4 @@
+Ready to [stow](https://www.gnu.org/software/stow/) it.
 |Current|1st|2nd|
 |---------------:|:-------------------------------------------------|:-|
 | OS             | *I use **[arch](https://www.archlinux.org/)** btw* ||
