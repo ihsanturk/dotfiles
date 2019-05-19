@@ -1,3 +1,16 @@
+"=== Plug ==="
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+map <F3> :NERDTreeTabsToggle<CR>
+let NERDTreeMapActivateNode='<space>'
+
+Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
+let g:nord_italic = 1
+
+call plug#end()
+
 scriptencoding utf-8
 syntax on
 set hlsearch
@@ -17,10 +30,11 @@ let g:netrw_dirhistmax = 0
 "=== design ==="
 set number
 set cursorline
-"hi cursorline cterm=NONE ctermbg=black
-"hi CursorLineNr cterm=bold ctermfg=6 gui=bold guifg=yellow
-"hi LineNr ctermfg=238
-"hi StatusLine cterm=bold ctermfg=60 Ctermbg=0 gui=bold,reverse guibg=black
+colorscheme nord
+hi cursorline cterm=NONE ctermbg=black
+hi CursorLineNr cterm=bold ctermfg=6 gui=bold guifg=yellow
+hi LineNr ctermfg=238
+hi StatusLine cterm=bold ctermfg=78 Ctermbg=0 gui=bold,reverse guibg=black
 
 "=== global copy ==="
 if has('unnamedplus')
@@ -47,14 +61,3 @@ cnoreabbrev Q q<CR>
 map q: :q
 nnoremap <esc><esc> :noh<CR>
 
-"=== Plug ==="
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-map <F3> :NERDTreeTabsToggle<CR>
-let NERDTreeMapActivateNode='<space>'
-
-Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
-colorscheme nord
-let g:nord_italic = 1
