@@ -1,6 +1,5 @@
 void
 	-fix:
-		surf compilation error glib.h
 		libimobiledevice not installed
 		vim cursor in tmux not switching
 		github requires login for push
@@ -10,8 +9,9 @@ void
 
 
 	+fixed:
-		when searched in man page colors are changing
-			don't know how it solved
+		surf compilation error glib.h
+			(installed using xbps-src)
+
 
 		bash was not completing if I write a part of a command from middle of the word
 			(installed zsh)
@@ -26,17 +26,18 @@ void
 
 what do I do with computer?
 	I program useful tools
+	I use useful tools
 	nothing else :D
 	but I need to use my graphic card for ai trainings
 
 	wish environment:
-		o - stali, operating system
-		o - st,    terminal
-		o - dwm,   window manager
-		o - nvim,  editor
-		o - surf,  browser
-		o - ksh,   daily terminal shell
-		o - dash,  script shell
+		+ - stali/void, operating system
+		+ - st,         terminal
+		+ - dwm,        window manager
+		+ - nvim,       editor
+		+ - surf,       browser
+		+ - dash,       script shell
+		o - ksh,        daily terminal shell
 
 	[plan] current2wishenv
 		test gnu stow (tested)
@@ -48,5 +49,3 @@ what do I do with computer?
 			..
 			.
 			(done)
-
-different from the folder that in the 'dot'
