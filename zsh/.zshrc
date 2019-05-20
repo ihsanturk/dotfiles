@@ -1,6 +1,7 @@
 #
 # ~/.zshrc
 #
+
 ZSH_THEME="robbyrussell"
 DISABLE_LS_COLORS="true"
 DISABLE_UPDATE_PROMPT="true"

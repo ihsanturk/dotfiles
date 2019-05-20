@@ -36,7 +36,7 @@ colorscheme nord
 hi cursorline cterm=NONE ctermbg=black
 hi CursorLineNr cterm=bold ctermfg=6 gui=bold guifg=yellow
 hi LineNr ctermfg=238
-hi StatusLine cterm=bold ctermfg=78 Ctermbg=0 gui=bold,reverse guibg=black
+hi StatusLine cterm=bold ctermfg=75 Ctermbg=0 gui=bold,reverse guibg=black
 
 "=== global copy ==="
 if has('unnamedplus')
