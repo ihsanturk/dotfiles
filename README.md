@@ -2,7 +2,7 @@ Ready to [stow](https://www.gnu.org/software/stow/) it.
 
 |Current|1st|2nd|
 |---------------:|:-------------------------------------------------|:-|
-| OS             | *I use **[arch](https://www.archlinux.org/)** btw* ||
+| OS             | *btw I use **[void](https://voidlinux.org/)*** ||
 | WM             | ***[dwm](https://dwm.suckless.org)***              ||
 | Terminal       | ***[st](https://st.suckless.org/)***               ||
 | Shell          | ***[zsh](https://www.zsh.org/)***                  ||

@@ -11,6 +11,8 @@ let g:nord_italic = 1
 
 call plug#end()
 
+let mapleader = ","
+
 scriptencoding utf-8
 syntax on
 set hlsearch
@@ -41,7 +43,10 @@ if has('unnamedplus')
 	set clipboard=unnamed,unnamedplus
 endif
 
-"=== delete spaces ==="
+"=== delete without cut ==="
+nnoremap <leader>d "_d
+
+"=== delete spaces end of lines ==="
 augroup fmt
 	autocmd!
 	autocmd BufWritePost,FileWritePost * :silent! %s/\s\+$//

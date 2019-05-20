@@ -4,4 +4,4 @@ xrandr --auto
 
 setxkbmap -layout gb -option caps:escape
 
-exec dwm 2> ~/tmp/dwm.log
+exec dwm 2> /tmp/dwm.log

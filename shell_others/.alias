@@ -3,7 +3,7 @@
 #=== color ===#
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias ls='exa -s ext'
+alias ls='ls -h --color'
 
 #=== short ===#
 alias mii=' ideviceimagemounter "/mnt/d/archive_program/ios_dev_img/12.2 (16E5191d)/DeveloperDiskImage.dmg" "/mnt/d/archive_program/ios_dev_img/12.2 (16E5191d)/DeveloperDiskImage.dmg.signature"'
