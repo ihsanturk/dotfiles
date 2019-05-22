@@ -1,8 +1,8 @@
 Ready to [stow](https://www.gnu.org/software/stow/) it.
 
-|Current|1st|2nd|
+|Current|||
 |---------------:|:-------------------------------------------------|:-|
-| OS             | *btw I use **[void](https://voidlinux.org/)*** ||
+| OS             | ***[FreeBSD](https://freebsd.org/)*** ||
 | WM             | ***[dwm](https://dwm.suckless.org)***              ||
 | Terminal       | ***[st](https://st.suckless.org/)***               ||
 | Shell          | ***[zsh](https://www.zsh.org/)***                  ||

@@ -52,3 +52,16 @@ what do I do with computer?
 
 good contents about BSDs
 www.over-yonder.net
+
+bsd (switched 22.05.2019)
+	todo
+		install:
+			zsh
+			fzf
+			tmux
+			fonts
+			xclip
+			ohmyzsh
+			chromium
+			zsh-completions
+			zsh-syntax-highlighting
