@@ -1,33 +1,36 @@
-"=== Plug ==="
+"=== plug ==="
 call plug#begin('~/.local/share/nvim/plugged')
 
+" nerd tree ===
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 map <F3> :NERDTreeTabsToggle<CR>
 let NERDTreeMapActivateNode='<space>'
 
+" nord vim ===
 Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 let g:nord_italic = 1
 
 call plug#end()
 
+"=== settings ==="
 let mapleader = ","
-
-scriptencoding utf-8
 syntax on
+set timeout
 set hlsearch
+set ttimeout
 set incsearch
+set smartcase
 set tabstop=2
-set shiftwidth=2
 set noswapfile
 set ignorecase
-set smartcase
-set timeout
-set timeoutlen=1000
-set ttimeout
+set shiftwidth=2
 set ttimeoutlen=10
+set timeoutlen=1000
+scriptencoding utf-8
 filetype plugin indent on
 let g:netrw_dirhistmax = 0
+setglobal fileencoding=utf-8
 
 "=== design ==="
 set number
@@ -36,7 +39,7 @@ colorscheme nord
 hi cursorline cterm=NONE ctermbg=black
 hi CursorLineNr cterm=bold ctermfg=6 gui=bold guifg=yellow
 hi LineNr ctermfg=238
-hi StatusLine cterm=bold ctermfg=75 Ctermbg=0 gui=bold,reverse guibg=black
+hi StatusLine cterm=bold ctermfg=72 Ctermbg=0 gui=bold,reverse guibg=black
 
 "=== global copy ==="
 if has('unnamedplus')
@@ -58,11 +61,12 @@ augroup END
 nmap <Tab> <Esc>:tabnext<CR>
 nmap <S-Tab> <Esc>:tabprevious<CR>
 nmap <F5> <Esc>:so ~/.config/nvim/vimrc<CR>
+
+map q: :q
 cnoreabbrev W w<CR>
 cnoreabbrev Wq wq<CR>
 cnoreabbrev qw wq<CR>
 cnoreabbrev Q! q!<CR>
 cnoreabbrev Q q<CR>
-map q: :q
 nnoremap <esc><esc> :noh<CR>
 

@@ -1,3 +1,4 @@
+
 void
 	-fix:
 		libimobiledevice not installed
@@ -28,7 +29,7 @@ what do I do with computer?
 	I program useful tools
 	I use useful tools
 	nothing else :D
-	but I need to use my graphic card for ai trainings
+	but I need to use my graphic card for ai trainings. #(I dont need actually fuck it. Install OpenBSD)#
 
 	wish environment:
 		+ - stali/void, operating system
@@ -50,18 +51,33 @@ what do I do with computer?
 			.
 			(done)
 
-good contents about BSDs
+good contents about BSD
 www.over-yonder.net
 
 bsd (switched 22.05.2019)
-	todo
-		install:
-			zsh
-			fzf
-			tmux
-			fonts
-			xclip
-			ohmyzsh
-			chromium
-			zsh-completions
-			zsh-syntax-highlighting
+	do
+		- learn how to spindown disks
+	done
+		install
+			- zsh
+			- fzf
+			- fonts
+			- xclip
+			- ohmyzsh
+			- chromium
+		clone
+			- mimi
+			- vimplug
+			- nord-dircolors
+			- zsh-completions
+			- zsh-syntax-highlighting
+
+
+Wishes (23.05.2019)
+
+	USING			|	WISH
+
+-	zsh				>	sh (done)
+-	chromium	> surf (done)
+-	msi				> thinkpad
+-	bar				> dwmstatus (done)
