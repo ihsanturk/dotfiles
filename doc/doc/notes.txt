@@ -91,3 +91,6 @@ OpenBSD fs file and install it
 I will need to do these after installing:
 	install dwm
 	install st
+
+A good website about c, openbsd, bugs
+	flak.tedunangst.com
