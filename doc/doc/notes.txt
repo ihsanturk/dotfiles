@@ -1,4 +1,3 @@
-
 void
 	-fix:
 		libimobiledevice not installed
@@ -29,7 +28,7 @@ what do I do with computer?
 	I program useful tools
 	I use useful tools
 	nothing else :D
-	but I need to use my graphic card for ai trainings. #(I dont need actually fuck it. Install OpenBSD)#
+	but I need to use my graphic card for ai trainings. #(I dont need actually, fuck it. Install OpenBSD)#
 
 	wish environment:
 		+ - stali/void, operating system
@@ -77,7 +76,18 @@ Wishes (23.05.2019)
 
 	USING			|	WISH
 
--	zsh				>	sh (done)
+-	zsh				>	sh (done) (gave up, back to zsh)
 -	chromium	> surf (done)
 -	msi				> thinkpad
 -	bar				> dwmstatus (done)
+
+
+Suprise.. Suprise! (25.05.2019)
+
+I am thinking about switching OpenBSD from FreeBSD
+I will push my out dated repos and download
+OpenBSD fs file and install it
+
+I will need to do these after installing:
+	install dwm
+	install st

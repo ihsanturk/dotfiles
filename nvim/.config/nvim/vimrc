@@ -1,18 +1,3 @@
-"=== plug ==="
-call plug#begin('~/.local/share/nvim/plugged')
-
-" nerd tree ===
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-map <F3> :NERDTreeTabsToggle<CR>
-let NERDTreeMapActivateNode='<space>'
-
-" nord vim ===
-Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
-let g:nord_italic = 1
-
-call plug#end()
-
 "=== settings ==="
 let mapleader = ","
 syntax on
@@ -35,7 +20,7 @@ setglobal fileencoding=utf-8
 "=== design ==="
 set number
 set cursorline
-colorscheme nord
+colorscheme delek
 hi cursorline cterm=NONE ctermbg=black
 hi CursorLineNr cterm=bold ctermfg=6 gui=bold guifg=yellow
 hi LineNr ctermfg=238

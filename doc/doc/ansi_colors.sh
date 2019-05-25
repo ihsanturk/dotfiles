@@ -1,3 +1,5 @@
+#!/bin/sh
+
 txtblk='\033[0;30m' # Black - Regular
 txtred='\033[0;31m' # Red
 txtgrn='\033[0;32m' # Green
