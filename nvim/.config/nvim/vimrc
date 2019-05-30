@@ -21,9 +21,9 @@ setglobal fileencoding=utf-8
 set number
 set cursorline
 colorscheme delek
-hi cursorline cterm=NONE ctermbg=black
-hi CursorLineNr cterm=bold ctermfg=6 gui=bold guifg=yellow
 hi LineNr ctermfg=238
+hi cursorline cterm=NONE ctermbg=237
+hi CursorLineNr cterm=bold ctermfg=6
 hi StatusLine cterm=bold ctermfg=72 Ctermbg=0 gui=bold,reverse guibg=black
 
 "=== global copy ==="
@@ -43,15 +43,17 @@ augroup END
 "=== shortcut ==="
 " TODO
 " 	change tab to suggest variable
+nmap n nzz
+nmap N Nzz
 nmap <Tab> <Esc>:tabnext<CR>
 nmap <S-Tab> <Esc>:tabprevious<CR>
 nmap <F5> <Esc>:so ~/.config/nvim/vimrc<CR>
 
 map q: :q
-cnoreabbrev W w<CR>
-cnoreabbrev Wq wq<CR>
-cnoreabbrev qw wq<CR>
-cnoreabbrev Q! q!<CR>
-cnoreabbrev Q q<CR>
+cnoreabbrev W w
+cnoreabbrev Wq wq
+cnoreabbrev qw wq
+cnoreabbrev Q! q!
+cnoreabbrev Q q
 nnoremap <esc><esc> :noh<CR>
 
