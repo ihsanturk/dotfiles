@@ -7,8 +7,8 @@ stow nvim #Just install the nvim configuration
 If there is not a file in the destination directory then
 your new nvim configuration is ready
 
-||||
-|------------:|:-------------------------------------------------|:-|
+|||
+|------------:|:----------------------------------------------------|
 | OS					| ***[Void Linux](https://freebsd.org/)***            |
 | WM          |	***[dwm](https://dwm.suckless.org)***               |
 | Terminal    | ***[st](https://st.suckless.org/)***                |
