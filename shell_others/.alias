@@ -12,7 +12,7 @@ sudo rm -rf /var/run/wpa_supplicant;\
 sudo wpa_supplicant -B -i  wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf;\
 dhcpcd'
 alias shh='\
-sudo umount /dev/sdb1 2>/dev/null;\
+sudo umount /dev/sdb1;\
 sudo hdparm -Y /dev/sdb1 1>/dev/null'
 alias nk='setxkbmap -option caps:escape; xset r rate 220; setxkbmap gb'
 alias usc='cat ${HOME}/doc/useful_commands.sh | fzf'
