@@ -3,6 +3,6 @@
 xrandr --auto
 
 setxkbmap -layout gb -option caps:escape
-dwmstatus 2>&1 >/dev/null &
+xset r rate 220
 
 exec dwm 2> /tmp/dwm.log
