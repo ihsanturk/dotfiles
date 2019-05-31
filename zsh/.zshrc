@@ -23,6 +23,7 @@ autoload -U compinit && compinit
 
 export KEYTIMEOUT=1
 export LANG=en_GB.UTF-8
+export EDITOR=$(which nvim)
 export LC_CTYPE=en_GB.UTF-8
 export ZSH="$HOME/.oh-my-zsh"
 export TERMINAL="st-256color"
