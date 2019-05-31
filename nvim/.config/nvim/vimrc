@@ -45,15 +45,15 @@ augroup END
 " 	change tab to suggest variable
 nmap n nzz
 nmap N Nzz
-nmap <Tab> <Esc>:tabnext<CR>
-nmap <S-Tab> <Esc>:tabprevious<CR>
-nmap <F5> <Esc>:so ~/.config/nvim/vimrc<CR>
+nmap <Tab> :bn<CR>
+nmap <S-Tab> :bp<CR>
+nmap <esc><esc> :noh<CR>
+nmap <F5> :so ~/.config/nvim/vimrc<CR>
 
 map q: :q
 cnoreabbrev W w
-cnoreabbrev Wq wq
-cnoreabbrev qw wq
-cnoreabbrev Q! q!
 cnoreabbrev Q q
-nnoremap <esc><esc> :noh<CR>
+cnoreabbrev qw wq
+cnoreabbrev Wq wq
+cnoreabbrev Q! q!
 
