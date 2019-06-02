@@ -23,6 +23,7 @@
 # 	libXft-devel\
 # 	ncurses-devel\
 # 	portmidi-devel\
+#   libimobiledevice\
 # 	libXinerama-devel\
 # 	the_silver_searcher
 
