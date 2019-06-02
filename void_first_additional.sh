@@ -14,6 +14,7 @@
 # 	hdparm\
 # 	neovim\
 # 	ntfs-3g\
+#   usbmuxd\
 # 	chromium\
 # 	setxkbmap\
 # 	youtube-dl\
