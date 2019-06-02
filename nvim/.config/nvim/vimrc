@@ -24,11 +24,17 @@ colorscheme delek
 hi LineNr ctermfg=238
 hi cursorline cterm=NONE ctermbg=237
 hi CursorLineNr cterm=bold ctermfg=6
-hi StatusLine cterm=bold ctermfg=72 Ctermbg=0 gui=bold,reverse guibg=black
+hi StatusLine cterm=bold ctermfg=72 ctermbg=236
 
 "=== global copy ==="
 if has('unnamedplus')
 	set clipboard=unnamed,unnamedplus
+endif
+
+"=== persistent undo ==="
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.cache/vim
 endif
 
 "=== delete without cut ==="

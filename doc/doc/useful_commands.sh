@@ -208,3 +208,7 @@ ffcast -w ffmpeg -f x11grab -show_region 1 -s %s -i %D+%c [OUTPUTFILENAME].mp4
 
 # Take video of specific 3 windows (requires ffcast)
 ffcast -www ffmpeg -f x11grab -show_region 1 -s %s -i %D+%c [OUTPUTFILENAME].mp4
+
+
+# Compile htop-vim in voidlinux
+./autogen.sh && ./configure --enable-unicode --enable-cgroup --enable-taskstats
