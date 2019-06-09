@@ -29,7 +29,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export TERMINAL="st-256color"
 export PATH="$PATH:${HOME}/.local/bin"
 export PKG_CONFIG_PATH="/lib/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig"
-export PATH="$PATH:$(du "/home/ihsn/sof/ihsn/useful/" | cut -f2 | grep -v '\.git' | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$(du "${HOME}/sof/ihsn/useful/" | cut -f2 | grep -v '\.git' | tr '\n' ':' | sed 's/:*$//')"
 
 source ${HOME}/.func
 source ${HOME}/.alias

@@ -6,6 +6,7 @@ set hlsearch
 set ttimeout
 set incsearch
 set smartcase
+set expandtab
 set tabstop=2
 set noswapfile
 set ignorecase

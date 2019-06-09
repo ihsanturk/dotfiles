@@ -94,3 +94,36 @@ I will need to do these after installing:
 
 A good website about c, openbsd, bugs
 	flak.tedunangst.com
+
+
+
+#####################################
+##                                 ##
+##   Lost notes (bcs not pushed)   ##
+##   Lost notes (bcs not pushed)   ## (Remembered: Switched to FreeBSD)
+##   Lost notes (bcs not pushed)   ## (Remembered: Switched to OpenBSD)
+##   Lost notes (bcs not pushed)   ## (Remembered: Switched to Void Linux)
+##   Lost notes (bcs not pushed)   ##
+##                                 ##
+#####################################
+
+
+
+Now I switched to MacOS Mojave-[Hackintosh] (2019.06.04)
+Thoughts:
+	- It's easy and beautiful.
+	- I can use bitwarden and vim extensions with safari.
+	- Brightness, shortcuts and anything else: Just Works.
+			(Except: sound)
+	- I can use garageband.
+	- I can use Ableton.
+	- I can use spitfire (VST Plugins).
+	- I'm technically using a linux/unix machine and can use good apps with that.
+
+Issues:
+  - When suspend the machine, the sound (AppleALC.kext w/ Lilu.kext) not works.
+	    Maybe VoodooHDA.kext works ???
+	- Wifi not working (Done: Bought a usb wifi card).
+	- I should switch headphone/speaker manually :/
+	    Maybe can create a shortcut or a deamon for that.
+  - I can't use my BEAST GTX 1050 Ti :/ (when rendering in blender / ai training)

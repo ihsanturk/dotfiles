@@ -8,12 +8,11 @@ If there is not a file in the destination directory then
 your new nvim configuration is ready
 
 |||
-|------------:|:--------------------------------------------|
-| OS          | ***[Void Linux](https://voidlinux.org/)***  |
-| WM          | ***[dwm](https://dwm.suckless.org)***       |
-| Terminal    | ***[st](https://st.suckless.org/)***        |
-| Shell       | ***[zsh](https://www.zsh.org/)***           |
-| Editor      | ***[neovim](https://neovim.io/)***          |
-| Browser     | ***[chromium](https://www.chromium.org/)*** |
-| Bar         | ***[slstatus](https://dwm.suckless.org)***  |
-| PDF Viewer  | ***[mupdf](https://mupdf.com/)***           |
+|------------:|:----------------------------------------------|
+| OS          | ***[MacOS Mojave](https://apple.com/macos)*** |
+| Terminal    | ***MacOS Terminal***                          |
+| Shell       | ***[Zsh](https://www.zsh.org/)***             |
+| Editor      | ***[Neovim](https://neovim.io/)***            |
+| Browser     | ***[Safari](https://www.apple.com/safari/)*** |
+| Bar         | ***MacOS Bar***                               |
+| PDF Viewer  | ***MacOS Preview***                           |
