@@ -8,11 +8,10 @@ If there is not a file in the destination directory then
 your new nvim configuration is ready
 
 |||
-|------------:|:----------------------------------------------|
-| OS          | ***[MacOS Mojave](https://apple.com/macos)*** |
-| Terminal    | ***MacOS Terminal***                          |
-| Shell       | ***[Zsh](https://www.zsh.org/)***             |
-| Editor      | ***[Neovim](https://neovim.io/)***            |
-| Browser     | ***[Safari](https://www.apple.com/safari/)*** |
-| Bar         | ***MacOS Bar***                               |
-| PDF Viewer  | ***MacOS Preview***                           |
+|---------:|:---------------------------------------------------------|
+| OS       | ***[macOS mojave](https://apple.com/macos/mojave)***     |
+| WM       | ***[kwm](https://github.com/koekeishiya/kwm)***          |
+| Terminal | ***macOS terminal***                                     |
+| Shell    | ***[zsh](https://www.zsh.org/)***                        |
+| Editor   | ***[neovim](https://neovim.io/)***                       |
+| Browser  | ***[chrome](https://www.google.com/chrome/index.html)*** |
