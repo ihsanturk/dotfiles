@@ -28,7 +28,8 @@ what do I do with computer?
 	I program useful tools
 	I use useful tools
 	nothing else :D
-	but I need to use my graphic card for ai trainings. #(I dont need actually, fuck it. Install OpenBSD)#
+	but I need to use my graphic card for ai trainings.
+    #(I dont need actually, fuCk iT. InStaLl OpEnBSD)#
 
 	wish environment:
 		+ - stali/void, operating system
@@ -126,4 +127,20 @@ Issues:
 	- Wifi not working (done: Bought a usb wifi card).
 	- I must switch headphone/speaker manually :/
 	    Maybe can create a shortcut or a deamon for that.
-  - I can't use my BEAST(!) GTX 1050 Ti :/ (when rendering in blender / ai training)
+  - I can't use my BEAST(!) GTX 1050 Ti :/ (rendering in blender / ai training)
+
+
+me again... (2019.06.19)
+  I am currently using macOS Mojave but..
+  I want to switch to void/arch/gentoo linux again
+  Because:
+    I want to use my lovely dwm and graphic card
+    But:
+      I was using iMovie and garageband (and Ableton Live with Spitfire Audio)
+      I can use blender as a video editor
+      But:
+        I don't think (or know) I will find a good DAW for spitfire VST plugin
+        Alright alright.. I will use my phone for playing piano. (Not that bad)
+  Also:
+    I should solve the problem with connecting my iphone to the linux machine
+      with libimobiledevice (Lockdown? problem).
