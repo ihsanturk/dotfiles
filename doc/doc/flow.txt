@@ -144,3 +144,10 @@ me again... (2019.06.19)
   Also:
     I should solve the problem with connecting my iphone to the linux machine
       with libimobiledevice (Lockdown? problem).
+
+
+  Okay guys I decided to switch to arch A g a i n.
+  Arch Benefits:
+    + dwm
+    + renders with graphic card
+    + linux freedom
