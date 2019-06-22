@@ -28,7 +28,7 @@ alias nk='setxkbmap -option caps:escape; xset r rate 220; setxkbmap gb'
 
 # ARCH
 alias pu='sudo pacman -Syu'
-alias pf='sudo pacman -s'
+alias pf='sudo pacman -Qs'
 alias pr='sudo pacman -R'
 alias pi='sudo pacman -S'
 
