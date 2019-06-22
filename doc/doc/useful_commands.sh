@@ -216,3 +216,7 @@ ffcast -www ffmpeg -f x11grab -show_region 1 -s %s -i %D+%c [OUTPUTFILENAME].mp4
 # Deactivate an hardrive (detach)
 # (This is for MacOS Mojave)
 hdiutil detach /dev/disk[DISK_NUMBER]
+
+
+# Redirect to /etc/resolv.conf
+printf "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
