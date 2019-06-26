@@ -220,3 +220,7 @@ hdiutil detach /dev/disk[DISK_NUMBER]
 
 # Redirect to /etc/resolv.conf
 printf "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
+
+
+# Print touching or not
+idevicesyslog |ag Touching | awk -F with '{printf $2 "\n"}'
