@@ -2,8 +2,27 @@
 
 #=== color ===#
 alias grep="grep --color=auto"
-# alias diff="diff --color=auto"
-# alias ls='ls -h --color'
+alias ls='ls -h --color'
+
+#=== short ===#
+alias shh='\
+sudo umount /dev/sdb1 2>/dev/null;\
+sudo hdparm -Y /dev/sdb1 1>/dev/null;\
+sudo hdparm -Y /dev/sdb 1>/dev/null'
+alias nk='setxkbmap -option caps:escape; xset r rate 220; setxkbmap gb'
+alias cpwd='pwd | xclip -selection clipboard' # Linux/Unix
+alias usc='cat ${HOME}/doc/useful_commands.sh | fzf'
+alias eusc='vim ${HOME}/doc/useful_commands.sh'
+alias emacs='emacs -nw'
+alias vim='nvim'
+alias rm='trash'
+alias n='nnn'
+# ARCH
+alias pu='sudo pacman -Syu'
+alias pf='sudo pacman -Qs'
+alias pr='sudo pacman -R'
+alias pi='sudo pacman -S'
+
 
 #=== short ===#
 # alias wifi='\
@@ -12,29 +31,11 @@ alias grep="grep --color=auto"
 # sudo wpa_supplicant -B -i  wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf;\
 # dhcpcd'
 
-alias shh='\
-sudo umount /dev/sdb1 2>/dev/null;\
-sudo hdparm -Y /dev/sdb1 1>/dev/null;\
-sudo hdparm -Y /dev/sdb 1>/dev/null'
-
-alias nk='setxkbmap -option caps:escape; xset r rate 220; setxkbmap gb'
-
 #VOID
 # alias pu='sudo xbps-install -Syuv'
 # alias pf='sudo xbps-query -s'
 # alias pr='sudo xbps-remove -R'
 # alias pl='sudo xbps-query -m'
 # alias pi='sudo xbps-install'
-
-# ARCH
-alias pu='sudo pacman -Syu'
-alias pf='sudo pacman -Qs'
-alias pr='sudo pacman -R'
-alias pi='sudo pacman -S'
-
-alias cpwd='pwd | xclip -selection clipboard' # Linux/Unix
-#alias cpwd='pwd | pbcopy -selection clipboard' # Mac
-alias usc='cat ${HOME}/doc/useful_commands.sh | fzf'
-alias eusc='vim ${HOME}/doc/useful_commands.sh'
-alias vim='nvim'
-alias n='nnn'
+#MAC
+# alias cpwd='pwd | pbcopy -selection clipboard' # Mac
