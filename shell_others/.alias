@@ -2,6 +2,7 @@
 
 #=== color ===#
 alias grep="grep --color=auto"
+alias diff="diff --color"
 alias ls='ls -h --color'
 
 #=== short ===#

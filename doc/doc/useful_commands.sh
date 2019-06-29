@@ -223,4 +223,8 @@ printf "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
 
 
 # Print touching or not
-idevicesyslog |ag Touching | awk -F with '{printf $2 "\n"}'
+idevicesyslog | ag Touching | awk -F with '{printf $2 "\n"}' # ag -> the_silver_searcher
+
+
+# Print Key names for defining key combinations (hotkeys)
+grep "compose:" /usr/share/X11/xkb/rules/base.lst
