@@ -17,7 +17,6 @@ alias eusc='vim ${HOME}/doc/useful_commands.sh'
 alias emacs='emacs -nw'
 alias la='ls -lAh'
 alias ll='ls -lh'
-alias vim='nvim'
 alias rm='trash'
 alias l='ls -l'
 alias n='nnn'
@@ -28,7 +27,6 @@ alias pf='sudo pacman -Qs'
 alias pr='sudo pacman -R'
 alias pi='sudo pacman -S'
 
-
 #=== short ===#
 # alias wifi='\
 # sudo killall wpa_supplicant dhcpcd;\
@@ -36,11 +34,12 @@ alias pi='sudo pacman -S'
 # sudo wpa_supplicant -B -i  wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf;\
 # dhcpcd'
 
-#VOID
+# VOID
 # alias pu='sudo xbps-install -Syuv'
 # alias pf='sudo xbps-query -s'
 # alias pr='sudo xbps-remove -R'
 # alias pl='sudo xbps-query -m'
 # alias pi='sudo xbps-install'
-#MAC
-# alias cpwd='pwd | pbcopy -selection clipboard' # Mac
+#
+# MAC
+# alias cpwd='pwd | pbcopy -selection clipboard'
