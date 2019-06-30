@@ -232,3 +232,9 @@ grep "compose:" /usr/share/X11/xkb/rules/base.lst
 
 # Amixer increase (and "-" for decrease) volume of Master
 amixer -c 0 sset Master 1dB+
+
+
+# Find video files even if the endswith of the name of file 
+# not include .mov, .mp4 or whatever
+
+find . type f -exec file -N -i -- {} + | grep video
