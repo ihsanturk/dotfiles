@@ -1,0 +1,224 @@
+                                                   5. "Better" folder structure:
+                                                     What do I want from a folder structure?
+                                                       o Easier
+                                                       o Reusable
+                                                       o Efficient
+                                                       o Maintainable
+                                                       o Easy to find (efficient for find programs)
+
+                                                     Conflicts:
+                                                       Which one of these is better?
+                                                         a) Pack all related files in one folder
+                                                         b) Put related files in their respective folders
+
+                                                         Option "a" is more portable
+                                                         Option "b" is more logical
+
+                                                     Life Scenarios:
+                                                       I want to find;
+                                                         - main.cpp which is in folder that I am working on a project
+                                                             /Softwares/Personal/VideoProduction/main.c
+
+                                                         - logo.blend which is in the folder named like youtube istebukadar
+
+                                                     Okay... Desicion!:
+                                                     #############################################################################
+                                                     #                                                                           #
+                                                     # 0. I will pick the answer a. Each project will have its own folder.       #
+                                                     # 1. If a group of file isn't a project then it will go the related folder. #
+                                                     # 2. But, every time I made a change in the folder struture, the special    #
+                                                     #    "FolderInfo" file will be updated.                                     #
+                                                     # 3. Also, in this way I can open all my pictures (doesn't matter they are  #
+                                                     #    in seperate folder) with the help of the "FolderInfo.txt" file.        #
+                                                     #                                                                           #
+                                                     #       Article 3 Example:                                                  #
+                                                     #                                                                           #
+                                                     #           grep -Ei "(.jpeg|.jpg)" FolderInfo.txt | sxiv -it               #
+                                                     #                                                                           #
+                                                     #     ^Opens the jpg or jpeg files from "FolderInfo" file with sxiv^        #
+                                                     #                                                                           #
+                                                     #                                                                           #
+                                                     #                                                                           #
+                                                     #      edit0: Wait... I have an idea:                                       #
+                                                     #          Maybe I can write a script for createing a json file for all     #
+                                                     #          my folders/files in my computer and add some other properties    #
+                                                     #          like DateOfBirth, Size, OldName. And use this file with a prog-  #
+                                                     #          ram like Apple Spotlight that written C.                         #
+                                                     #                                                                           #
+                                                     #                                                                           #
+                                                     #                                                                           #
+                                                     #############################################################################
+
+
+
+                                                   4. ..... folder structure: (Example based) (Wish structure)
+                                                     Description:
+                                                       I don't know how to describe this structure
+                                                       We will see from examples
+
+                                                     Example:
+                                                       [Media]
+                                                         [Picture]
+                                                           [Family]
+                                                             IMG_5678.jpg
+                                                           [Wallpaper]
+                                                             [Landscape]
+                                                               IMG_0001.png
+                                                           [Texture]
+                                                             [door]
+                                                               blue.jpg
+
+                                                         [Video]
+                                                           [Family]
+                                                             VID_5678.mov
+                                                           [Film]
+                                                             [BlackMirror]
+                                                               [S1]
+                                                                 E1.mp4
+                                                           [Render]
+                                                             BrickingWall.mp4
+
+                                                       [Software]
+                                                         [School]
+                                                           [Lectures]
+                                                             [Week1]
+                                                               main.c
+                                                         [Personal]
+                                                           [VideoProduction]
+                                                             main.c
+                                                           [PrimeNumbers]
+                                                             main.c
+
+                                                       [Document]
+                                                         [SheetMusic]
+                                                           [NilsFrahm]
+                                                             Ambre.pdf
+                                                         [Learn]
+                                                           [Computer]
+                                                             CProgramming.pdf
+                                                         [Project]
+                                                           [Ai]
+                                                             [FindFaces]
+                                                               algorithm.txt
+                                                         [Note]
+                                                           2019.04.27.txt
+                                                         [Production]
+                                                           [Video]
+                                                             [VFX]
+                                                               [BrickingWall]
+                                                                 main.blend
+                                                           [Picture]
+                                                             [Art]
+                                                               [Landscape]
+                                                                 main.blend
+                                                           [Music]
+                                                             3Seconds.garageband
+
+
+
+                                                   3. Subject based folder structure:
+                                                     Description:
+                                                       All files about vfx
+                                                       All files about picture
+                                                       All files about music
+
+                                                     Example:
+                                                       [Picture]
+                                                         [Memories]
+                                                           different.jpg
+                                                           something.png
+                                                           another.tiff
+
+                                                       [Work]
+                                                         [VFX]
+                                                           [Balcony VFX]
+                                                             main.blend
+                                                             [Texture]
+                                                               different.jpg
+                                                               something.jpg
+                                                               another.png
+
+
+
+                                                   2. Time based kind structure (NESTED):
+                                                     Description:
+                                                       All files in 2019.06.28
+                                                       All files in 2019.04.05
+                                                       All files in 2018.03.07
+
+                                                     Example:
+                                                       [2019.01.24]
+                                                         [pdf]
+                                                           different.pdf
+                                                           something.pdf
+                                                           another.pdf
+                                                         [jpg]
+                                                           different.jpg
+                                                           something.jpg
+                                                           another.jpg
+                                                         [blend]
+                                                           different.blend
+                                                           something.blend
+                                                           another.blend
+                                                       [2019.05.03]
+                                                         [pdf]
+                                                           different.pdf
+                                                           something.pdf
+                                                           another.pdf
+                                                         [jpg]
+                                                           different.jpg
+                                                           something.jpg
+                                                           another.jpg
+                                                         [blend]
+                                                           different.blend
+                                                           something.blend
+                                                           another.blend
+
+
+
+                                                   1. Time/Date based folder structure:
+                                                     Description:
+                                                       All type of files in 2019.06.28
+                                                       All type of files in 2019.04.05
+                                                       All type of files in 2018.03.07
+
+                                                     Example:
+                                                       [2019.05.03]
+                                                         different.pdf
+                                                         something.jpg
+                                                         another.blend
+                                                       [2019.06.08]
+                                                         something.jpg
+                                                         different.pdf
+                                                         another.blend
+                                                       [2019.09.17]
+                                                         something.jpg
+                                                         different.pdf
+                                                         another.blend
+
+
+                                                   0. Kind based folder structure:
+                                                     Description:
+                                                       pdf
+                                                       blend
+                                                       txt
+                                                       png
+                                                       jpg
+                                                       ...
+                                                       ..
+                                                       .
+                                                       etc.
+
+                                                     Example:
+                                                       [pdf]
+                                                         different.pdf
+                                                         something.pdf
+                                                         another.pdf
+                                                       [jpg]
+                                                         different.jpg
+                                                         something.jpg
+                                                         another.jpg
+                                                       [blend]
+                                                         different.blend
+                                                         something.blend
+                                                             another.blend

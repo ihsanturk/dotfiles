@@ -1,0 +1,10 @@
+clear Lock
+keycode 133 = Mode_switch Super_L
+keycode 66 = Escape
+
+keycode 30 = u U Prior
+keycode 40 = d D Next
+keycode 43 = h H Left
+keycode 44 = j J Down
+keycode 45 = k K Up
+keycode 46 = l L Right
