@@ -228,3 +228,7 @@ idevicesyslog | ag Touching | awk -F with '{printf $2 "\n"}' # ag -> the_silver_
 
 # Print Key names for defining key combinations (hotkeys)
 grep "compose:" /usr/share/X11/xkb/rules/base.lst
+
+
+# Amixer increase (and "-" for decrease) volume of Master
+amixer -c 0 sset Master 1dB+
