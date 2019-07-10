@@ -8,10 +8,9 @@ If there is not a file in the destination directory then
 your new nvim configuration is ready
 
 |||
-|---------:|:----------------------------------------------|
-| OS       | ***[arch linux](https://archlinux.org)***     |
-| Terminal | ***[st](https://st.suckless.org)***           |
-| WM       | ***[dwm](https://dwm.suckless.org)***         |
-| Shell    | ***[zsh](https://zsh.org/)***                 |
-| Editor   | ***[emacs](https://gnu.org/software/emacs)*** |
-| Browser  | ***[firefox](https://mozilla.org)***          |
+|---------:|:------------------------------------------|
+| OS       | ***[arch linux](https://archlinux.org)*** |
+| Terminal | ***[st](https://st.suckless.org)***       |
+| Shell    | ***[zsh](https://zsh.org/)***             |
+| Editor   | ***[neovim](https://neovim.io)***         |
+| Browser  | ***[firefox](https://mozilla.org)***      |
