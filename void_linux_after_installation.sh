@@ -36,9 +36,9 @@
 # cd /home/ihsn/sof
 # git clone https://github.com/ihsanturk/st && cd st && sudo make clean install
 
-SSID=""
-USERNAME=""
-PSK=""
+# SSID=""
+# USERNAME=""
+# PSK=""
 
 ## Activate touchpad tapping
 # sudo sed -i '/Identifier.*touchpad/aOption "Tapping" "on"' /usr/share/X11/xorg.conf.d/40-libinput.conf
@@ -60,8 +60,8 @@ PSK=""
 ## Set default shell zsh
 #sudo chsh -s $(which zsh) $USERNAME
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-#git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 ## Grub kernel options
 # sed -i 's/\(GRUB_CMDLINE_LINUX_DEFAULT=".*\)"/\1 iommu=soft nopti nouveau.modeset=0"/g'\
