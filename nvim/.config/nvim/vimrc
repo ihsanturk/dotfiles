@@ -1,5 +1,5 @@
 "=== settings ==="
-let mapleader = ","
+let mapleader = '\'
 syntax on
 set timeout
 set hlsearch
@@ -56,6 +56,7 @@ nmap <Tab> :bn<CR>
 nmap <S-Tab> :bp<CR>
 nmap <esc><esc> :noh<CR>
 nmap <F5> :so ~/.config/nvim/vimrc<CR>
+tno <Esc> <C-\><C-n>
 
 map q: :q
 cnoreabbrev W w
