@@ -234,7 +234,29 @@ grep "compose:" /usr/share/X11/xkb/rules/base.lst
 amixer -c 0 sset Master 1dB+
 
 
-# Find video files even if the endswith of the name of file 
+# Find video files even if the endswith of the name of file
 # not include .mov, .mp4 or whatever
 
 find . type f -exec file -N -i -- {} + | grep video
+
+
+# Hackintosh activate sound/audio
+
+1. Download AppleALC from its repository
+2. Download Lilu from its repository
+3. Copy these files to /System/Library/Extensions directory
+4. Copy these files to /Volumes/EFI/EFI/CLOVER/Kexts/Other directory also
+5. Change these values:
+     in /Volumes/EFI/EFI/CLOVER/config.plist
+     Devices > Audio > Inject = 0,
+     Devices > Audio > ReseHDA = True
+     Devices > Properties > PciRoot(0)/Pci(0x1f,3) > layout-id = 99 (WITHOUT #)
+
+     # 99 for auto detecting headphones and speaker
+6. Run
+     sudo chmod 755 /System/Library/Extensions &&
+     sudo chown -E root:wheel /System/Library/Extensions;
+     sudo kextcache -i /
+     sudo reboot
+
+Now its activated
