@@ -13,6 +13,7 @@ set ignorecase
 set shiftwidth=2
 set ttimeoutlen=10
 set timeoutlen=1000
+set statusline=%f\ %y\ %l\ %c
 scriptencoding utf-8
 filetype plugin indent on
 let g:netrw_dirhistmax = 0
@@ -39,7 +40,7 @@ if has('persistent_undo')
 endif
 
 "=== delete without cut ==="
-nnoremap <leader>d "_d
+nmap <leader>d "_d
 
 "=== delete spaces end of lines ==="
 augroup fmt
@@ -48,20 +49,24 @@ augroup fmt
 augroup END
 
 "=== shortcut ==="
-" TODO
-" 	change tab to suggest variable
 nmap n nzz
 nmap N Nzz
 nmap <Tab> :bn<CR>
 nmap <S-Tab> :bp<CR>
 nmap <esc><esc> :noh<CR>
-nmap <F5> :so ~/.config/nvim/vimrc<CR>
+nmap <leader>r :so ~/.config/nvim/vimrc<CR>
 tno <Esc> <C-\><C-n>
 
 map q: :q
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev qw wq
-cnoreabbrev Wq wq
-cnoreabbrev Q! q!
+cnorea W w
+cnorea Q q
+cnorea qw wq
+cnorea Wq wq
+cnorea Q! q!
 
+"=== comment ==="
+"c,cpp
+autocmd FileType c,cpp nmap <leader>c A */<esc>I/* <esc>:noh<CR>
+autocmd FileType c,cpp nmap <leader>u :s/\/\* //g<CR>:s/ \*\///g<CR>:noh<CR>
+autocmd FileType c,cpp vmap <leader>c <esc>`>a */<esc>`<i/* <esc>:noh<CR>
+autocmd FileType c,cpp vmap <leader>u :s/\/\* //g<CR>gv:s/ \*\///g<CR>:noh<CR>
