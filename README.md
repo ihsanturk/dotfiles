@@ -5,12 +5,12 @@ cd dotfiles
 stow nvim #Just install the nvim configuration
 ```
 If there is not a file in the destination directory then
-your new nvim configuration is ready
+your new nvim configuration is ready.
 
 |||
 |---------:|:------------------------------------------|
 | OS       | ***[arch linux](https://archlinux.org)*** |
 | Terminal | ***[st](https://st.suckless.org)***       |
 | Shell    | ***[zsh](https://zsh.org/)***             |
-| Editor   | ***[neovim](https://neovim.io)***         |
+| Editor   | ***[emacs](www.gnu.org/software/emacs)*** |
 | Browser  | ***[firefox](https://mozilla.org)***      |
