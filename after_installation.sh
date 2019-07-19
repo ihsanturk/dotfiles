@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ## Packages
-# sudo xbps-install\
+# sudo pacman -S\
 # 	git\
 # 	zsh\
 # 	nnn\
@@ -9,6 +9,7 @@
 # 	mpv\
 # 	stow\
 # 	xset\
+#   curl\
 # 	dmenu\
 # 	xclip\
 # 	hdparm\
@@ -19,13 +20,13 @@
 # 	setxkbmap\
 # 	youtube-dl\
 # 	alsa-utils\
-# 	libao-devel\
-# 	libX11-devel\
-# 	libXft-devel\
-# 	ncurses-devel\
-# 	portmidi-devel\
-#   libimobiledevice\
-# 	libXinerama-devel\
+# 	#libao-devel\
+# 	#libX11-devel\
+# 	#libXft-devel\
+# 	#ncurses-devel\
+# 	#portmidi-devel\
+#   #libimobiledevice\
+# 	#libXinerama-devel\
 # 	the_silver_searcher
 
 # cd /home/ihsn; git clone https://github.com/ihsanturk/dotfiles
@@ -36,9 +37,9 @@
 # cd /home/ihsn/sof
 # git clone https://github.com/ihsanturk/st && cd st && sudo make clean install
 
-# SSID=""
-# USERNAME=""
-# PSK=""
+SSID=""
+USERNAME="ihsn"
+PSK=""
 
 ## Activate touchpad tapping
 # sudo sed -i '/Identifier.*touchpad/aOption "Tapping" "on"' /usr/share/X11/xorg.conf.d/40-libinput.conf
@@ -54,14 +55,14 @@
 # sudo xbps-install xorg-minimal xf86-video-intel git curl base-devel
 
 ## Set up Font
-# cd /home/$USERNAME && mkdir .fonts && cd .fonts
-# curl https://raw.githubusercontent.com/IBM/plex/master/IBM-Plex-Mono/fonts/complete/ttf/IBMPlexMono-Text.ttf -o IBMPlexMono-Text.ttf && fc-cache
+cd /home/$USERNAME && mkdir .fonts && cd .fonts &&
+curl https://raw.githubusercontent.com/IBM/plex/master/IBM-Plex-Mono/fonts/complete/ttf/IBMPlexMono-Text.ttf -o IBMPlexMono-Text.ttf && fc-cache
 
 ## Set default shell zsh
-#sudo chsh -s $(which zsh) $USERNAME
-#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+# sudo chsh -s $(which zsh) $USERNAME
+# sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 ## Grub kernel options
 # sed -i 's/\(GRUB_CMDLINE_LINUX_DEFAULT=".*\)"/\1 iommu=soft nopti nouveau.modeset=0"/g'\

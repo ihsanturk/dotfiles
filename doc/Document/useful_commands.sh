@@ -260,3 +260,7 @@ find . type f -exec file -N -i -- {} + | grep video
      sudo reboot
 
 Now its activated
+
+
+# Xorg key names list
+/usr/include/xkbcommon/xkbcommon-keysyms.h
