@@ -12,8 +12,8 @@ sudo hdparm -Y /dev/sdb1 1>/dev/null;\
 sudo hdparm -Y /dev/sdb 1>/dev/null'
 alias nk='setxkbmap -option caps:escape; xset r rate 220; setxkbmap gb'
 # alias cpwd='pwd | xclip -selection clipboard' # Linux/Unix
-alias usc='cat ${HOME}/doc/useful_commands.sh | fzf'
-alias eusc='nvim ${HOME}/doc/useful_commands.sh'
+alias usc='cat ${HOME}/Document/useful_commands.sh | dmenu -i -l 20'
+alias eusc='nvim ${HOME}/Document/useful_commands.sh'
 alias emacs='emacs -nw'
 alias vim='nvim'
 alias la='ls -lAh'
