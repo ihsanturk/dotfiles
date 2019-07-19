@@ -4,6 +4,7 @@ xrandr --auto
 
 setxkbmap -layout gb
 xmodmap .Xmodmap
+xbindkeys
 xset r rate 220 30
 
 exec slstatus &!
