@@ -12,5 +12,5 @@ your new nvim configuration is ready.
 | OS       | ***[arch linux](https://archlinux.org)*** |
 | Terminal | ***[st](https://st.suckless.org)***       |
 | Shell    | ***[zsh](https://zsh.org/)***             |
-| Editor   | ***[vim](htpp://www.vim.org)***           |
+| Editor   | ***[vim](http://www.vim.org)***           |
 | Browser  | ***[surf](https://surf.suckless.org)***   |
