@@ -27,6 +27,9 @@ hi LineNr ctermfg=238
 hi cursorline cterm=NONE ctermbg=237
 hi CursorLineNr cterm=bold ctermfg=6
 hi StatusLine cterm=bold ctermfg=72 ctermbg=236
+autocmd InsertEnter,InsertLeave * set cul!
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 "=== global copy ==="
 if has('unnamedplus')
