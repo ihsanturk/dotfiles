@@ -264,3 +264,16 @@ Now its activated
 
 # Xorg key names list
 /usr/include/xkbcommon/xkbcommon-keysyms.h
+
+
+# Find all images and open with sxiv in fullscreen, thumbnail mode
+sxiv -tf $(find . type f -exec file -N -i -- {} + 2>/dev/null | grep image | sed 's/:.*//g')
+
+
+# Look inside the current folder if there is a file open it with [PROGRAM]
+while true;
+do
+  if ! [ -z "$(ls -A .)" ]; then
+    [PROGRAM] ./*
+  fi
+done
