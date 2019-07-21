@@ -14,3 +14,21 @@ your new nvim configuration is ready.
 | Shell    | ***[zsh](https://zsh.org/)***             |
 | Editor   | ***[vim](http://www.vim.org)***           |
 | Browser  | ***[surf](https://surf.suckless.org)***   |
+
+#### Notes
+In order to install (link) *dmenu_run* cache list
+you should **`keep`** just the **`else section code`** of the
+**`/usr/bin/dmenu_path`** file
+
+So the /usr/bin/dmenu_path should look like:
+```sh
+#!/bin/sh
+
+cachedir="${XDG_CACHE_HOME:-"$HOME/.cache"}"
+cache="$cachedir/dmenu_run"
+
+[ ! -e "$cachedir" ] && mkdir -p "$cachedir"
+
+IFS=:
+cat "$cache"
+```
