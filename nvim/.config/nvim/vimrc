@@ -69,7 +69,7 @@ cnorea Q! q!
 
 "=== comment ==="
 "c,cpp
-autocmd FileType c,cpp nmap <leader>c mxA */<esc>I/* <esc>'x:noh<CR>
+autocmd FileType c,cpp nmap <leader>c mxA */<esc>I/* <esc>`x:noh<CR>
 autocmd FileType c,cpp nmap <leader>u :s/\/\* //g<CR>:s/ \*\///g<CR>:noh<CR>
 autocmd FileType c,cpp vmap <leader>c <esc>`>a */<esc>`<i/*<esc>`>:noh<CR>
 autocmd FileType c,cpp vmap <leader>u :s/\/\*//g<CR>gv:s/ \*\///g<CR>:noh<CR>
