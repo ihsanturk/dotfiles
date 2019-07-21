@@ -19,7 +19,7 @@ alias emacs='emacs -nw'
 alias la='ls -lAh'
 alias ll='ls -lh'
 #alias rm='trash'
-alias l='ls -l'
+alias l='ls -lh'
 alias n='nnn'
 
 # ARCH
