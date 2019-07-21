@@ -7,13 +7,12 @@ set ttimeout
 set incsearch
 set smartcase
 set expandtab
-set tabstop=2
+set tabstop=3
 set noswapfile
 set ignorecase
-set shiftwidth=2
+set shiftwidth=3
 set ttimeoutlen=10
 set timeoutlen=1000
-set statusline=%f\ %y\ %l\ %c
 scriptencoding utf-8
 filetype plugin indent on
 let g:netrw_dirhistmax = 0
@@ -26,10 +25,31 @@ colorscheme delek
 hi LineNr ctermfg=238
 hi cursorline cterm=NONE ctermbg=237
 hi CursorLineNr cterm=bold ctermfg=6
-hi StatusLine cterm=bold ctermfg=72 ctermbg=236
 autocmd InsertEnter,InsertLeave * set cul!
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+
+
+hi StatusLine ctermbg=237
+hi User1 ctermfg=65 ctermbg=237
+hi User2 ctermfg=14 ctermbg=236 cterm=bold
+hi User3 ctermfg=3 ctermbg=238
+hi User4 ctermfg=6 ctermbg=238
+hi User5 ctermfg=7 ctermbg=239
+hi User6 ctermfg=12 ctermbg=241
+hi User7 ctermfg=11 ctermbg=237
+hi User7 ctermbg=0
+
+" === status line ==="
+set laststatus=2
+set statusline=
+set statusline+=\ %1*[%n]                                "1 BufferNumber
+set statusline+=\ %2*\ %F                                "2 FilePath
+set statusline+=\ %3*\ %c\ %m%r%w%8*%=                   "3 ColumnNumber
+set statusline+=\ %4*\ %y                                  "4 FileType
+set statusline+=\ %5*\ [%{&ff}]                          "5 FileFormat
+set statusline+=\ %6*\ [%{''.(&fenc!=''?&fenc:&enc).''}] "6 Encoding
+set statusline+=\ %7*\ %P\                               "7 Modified? Readonly? Top/bot.
 
 "=== global copy ==="
 if has('unnamedplus')
@@ -69,7 +89,7 @@ cnorea Q! q!
 
 "=== comment ==="
 "c,cpp
-autocmd FileType c,cpp nmap <leader>c mxA */<esc>I/* <esc>`x:noh<CR>
+autocmd FileType c,cpp nmap <leader>c mxA */<esc>I/* <esc>`x3l:noh<CR>
 autocmd FileType c,cpp nmap <leader>u :s/\/\* //g<CR>:s/ \*\///g<CR>:noh<CR>
 autocmd FileType c,cpp vmap <leader>c <esc>`>a */<esc>`<i/*<esc>`>:noh<CR>
 autocmd FileType c,cpp vmap <leader>u :s/\/\*//g<CR>gv:s/ \*\///g<CR>:noh<CR>
