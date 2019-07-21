@@ -11,14 +11,14 @@ sudo umount /dev/sdb1 2>/dev/null;\
 sudo hdparm -Y /dev/sdb1 1>/dev/null;\
 sudo hdparm -Y /dev/sdb 1>/dev/null'
 alias nk='setxkbmap -option caps:escape; xset r rate 220; setxkbmap gb'
-# alias cpwd='pwd | xclip -selection clipboard' # Linux/Unix
+ alias cpwd='pwd | xclip -selection clipboard' # Linux/Unix
 alias usc='cat ${HOME}/Document/useful_commands.sh | dmenu -i -l 20'
 alias eusc='nvim ${HOME}/Document/useful_commands.sh'
 alias emacs='emacs -nw'
 #alias vim='nvim'
 alias la='ls -lAh'
 alias ll='ls -lh'
-#alias rm='trash'
+alias rm='trash'
 alias l='ls -lh'
 alias n='nnn'
 
@@ -43,4 +43,4 @@ alias pi='sudo pacman -S'
 # alias pi='sudo xbps-install'
 #
 # MAC
-alias cpwd='pwd | pbcopy -selection clipboard'
+# alias cpwd='pwd | pbcopy -selection clipboard'
