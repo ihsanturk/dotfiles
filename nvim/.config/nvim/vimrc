@@ -44,9 +44,9 @@ hi User7 ctermbg=0
 set laststatus=2
 set statusline=
 set statusline+=\ %1*[%n]                                "1 BufferNumber
-set statusline+=\ %2*\ %F                                "2 FilePath
+set statusline+=\ %2*\ %f                                "2 FilePath
 set statusline+=\ %3*\ %c\ %m%r%w%8*%=                   "3 ColumnNumber
-set statusline+=\ %4*\ %y                                  "4 FileType
+set statusline+=\ %4*\ %y                                "4 FileType
 set statusline+=\ %5*\ [%{&ff}]                          "5 FileFormat
 set statusline+=\ %6*\ [%{''.(&fenc!=''?&fenc:&enc).''}] "6 Encoding
 set statusline+=\ %7*\ %P\                               "7 Modified? Readonly? Top/bot.
