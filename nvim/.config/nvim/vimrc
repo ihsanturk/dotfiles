@@ -1,4 +1,4 @@
-"=== settings ==="
+"=== SETTING ==="
 let mapleader = '\'
 syntax on
 set timeout
@@ -6,11 +6,11 @@ set hlsearch
 set ttimeout
 set incsearch
 set smartcase
-set expandtab
-set tabstop=3
+"set expandtab
+set tabstop=4
 set noswapfile
 set ignorecase
-set shiftwidth=3
+set shiftwidth=4
 set ttimeoutlen=10
 set timeoutlen=1000
 scriptencoding utf-8
@@ -18,7 +18,7 @@ filetype plugin indent on
 let g:netrw_dirhistmax = 0
 setglobal fileencoding=utf-8
 
-"=== design ==="
+"=== DESIGN ==="
 set number
 set cursorline
 colorscheme delek
@@ -38,9 +38,8 @@ hi User4 ctermfg=6 ctermbg=238
 hi User5 ctermfg=7 ctermbg=239
 hi User6 ctermfg=12 ctermbg=241
 hi User7 ctermfg=11 ctermbg=237
-hi User7 ctermbg=0
 
-" === status line ==="
+"=== STATUS LINE ==="
 set laststatus=2
 set statusline=
 set statusline+=\ %1*[%n]                                "1 BufferNumber
@@ -51,27 +50,27 @@ set statusline+=\ %5*\ [%{&ff}]                          "5 FileFormat
 set statusline+=\ %6*\ [%{''.(&fenc!=''?&fenc:&enc).''}] "6 Encoding
 set statusline+=\ %7*\ %P\                               "7 Modified? Readonly? Top/bot.
 
-"=== global copy ==="
+"=== GLOBAL COPY ==="
 if has('unnamedplus')
 	set clipboard=unnamed,unnamedplus
 endif
 
-"=== persistent undo ==="
+"=== PERSISTENT UNDO ==="
 if has('persistent_undo')
   set undofile
   set undodir=~/.cache/vim
 endif
 
-"=== delete without cut ==="
+"=== DELETE WITHOUT CUT ==="
 nmap <leader>d "_d
 
-"=== delete spaces end of lines ==="
+"=== DELETE SPACES END OF LINES ==="
 augroup fmt
 	autocmd!
 	autocmd BufWritePost,FileWritePost * :silent! %s/\s\+$//
 augroup END
 
-"=== shortcut ==="
+"=== SHORTCUT ==="
 nmap n nzz
 nmap N Nzz
 nmap <Tab> :bn<CR>
@@ -87,7 +86,7 @@ cnorea qw wq
 cnorea Wq wq
 cnorea Q! q!
 
-"=== comment ==="
+"=== COMMENT ==="
 "c,cpp
 autocmd FileType c,cpp nmap <leader>c mxA */<esc>I/* <esc>`x3l:noh<CR>
 autocmd FileType c,cpp nmap <leader>u :s/\/\* //g<CR>:s/ \*\///g<CR>:noh<CR>
