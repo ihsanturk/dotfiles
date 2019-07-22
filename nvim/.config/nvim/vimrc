@@ -29,6 +29,9 @@ autocmd InsertEnter,InsertLeave * set cul!
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+highlight PmenuSel cterm=bold ctermfg=11 ctermbg=237
+highlight PmenuBar ctermfg=65 ctermbg=220
+highlight Pmenu ctermfg=7 ctermbg=239
 
 hi StatusLine ctermbg=237
 hi User1 ctermfg=65 ctermbg=237
