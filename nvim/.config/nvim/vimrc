@@ -88,8 +88,21 @@ cnorea Wq wq
 cnorea Q! q!
 
 "=== COMMENT ==="
-"c,cpp
+"vim
+autocmd FileType vim nmap <leader>c mx:s/^\(\s*\)/\1"/g<CR>`xl:noh<CR>
+autocmd FileType vim nmap <leader>u mx:s/^\(\s*\)"/\1/g<CR>`xh:noh<CR>
+autocmd FileType vim vmap <leader>c mx:s/^\(\s*\)/\1"/g<CR>`xl:noh<CR>
+autocmd FileType vim vmap <leader>u mx:s/^\(\s*\)"/\1/g<CR>`xh:noh<CR>
+
+"make,python,sh (line, multiline)
+autocmd FileType make,python,sh nmap <leader>c mx:s/^\(\s*\)/\1#/g<CR>`xl:noh<CR>
+autocmd FileType make,python,sh nmap <leader>u mx:s/^\(\s*\)#/\1/g<CR>`xh:noh<CR>
+autocmd FileType make,python,sh vmap <leader>c mx:s/^\(\s*\)/\1#/g<CR>`xl:noh<CR>
+autocmd FileType make,python,sh vmap <leader>u mx:s/^\(\s*\)#/\1/g<CR>`xh:noh<CR>
+
+"c,cpp (line, multiline)
 autocmd FileType c,cpp nmap <leader>c mxA */<esc>I/* <esc>`x3l:noh<CR>
 autocmd FileType c,cpp nmap <leader>u :s/\/\* //g<CR>:s/ \*\///g<CR>:noh<CR>
 autocmd FileType c,cpp vmap <leader>c <esc>`>a */<esc>`<i/*<esc>`>:noh<CR>
 autocmd FileType c,cpp vmap <leader>u :s/\/\*//g<CR>gv:s/ \*\///g<CR>:noh<CR>
+
