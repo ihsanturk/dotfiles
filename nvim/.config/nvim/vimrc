@@ -43,7 +43,7 @@ hi User6 ctermfg=11 ctermbg=237 cterm=none
 "=== STATUS LINE ==="
 set laststatus=2
 set statusline=
-set statusline+=%1*\ [%n]                              "1 BufferNumber
+set statusline+=%1*\ %n                                "1 BufferNumber
 set statusline+=\ %0*\ %f                              "0 FilePath
 set statusline+=\ %2*\ %c                              "2 ColumnNumber
 set statusline+=\ %3*%m%r%w%0*%=                       "3 ReadOnly?
