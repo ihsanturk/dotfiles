@@ -2,9 +2,10 @@
 
 xrandr --auto
 
-setxkbmap -layout tr
+setxkbmap -layout gb
+xmodmap ~/.Xmodmap
 xbindkeys
 xset r rate 220 30
 
-#exec slstatus &!
-exec startkde 2>/tmp/dwm.log
+exec slstatus &!
+exec dwm 2>/tmp/dwm.log
