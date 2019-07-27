@@ -10,13 +10,14 @@ your new nvim configuration is ready.
 |||
 |---------:|:------------------------------------------|
 | OS       | ***[arch linux](https://archlinux.org)*** |
+| WM       | ***[dwm](https:dwm.suckless.org)***       |
 | Terminal | ***[st](https://st.suckless.org)***       |
 | Shell    | ***[zsh](https://zsh.org/)***             |
 | Editor   | ***[vim](http://www.vim.org)***           |
 | Browser  | ***[surf](https://surf.suckless.org)***   |
 
 #### Notes
-In order to install (link) *dmenu_run* cache list
+In order to install *dmenu_run* cache list
 you should **`keep`** just the **`else section code`** of the
 **`/usr/bin/dmenu_path`** file
 
