@@ -277,3 +277,7 @@ do
     [PROGRAM] ./*
   fi
 done
+
+
+# Find the longest word
+cat ${XDG_CACHE_HOME:-"$HOME/.cache"}/turkish_words | sed '/\s/d' | tac | sed 1q
