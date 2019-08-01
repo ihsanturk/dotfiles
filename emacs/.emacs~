@@ -3,6 +3,7 @@
 (load-theme 'solarized-dark t)
 (global-hl-line-mode 1)
 (global-linum-mode 1)
+(inhibit-startup-screen t)
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -18,4 +19,4 @@
                         ("melpa" . "https://melpa.org/packages/")))
 (setq-default cursor-type 'bar)
 (setq linum-format "%3d\u2502")
-(setq inhibit-startup-screen t)
+
