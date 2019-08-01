@@ -24,7 +24,7 @@ colorscheme delek
 hi LineNr ctermfg=238
 autocmd InsertEnter,InsertLeave * set cul!
 hi cursorline cterm=NONE ctermbg=237
-hi CursorLineNr cterm=bold ctermfg=6
+hi CursorLineNr cterm=bold ctermfg=6 ctermbg=237
 hi Pmenu ctermfg=7 ctermbg=239
 hi PmenuBar ctermfg=65 ctermbg=220
 hi PmenuSel ctermfg=11 ctermbg=237 cterm=bold
@@ -60,6 +60,9 @@ set statusline+=\ %4*\ %y                              "4 FileType
 set statusline+=\ %5*\ %{''.(&fenc!=''?&fenc:&enc).''} "5 Encoding
 set statusline+=\ %6*\ %P\                             "6 Top/bot.
 
+"=== EXPAND CURLY BRACES ==="
+imap {} {<Return><Return>}<esc>kS
+
 "=== GO INSIDE PARANTHESIS ==="
 nmap <leader>i /)<Return>:noh<CR>i
 
@@ -94,7 +97,7 @@ nmap <leader>d "_d
 "=== DELETE SPACES END OF LINES ==="
 augroup fmt
 	autocmd!
-	autocmd BufWritePost,FileWritePost * :silent! %s/\s\+$//
+	autocmd BufWritePost,FileWritePost * %s/\s\+$//e
 augroup END
 
 "=== SHORTCUT ==="
