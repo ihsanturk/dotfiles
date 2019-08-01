@@ -7,7 +7,7 @@
   XF86AudioLowerVolume
 
 # Mute/Unmute Volume
-"amixer set Master toggle"
+"amixer set Master toggle; amixer set Speaker on"
   XF86AudioMute
 
 # Increase Backlight
