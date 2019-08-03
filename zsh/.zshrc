@@ -19,7 +19,7 @@ plugins=(
 autoload -U compinit && compinit
 
 export KEYTIMEOUT=1
-export EDITOR=emacs
+export EDITOR=vim
 export ZSH="$HOME/.oh-my-zsh"
 export TERMINAL="st-256color"
 export PATH="/usr/local/sbin:$PATH"
