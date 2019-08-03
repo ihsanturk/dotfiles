@@ -15,6 +15,7 @@ set timeoutlen=1000
 scriptencoding utf-8
 filetype plugin indent on
 let g:netrw_dirhistmax = 0
+
 setglobal fileencoding=utf-8
 
 "=== DESIGN ==="
@@ -23,6 +24,8 @@ set cursorline
 colorscheme delek
 hi LineNr ctermfg=238
 autocmd InsertEnter,InsertLeave * set cul!
+
+hi Search term=reverse ctermfg=0
 hi cursorline cterm=NONE ctermbg=237
 hi CursorLineNr cterm=bold ctermfg=6 ctermbg=237
 hi Pmenu ctermfg=7 ctermbg=239
@@ -61,7 +64,7 @@ set statusline+=\ %5*\ %{''.(&fenc!=''?&fenc:&enc).''} "5 Encoding
 set statusline+=\ %6*\ %P\                             "6 Top/bot.
 
 "=== EXPAND CURLY BRACES ==="
-imap {} {<Return><Return>}<esc>kS
+autocmd FileType c,cpp imap {} {<Return><Return>}<esc>kS
 
 "=== GO INSIDE PARANTHESIS ==="
 nmap <leader>i /)<Return>:noh<CR>i
@@ -79,6 +82,8 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
+"=== NERDTREE ==="
+let NERDTreeStatusline=" NerdTree"
 
 "=== GLOBAL COPY ==="
 if has('unnamedplus')
@@ -101,6 +106,8 @@ augroup fmt
 augroup END
 
 "=== SHORTCUT ==="
+nmap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+nmap <leader>n :NERDTreeToggle<CR><C-w>=
 nmap z zz
 nmap n nzz
 nmap N Nzz
