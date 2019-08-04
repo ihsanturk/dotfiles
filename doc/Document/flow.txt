@@ -151,3 +151,8 @@ me again... (2019.06.19)
     + dwm
     + renders with graphic card
     + linux freedom
+
+
+Apple Metal Tutorials... (2019.08.04)
+Soooo clean expressions about Graphics in Metal
+	https://www.youtube.com/watch?v=Gqj2lP7qlAM
