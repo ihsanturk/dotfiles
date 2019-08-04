@@ -2,23 +2,23 @@ Ready to [stow](https://www.gnu.org/software/stow/) it.
 You can use stow just for one program. Example
 ```sh
 cd dotfiles
-stow nvim #Just install the nvim configuration
+stow emacs #Just install the emacs configuration
 ```
 If there is not a file in the destination directory then
-your new nvim configuration is ready.
+your new emacs configuration is ready.
 
-|||
-|---------:|:------------------------------------------|
-| OS       | ***[arch linux](https://archlinux.org)*** |
-| WM       | ***[dwm](https:dwm.suckless.org)***       |
-| Terminal | ***[st](https://st.suckless.org)***       |
-| Shell    | ***[zsh](https://zsh.org/)***             |
-| Editor   | ***[vim](http://www.vim.org)***           |
-| Browser  | ***[surf](https://surf.suckless.org)***   |
+|          |                                                  |
+|---------:|:-------------------------------------------------|
+|       OS | ***[arch](https://archlinux.org)***              |
+|       WM | ***[dwm](https:dwm.suckless.org)***              |
+| Terminal | ***[st](https://st.suckless.org)***              |
+|    Shell | ***[zsh](https://zsh.org/)***                    |
+|   Editor | ***[emacs](http://www.gnu.org/software/emacs)*** |
+|  Browser | ***[chromium](https://www.chromium.org)***       |
 
 #### Notes
 In order to install *dmenu_run* cache list
-you should **`keep`** just the **`else section code`** of the
+you should **`keep`** just the **`else section`** of the
 **`/usr/bin/dmenu_path`** file
 
 So the /usr/bin/dmenu_path should look like:
