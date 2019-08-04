@@ -14,8 +14,8 @@
 
 (add-hook 'pdf-tools-enabled-hook 'pdf-view-midnight-minor-mode)
 
-(pdf-tools-install)
-(pdf-loader-install)
+;; (pdf-tools-install)
+;; (pdf-loader-install)
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                         ("melpa" . "https://melpa.org/packages/")))
@@ -24,3 +24,21 @@
 (setq inhibit-startup-screen t)
 (setq c-set-style 'awk)
 (setq backup-directory-alist `(("." . "~/.saves")))
+
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (magit markdown-mode htmlize smex pdf-tools org-noter gruvbox-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
