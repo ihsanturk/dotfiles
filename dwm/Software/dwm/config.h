@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */ /* appearance */
-static const unsigned int borderpx  = 1;  /* border pixel of windows */
+static const unsigned int borderpx  = 2;  /* border pixel of windows */
 static const unsigned int gappx     = 23;  /* gaps between windows */
 static const unsigned int snap      = 16; /* snap pixel */
 static const int showbar            = 0;  /* 0 means no bar */
