@@ -111,6 +111,7 @@
 
 	(add-hook 'after-init-hook 'global-company-mode)
 	(setq company-backends (delete 'company-semantic company-backends))
+	(require 'cc-mode)
 	(define-key c-mode-map  [(tab)] 'company-complete)
 	(define-key c++-mode-map  [(tab)] 'company-complete))
 #+END_SRC
@@ -133,3 +134,14 @@
 			'((swiper . ivy--regex-plus)
 			(t . ivy--regex-fuzzy))))
   #+END_SRC
+* Markdown
+#+BEGIN_SRC emacs-lisp
+	(use-package markdown-mode
+	:ensure t
+	:commands (markdown-mode gfm-mode)
+	:mode (("README\\.md\\'" . gfm-mode)
+			("\\.md\\'" . markdown-mode)
+			("\\.markdown\\'" . markdown-mode))
+	:init (setq markdown-command "multimarkdown"))
+
+#+END_SRC
