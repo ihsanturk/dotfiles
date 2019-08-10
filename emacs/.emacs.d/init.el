@@ -17,7 +17,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(smex flx counsel company org-bullets evil-surround evil which-key pdf-tools undo-tree telephone-line gruvbox-theme auto-compile use-package))))
+	(markdown-mode smex flx counsel company org-bullets evil-surround evil which-key pdf-tools undo-tree telephone-line gruvbox-theme auto-compile use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
