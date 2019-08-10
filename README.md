@@ -7,7 +7,7 @@ stow emacs #Just install the emacs configuration
 If there is not a file in the destination directory then
 your new emacs configuration is ready.
 
-|          |                                                  |
+|     Sort | Value                                            |
 |---------:|:-------------------------------------------------|
 |       OS | ***[arch](https://archlinux.org)***              |
 |       WM | ***[dwm](https:dwm.suckless.org)***              |
