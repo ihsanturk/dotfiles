@@ -6,7 +6,7 @@ setxkbmap -layout gb
 xmodmap ~/.Xmodmap
 xbindkeys
 xset r rate 190 40
-feh --bg-center ~/Picture/solarized_pattern.png
+feh --bg-fill ~/Picture/LandscapeDeer.jpg
 
 exec slstatus &!
 exec dwm 2>/tmp/dwm.log
