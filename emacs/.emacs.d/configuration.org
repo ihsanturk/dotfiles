@@ -29,7 +29,7 @@
     (setq-default cursor-type 'bar)
     (set-window-scroll-bars (minibuffer-window) nil nil)
 
-    (set-default-font "Hack-11")
+    (set-default-font "Hack-18")
     (tool-bar-mode 0)
     (menu-bar-mode 0)
     (scroll-bar-mode 0)
@@ -53,7 +53,7 @@
 #+END_SRC
 * Pdf-Tools
   #+BEGIN_SRC emacs-lisp
-	(use-package pdf-tools)
+	;; (use-package pdf-tools
 	;; :config
 	;; (pdf-tools-install)
 	;; (pdf-loader-install))
@@ -91,30 +91,6 @@
     (org-babel-do-load-languages
     'org-babel-load-languages '((python . t)))
   #+END_SRC
-* Company{,-jedi}
-#+BEGIN_SRC emacs-lisp
-  (use-package company
-	:config
-
-	(defun company-semantic-setup ()
-	"Configure company-backends for company-semantic and company-yasnippet."
-	(delete 'company-irony company-backends)
-	(push '(company-semantic :with company-yasnippet) company-backends))
-
-	(defun company-jedi-setup ()
-	(add-to-list 'company-backends 'company-jedi))
-	(add-hook 'python-mode-hook 'company-jedi-setup)
-
-	(setq jedi:setup-keys t)
-	(setq jedi:complete-on-dot t)
-	(add-hook 'python-mode-hook 'jedi:setup)
-
-	(add-hook 'after-init-hook 'global-company-mode)
-	(setq company-backends (delete 'company-semantic company-backends))
-	(require 'cc-mode)
-	(define-key c-mode-map  [(tab)] 'company-complete)
-	(define-key c++-mode-map  [(tab)] 'company-complete))
-#+END_SRC
 * Counsel, swiper, flx smex, ivy
   #+BEGIN_SRC emacs-lisp
 	(use-package counsel
@@ -144,4 +120,46 @@
 			("\\.markdown\\'" . markdown-mode))
 	:init (setq markdown-command "multimarkdown"))
 
+#+END_SRC
+* Company{,-jedi}
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+	:config
+
+	(defun company-semantic-setup ()
+	"Configure company-backends for company-semantic and company-yasnippet."
+	(delete 'company-irony company-backends)
+	(push '(company-semantic :with company-yasnippet) company-backends))
+	(add-hook 'after-init-hook 'global-company-mode)
+	(setq company-backends (delete 'company-semantic company-backends))
+
+	(require 'cc-mode)
+	(define-key c-mode-map  [(tab)] 'company-complete)
+	(define-key c++-mode-map  [(tab)] 'company-complete))
+
+
+  (use-package company-jedi
+	:config
+
+	(setq jedi:environment-root "jedi")
+	(defun company-jedi-setup ()
+	(add-to-list 'company-backends 'company-jedi))
+	(add-hook 'python-mode-hook 'jedi:install-server)
+	(add-hook 'python-mode-hook 'company-jedi-setup)
+	(setq jedi:setup-keys t)
+	(setq jedi:complete-on-dot t)
+	(add-hook 'python-mode-hook 'jedi:setup))
+#+END_SRC
+* Hide-Show Folding Blocks
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'python-mode-hook 'hs-minor-mode)
+  (global-set-key (kbd "C-+") 'hs-show-block)
+
+  (defun fold-def-all ()
+	(require 'hs-minor-mode)
+	(interactive)
+	(goto-char 1)
+	(while
+		(re-search-forward "^\s*def\s" nil t)
+		(hs-hide-block)))
 #+END_SRC
