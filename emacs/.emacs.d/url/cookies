@@ -1,0 +1,17 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".youtube.com"
+  [url-cookie "PREF" "f1=50000000" "Sun, 12-Apr-2020 22:28:49 GMT" "/" ".youtube.com" nil]
+  [url-cookie "VISITOR_INFO1_LIVE" "OJcgM_frqRA" "Sun, 09-Feb-2020 10:35:49 GMT" "/" ".youtube.com" nil])
+ ("weather.com"
+  [url-cookie "akacd_NxtGen_DB" "2177452799~rv=75~id=891b295c9917a777bec07187cce586c6" "Mon, 31 Dec 2038 23:59:59 GMT" "/" "weather.com" nil]))
+)
+(setq url-cookie-secure-storage
+ 'nil)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

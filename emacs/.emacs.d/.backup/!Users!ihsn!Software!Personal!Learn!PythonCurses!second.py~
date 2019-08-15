@@ -1,0 +1,25 @@
+#!/usr/local/bin/python3
+import curses
+import time
+
+def center(message, length):
+    return (int(length / 2) - int(len(message) / 2))
+
+
+screen = curses.initscr()
+measures = screen.getmaxyx()
+r = int(measures[0])
+c = int(measures[1])
+
+text0 = "Hello Boss..."
+
+curses.noecho()
+
+for i in range(c - len(text0)):
+    screen.clear()
+    screen.addstr(center("", r), i, text0, curses.A_BOLD)
+    screen.refresh()
+    time.sleep(0.2)
+
+screen.getch()
+curses.endwin()

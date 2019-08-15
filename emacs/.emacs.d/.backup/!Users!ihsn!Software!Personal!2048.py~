@@ -1,0 +1,36 @@
+import curses
+class Game2048():
+    col = 4
+    row = 4
+    score = 0
+    isWon = False
+    isFail = False
+    destination = 2048
+
+    board = []
+
+    def __init__(self, column, row_):
+        self.col = column
+        self.row = row_
+
+
+    def startBoard(self):
+        for r in range(self.row):
+            self.board.append(list())
+            for c in range(self.col):
+                print(f"r: {r}, c: {c}")
+                self.board[r].append(0)
+    
+    def scroll(self, direction, board):
+        pass
+
+    def createNewGame(self):
+        self.startBoard()
+        while self.isFail != True:
+            move = input("Move: ")
+            isFail = scroll()
+
+if __name__ == '__main__':
+    app = Game2048(4, 4)
+    print(app.row)
+    app.createNewGame()

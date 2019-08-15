@@ -1,0 +1,43 @@
+#!/usr/local/bin/python3
+import curses
+import time
+
+def center(message, length):
+    return (int(length / 2) - int(len(message) / 2))
+
+
+text = "Hello Curses Window... ([q] for quit)"
+
+screen = curses.initscr()
+
+measures = screen.getmaxyx()
+windowR = int(measures[0])
+windowC = int(measures[1])
+r = center(text, windowR)
+c = center(text, windowC)
+
+screen.nodelay(1)
+curses.noecho()
+
+
+char = -1
+while char != ord("q"):
+    screen.clear()
+    screen.addstr(r,
+                  c,
+                  text,
+                  curses.A_BOLD)
+    screen.refresh()
+
+    char = screen.getch()
+    if char == ord("k") and r > 0:
+        r -= 1
+    elif char == ord("j") and r < windowR - 1:
+        r += 1
+    elif char == ord("h") and c > 0:
+        c -= 1
+    elif char == ord("l") and c < windowC - len(text) - 1:
+        c += 1
+    time.sleep(0.001)
+
+curses.endwin()

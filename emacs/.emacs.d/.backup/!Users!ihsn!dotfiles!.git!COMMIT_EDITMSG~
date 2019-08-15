@@ -1,0 +1,131 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: ihsn <ihsn@ihsns-MacBook-Pro.local>
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   emacs/.emacs.d/configuration.org
+#
+# Changes not staged for commit:
+#	modified:   emacs/.emacs.d/init.el
+#	deleted:    shell_others/.alias~
+#	modified:   shell_others/.profile
+#	modified:   zsh/.zshrc
+#
+# Untracked files:
+#	emacs/.emacs.d/#configuration.org#
+#	emacs/.emacs.d/.backup/
+#	emacs/.emacs.d/.python-environments/
+#	emacs/.emacs.d/auto-save-list/
+#	emacs/.emacs.d/configuration.el
+#	emacs/.emacs.d/elpa/
+#	emacs/.emacs.d/recentf
+#	emacs/.emacs.d/smex-items
+#	emacs/.emacs.d/url/
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/emacs/.emacs.d/configuration.org b/emacs/.emacs.d/configuration.org
+index e410a3d..67a5135 100644
+--- a/emacs/.emacs.d/configuration.org
++++ b/emacs/.emacs.d/configuration.org
+@@ -29,7 +29,7 @@
+     (setq-default cursor-type 'bar)
+     (set-window-scroll-bars (minibuffer-window) nil nil)
+ 
+-    (set-default-font "Hack-11")
++    (set-default-font "Hack-18")
+     (tool-bar-mode 0)
+     (menu-bar-mode 0)
+     (scroll-bar-mode 0)
+@@ -53,7 +53,7 @@
+ #+END_SRC
+ * Pdf-Tools
+   #+BEGIN_SRC emacs-lisp
+-	(use-package pdf-tools)
++	;; (use-package pdf-tools
+ 	;; :config
+ 	;; (pdf-tools-install)
+ 	;; (pdf-loader-install))
+@@ -91,30 +91,6 @@
+     (org-babel-do-load-languages
+     'org-babel-load-languages '((python . t)))
+   #+END_SRC
+-* Company{,-jedi}
+-#+BEGIN_SRC emacs-lisp
+-  (use-package company
+-	:config
+-
+-	(defun company-semantic-setup ()
+-	"Configure company-backends for company-semantic and company-yasnippet."
+-	(delete 'company-irony company-backends)
+-	(push '(company-semantic :with company-yasnippet) company-backends))
+-
+-	(defun company-jedi-setup ()
+-	(add-to-list 'company-backends 'company-jedi))
+-	(add-hook 'python-mode-hook 'company-jedi-setup)
+-
+-	(setq jedi:setup-keys t)
+-	(setq jedi:complete-on-dot t)
+-	(add-hook 'python-mode-hook 'jedi:setup)
+-
+-	(add-hook 'after-init-hook 'global-company-mode)
+-	(setq company-backends (delete 'company-semantic company-backends))
+-	(require 'cc-mode)
+-	(define-key c-mode-map  [(tab)] 'company-complete)
+-	(define-key c++-mode-map  [(tab)] 'company-complete))
+-#+END_SRC
+ * Counsel, swiper, flx smex, ivy
+   #+BEGIN_SRC emacs-lisp
+ 	(use-package counsel
+@@ -145,3 +121,45 @@
+ 	:init (setq markdown-command "multimarkdown"))
+ 
+ #+END_SRC
++* Company{,-jedi}
++#+BEGIN_SRC emacs-lisp
++  (use-package company
++	:config
++
++	(defun company-semantic-setup ()
++	"Configure company-backends for company-semantic and company-yasnippet."
++	(delete 'company-irony company-backends)
++	(push '(company-semantic :with company-yasnippet) company-backends))
++	(add-hook 'after-init-hook 'global-company-mode)
++	(setq company-backends (delete 'company-semantic company-backends))
++
++	(require 'cc-mode)
++	(define-key c-mode-map  [(tab)] 'company-complete)
++	(define-key c++-mode-map  [(tab)] 'company-complete))
++
++
++  (use-package company-jedi
++	:config
++
++	(setq jedi:environment-root "jedi")
++	(defun company-jedi-setup ()
++	(add-to-list 'company-backends 'company-jedi))
++	(add-hook 'python-mode-hook 'jedi:install-server)
++	(add-hook 'python-mode-hook 'company-jedi-setup)
++	(setq jedi:setup-keys t)
++	(setq jedi:complete-on-dot t)
++	(add-hook 'python-mode-hook 'jedi:setup))
++#+END_SRC
++* Hide-Show Folding Blocks
++#+BEGIN_SRC emacs-lisp
++  (add-hook 'python-mode-hook 'hs-minor-mode)
++  (global-set-key (kbd "C-+") 'hs-show-block)
++
++  (defun fold-def-all ()
++	(require 'hs-minor-mode)
++	(interactive)
++	(goto-char 1)
++	(while
++		(re-search-forward "^\s*def\s" nil t)
++		(hs-hide-block)))
++#+END_SRC
