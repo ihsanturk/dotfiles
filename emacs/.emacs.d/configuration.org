@@ -1,4 +1,4 @@
-* Use-Package Updates
+* use-Package Updates
   #+BEGIN_SRC emacs-lisp
     (require 'use-package-ensure)
     (setq use-package-always-ensure t)
@@ -123,7 +123,7 @@
 #+END_SRC
 * Company{,-jedi}
 #+BEGIN_SRC emacs-lisp
-  (use-package company
+(use-package company
 	:config
 
 	(defun company-semantic-setup ()
@@ -138,7 +138,7 @@
 	(define-key c++-mode-map  [(tab)] 'company-complete))
 
 
-  (use-package company-jedi
+(use-package company-jedi
 	:config
 
 	(setq jedi:environment-root "jedi")
@@ -153,7 +153,7 @@
 * Hide-Show Folding Blocks
 #+BEGIN_SRC emacs-lisp
   (add-hook 'python-mode-hook 'hs-minor-mode)
-  (global-set-key (kbd "C-+") 'hs-show-block)
+  (global-set-key (kbd "C-=") 'hs-show-block)
 
   (defun fold-def-all ()
 	(require 'hs-minor-mode)
@@ -162,4 +162,17 @@
 	(while
 		(re-search-forward "^\s*def\s" nil t)
 		(hs-hide-block)))
+#+END_SRC
+* Neo-Tree
+#+BEGIN_SRC emacs-lisp
+(use-package neotree
+	:config
+	(require 'neotree)
+	(global-set-key (kbd "M-n") 'neotree-toggle))
+	(add-hook 'neotree-mode-hook
+      (lambda ()
+        (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+        (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+        (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+        (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 #+END_SRC
