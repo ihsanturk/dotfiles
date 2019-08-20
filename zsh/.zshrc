@@ -14,9 +14,10 @@ HISTFILE=~/.zsh_history
 plugins=(
 	git
 	vi-mode
-	zsh-syntax-highlighting
 	zsh-completions
+	zsh-syntax-highlighting
 )
+
 autoload -U compinit && compinit
 
 export KEYTIMEOUT=1
