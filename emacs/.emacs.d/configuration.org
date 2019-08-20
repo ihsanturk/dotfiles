@@ -1,4 +1,4 @@
-* use-Package Updates
+* Use-Package Updates
   #+BEGIN_SRC emacs-lisp
     (require 'use-package-ensure)
     (setq use-package-always-ensure t)
@@ -9,74 +9,82 @@
     (setq load-prefer-newer t)
   #+END_SRC
 * UI Look
+** All-The-Icons
+#+BEGIN_SRC emacs-lisp
+(use-package all-the-icons
+:ensure t
+:hook (all-the-icons-install-fonts))
+#+END_SRC
 ** Theme
-  #+BEGIN_SRC emacs-lisp
-    (use-package gruvbox-theme
-    :config
-    (load-theme 'gruvbox t))
-  #+END_SRC
-** Telephone-Line
-   #+BEGIN_SRC emacs-lisp
-     (use-package telephone-line
-	 :config
-     (telephone-line-mode 1))
-   #+END_SRC
+#+BEGIN_SRC emacs-lisp
+(use-package doom-themes
+:config
+	(load-theme 'doom-gruvbox t))
+#+END_SRC
+** Mode-Line
+#+BEGIN_SRC emacs-lisp
+(use-package doom-modeline
+:ensure t
+:hook (after-init . doom-modeline-mode)
+:config
+	(setq doom-modeline-height 20))
+#+END_SRC
 ** Other Stuff
-  #+BEGIN_SRC emacs-lisp
-    (setq inhibit-startup-screen t)
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-startup-screen t)
 
-    (setq c-set-style 'awk)
-    (setq-default cursor-type 'bar)
-    (set-window-scroll-bars (minibuffer-window) nil nil)
+(setq c-set-style 'awk)
+(setq-default cursor-type 'bar)
+(set-window-scroll-bars (minibuffer-window) nil nil)
 
-    (set-default-font "Hack-18")
-    (tool-bar-mode 0)
-    (menu-bar-mode 0)
-    (scroll-bar-mode 0)
-    (global-linum-mode 0)
-    (blink-cursor-mode 0)
-    (column-number-mode 1)
-    (global-hl-line-mode 1)
-  #+END_SRC
+(set-default-font "Hack-18")
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+(global-linum-mode 0)
+(blink-cursor-mode 0)
+(column-number-mode 1)
+(global-hl-line-mode 1)
+#+END_SRC
 * Tweak
-  #+BEGIN_SRC emacs-lisp
-    (setq-default tab-width 4)
-    (fset 'yes-or-no-p 'y-or-n-p)
-	(global-set-key (kbd "M-o") 'other-window)
-    (setq backup-directory-alist `(("." . "~/.emacs.d/.backup")))
-  #+END_SRC
+#+BEGIN_SRC emacs-lisp
+(setq-default tab-width 4)
+(fset 'yes-or-no-p 'y-or-n-p)
+(global-set-key (kbd "M-o") 'other-window)
+(setq backup-directory-alist `(("." . "~/.emacs.d/.backup")))
+#+END_SRC
 * Undo-Tree
 #+BEGIN_SRC emacs-lisp
-    (use-package undo-tree
-    :config
-    (global-undo-tree-mode 1))
+(use-package undo-tree
+:config
+(global-undo-tree-mode 1))
 #+END_SRC
 * Pdf-Tools
-  #+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp
 	;; (use-package pdf-tools
 	;; :config
 	;; (pdf-tools-install)
 	;; (pdf-loader-install))
 	;; (add-hook 'pdf-tools-enabled-hook 'pdf-view-midnight-minor-mode)
-  #+END_SRC
+#+END_SRC
 * Which-Key
-  #+BEGIN_SRC emacs-lisp
-    (use-package which-key
-    :ensure t
-    :config
-    (which-key-mode))
-  #+END_SRC
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+:ensure t
+:config
+(which-key-mode))
+#+END_SRC
 * Evil
   Use =evil=.
   #+BEGIN_SRC emacs-lisp
-    (use-package evil
+  (use-package evil
     :config
     (evil-mode 1))
   #+END_SRC
 
   Use =evil-surround=
   #+BEGIN_SRC emacs-lisp
-    (use-package evil-surround
+  (use-package evil-surround
     :config
     (global-evil-surround-mode 1))
   #+END_SRC
@@ -122,6 +130,8 @@
 
 #+END_SRC
 * Company{,-jedi}
+Side noteCheck this page for jedi with python3 issues:
+https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.html
 #+BEGIN_SRC emacs-lisp
 (use-package company
 	:config
@@ -140,10 +150,9 @@
 
 (use-package company-jedi
 	:config
-
 	(setq jedi:environment-root "jedi")
 	(defun company-jedi-setup ()
-	(add-to-list 'company-backends 'company-jedi))
+		(add-to-list 'company-backends 'company-jedi))
 	(add-hook 'python-mode-hook 'jedi:install-server)
 	(add-hook 'python-mode-hook 'company-jedi-setup)
 	(setq jedi:setup-keys t)
@@ -152,27 +161,51 @@
 #+END_SRC
 * Hide-Show Folding Blocks
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'python-mode-hook 'hs-minor-mode)
-  (global-set-key (kbd "C-=") 'hs-show-block)
-
   (defun fold-def-all ()
-	(require 'hs-minor-mode)
+	(hs-minor-mode 1)
 	(interactive)
 	(goto-char 1)
 	(while
 		(re-search-forward "^\s*def\s" nil t)
 		(hs-hide-block)))
+
+  (global-set-key (kbd "C-+") 'hs-hide-block)
+  (global-set-key (kbd "C-=") 'hs-show-block)
 #+END_SRC
 * Neo-Tree
 #+BEGIN_SRC emacs-lisp
 (use-package neotree
 	:config
 	(require 'neotree)
-	(global-set-key (kbd "M-n") 'neotree-toggle))
-	(add-hook 'neotree-mode-hook
-      (lambda ()
-        (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-        (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
-        (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-        (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+	(global-set-key (kbd "M-n") 'neotree-toggle)
+	;; (add-hook 'neotree-mode-hook (evil-emacs-state))
+	(setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+#+END_SRC
+* Python-mode
+#+BEGIN_SRC emacs-lisp
+;; (use-package python-mode
+;; :config
+;; (setq py-python-command "python3"))
+#+END_SRC
+* Eshell
+#+BEGIN_SRC emacs-lisp
+(use-package eshell)
+#+END_SRC
+* Magit
+#+BEGIN_SRC emacs-lisp
+(use-package magit
+  :bind
+  ("C-x g" . magit-status)
+  
+  :config
+  (use-package evil-magit)
+  (use-package with-editor)
+  (setq magit-push-always-verify nil)
+  (setq git-commit-summary-max-length 50)
+
+  (with-eval-after-load 'magit-remote
+    (magit-define-popup-action 'magit-push-popup ?P
+    'magit-push-implicity--desc
+    'magit-push-implicty ?p t))
+  (add-hook 'with-editor-mode-hook 'evil-insert-state))
 #+END_SRC
