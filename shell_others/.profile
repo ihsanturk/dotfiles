@@ -1,7 +1,7 @@
 [[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
-export EDITOR="emacs"
-export BROWSER="safari"
-export FILE="nnn"
+export EDITOR=vim
+export BROWSER=safari
+export FILE=nnn
 
 export VULKAN_ROOT_LOCATION="$HOME/Software/Library/"
 export VULKAN_SDK_VERSION="1.1.114.0"
