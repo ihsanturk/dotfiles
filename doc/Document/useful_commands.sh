@@ -281,3 +281,10 @@ done
 
 # Find the longest word
 cat ${XDG_CACHE_HOME:-"$HOME/.cache"}/turkish_words | sed '/\s/d' | tac | sed 1q
+
+
+# Enable Kill/Close Finder in MacOS
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# Disable Kill/Close Finder in MacOS
+defaults write com.apple.finder QuitMenuItem -bool false
