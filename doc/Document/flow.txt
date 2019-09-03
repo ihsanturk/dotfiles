@@ -122,7 +122,7 @@ Thoughts:
 	- I'm technically using a linux/unix machine and can use good apps with that.
 
 Issues:
-  - When suspend the machine, the sound (AppleALC.kext w/ Lilu.kext) not works.
+  - When suspend the machine, the sound (AppleALC.kext w/ Lilu.kext) does not works.
 	    Maybe VoodooHDA.kext works ??? (edit: naaah, same)
 	- Wifi not working (done: Bought a usb wifi card).
 	- I must switch headphone/speaker manually :/
@@ -137,10 +137,10 @@ me again... (2019.06.19)
     I want to use my lovely dwm and graphic card
     But:
       I was using iMovie and garageband (and Ableton Live with Spitfire Audio)
-      I can use blender as a video editor
+      I can use blender as a video editor in linux
       But:
-        I don't think (or know) I will find a good DAW for spitfire VST plugin
-        Alright alright.. I will use my phone for playing piano. (Not that bad)
+        I don't think (or know) I will find a good DAW for spitfire VST plugin.
+        Alright alright.. I will use my iPhone for playing piano. (Not that bad)
   Also:
     I should solve the problem with connecting my iphone to the linux machine
       with libimobiledevice (Lockdown? problem).
@@ -149,10 +149,22 @@ me again... (2019.06.19)
   Okay guys I decided to switch to arch A g a i n.
   Arch Benefits:
     + dwm
-    + renders with graphic card
+    + renders with graphic card in Blender
     + linux freedom
 
 
-Apple Metal Tutorials... (2019.08.04)
-Soooo clean expressions about Graphics in Metal
+Note: (2019.08.04)
+Apple Metal Tutorials...
+Very clear expressions about Graphics in Metal
 	https://www.youtube.com/watch?v=Gqj2lP7qlAM
+
+
+
+Hey guysssss it's me (2019.09.02)
+After a while I decided to switch tooo... Debian!
+
+I've missed tiling window managers (dwm), oh God!
+I will install linux and will get rid of this (non-productive) macos
+GoodBye Apple. :) 
+
+I feel productive and comfy with linux.
