@@ -19,7 +19,7 @@
 #+BEGIN_SRC emacs-lisp
   (use-package gruvbox-theme
   :config
-  (load-theme 'gruvbox-dark-soft t))
+  (load-theme 'gruvbox-dark-medium t))
 #+END_SRC
 ** Mode-Line
 #+BEGIN_SRC emacs-lisp
@@ -29,30 +29,30 @@
   :config
   (setq doom-modeline-height 20))
 #+END_SRC
-** Other Stuff
+** Font
 #+BEGIN_SRC emacs-lisp
   (set-default-font "Hack-18")
 #+END_SRC
-* Custom Keys
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-o") 'other-window)
-#+END_SRC
-
 * Custom Emacs Settings
 #+BEGIN_SRC emacs-lisp
   (setq-default tab-width 4)
   (fset 'yes-or-no-p 'y-or-n-p)
   (setq backup-directory-alist `(("." . "~/.emacs.d/.backup")))
-  
+
   (setq inhibit-startup-screen t)
   (setq initial-scratch-message "")
   (defun display-startup-echo-area-message ()
     (message ""))
-	
+  (setq default-frame-alist
+      '((font . "Hack-18")
+        (width . 80)))
+
   (tool-bar-mode 0)
   (menu-bar-mode 0)
-  (show-paren-mode 1)
+  (add-hook 'prog-mode-hook #'hs-minor-mode)
   (scroll-bar-mode 0)
+  (show-paren-mode 1)
+  (save-place-mode 1)
   (global-linum-mode 0)
   (blink-cursor-mode 0)
   (column-number-mode 1)
@@ -61,6 +61,19 @@
   (setq c-set-style 'awk)
   (setq-default cursor-type 'bar)
   (set-window-scroll-bars (minibuffer-window) nil nil)
+
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+  (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+  (setq scroll-step 1) ;; keyboard scroll one line at a time
+  (setq scroll-margin 5
+    scroll-conservatively 0
+    scroll-up-aggressively 0.01
+    scroll-down-aggressively 0.01)
+  (setq-default scroll-up-aggressively 0.01
+    scroll-down-aggressively 0.01)
+
+
 
   ;; Dired
   (setq dired-listing-switches "-alh")
@@ -111,7 +124,7 @@
   :config
     (use-package flx)
     (use-package smex)
-  
+
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) ")
@@ -146,11 +159,11 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
     (push '(company-semantic :with company-yasnippet) company-backends))
     (add-hook 'after-init-hook 'global-company-mode)
     (setq company-backends (delete 'company-semantic company-backends))
-    
+
     (require 'cc-mode)
     (define-key c-mode-map  [(tab)] 'company-complete)
     (define-key c++-mode-map  [(tab)] 'company-complete))
-  
+
   (use-package company-jedi
     :config
     (setq jedi:environment-root "jedi")
@@ -158,7 +171,7 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
     	(add-to-list 'company-backends 'company-jedi))
     (add-hook 'python-mode-hook 'company-jedi-setup)
     (add-hook 'python-mode-hook 'jedi:install-server)
-    
+
     (setq jedi:setup-keys t)
     (setq jedi:complete-on-dot t)
     (add-hook 'python-mode-hook 'jedi:setup))
@@ -166,25 +179,35 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 
 ** Neo-Tree
 #+BEGIN_SRC emacs-lisp
-(use-package neotree
-:config
-  (require 'neotree)
-  (global-set-key (kbd "M-n") 'neotree-toggle)
-  ;; (add-hook 'neotree-mode-hook (evil-emacs-state))
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+  (use-package neotree
+  :config
+    (require 'neotree)
+    (global-set-key (kbd "M-n") 'neotree-toggle)
+    (add-hook 'neotree-mode-hook
+         (lambda ()
+           (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+           (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
+           (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+           (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
+           (define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
+           (define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
+           (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
+           (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
+           (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
+    (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
   (use-package magit
   :bind
     ("C-x g" . magit-status)
-    
+
   :config
     (use-package evil-magit)
     (use-package with-editor)
     (setq magit-push-always-verify nil)
     (setq git-commit-summary-max-length 50)
-  
+
     (with-eval-after-load 'magit-remote
       (magit-define-popup-action 'magit-push-popup ?P
       'magit-push-implicity--desc
@@ -197,14 +220,40 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 #+END_SRC
 ** Js2-mode
 #+BEGIN_SRC emacs-lisp
-  (use-package js2-mode)
+  (use-package js2-mode
+  :mode
+    ("\\.js\\'" . js2-mode))
 #+END_SRC
-
+** Fill-Column-Indicator
+#+BEGIN_SRC emacs-lisp
+  (use-package fill-column-indicator
+  :config
+    (add-hook 'prog-mode-hook #'fci-mode)
+    (setq fci-rule-column 79)
+    (setq fci-rule-color "gray22"))
+#+END_SRC
+** Dashboard
+#+BEGIN_SRC emacs-lisp
+  (use-package dashboard
+  :ensure t
+  :config
+    (dashboard-setup-startup-hook)
+    (setq dashboard-center-content t)
+    (setq dashboard-set-heading-icons t)
+    (setq dashboard-set-file-icons t)
+  )
+#+END_SRC
+* Custom Keys
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-o") 'other-window)
+  (define-key evil-normal-state-map (kbd "SPC") 'evil-toggle-fold)
+#+END_SRC
 * Org-Babel Languages
 #+BEGIN_SRC emacs-lisp
   (org-babel-do-load-languages
   'org-babel-load-languages '((python . t)))
 #+END_SRC
+
 
 
 * *FORSAKEN*
@@ -224,12 +273,12 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 ;;   (goto-char 1)
 ;;   (while (re-search-forward "^\s*def\s" nil t)
 ;;     (hs-hide-block)))
-;; 
+;;
 ;; (defun folding-blocks ()
 ;;   (hs-minor-mode 1)
 ;;   (local-set-key (kbd "C--") 'hs-hide-block)
 ;;   (local-set-key (kbd "C-=") 'hs-show-block))
-;;   
+;;
 ;; (add-hook 'python-mode-hook 'folding-blocks)
 ;; (add-hook 'js-mode-hook 'folding-blocks)
 #+END_SRC
