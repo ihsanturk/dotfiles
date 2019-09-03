@@ -168,3 +168,7 @@ I will install linux and will get rid of this (non-productive) macos
 GoodBye Apple. :) 
 
 I feel productive and comfy with linux.
+
+But there will be some deficiencies:
+  1. I can't use Canon EOS Utility in linux because they do not support.
+  2. I can't use Quicktime in linux for reflecting iPhone screen to desktop
