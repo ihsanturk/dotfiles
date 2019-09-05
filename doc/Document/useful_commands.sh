@@ -288,3 +288,7 @@ defaults write com.apple.finder QuitMenuItem -bool true
 
 # Disable Kill/Close Finder in MacOS
 defaults write com.apple.finder QuitMenuItem -bool false
+
+
+# Mount hfs with read and write
+sudo mount -r hfsplus -o force,rw /dev/sdXY /mnt/d
