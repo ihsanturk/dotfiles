@@ -30,11 +30,12 @@ filetype plugin indent on
 let g:netrw_dirhistmax = 0
 "let javascript_fold=1
 set foldlevelstart=99
+set t_Co=256
 
 "=== DESIGN ==="
 set number
 set cursorline
-colorscheme gruvbox
+"colorscheme gruvbox
 hi LineNr ctermfg=238
 autocmd InsertEnter,InsertLeave * set cul!
 if exists('+colorcolumn')
@@ -43,12 +44,13 @@ else
 	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-"hi Search term=reverse ctermfg=0
-"hi cursorline cterm=NONE ctermbg=237
-"hi CursorLineNr cterm=bold ctermfg=6 ctermbg=237
-"hi Pmenu ctermfg=7 ctermbg=239
-"hi PmenuBar ctermfg=65 ctermbg=220
-"hi PmenuSel ctermfg=11 ctermbg=237 cterm=bold
+hi Search term=reverse ctermfg=0
+hi cursorline cterm=NONE ctermbg=237
+hi ColorColumn cterm=NONE ctermbg=237
+hi CursorLineNr cterm=bold ctermfg=6 ctermbg=237
+hi Pmenu ctermfg=7 ctermbg=239
+hi PmenuBar ctermfg=65 ctermbg=220
+hi PmenuSel ctermfg=11 ctermbg=237 cterm=bold
 hi User1 ctermfg=65 ctermbg=237 cterm=none
 hi User2 ctermfg=3  ctermbg=238 cterm=none
 hi User3 ctermfg=9  ctermbg=236 cterm=bold
