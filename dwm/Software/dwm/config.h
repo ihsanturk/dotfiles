@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */ /* appearance */
 static const unsigned int borderpx  = 2;  /* border pixel of windows */
-static const unsigned int gappx     = 23;  /* gaps between windows */
+static const unsigned int gappx     = 25;  /* gaps between windows */
 static const unsigned int snap      = 16; /* snap pixel */
 static const int showbar            = 0;  /* 0 means no bar */
 static const int topbar             = 1;  /* 0 means bottom bar */
@@ -56,7 +56,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static char dmenuline[2] = "10";
 static const char *dmenucmd[] = { "dmenu_run", "-l", dmenuline, "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "urxvt", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
