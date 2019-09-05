@@ -69,5 +69,3 @@ if ! shopt -oq posix; then
 	fi
 fi
 #bind TAB:menu-complete
-
-export MOZ_ENABLE_WAYLAND=1
