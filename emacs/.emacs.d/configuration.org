@@ -17,9 +17,9 @@
 #+END_SRC
 ** Theme
 #+BEGIN_SRC emacs-lisp
-  (use-package gruvbox-theme
-  :config
-  (load-theme 'gruvbox-dark-medium t))
+  ;;(use-package gruvbox-theme
+  ;;:config
+  (load-theme 'wombat t)
 #+END_SRC
 ** Mode-Line
 #+BEGIN_SRC emacs-lisp
@@ -50,7 +50,7 @@
   (tool-bar-mode 0)
   (menu-bar-mode 0)
   (add-hook 'prog-mode-hook #'hs-minor-mode)
-  (scroll-bar-mode 0)
+  ;;(scroll-bar-mode 0)
   (show-paren-mode 1)
   (save-place-mode 1)
   (global-linum-mode 0)

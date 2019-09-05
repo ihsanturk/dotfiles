@@ -13,3 +13,4 @@
   (package-install 'use-package))
 
 (org-babel-load-file "~/.emacs.d/configuration.org")
+(custom-set-faces '(hl-line ((t (:inherit highlight :underline nil)))))
