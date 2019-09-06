@@ -2,10 +2,10 @@
 # ~/.zshrc
 #
 
-#if ! [ -t 1 ]; then
+if ! [ -t 1 ]; then
 	xrdb ~/.Xresources
 	xset r rate 220 50
-#fi
+fi
 
 ZSH_THEME="robbyrussell"
 DISABLE_UPDATE_PROMPT="true"
@@ -31,11 +31,11 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/Users/ihsn/Library/Python/3.7/bin:/usr/local/bin/:/usr/local/sbin:$PATH"
 export PKG_CONFIG_PATH="/lib/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig"
-export PATH="$PATH:$(du "${HOME}/Software/Personal/Useful/" | cut -f2 | grep -v '\.git' | tr '\n' ':' | sed 's/:*$//')"
 export PATH="/usr/local/opt/m4/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 ## Wayland
-export MOZ_ENABLE_WAYLAND=1
+#export MOZ_ENABLE_WAYLAND=1
 export XKB_DEFAULT_LAYOUT=gb
 export XKB_DEFAULT_OPTIONS=caps:escape
 
