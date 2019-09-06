@@ -8,31 +8,6 @@
 
   (setq load-prefer-newer t)
 #+END_SRC
-* UI Look
-** All-The-Icons
-#+BEGIN_SRC emacs-lisp
-  (use-package all-the-icons
-  :ensure t
-  :hook (all-the-icons-install-fonts))
-#+END_SRC
-** Theme
-#+BEGIN_SRC emacs-lisp
-  ;;(use-package gruvbox-theme
-  ;;:config
-  (load-theme 'wombat t)
-#+END_SRC
-** Mode-Line
-#+BEGIN_SRC emacs-lisp
-  (use-package doom-modeline
-  :ensure t
-  :hook (after-init . doom-modeline-mode)
-  :config
-  (setq doom-modeline-height 20))
-#+END_SRC
-** Font
-#+BEGIN_SRC emacs-lisp
-  (set-default-font "Hack-18")
-#+END_SRC
 * Custom Emacs Settings
 #+BEGIN_SRC emacs-lisp
   (setq-default tab-width 4)
@@ -44,13 +19,13 @@
   (defun display-startup-echo-area-message ()
     (message ""))
   (setq default-frame-alist
-      '((font . "Hack-18")
-        (width . 80)))
-
+      '((width . 80)
+        (font . "Hack-12")))
+      
   (tool-bar-mode 0)
   (menu-bar-mode 0)
   (add-hook 'prog-mode-hook #'hs-minor-mode)
-  ;;(scroll-bar-mode 0)
+  (scroll-bar-mode 0)
   (show-paren-mode 1)
   (save-place-mode 1)
   (global-linum-mode 0)
@@ -78,6 +53,31 @@
   ;; Dired
   (setq dired-listing-switches "-alh")
   (add-hook 'dired-mode-hook 'dired-hide-details-mode)
+#+END_SRC
+* UI Look
+** All-The-Icons
+#+BEGIN_SRC emacs-lisp
+  (use-package all-the-icons
+  :ensure t
+  :hook (all-the-icons-install-fonts))
+#+END_SRC
+** Theme
+#+BEGIN_SRC emacs-lisp
+  (use-package gruvbox-theme
+  :config
+    (load-theme 'gruvbox-dark-medium t))
+#+END_SRC
+** Mode-Line
+#+BEGIN_SRC emacs-lisp
+  (use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-height 20))
+#+END_SRC
+** Font
+#+BEGIN_SRC emacs-lisp
+  (set-default-font "Hack-18")
 #+END_SRC
 * Packages
 ** Undo-Tree
@@ -246,6 +246,7 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 * Custom Keys
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-o") 'other-window)
+  (global-set-key (kbd "M-r") 'counsel-recentf)
   (define-key evil-normal-state-map (kbd "SPC") 'evil-toggle-fold)
 #+END_SRC
 * Org-Babel Languages
