@@ -2,11 +2,14 @@
 
 xrandr --auto
 
-setxkbmap -layout gb
-xmodmap ~/.Xmodmap
-xbindkeys
+xrdb .Xresources
 xset r rate 220 40
-feh --bg-fill ~/Picture/green.jpg
+xmodmap -e 'clear Lock' &
+xmodmap -e 'keycode 66 = Escape' &
+feh --bg-fill ~/.cache/wall.jpg &
 
-#exec slstatus &!
+sxhkd &
+dunst &
+dwmbar &
+
 exec dwm 2>/tmp/dwm.log
