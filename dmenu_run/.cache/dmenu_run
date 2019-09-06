@@ -1,13 +1,6 @@
-st
-gimp
+urxvt
 emacs
 firefox
 spotify
-dolphin
-inkscape
-chromium
-surf tureng.com
-surf duckduckgo.org
-surf vault.bitwarden.com
 setxkbmap tr; xmodmap .Xmodmap; imla; setxkbmap gb; xmodmap .Xmodmap;
-surf https://www3.ntu.edu.sg/HOME/EHCHUA/PROGRAMMING/opengl/CG_Introduction.html
+firefox https://www3.ntu.edu.sg/HOME/EHCHUA/PROGRAMMING/opengl/CG_Introduction.html
