@@ -1,6 +1,5 @@
 #!/bin/sh
 
-alias sway='sway; xrdb .Xresources'
 alias grep="grep --color=auto"
 alias shh='\
 sudo umount /dev/sdb2 2>/dev/null;\
@@ -8,32 +7,41 @@ sudo hdparm -Y /dev/sdb2 1>/dev/null;\
 sudo hdparm -Y /dev/sdb 1>/dev/null'
 alias nk='setxkbmap -option caps:escape; xset r rate 220; setxkbmap gb'
 alias cpwd='pwd | xclip -selection clipboard' # Linux/Unix Xorg
+
 #alias usc='cat ${HOME}/Document/useful_commands.sh | dmenu -i -l 20'
 #alias eusc='nvim ${HOME}/Document/useful_commands.sh'
 #alias open='xdg-open'
+
 alias la='ls -lAh'
 alias ll='ls -lh'
 alias rm='trash'
 alias n='nnn'
 alias l='ls'
 
+
 # ARCH
-#alias pu='sudo pacman -Syu'
-#alias pf='sudo pacman -Qs'
-#alias pr='sudo pacman -R'
-#alias pi='sudo pacman -S'
+alias pu='sudo pacman -Syu'
+alias pf='sudo pacman -Qs'
+alias pr='sudo pacman -R'
+alias pi='sudo pacman -S'
+
+alias yu='yay -Syu'
+alias yf='yay -Qs'
+alias yr='yay -R'
+alias yi='yay -S'
 
 # VOID
-alias pu='sudo xbps-install -Syuv'
-alias pf='sudo xbps-query -s'
-alias pr='sudo xbps-remove -R'
-alias pl='sudo xbps-query -m'
-alias pi='sudo xbps-install'
-alias wifi='\
-sudo killall wpa_supplicant dhcpcd;\
-sudo rm -rf /var/run/wpa_supplicant;\
-sudo wpa_supplicant -B -i  wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf;\
-sudo dhcpcd'
+#alias pu='sudo xbps-install -Syuv'
+#alias pf='sudo xbps-query -s'
+#alias pr='sudo xbps-remove -R'
+#alias pl='sudo xbps-query -m'
+#alias pi='sudo xbps-install'
+
+#alias wifi='\
+#sudo killall wpa_supplicant dhcpcd;\
+#sudo rm -rf /var/run/wpa_supplicant;\
+#sudo wpa_supplicant -B -i  wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf;\
+#sudo dhcpcd'
 
 # MAC
 #alias cpwd='pwd | pbcopy -selection clipboard'
