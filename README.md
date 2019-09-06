@@ -9,7 +9,7 @@ your new emacs configuration is ready.
 
 |     Sort | Value                                                            |
 |---------:|:-----------------------------------------------------------------|
-|       OS | ***[void linux](https://voidlinux.org)***                        |
+|       OS | ***[arch linux](https://archlinux.org)***                        |
 | Terminal | ***[urxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode)*** |
 |    Shell | ***[zsh](https://zsh.org/)***                                    |
 |   Editor | ***[emacs](http://www.gnu.org/software/emacs)***                 |
