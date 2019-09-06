@@ -1,0 +1,21 @@
+#!/bin/bash
+
+cachedir="${XDG_CACHE_HOME:-"$HOME/.cache"}"
+cache="$cachedir/turkish_words"
+
+[ ! -e "$cachedir" ] && mkdir -p "$cachedir"
+#TODO: If curl not installed then print output error
+[ ! -e "$cache" ] &&
+	curl --silent -o $cache "http://sozluk.gov.tr/autocomplete.json" &&
+		sed -i 's/},{/\n/g' $cache &&
+		sed -i 's/[]}{[]//g' $cache &&
+		sed -i 's/"madde"://g' $cache &&
+		sed -i 's/^"//g' $cache &&
+		sed -i 's/"$//g' $cache &&
+		cat $cache | awk '{ print length, $0 }' |
+			sort -n -s | cut -d" " -f2- | sed '/^\s*$/d' > /tmp/turkish_words &&
+			cp /tmp/turkish_words $cache &&
+			rm /tmp/turkish_words
+
+IFS=:
+cat "$cache" | dmenu -f -i -l 10

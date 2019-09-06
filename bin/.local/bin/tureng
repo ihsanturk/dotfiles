@@ -1,0 +1,97 @@
+#!/usr/bin/python3
+#
+# Tureng, Version: 0.0.2
+# Get translation from tureng.com [& save data]
+#
+# This program saves data you searched to your machine.
+# If you want to disable caching give "--no-cache" or "-c" argument
+#
+# Usage:
+#    ./tureng "this is my term" [--no-cache|-c]
+
+
+# === Parse Arguments === #
+import sys
+import os
+if len(sys.argv) <= 1:
+    TERM = input("Term: ")
+    print()
+else:
+    TERM = ""
+    args = sys.argv[:]
+    if "--no-cache" in sys.argv or "-c" in sys.argv:
+        try:
+            args.remove("-c")
+        except:
+            args.remove("--no-cache")
+            pass
+    for arg in args[1:]:
+        if not arg == args[-1]:
+            TERM += (arg + "+")
+        else:
+            TERM += arg
+
+# === Check Whether File/Data Already Cached === #
+from pathlib import Path
+dataDirPath = str(Path.home()) + "/.cache/tureng/"
+dataPath = dataDirPath + TERM + ".html"
+if not os.path.exists(dataDirPath):
+    os.makedirs(dataDirPath)
+else:
+    f = Path(dataPath)
+    if f.is_file():
+        isDataCached = True
+        with open(dataPath) as f:
+            data = f.read()
+            f.close()
+    else:
+        # === Get Request Result === #
+        isDataCached = False
+        import requests
+        URL = "https://tureng.com/en/turkish-english/"
+        r = requests.get("https://tureng.com/en/turkish-english/" + TERM)
+
+        if r.status_code != 200:
+            print(r.status_code)
+            exit(2)
+        else:
+            data = r.text
+
+# === Parse Result === #
+from bs4 import BeautifulSoup as bs
+wordLimit = 5
+soup = bs(data, 'html.parser')
+
+suggestions = soup.find("ul", class_="suggestion-list")
+if suggestions:
+    suggestions = bs(str(suggestions), 'html.parser').find_all("li")
+    for suggestion in suggestions:
+        print(suggestion.text.strip())
+else:
+    blocks = soup.find_all("td")
+    title = bs(str(blocks), 'html.parser').find(
+                                        lambda tag: tag.name == 'td'
+                                        and tag.get('class') == ['hidden-xs'])
+    print(title.text + "\n")
+    words = bs(str(blocks), 'html.parser').find_all("td",
+                                               {'class':['en tm', 'tr ts']},
+                                               limit=wordLimit * 2)
+    prevprev = ""
+    for i, word in enumerate(words):
+        word = word.text.strip()
+        if prevprev == word:
+            print(" "*(len(word) + 1), end="")
+        else:
+            print(word, end=" ")
+
+        if i % 2 == 1:
+            print()
+        else:
+            prevprev = word
+            print(": ", sep="", end="")
+
+if (not ("--no-cache" in sys.argv or "-c" in sys.argv) and
+        isDataCached == False):
+    with open(dataPath, "w") as f:
+        f.write(data)
+    exit(0)

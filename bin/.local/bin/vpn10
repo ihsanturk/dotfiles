@@ -1,0 +1,6 @@
+#!/bin/sh
+
+vpn_files="/home/ihsn/Document/vpn"
+
+chosen=$(ls ${vpn_files}/*.ovpn | dmenu -i -l 5)
+sudo openvpn --config ${chosen} --auth-user-pass "${vpn_files}/up"

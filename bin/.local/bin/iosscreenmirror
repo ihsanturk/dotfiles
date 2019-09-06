@@ -1,0 +1,23 @@
+#!/bin/sh
+
+mkdir -p /tmp/iosscreen
+rm /tmp/iosscreen/*
+begin=false
+filename=0
+
+idevicename 2>/dev/null 1>/dev/null &&
+  begin=true
+
+path="/tmp/iosscreen/${filename}.png"
+idevicescreenshot $path
+filename=$(echo "${filename}+1" | bc -l)
+
+if [ $begin = true ]; then
+  while true; do
+    feh $path;
+    path="/tmp/iosscreen/${filename}.png"
+    idevicescreenshot $path
+    filename=$(echo "${filename}+1" | bc -l)
+
+  done
+fi
