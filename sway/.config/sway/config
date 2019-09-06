@@ -1,10 +1,11 @@
 font pango:Hack Nerd Font 10
 
+set $term urxvt
 set $gapsInner 30
 set $gapsOuter 20
 set $borderPixel 4
-set $wall '/home/ihsn/Picture/green.jpg'
-set $lockScreenWall '/home/ihsn/Picture/greenBlur.png'
+set $wall '/home/ihsn/.cache/wall.jpg'
+set $lockScreenWall '/home/ihsn/.cache/wallBlur.jpg'
 
 set $bg-color            #2C323B
 set $bd-color            #98C379
@@ -26,8 +27,6 @@ set $left h
 set $down j
 set $up k
 set $right l
-
-set $term urxvt
 
 set $menu dmenu_path | dmenu -l 10 | xargs swaymsg exec --
 
