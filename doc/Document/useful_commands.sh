@@ -290,5 +290,7 @@ defaults write com.apple.finder QuitMenuItem -bool true
 defaults write com.apple.finder QuitMenuItem -bool false
 
 
-# Mount hfs with read and write
+# Mount hfs with read and write in linux
 sudo mount -r hfsplus -o force,rw /dev/sdXY /mnt/d
+# or
+sudo mount -o force,rw /dev/sdXY /mnt/d

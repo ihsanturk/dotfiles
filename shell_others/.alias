@@ -5,7 +5,7 @@ alias shh='\
 sudo umount /dev/sdb2 2>/dev/null;\
 sudo hdparm -Y /dev/sdb2 1>/dev/null;\
 sudo hdparm -Y /dev/sdb 1>/dev/null'
-alias nk='setxkbmap -option caps:escape; xset r rate 220; setxkbmap gb'
+alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap us'
 alias cpwd='pwd | xclip -selection clipboard' # Linux/Unix Xorg
 
 #alias usc='cat ${HOME}/Document/useful_commands.sh | dmenu -i -l 20'

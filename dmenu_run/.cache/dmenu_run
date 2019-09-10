@@ -1,6 +1,10 @@
-urxvt
+st
+vlmc
+carla
 emacs
+ardour5
 firefox
 spotify
-setxkbmap tr; xmodmap .Xmodmap; imla; setxkbmap gb; xmodmap .Xmodmap;
-firefox https://www3.ntu.edu.sg/HOME/EHCHUA/PROGRAMMING/opengl/CG_Introduction.html
+qsampler
+chromium
+bitwig-studio
