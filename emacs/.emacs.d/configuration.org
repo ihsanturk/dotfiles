@@ -10,6 +10,7 @@
 #+END_SRC
 * Custom Emacs Settings
 #+BEGIN_SRC emacs-lisp
+  (setq vc-follow-symlinks nil)
   (setq-default tab-width 4)
   (fset 'yes-or-no-p 'y-or-n-p)
   (setq backup-directory-alist `(("." . "~/.emacs.d/.backup")))
@@ -20,7 +21,7 @@
     (message ""))
   (setq default-frame-alist
       '((width . 80)
-        (font . "Hack-12")))
+        (font . "Hack-13")))
       
   (tool-bar-mode 0)
   (menu-bar-mode 0)
@@ -48,8 +49,6 @@
   (setq-default scroll-up-aggressively 0.01
     scroll-down-aggressively 0.01)
 
-
-
   ;; Dired
   (setq dired-listing-switches "-alh")
   (add-hook 'dired-mode-hook 'dired-hide-details-mode)
@@ -66,18 +65,6 @@
   (use-package gruvbox-theme
   :config
     (load-theme 'gruvbox-dark-medium t))
-#+END_SRC
-** Mode-Line
-#+BEGIN_SRC emacs-lisp
-  (use-package doom-modeline
-  :ensure t
-  :hook (after-init . doom-modeline-mode)
-  :config
-  (setq doom-modeline-height 20))
-#+END_SRC
-** Font
-#+BEGIN_SRC emacs-lisp
-  (set-default-font "Hack-18")
 #+END_SRC
 * Packages
 ** Undo-Tree
@@ -243,10 +230,22 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
     (setq dashboard-set-file-icons t)
   )
 #+END_SRC
+** Config-General
+#+BEGIN_SRC emacs-lisp
+  (use-package config-general-mode
+  :ensure t
+  :mode
+    (("rc\\'" . config-general-mode)
+    ("\\.conf\\'" . config-general-mode))
+  )
+#+END_SRC
+
 * Custom Keys
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-o") 'other-window)
   (global-set-key (kbd "M-r") 'counsel-recentf)
+  (global-set-key (kbd "M-k") 'kill-this-buffer)
+  (global-set-key (kbd "M-c") 'compile)
   (define-key evil-normal-state-map (kbd "SPC") 'evil-toggle-fold)
 #+END_SRC
 * Org-Babel Languages
@@ -288,4 +287,12 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 ;; (use-package python-mode
 ;; :config
 ;; (setq py-python-command "python3"))
+#+END_SRC
+** Mode-Line
+#+BEGIN_SRC emacs-lisp
+  (use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-height 10))
 #+END_SRC
