@@ -7,13 +7,15 @@ stow emacs #Just install the emacs configuration
 If there is not a file in the destination directory then
 your new emacs configuration is ready.
 
-|     Sort | Value                                                            |
-|---------:|:-----------------------------------------------------------------|
-|       OS | ***[arch linux](https://archlinux.org)***                        |
-| Terminal | ***[urxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode)*** |
-|    Shell | ***[zsh](https://zsh.org/)***                                    |
-|   Editor | ***[emacs](http://www.gnu.org/software/emacs)***                 |
-|  Browser | ***[firefox](https://www.mozilla.org/en-GB/firefox/)***          |
+|     Sort | Value                                              |
+|---------:|:---------------------------------------------------|
+|       OS | ***[arch linux](https://archlinux.org)***          |
+|       WM | ***[dwm](https://dwm.suckless.org)***              |
+| Terminal | ***[st](https://st.suckless.org)***                |
+|    Shell | ***[zsh](https://zsh.org/)***                      |
+|   Editor | ***[emacs](http://www.gnu.org/software/emacs)***   |
+|  Browser | ***[chromium](https://https://www.chromium.org)*** |
+
 
 #### Notes
 In order to install *dmenu_run* cache list
