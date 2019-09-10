@@ -1,0 +1,95 @@
+[global]
+    monitor = 0
+    follow = mouse
+    geometry = "300x10-30+40" #[{width}]x{height}[+/-{x}+/-{y}]
+    indicate_hidden = yes
+    shrink = no
+    notification_height = 0
+    separator_height = 2
+    padding = 13
+    horizontal_padding = 13
+    frame_width = 5 # border
+    frame_color = "#87B268" # border color
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+
+    ### Text ###
+    font = Monospace 12
+    line_height = 0
+    markup = full
+
+    # The format of the message.  Possible variables are:
+    #   %a  appname
+    #   %s  summary
+    #   %b  body
+    #   %i  iconname (including its path)
+    #   %I  iconname (without its path)
+    #   %p  progress value if set ([  0%] to [100%]) or nothing
+    #   %n  progress value if set without any extra characters
+    #   %%  Literal %
+    # Markup is allowed
+    format = "<b>%s</b>\n%b"
+
+    alignment = left
+    show_age_threshold = 60 # seconds
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    ### Icons ###
+    icon_position = left
+    max_icon_size = 32
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/
+
+    ### History ###
+    sticky_history = yes
+    history_length = 20
+
+    ### Misc/Advanced ###
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/firefox -new-tab
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    verbosity = mesg
+    corner_radius = 0
+
+    ### Legacy
+    force_xinerama = false
+    mouse_left_click = do_action
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
+
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    frame_color ="#333333"
+    foreground = "#eeeeee"
+    background = "#546454"
+    timeout = 10
+    #icon = /path/to/icon
+
+[urgency_normal]
+    foreground = "#ffffff"
+    background = "#597347"
+    timeout = 10
+    #icon = /path/to/icon
+
+[urgency_critical]
+    frame_color ="#ff0000"
+    foreground = "#ffffff"
+    background = "#900000"
+    timeout = 0
+    #icon = /path/to/icon

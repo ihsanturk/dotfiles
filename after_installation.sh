@@ -9,6 +9,7 @@
 #sudo pacman -S xclip 
 #sudo pacman -S hdparm 
 #sudo pacman -S xbindkeys
+#sudo pacman -S libnotify
 #sudo pacman -S alsa-utils 
 #sudo pacman -S libX11-devel 
 #sudo pacman -S libXft-devel 
