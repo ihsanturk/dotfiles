@@ -1,4 +1,10 @@
 /* See LICENSE file for copyright and license details. */ /* appearance */
+ /* I am using dwm with these pathces:
+  *   * fullgaps
+  *   * pertag
+  *   * hide-vacant-tags
+  * */
+
 static const unsigned int borderpx  = 5;  /* border pixel of windows */
 static const unsigned int gappx     = 35;  /* gaps between windows */
 static const unsigned int snap      = 16; /* snap pixel */
