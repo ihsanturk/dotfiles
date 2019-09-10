@@ -1,9 +1,12 @@
 #!/bin/sh
-vpn_files="/home/ihsn/Document/vpn"
+vpnFiles="/home/ihsn/Document/vpn"
 
 if ! [ $1 ]; then
-	read -p "Which one: " input
-	sudo openvpn --config ${vpn_files}/*$input* --auth-user-pass ${vpn_files}/up
+	input=$(ls $vpnFiles | dmenu -l 10)
+	sudo openvpn --config ${vpnFiles}/*$input* --auth-user-pass ${vpnFiles}/up \
+		--setenv PATH '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' --down-pre
 else
-	sudo openvpn --config ${vpn_files}/*$1* --auth-user-pass ${vpn_files}/up
+	sudo openvpn --config ${vpnFiles}/*$1* --auth-user-pass ${vpnFiles}/up \
+		--setenv PATH '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' --down-pre
+
 fi
