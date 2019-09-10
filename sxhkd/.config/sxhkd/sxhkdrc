@@ -1,19 +1,30 @@
+# Volume
 # Increase Volume
 XF86AudioRaiseVolume
-	amixer set Master 2dB+
+  volume 2%+
 
 # Decrease Volume
 XF86AudioLowerVolume
-	amixer set Master 2dB-
+  volume 2%-
 
 # Mute/Unmute Volume
 XF86AudioMute
-	amixer set Master toggle; amixer set Speaker on
+  volume toggle
+
+
+# Backlight
+# Increase Backlight
+Pause
+  brightness +10
+
+# Decrease Backlight
+Scroll_Lock
+  brightness -10
 
 # Increase Backlight
 XF86MonBrightnessUp
-	xbacklight -inc 10
+  brightness +10
 
 # Decrease Backlight
 XF86MonBrightnessDown
-	xbacklight -dec 10
+  brightness -10
