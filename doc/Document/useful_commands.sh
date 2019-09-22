@@ -236,12 +236,10 @@ amixer -c 0 sset Master 1dB+
 
 # Find video files even if the endswith of the name of file
 # not include .mov, .mp4 or whatever
-
 find . type f -exec file -N -i -- {} + | grep video
 
 
 # Hackintosh activate sound/audio
-
 1. Download AppleALC from its repository
 2. Download Lilu from its repository
 3. Copy these files to /System/Library/Extensions directory
@@ -255,11 +253,9 @@ find . type f -exec file -N -i -- {} + | grep video
      # 99 for auto detecting headphones and speaker
 6. Run
      sudo chmod 755 /System/Library/Extensions &&
-     sudo chown -E root:wheel /System/Library/Extensions;
+     sudo chown root:wheel /System/Library/Extensions;
      sudo kextcache -i /
      sudo reboot
-
-Now its activated
 
 
 # Xorg key names list
@@ -279,7 +275,7 @@ do
 done
 
 
-# Find the longest word
+# Find the longest word in a list
 cat ${XDG_CACHE_HOME:-"$HOME/.cache"}/turkish_words | sed '/\s/d' | tac | sed 1q
 
 
