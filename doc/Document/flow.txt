@@ -98,15 +98,15 @@ A good website about c, openbsd, bugs
 
 
 
-#####################################
-##                                 ##
-##   Lost notes (bcs not pushed)   ##
-##   Lost notes (bcs not pushed)   ## (Remembered: Switched to FreeBSD)
-##   Lost notes (bcs not pushed)   ## (Remembered: Switched to OpenBSD)
-##   Lost notes (bcs not pushed)   ## (Remembered: Switched to Void Linux)
-##   Lost notes (bcs not pushed)   ##
-##                                 ##
-#####################################
+##########################################
+##                                      ##
+##   Lost notes (bcs forgottn pushed)   ##
+##   Lost notes (bcs forgottn pushed)   ## (Remembered: Switched to FreeBSD)
+##   Lost notes (bcs forgottn pushed)   ## (Remembered: Switched to OpenBSD)
+##   Lost notes (bcs forgottn pushed)   ## (Remembered: Switched to Void Linux)
+##   Lost notes (bcs forgottn pushed)   ##
+##                                      ##
+##########################################
 
 
 
@@ -172,3 +172,9 @@ I feel productive and comfy with linux.
 But there will be some deficiencies:
   1. I can't use Canon EOS Utility in linux because they do not support.
   2. I can't use Quicktime in linux for reflecting iPhone screen to desktop
+
+
+I switched to void
+I switched to arch
+I switched to MacOS Mojave (Currently)
+
