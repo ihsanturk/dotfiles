@@ -10,6 +10,8 @@
 #+END_SRC
 * Custom Emacs Settings
 #+BEGIN_SRC emacs-lisp
+  (setq frame-resize-pixelwise t)
+  (set-frame-position (selected-frame) 960 0)
   (setq vc-follow-symlinks nil)
   (setq-default tab-width 4)
   (fset 'yes-or-no-p 'y-or-n-p)
@@ -21,7 +23,7 @@
     (message ""))
   (setq default-frame-alist
       '((width . 80)
-        (font . "Hack-13")))
+        (font . "Menlo-17")))
       
   (tool-bar-mode 0)
   (menu-bar-mode 0)
@@ -67,6 +69,20 @@
     (load-theme 'gruvbox-dark-medium t))
 #+END_SRC
 * Packages
+** Ranger
+#+BEGIN_SRC emacs-lisp
+  (use-package ranger
+  :config
+    (ranger-override-dired-mode t))
+
+#+END_SRC
+** Ledger
+#+BEGIN_SRC emacs-lisp
+  (use-package ledger-mode
+  :mode "\\.ledger$"
+  :config
+    (setq ledger-binary-path "/usr/local/bin/ledger"))
+#+END_SRC
 ** Undo-Tree
 #+BEGIN_SRC emacs-lisp
   (use-package undo-tree
@@ -241,6 +257,7 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 #+END_SRC
 
 * Custom Keys
+TODO: when kill the buffer with M-k delete-window too.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-o") 'other-window)
   (global-set-key (kbd "M-r") 'counsel-recentf)
@@ -250,8 +267,9 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 #+END_SRC
 * Org-Babel Languages
 #+BEGIN_SRC emacs-lisp
-  (org-babel-do-load-languages
-  'org-babel-load-languages '((python . t)))
+  (setq-default
+    org-babel-load-languages '((python . t)
+                              (ledger . t)))
 #+END_SRC
 
 
@@ -290,9 +308,9 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 #+END_SRC
 ** Mode-Line
 #+BEGIN_SRC emacs-lisp
-  (use-package doom-modeline
-  :ensure t
-  :hook (after-init . doom-modeline-mode)
-  :config
-  (setq doom-modeline-height 10))
+  ;; (use-package doom-modeline
+  ;; :ensure t
+  ;; :hook (after-init . doom-modeline-mode)
+  ;; :config
+  ;; (setq doom-modeline-height 10))
 #+END_SRC
