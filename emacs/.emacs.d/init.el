@@ -1,4 +1,5 @@
 ;; Configure package.el to include MELPA.
+(setq package-check-signature nil)
 (require 'package)
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
