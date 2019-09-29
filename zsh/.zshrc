@@ -20,6 +20,7 @@ plugins=(
 	git
 	vi-mode
 	zsh-completions
+	zsh-autosuggestions
 	zsh-syntax-highlighting
 )
 
@@ -33,7 +34,7 @@ export PATH="/Users/ihsn/Library/Python/3.7/bin:/usr/local/bin/:/usr/local/sbin:
 export PKG_CONFIG_PATH="/lib/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig"
 export PATH="/usr/local/opt/m4/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-
+export FZF_DEFAULT_COMMAND="find -L"
 ## Wayland
 #export MOZ_ENABLE_WAYLAND=1
 export XKB_DEFAULT_LAYOUT=gb
