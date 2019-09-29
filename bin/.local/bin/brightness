@@ -11,15 +11,29 @@
 #
 
 # This script only runs if these files exist:
-br_path="/sys/class/backlight/intel_backlight/brightness"
-br_max_path="/sys/class/backlight/intel_backlight/max_brightness"
+if [ -f "/sys/class/backlight/intel_backlight/brightness" ]; then
+  br_path="/sys/class/backlight/intel_backlight/brightness"
+else
+  echo "Not found, file: /sys/class/backlight/intel_backlight/brightness"
+  exit 2
+fi
+
+if [ -f "/sys/class/backlight/intel_backlight/max_brightness" ]; then
+  br_max_path="/sys/class/backlight/intel_backlight/max_brightness"
+else
+  echo "Not found, file: /sys/class/backlight/intel_backlight/max_brightness"
+  exit 2
+fi
+
+which bc > /dev/null || echo "Not found, package: bc" || exit 2 
+
 # ############################################
 
-rate=$(bc -l <<< "$(cat $br_max_path) / 100")
-current=$(bc -l <<< "scale=0; $(cat $br_path) / $rate")
+rate=$(echo "$(cat $br_max_path)/100" | bc -l)
+current=$(echo "scale=0; $(cat $br_path)/$rate" | bc -l)
 value=$(($current + $1))
 
-msgId="192837" # Arbitrary but unique message id
+
 changed="false"
 
 if [ $value -lt 1 ]; then
@@ -28,12 +42,16 @@ elif [ $value -gt 100 ]; then
   printf $(cat $br_max_path) > $br_path && changed="true"
   value=100
 else
-  value=$(bc -l <<< "scale=1; ${value} * ${rate}" | cut -d. -f1)
+  value=$(echo "scale=1; ${value}*${rate}" | bc -l | cut -d. -f1)
   printf "${value}" > ${br_path} && changed="true"
-  value=$(bc -l <<< "scale=1; ${value} / ${rate}" | cut -d. -f1)
+  value=$(echo "scale=1; ${value}/${rate}" | bc -l |  cut -d. -f1)
 fi
 
-if [ $changed == "true" ]; then
-  dunstify -u low -r "$msgId" \
-  "Brightness: ${value}%" "$(getProgressString 33 "<b>■</b>" " " $value)"
+
+msgId="192837" # Arbitrary but unique message id
+if [ "$changed" = "true" ]; then
+  # dunstify -u low -r "$msgId" \
+  notify-send "$msgId" \
+  "Brightness: ${value}%" "$(getProgressString 33 "<b>■</b>" " " $value)" \
+  > /dev/null || echo "Not found, package: dunstify"
 fi
