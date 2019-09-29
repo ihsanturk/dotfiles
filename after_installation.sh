@@ -35,7 +35,10 @@
 
 # mkdir -p /home/ihsn/Software &&
 #   cd /home/ihsn/Software &&
-#     git clone https://git.suckless.com/dwm
+#     git clone https://git.suckless.com/dwm && cd dwm && mkdir patch &&
+#       cd patch && curl -O -s 'http://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.2.diff' &&
+#       curl -O -s 'http://dwm.suckless.org/patches/pertag/dwm-pertag-20170513-ceac8c9.diff'
+
 #     git clone https://git.suckless.org/st
 
 
@@ -73,6 +76,7 @@
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 
 ## Grub kernel options for void linux
