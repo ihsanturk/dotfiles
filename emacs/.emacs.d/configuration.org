@@ -23,7 +23,7 @@
     (message ""))
   (setq default-frame-alist
       '((width . 80)
-        (font . "Menlo-17")))
+        (font . "Hack-18")))
       
   (tool-bar-mode 0)
   (menu-bar-mode 0)
@@ -69,12 +69,9 @@
     (load-theme 'gruvbox-dark-medium t))
 #+END_SRC
 * Packages
-** Ranger
+** LaTeX
 #+BEGIN_SRC emacs-lisp
-  (use-package ranger
-  :config
-    (ranger-override-dired-mode t))
-
+  (use-package latex-preview-pane)
 #+END_SRC
 ** Ledger
 #+BEGIN_SRC emacs-lisp
@@ -219,7 +216,7 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 #+END_SRC
 ** Csv-mode
 #+BEGIN_SRC emacs-lisp
-  (use-package csv-mode)
+  (use-package csv)
 #+END_SRC
 ** Js2-mode
 #+BEGIN_SRC emacs-lisp
@@ -262,6 +259,7 @@ TODO: when kill the buffer with M-k delete-window too.
   (global-set-key (kbd "M-o") 'other-window)
   (global-set-key (kbd "M-r") 'counsel-recentf)
   (global-set-key (kbd "M-k") 'kill-this-buffer)
+  (global-set-key (kbd "M-0") 'delete-window)
   (global-set-key (kbd "M-c") 'compile)
   (define-key evil-normal-state-map (kbd "SPC") 'evil-toggle-fold)
 #+END_SRC
@@ -275,6 +273,20 @@ TODO: when kill the buffer with M-k delete-window too.
 
 
 * *FORSAKEN*
+** Ranger
+#+BEGIN_SRC emacs-lisp
+  ;;(use-package ranger
+  ;;:config
+  ;;  (ranger-override-dired-mode t))
+#+END_SRC
+** Mode-Line
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package doom-modeline
+  ;; :ensure t
+  ;; :hook (after-init . doom-modeline-mode)
+  ;; :config
+  ;; (setq doom-modeline-height 10))
+#+END_SRC
 ** Pdf-Tools
 #+BEGIN_SRC emacs-lisp
   ;; (use-package pdf-tools
@@ -285,32 +297,24 @@ TODO: when kill the buffer with M-k delete-window too.
 #+END_SRC
 ** Hide-Show Folding Blocks
 #+BEGIN_SRC emacs-lisp
-;; (defun fold-def-all ()
-;;   (hs-minor-mode 1)
-;;   (interactive)
-;;   (goto-char 1)
-;;   (while (re-search-forward "^\s*def\s" nil t)
-;;     (hs-hide-block)))
-;;
-;; (defun folding-blocks ()
-;;   (hs-minor-mode 1)
-;;   (local-set-key (kbd "C--") 'hs-hide-block)
-;;   (local-set-key (kbd "C-=") 'hs-show-block))
-;;
-;; (add-hook 'python-mode-hook 'folding-blocks)
-;; (add-hook 'js-mode-hook 'folding-blocks)
+  ;; (defun fold-def-all ()
+  ;;   (hs-minor-mode 1)
+  ;;   (interactive)
+  ;;   (goto-char 1)
+  ;;   (while (re-search-forward "^\s*def\s" nil t)
+  ;;     (hs-hide-block)))
+  ;;
+  ;; (defun folding-blocks ()
+  ;;   (hs-minor-mode 1)
+  ;;   (local-set-key (kbd "C--") 'hs-hide-block)
+  ;;   (local-set-key (kbd "C-=") 'hs-show-block))
+  ;;
+  ;; (add-hook 'python-mode-hook 'folding-blocks)
+  ;; (add-hook 'js-mode-hook 'folding-blocks)
 #+END_SRC
 ** Python-mode
 #+BEGIN_SRC emacs-lisp
-;; (use-package python-mode
-;; :config
-;; (setq py-python-command "python3"))
-#+END_SRC
-** Mode-Line
-#+BEGIN_SRC emacs-lisp
-  ;; (use-package doom-modeline
-  ;; :ensure t
-  ;; :hook (after-init . doom-modeline-mode)
+  ;; (use-package python-mode
   ;; :config
-  ;; (setq doom-modeline-height 10))
+  ;; (setq py-python-command "python3"))
 #+END_SRC
