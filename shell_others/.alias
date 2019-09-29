@@ -5,12 +5,16 @@ alias shh='\
 sudo umount /dev/sdb2 2>/dev/null;\
 sudo hdparm -Y /dev/sdb2 1>/dev/null;\
 sudo hdparm -Y /dev/sdb 1>/dev/null'
-alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap us'
+alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap gb'
 alias cpwd='pwd | xclip -selection clipboard' # Linux/Unix Xorg
+alias disk2='\
+sudo fsck.hfsplus -f /dev/sdb2;\
+sudo mount -t hfsplus -o force,rw /dev/sdb2 /mnt'
+
 
 #alias usc='cat ${HOME}/Document/useful_commands.sh | dmenu -i -l 20'
 #alias eusc='nvim ${HOME}/Document/useful_commands.sh'
-#alias open='xdg-open'
+alias open='xdg-open'
 
 alias la='ls -lAh'
 alias ll='ls -lh'
@@ -19,16 +23,22 @@ alias n='nnn'
 alias l='ls'
 
 
-# ARCH
-alias pu='sudo pacman -Syu'
-alias pf='sudo pacman -Qs'
-alias pr='sudo pacman -R'
-alias pi='sudo pacman -S'
+# UBUNTU
+alias pr='sudo apt remove'
+alias pi='sudo apt install'
+alias pu='sudo apt update'
+alias pf='apt search'
 
-alias yu='yay -Syu'
-alias yf='yay -Qs'
-alias yr='yay -R'
-alias yi='yay -S'
+## ARCH
+#alias pu='sudo pacman -Syu'
+#alias pf='sudo pacman -Qs'
+#alias pr='sudo pacman -R'
+#alias pi='sudo pacman -S'
+#
+#alias yu='yay -Syu'
+#alias yf='yay -Qs'
+#alias yr='yay -R'
+#alias yi='yay -S'
 
 # VOID
 #alias pu='sudo xbps-install -Syuv'
