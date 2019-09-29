@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
 delim="|"
-interval="10"
+interval="1"
 
 status() { \
-  echo 
+  echo
 
-  # Volume 
+  # Volume
   amixer get Master |
     grep -o "[0-9]*%\|\[on\]\|\[off\]" |
     sed "s/\[on\]//;s/\[off\]//" |
@@ -17,9 +17,9 @@ status() { \
 
   # WiFi
   grep "^\s*w" /proc/net/wireless |
-    awk '{ print "", int($3 * 100 / 70) "%" }'
+    awk '{ print "", int($3 * 100 / 70) "%" }' && echo "$delim"
   sed "s/down//;s/up//" /sys/class/net/e*/operstate | tr -d '\n' &&
-	echo "$delim"
+	  echo " $delim"
 
 
   # Battery
@@ -35,7 +35,7 @@ status() { \
 	  echo "$delim"
 
   # Time/Date
-  date '+%b %d %a %I:%M%P'
+  date '+%d %b %I:%M'
 }
 
 update() { \
