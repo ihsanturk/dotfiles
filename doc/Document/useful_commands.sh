@@ -290,3 +290,7 @@ defaults write com.apple.finder QuitMenuItem -bool false
 sudo mount -r hfsplus -o force,rw /dev/sdXY /mnt/d
 # or
 sudo mount -o force,rw /dev/sdXY /mnt/d
+
+# Get the chmod numerical value for a file
+stat --format '%a' <file>
+
