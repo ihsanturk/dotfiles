@@ -1,5 +1,6 @@
 #!/bin/sh
 
+alias ec="emacsclient"
 alias grep="grep --color=auto"
 alias shh='\
 sudo umount /dev/sdb2 2>/dev/null;\
