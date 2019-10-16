@@ -27,7 +27,7 @@ nmap <M-b> :Buffers<CR>
 nmap <M-s> :BLines<CR>
 nmap <M-h> :Helptags!<CR>
 nmap <M-x> :Commands<CR>
-let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+let g:fzf_commands_expect = 'alt-enter'
 
 map q: :q
 cnorea W w
