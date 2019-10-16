@@ -1,0 +1,3 @@
+#!/bin/sh
+
+trans -show-original N -b -e google :en+tr "$@"
