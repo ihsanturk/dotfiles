@@ -9,7 +9,6 @@ dunst &
 dwmbar &
 
 xset r rate 220 40
-xmodmap -e 'keycode 66 = Escape'
-xmodmap -e 'clear Lock'
+xmodmap ~/.Xmodmap
 
 exec dwm 2>/tmp/dwm.log
