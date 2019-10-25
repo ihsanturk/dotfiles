@@ -2,7 +2,7 @@
 
 xrandr --auto
 
-feh --bg-fill ~/.cache/wall.jpg &
+feh --bg-fill ~/Dropbox/Picture/LandscapeDeer.jpg &
 
 sxhkd &
 dunst &
