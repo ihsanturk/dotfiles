@@ -294,3 +294,5 @@ sudo mount -o force,rw /dev/sdXY /mnt/d
 # Get the chmod numerical value for a file
 stat --format '%a' <file>
 
+# Disable PC speaker
+sudo rmmod pcspkr

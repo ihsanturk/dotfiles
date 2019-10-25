@@ -21,7 +21,7 @@
 #+BEGIN_SRC emacs-lisp
   (use-package gruvbox-theme
   :config
-    (load-theme 'gruvbox-dark-soft t))
+    (load-theme 'gruvbox-dark-medium t))
 #+END_SRC
 
 ** Font
