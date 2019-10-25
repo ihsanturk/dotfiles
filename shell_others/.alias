@@ -24,22 +24,22 @@ alias n='nnn'
 alias l='ls'
 
 
-# UBUNTU
-alias pr='sudo apt remove'
-alias pi='sudo apt install'
-alias pu='sudo apt update'
-alias pf='apt search'
-
 ## ARCH
-#alias pu='sudo pacman -Syu'
-#alias pf='sudo pacman -Qs'
-#alias pr='sudo pacman -R'
-#alias pi='sudo pacman -S'
-#
-#alias yu='yay -Syu'
-#alias yf='yay -Qs'
-#alias yr='yay -R'
-#alias yi='yay -S'
+alias pu='sudo pacman -Syu'
+alias pf='sudo pacman -Qs'
+alias pr='sudo pacman -R'
+alias pi='sudo pacman -S'
+
+alias yu='yay -Syu'
+alias yf='yay -Qs'
+alias yr='yay -R'
+alias yi='yay -S'
+
+# UBUNTU
+#alias pr='sudo apt remove'
+#alias pi='sudo apt install'
+#alias pu='sudo apt update'
+#alias pf='apt search'
 
 # VOID
 #alias pu='sudo xbps-install -Syuv'
@@ -54,5 +54,5 @@ alias pf='apt search'
 #sudo wpa_supplicant -B -i  wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf;\
 #sudo dhcpcd'
 
-# MAC
+# MACOS
 #alias cpwd='pwd | pbcopy -selection clipboard'
