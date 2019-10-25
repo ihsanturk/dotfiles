@@ -1,0 +1,4 @@
+#!/bin/sh
+
+result=$(dmenu | bc -l)
+dunstify -a "Calculation" -u low "$result"
