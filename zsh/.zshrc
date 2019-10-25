@@ -28,6 +28,7 @@ autoload -U compinit && compinit
 export EDITOR=vim
 export KEYTIMEOUT=1
 export ZSH="$HOME/.oh-my-zsh"
+export GTK_THEME="Mojave-dark"
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 export FZF_DEFAULT_COMMAND="find -L"
 export PATH="$HOME/.local/bin:$PATH"
