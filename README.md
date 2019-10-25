@@ -9,11 +9,11 @@ your new emacs configuration is ready.
 
 |     Sort | Value                                              |
 |---------:|:---------------------------------------------------|
-|       OS | ***[ubuntu](https://ubuntu.com/)***                |
+|       OS | ***[arch](https://ubuntu.com/)***                  |
 |       WM | ***[dwm](https://dwm.suckless.org/)***             |
 | Terminal | ***[st](https://st.suckless.org)***                |
 |    Shell | ***[zsh](https://zsh.org/)***                      |
-|   Editor | ***[nvim](https://neovim.io/)***                   |
+|   Editor | ***[emacs](https://neovim.io/)***                  |
 |  Browser | ***[chromium](https://https://www.chromium.org)*** |
 
 
