@@ -36,18 +36,6 @@
   (setq solarized-scale-org-headlines nil)
 #+END_SRC
 
-** Mode-Line
-#+BEGIN_SRC emacs-lisp
-  (use-package fancy-battery
-  :ensure t)
-    
-  (use-package doom-modeline
-  :ensure t
-  :hook (after-init . doom-modeline-mode)
-  :config
-    (setq doom-modeline-height 5))
-#+END_SRC
-
 * Custom Emacs Settings
 ** Dired
 
@@ -638,6 +626,18 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 
 
 * *FORSAKEN*
+** Mode-Line
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package fancy-battery
+  ;; :ensure t)
+  ;;   
+  ;; (use-package doom-modeline
+  ;; :ensure t
+  ;; :hook (after-init . doom-modeline-mode)
+  ;; :config
+  ;;   (setq doom-modeline-height 5))
+#+END_SRC
+
 ** Subword (for camel case word jumping)
 #+BEGIN_SRC emacs-lisp
   ;; (use-package subword
