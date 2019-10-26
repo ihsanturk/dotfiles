@@ -36,6 +36,7 @@
 #sudo pacman -S xf86-video-intel
 #sudo pacman -S xorg-minimal 
 #sudo pacman -S xset
+#sudo pacman -S python-pipenv
 #yay -S compton-rounded-corners
 
 
