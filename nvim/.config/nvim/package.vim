@@ -13,6 +13,6 @@ Plug 'scrooloose/syntastic'
 Plug 'morhetz/gruvbox'
 
 Plug 'junegunn/fzf.vim'
-source /usr/share/doc/fzf/examples/fzf.vim
+"source /usr/share/doc/fzf/examples/fzf.vim
 
 call plug#end()
