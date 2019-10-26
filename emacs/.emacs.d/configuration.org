@@ -37,6 +37,10 @@
 #+END_SRC
 
 * Custom Emacs Settings
+** Inner Gaps
+#+BEGIN_SRC emacs-lisp
+  (set-frame-parameter (selected-frame) 'internal-border-width 20)
+#+END_SRC
 ** Dired
 
 #+BEGIN_SRC emacs-lisp
@@ -558,8 +562,8 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
     (setq jedi:environment-root "jedi")
     (defun company-jedi-setup ()
     	(add-to-list 'company-backends 'company-jedi))
-    (add-hook 'python-mode-hook 'company-jedi-setup)
     (add-hook 'python-mode-hook 'jedi:install-server)
+    (add-hook 'python-mode-hook 'company-jedi-setup)
 
     (setq jedi:setup-keys t)
     (setq jedi:complete-on-dot t)
