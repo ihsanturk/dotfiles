@@ -1,0 +1,55 @@
+#!/bin/sh
+
+#args
+printDescription="false"
+
+API="https://en.wikipedia.org/api/rest_v1"
+CACHE_DIR="${XDG_CACHE_HOME:-"$HOME/.cache/wikipedia"}"
+
+if [ $# -eq 0 ]; then
+  read -p "Search: " TERM_
+else
+  for i in "$@"
+  do
+  case $i in
+      -d|--description)
+      printDescription="true";;
+      *)
+      i=$(echo $i | sed -e "s/\b\(.\)/\u\1/g")
+      TERM_="${TERM_} $i"
+      ;;
+  esac
+  done
+fi
+TERM_=$(echo $TERM_ | sed 's/ /_/g')
+
+CACHE="$CACHE_DIR/$TERM_"
+[ ! -e "$CACHE_DIR" ] && mkdir -p "$CACHE_DIR"
+[ ! -e "$CACHE" ] &&
+  curl -s -L -X GET \
+  "${API}/page/summary/$TERM_" -H"accept: application/json" > $CACHE
+
+
+title=$(cat "$CACHE" | jq '.title' | sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
+type_=$(cat "$CACHE" | jq '.type' | sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
+description=$(cat "$CACHE" | jq '.description' |
+  sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
+extract=$(cat "$CACHE" | jq '.extract' | sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
+
+
+#Print with colors
+
+. /home/ihsn/dotfiles/doc/Document/ansi_colors.sh
+
+colorCount=$(printf "\
+${txHalf}${txReset}${txBold}${fgGreen}${txReset}${fgYellow}${txReset}" | wc -m)
+
+printf "\
+${txHalf}${type_}${txReset} - \
+${txBold}${fgGreen}${title}${txReset} - \
+${fgYellow}${description}${txReset}\n" |
+  fold -sw $(echo "80 + $colorCount" | bc)
+
+if [ "$printDescription" = "true" ]; then
+  printf "${extract}\n" | fold -s
+fi
