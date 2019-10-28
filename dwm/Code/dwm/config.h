@@ -8,7 +8,7 @@
 static const unsigned int borderpx  = 0;  /* border pixel of windows */
 static const unsigned int gappx     = 35;  /* gaps between windows */
 static const unsigned int snap      = 16; /* snap pixel */
-static const int showbar            = 1;  /* 0 means no bar */
+static const int showbar            = 0;  /* 0 means no bar */
 static const int topbar             = 1;  /* 0 means bottom bar */
 static const char *fonts[]          = { "Inconsolata:size=17", "monospace:size=13" }; /* :antialias=true:hinting=true */
 static const char dmenufont[]       = "Inconsolata:size=17";
