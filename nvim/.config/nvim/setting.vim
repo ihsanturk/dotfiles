@@ -8,7 +8,8 @@ set hlsearch
 set wildmenu
 set incsearch
 set smartcase
-set tabstop=4
+set tabstop=2 
+set expandtab
 set cursorline
 set noswapfile
 set ignorecase
@@ -16,7 +17,7 @@ set splitright
 set splitbelow
 set showbreak=↪
 set scrolloff=5
-set shiftwidth=4
+set shiftwidth=2
 set termguicolors
 set ttimeoutlen=10
 set timeoutlen=1000
@@ -30,9 +31,9 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 autocmd InsertEnter,InsertLeave * set cul!
 
 if exists('+colorcolumn')
-	set colorcolumn=80
+  set colorcolumn=80
 else
-	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 
@@ -43,7 +44,7 @@ endif
 
 
 if has('unnamedplus')
-	set clipboard=unnamed,unnamedplus
+  set clipboard=unnamed,unnamedplus
 endif
 scriptencoding utf-8
 filetype plugin indent on
