@@ -1,6 +1,7 @@
 #!/bin/sh
 
 alias ec="emacsclient"
+alias wp="wikipedia"
 alias grep="grep --color=auto"
 alias shh='\
 sudo umount /dev/sdb2 2>/dev/null;\
@@ -27,7 +28,7 @@ alias l='ls'
 ## ARCH
 alias pu='sudo pacman -Syu'
 alias pf='sudo pacman -Qs'
-alias pr='sudo pacman -R'
+alias pr='sudo pacman -Rs' # -s for dependencies
 alias pi='sudo pacman -S'
 
 alias yu='yay -Syu'
