@@ -40,7 +40,8 @@ string [ FILENAME ]
 sort [ FILENAME ] | uniq -u
 
 
-# To change all the existing tab characters to match the current tab settings, use in vim
+# To change all the existing tab characters to match the current tab settings,
+# use in vim
 :retab
 
 
@@ -141,9 +142,9 @@ sudo mkfs.[ FILE_SYSTEM ] [ DISK ]
 sudo mkfs.vfat /dev/sdc1
 
 
-# Replace a key with another key (acting)
-exec --no-startup-id setxkbmap -option caps:escape
-or
+# Replace a key with another key (acting) on i3
+#exec --no-startup-id setxkbmap -option caps:escape
+#or
 xmodmap -e 'keycode 87 = grave'
 xmodmap -e 'keycode 85 = d'
 
@@ -160,7 +161,8 @@ make -j4
 
 
 # Get ip address of wlp2s0
-ifconfig wlp2s0 | grep -E 'inet .* netmask' -o | grep -E '[[:digit:]]*\.?*' -o | tr -d '\n'
+ifconfig wlp2s0 | grep -E 'inet .* netmask' -o |
+	grep -E '[[:digit:]]*\.?*' -o| tr -d '\n'
 
 
 # Make JSON Formatted in vim
@@ -171,10 +173,11 @@ ifconfig wlp2s0 | grep -E 'inet .* netmask' -o | grep -E '[[:digit:]]*\.?*' -o |
 curl cht.sh
 
 
-# Find all files with the name ".c" and add the following code block to begining of this file
-/*
- * Konu: <++>
- */
+# Find all files with the name ".c" and add the following code block to
+# begining of this file
+#/*
+# * Konu: <++>
+# */
 
 find . -type f -name "*.c*" -exec sed -i -e '1s/^/\/\*\n \* Konu: \<++\>\n \*\/\n\n/' {} \;
 
@@ -191,7 +194,8 @@ sudo mkfs.vfat /dev/sd[LETTER OF YOUR DEVICE]
 sudo dd if=[YOUR ISO FILE] of=/dev/sd[LETTER OF YOUR DEVICE] bs=4M
 
 
-# Rename the space character in all files and folders in the subdirectory with an underscore
+# Rename the space character in all files and folders in the subdirectory with
+# an underscore
 find * -exec bash -c 'mv "${0// /\\\ }" "${0// /_}" 2>/dev/null' {} \;
 
 
@@ -204,10 +208,10 @@ sudo xbps-instsall -Suv
 
 
 # Take video of a specific window (requires ffcast)
-ffcast -w ffmpeg -f x11grab -show_region 1 -s %s -i %D+%c [OUTPUTFILENAME].mp4
+ffcast -w ffmpeg -f x11grab -show_region 1 -s %s -i %D+%c [OUTPUTFILE].mp4
 
 # Take video of specific 3 windows (requires ffcast)
-ffcast -www ffmpeg -f x11grab -show_region 1 -s %s -i %D+%c [OUTPUTFILENAME].mp4
+ffcast -www ffmpeg -f x11grab -show_region 1 -s %s -i %D+%c [OUTPUTFILE].mp4
 
 
 # Compile htop-vim in voidlinux
@@ -222,8 +226,8 @@ hdiutil detach /dev/disk[DISK_NUMBER]
 printf "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
 
 
-# Print touching or not
-idevicesyslog | ag Touching | awk -F with '{printf $2 "\n"}' # ag -> the_silver_searcher
+# Print touching or not, ag = theSilverSearcher
+idevicesyslog | ag Touching | awk -F with '{printf $2 "\n"}'
 
 
 # Print Key names for defining key combinations (hotkeys)
@@ -240,18 +244,18 @@ find . type f -exec file -N -i -- {} + | grep video
 
 
 # Hackintosh activate sound/audio
-1. Download AppleALC from its repository
-2. Download Lilu from its repository
-3. Copy these files to /System/Library/Extensions directory
-4. Copy these files to /Volumes/EFI/EFI/CLOVER/Kexts/Other directory also
-5. Change these values:
-     in /Volumes/EFI/EFI/CLOVER/config.plist
-     Devices > Audio > Inject = 0,
-     Devices > Audio > ReseHDA = True
-     Devices > Properties > PciRoot(0)/Pci(0x1f,3) > layout-id = 99 (WITHOUT #)
+#1. Download AppleALC from its repository
+#2. Download Lilu from its repository
+#3. Copy these files to /System/Library/Extensions directory
+#4. Copy these files to /Volumes/EFI/EFI/CLOVER/Kexts/Other directory also
+#5. Change these values:
+#     in /Volumes/EFI/EFI/CLOVER/config.plist
+#     Devices > Audio > Inject = 0,
+#     Devices > Audio > ReseHDA = True
+#     Devices > Properties > PciRoot(0)/Pci(0x1f,3) > layout-id = 99 (Remove #)
 
      # 99 for auto detecting headphones and speaker
-6. Run
+#6. Run
      sudo chmod 755 /System/Library/Extensions &&
      sudo chown root:wheel /System/Library/Extensions;
      sudo kextcache -i /
@@ -263,7 +267,8 @@ find . type f -exec file -N -i -- {} + | grep video
 
 
 # Find all images and open with sxiv in fullscreen, thumbnail mode
-sxiv -tf $(find . type f -exec file -N -i -- {} + 2>/dev/null | grep image | sed 's/:.*//g')
+sxiv -tf $(find . type f -exec file -N -i -- {} + 2>/dev/null |
+	grep image | sed 's/:.*//g')
 
 
 # Look inside the current folder if there is a file open it with [PROGRAM]
@@ -276,7 +281,8 @@ done
 
 
 # Find the longest word in a list
-cat ${XDG_CACHE_HOME:-"$HOME/.cache"}/turkish_words | sed '/\s/d' | tac | sed 1q
+cat ${XDG_CACHE_HOME:-"$HOME/.cache"}/turkish_words |
+	sed '/\s/d' | tac | sed 1q
 
 
 # Enable Kill/Close Finder in MacOS

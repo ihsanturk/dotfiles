@@ -13,7 +13,6 @@
 #sudo pacman -S portmidi-devel
 #sudo pacman -S the_silver_searcher
 #sudo pacman -S xbindkeys
-#sudo pacman -S xclip 
 #sudo pacman -S youtube-dl
 
 #sudo pacman -S alsa-utils 
@@ -33,6 +32,7 @@
 #sudo pacman -S ttf-inconsolata
 #sudo pacman -S usbmuxd
 #sudo pacman -S vim
+#sudo pacman -S xclip 
 #sudo pacman -S xf86-video-intel
 #sudo pacman -S xorg-minimal 
 #sudo pacman -S xset
