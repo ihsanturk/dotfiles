@@ -9,7 +9,7 @@ sxhkd &
 dunst &
 dwmbar &
 
-xset r rate 220 40
+xset r rate 200 50
 xmodmap ~/.Xmodmap
 
 compton --config .config/compton/compton.conf &
