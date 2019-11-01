@@ -21,7 +21,7 @@ plugins=(
 autoload -U compinit && compinit
 
 export KEYTIMEOUT=1
-export EDITOR='emacsclient'
+export EDITOR='vim'
 export ZSH="$HOME/.oh-my-zsh"
 export GTK_THEME="Mojave-dark"
 export TERMINFO=/usr/lib/terminfo
