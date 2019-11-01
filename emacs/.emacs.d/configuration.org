@@ -37,6 +37,11 @@
 #+END_SRC
 
 * Custom Emacs Settings
+** Do Not Wrap Lines
+#+BEGIN_SRC emacs-lisp
+(toggle-truncate-lines)
+
+#+END_SRC
 ** Inner Gaps
 #+BEGIN_SRC emacs-lisp
   (set-frame-parameter (selected-frame) 'internal-border-width 20)
