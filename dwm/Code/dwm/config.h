@@ -10,13 +10,13 @@ static const unsigned int gappx     = 35;  /* gaps between windows */
 static const unsigned int snap      = 16; /* snap pixel */
 static const int showbar            = 0;  /* 0 means no bar */
 static const int topbar             = 1;  /* 0 means bottom bar */
-static const char *fonts[]          = { "Inconsolata:size=17", "monospace:size=13" }; /* :antialias=true:hinting=true */
+static const char *fonts[]          = { "monospace:size=16" };
 static const char dmenufont[]       = "Inconsolata:size=17";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#222222";
-static const char col_cyan[]        = "#87B268";
+static const char col_cyan[]        = "#98971a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -32,8 +32,6 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance  title  tags mask isfloating  monitor */
-	{ "Chromium", NULL,     NULL,  2,        0,          -1 },
-	{ "Emacs",    NULL,     NULL,  1,        0,          -1 },
 	{ "Gimp",     NULL,     NULL,  4,        1,          -1 },
 };
 
