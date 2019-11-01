@@ -6,33 +6,33 @@ interval="1"
 status() { \
   echo
 
-  # Volume
-  amixer get Master |
-    grep -o "[0-9]*%\|\[on\]\|\[off\]" |
-    sed "s/\[on\]//;s/\[off\]//" |
-	tr '\n' ' ' |
-	sed 's/\([0-9]*\%\) \(.*\)/ \2\1 /g' &&
-	echo "$delim"
+  ## Volume
+  #amixer get Master |
+  #  grep -o "[0-9]*%\|\[on\]\|\[off\]" |
+  #  sed "s/\[on\]//;s/\[off\]//" |
+	#tr '\n' ' ' |
+	#sed 's/\([0-9]*\%\) \(.*\)/ \2\1 /g' &&
+	#echo "$delim"
 
 
-  # WiFi
-  grep "^\s*w" /proc/net/wireless |
-    awk '{ print "", int($3 * 100 / 70) "%" }' && echo "$delim"
+  # Network
+  #grep "^\s*w" /proc/net/wireless |
+  #  awk '{ print "", int($3 * 100 / 70) "%" }' && echo "$delim"
   sed "s/down//;s/up//" /sys/class/net/e*/operstate | tr -d '\n' &&
 	  echo " $delim"
 
 
-  # Battery
-  for x in /sys/class/power_supply/BAT?/capacity; do
-  case "$(cat $x)" in
-    100|9[0-9])     echo " $(cat $x)%" ;;
-    8[0-9]|7[0-9])  echo " $(cat $x)%" ;;
-    6[0-9]|5[0-9])  echo " $(cat $x)%" ;;
-    4[0-9]|3[0-9])  echo " $(cat $x)%" ;;
-    *)              echo " $(cat $x)%" ;;
-  esac
-  done &&
-	  echo "$delim"
+  ## Battery
+  #for x in /sys/class/power_supply/BAT?/capacity; do
+  #case "$(cat $x)" in
+  #  100|9[0-9])     echo " $(cat $x)%" ;;
+  #  8[0-9]|7[0-9])  echo " $(cat $x)%" ;;
+  #  6[0-9]|5[0-9])  echo " $(cat $x)%" ;;
+  #  4[0-9]|3[0-9])  echo " $(cat $x)%" ;;
+  #  *)              echo " $(cat $x)%" ;;
+  #esac
+  #done &&
+	#  echo "$delim"
 
   # Time/Date
   date '+%d %b %I:%M'
