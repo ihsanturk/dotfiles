@@ -1,16 +1,16 @@
 [global]
     monitor = 0
     follow = mouse
-    geometry = "300x10-30+40" #[{width}]x{height}[+/-{x}+/-{y}]
+    geometry = "290x100-30+40" #[{width}]x{height}[+/-{x}+/-{y}]
     indicate_hidden = yes
     shrink = no
     notification_height = 0
     separator_height = 2
-    padding = 13
+    padding = 20
     horizontal_padding = 13
-    frame_width = 5 # border
+    frame_width = 0 # border
     frame_color = "#87B268" # border color
-    separator_color = frame
+    #separator_color = frame
     sort = yes
     idle_threshold = 120
 
@@ -43,7 +43,8 @@
     ### Icons ###
     icon_position = left
     max_icon_size = 32
-    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/
+    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+
 
     ### History ###
     sticky_history = yes
@@ -51,7 +52,7 @@
 
     ### Misc/Advanced ###
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/firefox -new-tab
+    browser = /usr/bin/chromium
     always_run_script = true
     title = Dunst
     class = Dunst
@@ -76,20 +77,20 @@
 
 [urgency_low]
     frame_color ="#333333"
-    foreground = "#eeeeee"
-    background = "#546454"
+    foreground = "#928374"
+    background = "#282828"
     timeout = 10
     #icon = /path/to/icon
 
 [urgency_normal]
-    foreground = "#ffffff"
-    background = "#597347"
+    foreground = "#98971a"
+    background = "#282828"
     timeout = 10
     #icon = /path/to/icon
 
 [urgency_critical]
-    frame_color ="#ff0000"
-    foreground = "#ffffff"
-    background = "#900000"
-    timeout = 0
+    frame_color ="#cc241d"
+    foreground = "#cc241d"
+    background = "#282828"
+    timeout = 30
     #icon = /path/to/icon
