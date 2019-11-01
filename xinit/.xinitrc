@@ -14,5 +14,5 @@ xmodmap ~/.Xmodmap
 
 compton --config .config/compton/compton.conf &
 
-exec dwm 2>/tmp/dwm.log
+exec startdwm
 
