@@ -11,8 +11,8 @@ call plug#begin()
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/syntastic'
 Plug 'morhetz/gruvbox'
-
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf.vim'
-"source /usr/share/doc/fzf/examples/fzf.vim
 
 call plug#end()

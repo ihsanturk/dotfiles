@@ -7,6 +7,7 @@ set ttimeout
 set hlsearch
 set wildmenu
 set incsearch
+set autochdir
 set smartcase
 set tabstop=2 
 set expandtab

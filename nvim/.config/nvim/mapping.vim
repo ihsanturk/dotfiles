@@ -7,12 +7,11 @@ nmap <Tab> :bn<cr>
 tno <Esc> <C-\><C-n>
 nmap <S-Tab> :bp<cr>
 nmap <leader>i /)<Return>:noh<cr>i
-nmap <leader>n :NERDTreeToggle<cr><C-w>=
-nmap <leader>q :bp<bar>sp<bar>bn<bar>bd<cr>
+nmap <M-3> :NERDTreeToggle<cr><C-w>=
+nmap <M-k> :bp<bar>sp<bar>bn<bar>bd<cr>
+nmap <M-S-k> :bd<cr>
 nmap <esc><esc> :noh<cr>:call clearmatches()<cr>
 nmap <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
-" meta
-nmap <M-k> :bd<CR>
 
 " folding
 nn <Space> za
