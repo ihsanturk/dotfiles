@@ -1,6 +1,8 @@
 #!/bin/sh
 
 alias ec="emacsclient"
+alias clear='printf ""'
+alias rclear='clear'
 alias wp="wikipedia"
 alias grep="grep --color=auto"
 alias shh='\
