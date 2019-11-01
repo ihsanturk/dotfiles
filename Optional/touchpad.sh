@@ -8,6 +8,3 @@ if ! grep -qF '"Tapping" "on"' /usr/share/X11/xorg.conf.d/40-libinput.conf; then
 else
   echo '!   Touchpad tapping option is already activated'
 fi
-
-
-

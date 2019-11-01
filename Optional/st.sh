@@ -2,11 +2,15 @@
 
 . ./optional.conf 
 
-if ! [ -d /home/$USERNAME/Software/st ]; then
-  mkdir -p /home/ihsn/Software &&
-    cd /home/ihsn/Software &&
-    git clone https://git.suckless.com/st &&
-	  echo 'St done.'
+if ! [ -d $SoftwarePath/st ]; then
+  mkdir -p $SoftwarePath && cd $SoftwarePath &&
+  git clone https://git.suckless.org/st &&
+  cd $SoftwarePath/st &&
+  cd /home/$Username/dotfiles/ &&
+  stow st &&
+	cd $SoftwarePath/st &&
+  make && sudo make clean install &&
+	echo 'St has been installed.'
 else
-	echo '!    St already cloned'
+  echo 'St has already cloned!'
 fi
