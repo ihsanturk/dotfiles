@@ -7,22 +7,23 @@ stow emacs #Just install the emacs configuration
 If there is not a file in the destination directory then
 your new emacs configuration is ready.
 
-|     Sort | Value                                              |
-|---------:|:---------------------------------------------------|
-|       OS | ***[arch](https://archlinux.org/)***               |
-|       WM | ***[dwm](https://dwm.suckless.org/)***             |
-| Terminal | ***[st](https://st.suckless.org)***                |
-|    Shell | ***[zsh](https://zsh.org/)***                      |
-|   Editor | ***[emacs](https://gnu.org/software/emacs)***      |
-|  Browser | ***[chromium](https://https://www.chromium.org)*** |
+|     Sort | Value                                            |
+|---------:|:-------------------------------------------------|
+|       OS | **[arch](https://archlinux.org/)**               |
+|       WM | **[dwm](https://dwm.suckless.org/)**             |
+| Terminal | **[st](https://st.suckless.org)**                |
+|    Shell | **[zsh](https://zsh.org/)**                      |
+|   Editor | **[emacs](https://gnu.org/software/emacs)** & **[neovim](https://neovim.io/)**      |
+|  Browser | **[chromium](https://https://www.chromium.org)** |
 
 
 #### Notes
-In order to install *dmenu_run* cache list
-you should **`keep`** just the **`else section`** of the
-**`/usr/bin/dmenu_path`** file
+(Optional/dmenu.sh script takes care of the issue below automatically)
 
-So the /usr/bin/dmenu_path should look like:
+**(Deprecated)** ~~In order to install *dmenu_run* cache list
+you should **`keep`** just the **`else section`** of the
+**`/usr/bin/dmenu_path`** file.
+So the /usr/bin/dmenu_path should look like:~~
 ```sh
 #!/bin/sh
 
