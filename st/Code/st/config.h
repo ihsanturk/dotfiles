@@ -109,7 +109,6 @@ static const char *colorname[] = {
   "#ebdbb2"  /* | foreground    | */
 };		
 
-
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
@@ -126,7 +125,7 @@ static unsigned int defaultcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 6;
+static unsigned int cursorshape = 2;
 
 /*
  * Default columns and rows numbers
