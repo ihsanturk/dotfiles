@@ -9,6 +9,7 @@ if ! [ -d $SoftwarePath/dmenu ]; then
   git clone https://git.suckless.org/dmenu &&
   cd /home/$Username/dotfiles/ &&
   stow dmenu &&
+  sed -i '/stest\|else\|fi/d' $SoftwarePath/dmenu/dmenu_path
   cd $SoftwarePath/dmenu && mkdir -p patch && cd patch &&
   eval "set -- $patches" &&
   for p; do
@@ -17,7 +18,6 @@ if ! [ -d $SoftwarePath/dmenu ]; then
   cd ..
 	git apply patch/* &&
 	cd $SoftwarePath/dmenu &&
-  sed -i '/stest\|else\|fi/d' dmenu_path
   make && sudo make clean install &&
 	echo 'Dmenu has been installed.'
 else
