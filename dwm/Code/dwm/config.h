@@ -5,7 +5,7 @@
   *   * hide-vacant-tags
   * */
 
-static const unsigned int borderpx  = 0;  /* border pixel of windows */
+static const unsigned int borderpx  = 2;  /* border pixel of windows */
 static const unsigned int gappx     = 35;  /* gaps between windows */
 static const unsigned int snap      = 16; /* snap pixel */
 static const int showbar            = 0;  /* 0 means no bar */
