@@ -1,7 +1,8 @@
 #!/bin/sh
 
-result=$(dmenu -fn "monospace:size=17"| bc -l)
+q=$(dmenu) #-fn "monospace:size=17"
+a=$(echo $q | bc -l)
 
-if ! [ "$result" = "" ]; then 
-  dunstify -a "Calculation" -u low "$result";
+if ! [ "$q" = "" ]; then 
+  dunstify -a "Calculation" "$a";
 fi
