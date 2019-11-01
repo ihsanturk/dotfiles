@@ -30,8 +30,8 @@ CACHE="$CACHE_DIR/$TERM_"
   "${API}/page/summary/$TERM_" -H"accept: application/json" > $CACHE
 
 
-title=$(cat "$CACHE" | jq '.title' | sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
 type_=$(cat "$CACHE" | jq '.type' | sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
+title=$(cat "$CACHE" | jq '.title' | sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
 description=$(cat "$CACHE" | jq '.description' |
   sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
 extract=$(cat "$CACHE" | jq '.extract' | sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
