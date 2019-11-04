@@ -8,8 +8,8 @@
     separator_height = 2
     padding = 20
     horizontal_padding = 13
-    frame_width = 0 # border
-    frame_color = "#87B268" # border color
+    frame_width = 2 # border
+    frame_color = "#98971a" # border color
     #separator_color = frame
     sort = yes
     idle_threshold = 120
