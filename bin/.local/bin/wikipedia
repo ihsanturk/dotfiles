@@ -41,15 +41,12 @@ extract=$(cat "$CACHE" | jq '.extract' | sed 's/^"/~~/g; s/"$/~~/g; s/~~//g;')
 
 . /home/ihsn/dotfiles/doc/Document/ansi_colors.sh
 
-colorCount=$(printf "\
-${txHalf}${txReset}${txBold}${fgGreen}${txReset}${fgYellow}${txReset}" | wc -m)
-
 printf "\
 ${txHalf}${type_}${txReset} - \
 ${txBold}${fgGreen}${title}${txReset} - \
 ${fgYellow}${description}${txReset}\n" |
-  fold -sw $(echo "80 + $colorCount" | bc)
+  fold -sw $(tput cols)
 
 if [ "$printDescription" = "true" ]; then
-  printf "${extract}\n" | fold -s
+  printf "${extract}\n" | fold -sw $(tput cols)
 fi
