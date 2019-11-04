@@ -3,7 +3,7 @@
 xrandr --auto
 sudo rmmod pcspkr
 
-feh --bg-fill ~/Dropbox/Picture/LandscapeDeer.jpg &
+feh --bg-fill ~/Dropbox/Picture/elijah-o-donnell-Wd-mTu0EKT4-unsplash.jpg &
 
 sxhkd &
 dunst &
