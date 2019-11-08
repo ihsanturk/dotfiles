@@ -40,11 +40,6 @@
 ** Do Not Wrap Lines
 #+BEGIN_SRC emacs-lisp
 (toggle-truncate-lines)
-
-#+END_SRC
-** Inner Gaps
-#+BEGIN_SRC emacs-lisp
-  (set-frame-parameter (selected-frame) 'internal-border-width 20)
 #+END_SRC
 ** Dired
 
@@ -167,10 +162,12 @@ Never use tabs. Tabs are the devil’s whitespace.
   (global-linum-mode 0)
   (blink-cursor-mode 0)
   (fancy-battery-mode 1)
-  (column-number-mode 0)
+  (column-number-mode 1)
   (global-hl-line-mode 1)
   (add-hook 'prog-mode-hook #'hs-minor-mode)
   (set-window-scroll-bars (minibuffer-window) nil nil)
+  ;; Inner gaps
+  (set-frame-parameter (selected-frame) 'internal-border-width 20)
 #+END_SRC
 
 ** Kill Always Current Buffer
