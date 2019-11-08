@@ -302,3 +302,13 @@ stat --format '%a' <file>
 
 # Disable PC speaker
 sudo rmmod pcspkr
+
+
+# Spin down a disk
+hdparm -Y /dev/sdb2 1>/dev/null;
+
+# Sort by length
+S T D I N | awk '{ print length(), $0 | "sort -n" }' | cut -d -f2-
+
+# Download youtube playlist with enumerate
+youtube-dl [PLAYLIST_LINK] -o '%(playlist_index)s - %(title)s.%(ext)s'
