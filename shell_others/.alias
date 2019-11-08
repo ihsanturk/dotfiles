@@ -10,7 +10,7 @@ alias grep="grep --color=auto"
 alias mantitle='apropos . | dmenu -l 10'
 alias cpwd='pwd | xclip -selection clipboard'
 alias eusc='nvim ${HOME}/dotfiles/doc/Document/useful_commands.sh'
-alias usc='cat ${HOME}/Document/useful_commands.sh | dmenu -i -l 20'
+alias usc='cat ${HOME}/dotfiles/doc/Document/useful_commands.sh | dmenu -i -l 20'
 alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap gb'
 alias disk2='\
 sudo fsck.hfsplus -f /dev/sdb2;\
