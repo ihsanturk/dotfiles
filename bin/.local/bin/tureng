@@ -1,0 +1,12 @@
+#!/bin/sh
+
+pgrep tureng-api 2>&1 >/dev/null || tureng-api
+appname=$(dmenu)
+dunstify "$appname"
+body=$(echo\
+  $(curl "localhost:8080/translate/$appname"|jq '.response|.[]|.tr'|sed 5q|
+sed 's/^"/~~/g; s/"$/++/g; s/~~//g;s/++/, /g'))
+
+if ! [ "$appname" = "" ]; then 
+  dunstify  "$body";
+fi

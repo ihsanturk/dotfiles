@@ -1,0 +1,4 @@
+#!/bin/sh
+
+terms=$(echo $@ | sed 's/ /+/g')
+curl cht.sh/$terms
