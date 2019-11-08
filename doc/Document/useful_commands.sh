@@ -312,3 +312,11 @@ S T D I N | awk '{ print length(), $0 | "sort -n" }' | cut -d -f2-
 
 # Download youtube playlist with enumerate
 youtube-dl [PLAYLIST_LINK] -o '%(playlist_index)s - %(title)s.%(ext)s'
+
+# Take input from user in shell
+read -p "Target folder: " folder
+
+# If variable empty in shell
+if ! [ "$q" = "" ]; then 
+  echo "NOT empty"
+fi
