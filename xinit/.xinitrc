@@ -14,6 +14,7 @@ xset r rate 200 50
 xmodmap ~/.Xmodmap
 
 compton --config .config/compton/compton.conf &
+dropbox &
 
 exec startdwm
 
