@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pgrep tureng-api 2>&1 >/dev/null || tureng-api
+pgrep tureng-api 2>&1 >/dev/null || tureng-api &
 appname=$(dmenu)
 dunstify "$appname"
 body=$(echo\
@@ -10,3 +10,5 @@ sed 's/^"/~~/g; s/"$/++/g; s/~~//g;s/++/, /g'))
 if ! [ "$appname" = "" ]; then 
   dunstify  "$body";
 fi
+
+pkill tureng-api
