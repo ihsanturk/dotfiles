@@ -16,25 +16,26 @@ else
 fi
 
 pkgList="\
-	git\
 	fzf\
+	git\
 	nnn\
-	stow\
 	curl\
-	sxhkd\
+	stow\
 	dmenu\
+	sxhkd\
 	xclip\
 	hdparm\
 	neovim\
 	usbmuxd\
 	chromium\
-	xbindkeys\
 	libnotify\
-	base-devel\
+	xbindkeys\
 	alsa-utils\
+	base-devel\
 	libX11-devel\
 	libXft-devel\
 	xorg-minimal\
+  translate-shell
 	xf86-video-intel\
 "
 
