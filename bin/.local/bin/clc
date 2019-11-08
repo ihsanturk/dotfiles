@@ -1,6 +1,6 @@
 #!/bin/sh
 
-q=$(dmenu) #-fn "monospace:size=17"
+q=$(dmenu)
 a=$(echo $q | bc -l)
 
 if ! [ "$q" = "" ]; then 
