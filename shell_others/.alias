@@ -1,63 +1,49 @@
 #!/bin/sh
 
-alias rclear='clear'
+alias n="nnn -d"
 alias wp="wikipedia"
+alias open='xdg-open'
 alias ec="emacsclient"
 alias clear='printf ""'
+alias rclear='tput clear'
 alias grep="grep --color=auto"
 alias mantitle='apropos . | dmenu -l 10'
-alias shh='\
-sudo umount /dev/sdb2 2>/dev/null;\
-sudo hdparm -Y /dev/sdb2 1>/dev/null;\
-sudo hdparm -Y /dev/sdb 1>/dev/null'
-alias cpwd='pwd | xclip -selection clipboard' # Linux/Unix Xorg
+alias cpwd='pwd | xclip -selection clipboard'
+alias eusc='nvim ${HOME}/dotfiles/doc/Document/useful_commands.sh'
+alias usc='cat ${HOME}/Document/useful_commands.sh | dmenu -i -l 20'
+alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap gb'
 alias disk2='\
 sudo fsck.hfsplus -f /dev/sdb2;\
 sudo mount -t hfsplus -o force,rw /dev/sdb2 /mnt'
-alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap gb'
 
-
-#alias usc='cat ${HOME}/Document/useful_commands.sh | dmenu -i -l 20'
-#alias eusc='nvim ${HOME}/Document/useful_commands.sh'
-alias open='xdg-open'
-
-alias la='ls -lAh'
-alias ll='ls -lh'
-alias rm='trash'
-alias n='nnn'
 alias l='ls'
-
+alias n='nnn'
+alias rm='trash'
+alias ll='ls -lh'
+alias la='ls -lAh'
 
 ## ARCH
 alias pu='sudo pacman -Syu'
-alias pf='sudo pacman -Q | dmenu -l 10'
+alias pl='sudo pacman -Q | dmenu -l 10'
 # -s for dependencies
-alias pr='sudo pacman -Rs $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
 alias pi='sudo pacman -S'
+alias pru='sudo pacman -R $(pacman -Qdtq)'
+alias pr='sudo pacman -Rcns $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
 
+alias yi='yay -S'
 alias yu='yay -Syu'
 alias yf='yay -Q | dmenu -l 10'
 alias yr='yay -R $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
-alias yi='yay -S'
 
 # UBUNTU
-#alias pr='sudo apt remove'
-#alias pi='sudo apt install'
-#alias pu='sudo apt update'
 #alias pf='apt search'
+#alias pr='sudo apt remove'
+#alias pu='sudo apt update'
+#alias pi='sudo apt install'
 
 # VOID
-#alias pu='sudo xbps-install -Syuv'
-#alias pf='sudo xbps-query -s'
-#alias pr='sudo xbps-remove -R'
-#alias pl='sudo xbps-query -m'
 #alias pi='sudo xbps-install'
-
-#alias wifi='\
-#sudo killall wpa_supplicant dhcpcd;\
-#sudo rm -rf /var/run/wpa_supplicant;\
-#sudo wpa_supplicant -B -i  wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf;\
-#sudo dhcpcd'
-
-# MACOS
-#alias cpwd='pwd | pbcopy -selection clipboard'
+#alias pf='sudo xbps-query -s'
+#alias pl='sudo xbps-query -m'
+#alias pr='sudo xbps-remove -R'
+#alias pu='sudo xbps-install -Syuv'

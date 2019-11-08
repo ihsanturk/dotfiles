@@ -1,5 +1,6 @@
 export BROWSER=chromium-browser
 
+export BLPAPI_ROOT="/home/ihsn/API/blpapi_cpp_3.12.3.1"
 export VULKAN_ROOT_LOCATION="$HOME/Software/Library/"
 export VULKAN_SDK_VERSION="1.1.114.0"
 export VULKAN_SDK="$VULKAN_ROOT_LOCATION/vulkansdk-macos-$VULKAN_SDK_VERSION/macOS"
