@@ -320,3 +320,7 @@ read -p "Target folder: " folder
 if ! [ "$q" = "" ]; then 
   echo "NOT empty"
 fi
+
+
+# Convert non ASCII characters to ASCII characters with one liner
+iconv -f utf-8 -t ascii//translit [FILE.txt]
