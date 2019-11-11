@@ -21,14 +21,16 @@
 #+BEGIN_SRC emacs-lisp
   (use-package gruvbox-theme
   :config
-    (load-theme 'gruvbox-dark-medium t))
+    (if (display-graphic-p)
+      (load-theme 'gruvbox-dark-medium t)
+      (load-theme 'wheatgrass)))
 #+END_SRC
 
 ** Font
 #+BEGIN_SRC emacs-lisp
   (setq default-frame-alist
     '((width . 80)
-      (font . "Inconsolata-16")))
+      (font . "Inconsolata-14")))
 #+END_SRC
 
 ** Org-Title-Sizes
