@@ -324,3 +324,22 @@ fi
 
 # Convert non ASCII characters to ASCII characters with one liner
 iconv -f utf-8 -t ascii//translit [FILE.txt]
+
+
+# Redirect all outputs to "nothing"
+[COMMAND] 2>&1 >/dev/null
+
+
+## Open a free wordpress site with heroku
+#Instructions are there: 
+#https://github.com/mhoofman/wordpress-heroku
+
+
+# Parse google seach auto completion using jq and sed
+[JSON STDIN] |
+  jq -r '.[][][]? | select(.==tostring)' |
+  sed 's/\(.*<b>\)\(.*[^<\/b>]\)<\/b>/\2/g'
+
+
+# Remove pacman cached and insallation files
+pacman -Scc
