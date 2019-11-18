@@ -13,6 +13,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 ""python3 install.py --all or --python
 "Plug 'ycm-core/YouCompleteMe'
 
+Plug 'junegunn/goyo.vim'
 Plug 'mhinz/vim-startify'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdtree'
