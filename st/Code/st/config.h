@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "monospace:pixelsize=18:antialias=true:autohint=true";
-static int borderpx = 20;
+static char *font = "Cascadia Code:pixelsize=18:antialias=true:autohint=true";
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -105,7 +105,7 @@ static const char *colorname[] = {
              
   [255] = 0, 
 
-  "#282828", /* | background    | */
+  "#1d2021", /* | background (soft: 282828) | */  
   "#ebdbb2"  /* | foreground    | */
 };		
 
