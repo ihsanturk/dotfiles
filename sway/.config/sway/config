@@ -1,14 +1,14 @@
 font pango:Hack Nerd Font 10
 
-set $term urxvt
-set $gapsInner 30
-set $gapsOuter 20
-set $borderPixel 4
+set $term termite
+set $gapsInner 40
+set $gapsOuter 60
+set $borderPixel 2
 set $wall '/home/ihsn/.cache/wall.jpg'
 set $lockScreenWall '/home/ihsn/.cache/wallBlur.jpg'
 
 set $bg-color            #2C323B
-set $bd-color            #98C379
+set $bd-color            #98971a
 set $inactive-bg-color   #383C4A
 set $inactive-bd-color   #F4D669
 set $text-color          #f3f4f5
@@ -56,11 +56,11 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     middle_emulation enabled
 }
 
-    bindsym $mod+Return exec $term
-    bindsym $mod+Shift+q kill
-    bindsym $mod+d exec $menu
+    bindsym $mod+space exec $menu
+    bindsym $mod+Shift+Return exec $term
+    bindsym $mod+Shift+c kill
     floating_modifier $mod normal
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+q reload
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
     bindsym $mod+$left focus left
@@ -113,7 +113,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     bindsym $mod+e layout toggle split
     bindsym $mod+f fullscreen
     bindsym $mod+Shift+space floating toggle
-    bindsym $mod+space focus mode_toggle
+    # bindsym $mod+space focus mode_toggle
     bindsym $mod+a focus parent
     bindsym $mod+Shift+minus move scratchpad
     bindsym $mod+minus scratchpad show
@@ -125,7 +125,17 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 
 
 bar {
-    swaybar_command waybar
+    position top
+    # Keep in mind that the current directory of this config file is $HOME
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
+
+    colors {
+        # Text color of status bar
+        statusline #ffffff
+        # Background of status bar
+        background #323232
+    }
+    font pango:DejaVu Sans Mono 10
 }
 
 bindsym $mod+x exec swaylock -i $lockScreenWall
