@@ -1,16 +1,17 @@
-let mapleader = '\'
+filetype plugin indent on
 syntax on
-set number
+"set number
 set nowrap
 set timeout
 set ttimeout
+set mouse=a
 set hlsearch
 set wildmenu
 set incsearch
-set autochdir
+"set autochdir "relative path
 set smartcase
-set tabstop=2 
 set expandtab
+set tabstop=2 
 set cursorline
 set noswapfile
 set ignorecase
@@ -31,6 +32,15 @@ set backspace=indent,eol,start
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 autocmd InsertEnter,InsertLeave * set cul!
 
+let mapleader = '\'
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+
 if exists('+colorcolumn')
   set colorcolumn=80
 else
@@ -48,4 +58,3 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 scriptencoding utf-8
-filetype plugin indent on

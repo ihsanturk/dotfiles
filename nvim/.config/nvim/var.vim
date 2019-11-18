@@ -6,4 +6,6 @@ let NERDTreeMinimalView = 1
 let g:NERDTreeMapActivateNode = '<space>'
 let g:NERDSpaceDelims = 1
 
-colorscheme gruvbox
+"let g:gruvbox_contrast_dark = "hard"
+"colorscheme gruvbox
+colorscheme base16-gruvbox-dark-hard

@@ -8,11 +8,16 @@ endif
 
 call plug#begin()
 
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+""python3 install.py --all or --python
+"Plug 'ycm-core/YouCompleteMe'
+
 Plug 'mhinz/vim-startify'
-Plug 'scrooloose/syntastic'
-Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf.vim'
+"Plug 'scrooloose/syntastic'
 
 call plug#end()
