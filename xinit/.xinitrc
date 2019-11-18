@@ -15,6 +15,6 @@ xmodmap ~/.Xmodmap
 
 compton --config .config/compton/compton.conf &
 dropbox &
+xdotool mousemove 1920 1080 2>&1 >/dev/null
 
 exec startdwm
-
