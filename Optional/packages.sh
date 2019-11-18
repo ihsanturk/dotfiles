@@ -34,6 +34,7 @@ pkgList="\
 	base-devel\
 	libX11-devel\
 	libXft-devel\
+  wl-clipboard
 	xorg-minimal\
   translate-shell
 	xf86-video-intel\
