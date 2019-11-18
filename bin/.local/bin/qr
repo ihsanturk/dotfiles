@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo $1 | qrencode -o /tmp/qr.png -t png -s 5
+echo $1 | qrencode -o /tmp/qr.png -t png -s 5 &&
 sxiv /tmp/qr.png #--zoom 200
