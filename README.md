@@ -7,14 +7,14 @@ stow emacs #Just install the emacs configuration
 If there is not a file in the destination directory then
 your new emacs configuration is ready.
 
-|     Sort | Value                                            |
-|---------:|:-------------------------------------------------|
-|       OS | **[arch](https://archlinux.org/)**               |
-|       WM | **[dwm](https://dwm.suckless.org/)**             |
-| Terminal | **[st](https://st.suckless.org)**                |
-|    Shell | **[zsh](https://zsh.org/)**                      |
-|   Editor | **[emacs](https://gnu.org/software/emacs)** & **[neovim](https://neovim.io/)**      |
-|  Browser | **[chromium](https://https://www.chromium.org)** |
+|     Sort | Value                                                          |
+|---------:|:---------------------------------------------------------------|
+|       OS | **[arch](https://archlinux.org/)**                             |
+|       WM | **[sway](https://swaywm.org/)**                                |
+| Terminal | **[termite](https://www.compuphase.com/software_termite.htm)** |
+|    Shell | **[zsh](https://zsh.org/)**                                    |
+|   Editor | **[neovim](https://neovim.io/)**                               |
+|  Browser | **[firefox](https://www.mozilla.org/en-GB/firefox/new/)**      |
 
 
 #### Notes
