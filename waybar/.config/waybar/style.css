@@ -1,11 +1,11 @@
 * {
-	font-size: 16px;
-	font-family: monospace;
+	font-size: 17px;
+	font-family: CascadiaCode;
 }
 
 window#waybar {
-	background: #292b2e;
-	color: #fdf6e3;
+	background: #1d2021;
+	color: #ebdbb2;
 }
 
 #custom-right-arrow-dark,
@@ -14,7 +14,7 @@ window#waybar {
 }
 #custom-right-arrow-light,
 #custom-left-arrow-light {
-	color: #292b2e;
+	color: #1d2021;
 	background: #1a1a1a;
 }
 
@@ -22,6 +22,7 @@ window#waybar {
 #clock.1,
 #clock.2,
 #clock.3,
+#disk,
 #pulseaudio,
 #backlight,
 #memory,
@@ -49,6 +50,9 @@ window#waybar {
 	padding: 0 3px;
 }
 
+#disk {
+	color: #b8bb26;
+}
 #pulseaudio {
 	color: #268bd2;
 }
@@ -69,11 +73,12 @@ window#waybar {
 }
 
 #clock,
+#disk
 #pulseaudio,
 #backlight,
 #memory,
 #cpu,
 #temperature,
 #battery {
-	padding: 0 10px;
+	padding: 3px 10px;
 }

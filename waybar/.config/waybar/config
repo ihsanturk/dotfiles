@@ -21,6 +21,9 @@
 	],
 	"modules-right": [
 		"custom/left-arrow-dark",
+		"disk",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
 		"pulseaudio",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
@@ -29,11 +32,7 @@
 		"custom/left-arrow-dark",
 		"cpu",
 		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"battery",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"tray"
+		"custom/left-arrow-dark"
 	],
 
 	"custom/left-arrow-dark": {
@@ -67,10 +66,15 @@
 		"tooltip": false
 	},
 	"clock#3": {
-		"format": "{:%m-%d}",
+		"format": "{:%b %d}",
 		"tooltip": false
 	},
 
+  "disk": {
+    "interval": 30,
+    "format": "{free}",
+    "path": "/dev/sdb1/"
+  },
 	"pulseaudio": {
 		"format": "{icon}  {volume}%",
 		"format-bluetooth": "{icon}  {volume}%",
@@ -88,7 +92,7 @@
 	},
 	"memory": {
 		"interval": 5,
-		"format": "Mem {}%"
+		"format": "MEM {}%"
 	},
 	"cpu": {
 		"interval": 5,
