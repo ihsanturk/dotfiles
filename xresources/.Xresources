@@ -6,9 +6,9 @@
 ! Last Modified: 6 Sep 2014
 ! -----------------------------------------------------------------------------
 
-URxvt.boldFont:xft:FiraCode-Bold:size=12
-URxvt.font:xft:FiraCode-Regular:size=12
-URxvt.internalBorder: 20
+! URxvt.boldFont:xft:Cascadia Code Bold:size=12
+URxvt.font:xft:Cascadia Code:size=12
+URxvt.internalBorder: 5
 URxvt.scrollBar: false
 
 ! hard contrast: *background: #1d2021
