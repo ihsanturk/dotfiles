@@ -37,8 +37,8 @@ export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/bin/:/usr/local/sbin:$PATH"
 
-## Wayland Mozilla
-#export MOZ_ENABLE_WAYLAND=1
+## Wayland Mozilla Firefox
+export MOZ_ENABLE_WAYLAND=1
 export XKB_DEFAULT_LAYOUT=gb
 export XKB_DEFAULT_OPTIONS=caps:escape
 
