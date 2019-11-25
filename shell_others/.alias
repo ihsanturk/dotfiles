@@ -7,10 +7,10 @@ alias ec="emacsclient"
 alias clear='printf ""'
 alias rclear='tput clear'
 alias grep="grep --color=auto"
-alias mantitle='apropos . | dmenu -l 10'
+alias mantitle='apropos . | fzf --height 10'
 alias cpwd='pwd | xclip -selection clipboard'
 alias eusc='nvim ${HOME}/dotfiles/doc/Document/useful_commands.sh'
-alias usc='cat ${HOME}/dotfiles/doc/Document/useful_commands.sh | dmenu -i -l 20'
+alias usc='cat ${HOME}/dotfiles/doc/Document/useful_commands.sh | fzf --height 10'
 alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap gb'
 alias disk2='\
 sudo fsck.hfsplus -f /dev/sdb2;\
@@ -24,16 +24,16 @@ alias la='ls -lAh'
 
 ## ARCH
 alias pu='sudo pacman -Syu'
-alias pl='sudo pacman -Q | dmenu -l 10'
+alias pl='sudo pacman -Q | fzf --height 10'
 # -s for dependencies
 alias pi='sudo pacman -S'
 alias pru='sudo pacman -R $(pacman -Qdtq)'
-alias pr='sudo pacman -Rcns $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
+alias pr='sudo pacman -Rcns $(pacman -Q | fzf --height 10 | sed "s/\s.*//g")'
 
 alias yi='yay -S'
 alias yu='yay -Syu'
-alias yf='yay -Q | dmenu -l 10'
-alias yr='yay -R $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
+alias yf='yay -Q | fzf --height 10'
+alias yr='yay -R $(pacman -Q | fzf --height 10 | sed "s/\s.*//g")'
 
 # UBUNTU
 #alias pf='apt search'
