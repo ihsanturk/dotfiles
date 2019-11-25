@@ -343,3 +343,7 @@ iconv -f utf-8 -t ascii//translit [FILE.txt]
 
 # Remove pacman cached and insallation files
 pacman -Scc
+
+
+# Associate user with a group
+# usermod -aG additional_groups username

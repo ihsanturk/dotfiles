@@ -9,16 +9,19 @@ endif
 call plug#begin()
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-
-""python3 install.py --all or --python
-"Plug 'ycm-core/YouCompleteMe'
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim'
 Plug 'mhinz/vim-startify'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/fzf', { 'dir': '~/.config/nvim/package/fzf.vim', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+""python3 install.py --all or --python
+"Plug 'ycm-core/YouCompleteMe'
+
 "Plug 'scrooloose/syntastic'
 
 call plug#end()

@@ -8,7 +8,6 @@ set mouse=a
 set hlsearch
 set wildmenu
 set incsearch
-"set autochdir "relative path
 set smartcase
 set expandtab
 set tabstop=2 
@@ -28,6 +27,7 @@ set foldlevelstart=99
 set foldmethod=syntax
 set shell=/usr/bin/zsh
 setglobal fileencoding=utf-8
+"set autochdir "relative path
 set backspace=indent,eol,start
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 autocmd InsertEnter,InsertLeave * set cul!
@@ -39,6 +39,12 @@ let mapleader = '\'
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 
 if exists('+colorcolumn')
