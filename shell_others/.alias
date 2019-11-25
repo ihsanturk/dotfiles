@@ -15,6 +15,14 @@ alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap gb'
 alias disk2='\
 sudo fsck.hfsplus -f /dev/sdb2;\
 sudo mount -t hfsplus -o force,rw /dev/sdb2 /mnt'
+alias growtopia="wine \
+/home/ihsn/.wine/drive_c/users/ihsn/Local\ \
+Settings/Application\ Data/Growtopia/Growtopia.exe"
+
+alias shh='\
+sudo umount /dev/sdb2 2>/dev/null;\
+sudo hdparm -Y /dev/sdb2 1>/dev/null;\
+sudo hdparm -Y /dev/sdb 1>/dev/null' 
 
 alias l='ls'
 alias n='nnn'
@@ -23,23 +31,23 @@ alias ll='ls -lh'
 alias la='ls -lAh'
 
 ## ARCH
-alias pu='sudo pacman -Syu'
-alias pl='sudo pacman -Q | dmenu -l 10'
-# -s for dependencies
-alias pi='sudo pacman -S'
-alias pru='sudo pacman -R $(pacman -Qdtq)'
-alias pr='sudo pacman -Rcns $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
-
-alias yi='yay -S'
-alias yu='yay -Syu'
-alias yf='yay -Q | dmenu -l 10'
-alias yr='yay -R $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
+#alias pu='sudo pacman -Syu'
+#alias pl='sudo pacman -Q | dmenu -l 10'
+## -s for dependencies
+#alias pi='sudo pacman -S'
+#alias pru='sudo pacman -R $(pacman -Qdtq)'
+#alias pr='sudo pacman -Rcns $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
+#
+#alias yi='yay -S'
+#alias yu='yay -Syu'
+#alias yf='yay -Q | dmenu -l 10'
+#alias yr='yay -R $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
 
 # UBUNTU
-#alias pf='apt search'
-#alias pr='sudo apt remove'
-#alias pu='sudo apt update'
-#alias pi='sudo apt install'
+alias pf='apt search'
+alias pr='sudo apt remove'
+alias pu='sudo apt update'
+alias pi='sudo apt install'
 
 # VOID
 #alias pi='sudo xbps-install'
