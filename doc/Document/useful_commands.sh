@@ -285,7 +285,7 @@ cat ${XDG_CACHE_HOME:-"$HOME/.cache"}/turkish_words |
 	sed '/\s/d' | tac | sed 1q
 
 
-# Enable Kill/Close Finder in MacOS
+# Kill/Close Finder in MacOS
 defaults write com.apple.finder QuitMenuItem -bool true
 
 # Disable Kill/Close Finder in MacOS
@@ -347,3 +347,11 @@ pacman -Scc
 
 # Associate user with a group
 # usermod -aG additional_groups username
+
+# mount clover EFI
+sudo mount -t msdos /dev/disk0s1 /Volumes/EFI
+
+
+# Set proxy on macos 
+sudo networksetup -setsocksfirewallproxy "iPhone USB" localhost:8080
+sudo networksetup -setwebproxy "iPhone USB" localhost:8080
