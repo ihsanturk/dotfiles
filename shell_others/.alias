@@ -2,7 +2,7 @@
 
 alias n="nnn -d"
 alias wp="wikipedia"
-alias open='xdg-open'
+# alias open='xdg-open'
 alias ec="emacsclient"
 alias clear='printf ""'
 alias rclear='tput clear'
