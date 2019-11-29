@@ -13,6 +13,7 @@ HISTFILE=~/.zsh_history
 
 plugins=(
 	git
+  fzf-zsh
 	zsh-completions
 	zsh-autosuggestions
 	zsh-syntax-highlighting
@@ -53,5 +54,3 @@ source ${HOME}/.func
 source ${HOME}/.alias
 source ${HOME}/.profile
 source $ZSH/oh-my-zsh.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
