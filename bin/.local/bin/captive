@@ -1,0 +1,28 @@
+#!/bin/sh
+
+baseLogInURL="\
+http://ns1.google.net/login?dst=http%3A%2F%2Fns1.google.com%2F&popup=false"
+baseLogOutURL="http://ns1.google.net/logout"
+
+for i in "$@"
+do
+  case $i in
+    -i|--login)
+      read -p "Username: " username
+      read -sp "Password: " password
+      echo
+      curl "${baseLogInURL}&username=${username}&password=${password}" --compressed|
+        grep -o "logged in" 2>&1 >/dev/null && echo Success || echo Fail
+      ;;
+    -o|--logout)
+      curl ${baseLogOutURL} |
+        grep -o "logged out" 2>&1 >/dev/null && echo Success || echo Fail
+      ;;
+    *)
+      i=$(echo $i | sed -e "s/\b\(.\)/\u\1/g")
+      TERM_="${TERM_} $i"
+      ;;
+  esac
+done
+
+
