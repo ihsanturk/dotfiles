@@ -8,7 +8,7 @@ alias clear='printf ""'
 alias rclear='tput clear'
 alias grep="grep --color=auto"
 alias mantitle='apropos . | fzf --height 10'
-alias cpwd='pwd | xclip -selection clipboard'
+alias cpwd='pwd | pbcopy -selection clipboard'
 alias eusc='nvim ${HOME}/dotfiles/doc/Document/useful_commands.sh'
 alias usc='cat ${HOME}/dotfiles/doc/Document/useful_commands.sh | fzf --height 10'
 alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap gb'

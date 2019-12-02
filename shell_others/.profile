@@ -1,4 +1,4 @@
-export BROWSER=chromium-browser
+# export BROWSER=Chrome
 
 export BLPAPI_ROOT="/home/ihsn/API/blpapi_cpp_3.12.3.1"
 export VULKAN_ROOT_LOCATION="$HOME/Software/Library/"
