@@ -12,23 +12,25 @@ SAVEHIST=5000000
 HISTFILE=~/.zsh_history
 
 plugins=(
-	git
+  z
+  git
   fzf-zsh
-	zsh-completions
-	zsh-autosuggestions
-	zsh-syntax-highlighting
+  zsh-completions
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 autoload -U compinit && compinit
 
-export SSLKEYLOGFILE='home/ihsan/SSLKeyLogFile'
+export THEOS=/opt/theos
 export EDITOR='vim'
 export KEYTIMEOUT=1
-export GOPATH="/home/ihsn/go"
+export GOPATH="${HOME}/go"
 export ZSH="$HOME/.oh-my-zsh"
 export GTK_THEME="Mojave-dark"
 # export TERMINFO=/usr/lib/terminfo
 # export FZF_DEFAULT_COMMAND="find -L"
+export SSLKEYLOGFILE="${HOME}/SSLKeyLogFile"
 export PKG_CONFIG_PATH=\
 "/lib/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig"
 export PKG_CONFIG_PATH=\
