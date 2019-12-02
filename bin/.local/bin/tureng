@@ -1,14 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
-pgrep tureng-api 2>&1 >/dev/null || tureng-api &
-appname=$(dmenu)
-dunstify "$appname"
-body=$(echo\
-  $(curl "localhost:8080/translate/$appname"|jq '.response|.[]|.tr'|sed 5q|
-sed 's/^"/~~/g; s/"$/++/g; s/~~//g;s/++/, /g'))
+pgrep tureng-api 2>&1 >/dev/null || tureng-api &>/dev/null &
+sleep 0.2
 
-if ! [ "$appname" = "" ]; then 
-  dunstify  "$body";
+terms=$(echo $@ | sed 's/ /+/g')
+url="localhost:8080/translate/$terms"
+
+body=$(echo $(curl "$url" | jq '.response|.[]|.tr' | sed 5q |
+sed 's/^"/~~/g; s/"$/++/g; s/~~//g;s/++/, /g')) &>/dev/null
+
+if ! [ "$terms" = "" ]; then 
+  dunstify  "$body" &>/dev/null ||
+  osascript -e "\
+  display notification \"$body\" with title \"Tureng\""
 fi
 
 pkill tureng-api
