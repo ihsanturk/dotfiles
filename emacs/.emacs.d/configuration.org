@@ -22,7 +22,7 @@
   (use-package gruvbox-theme
   :config
     (if (display-graphic-p)
-      (load-theme 'gruvbox-dark-medium t)
+      (load-theme 'gruvbox-dark-hard t)
       (load-theme 'wheatgrass)))
 #+END_SRC
 
@@ -30,7 +30,7 @@
 #+BEGIN_SRC emacs-lisp
   (setq default-frame-alist
     '((width . 80)
-      (font . "Inconsolata-14")))
+      (font . "Menlo-18")))
 #+END_SRC
 
 ** Org-Title-Sizes
@@ -39,10 +39,21 @@
 #+END_SRC
 
 * Custom Emacs Settings
+** Paragraph Wrap Limit 80 Column
+#+BEGIN_SRC emacs-lisp
+  (setq-default fill-column 80)
+#+END_SRC
+
+** Tab = 2 Spaces
+#+BEGIN_SRC emacs-lisp
+(global-set-key "\t" (lambda () (interactive) (insert-char 32 2)))
+#+END_SRC
+
 ** Do Not Wrap Lines
 #+BEGIN_SRC emacs-lisp
-(toggle-truncate-lines)
+  (toggle-truncate-lines)
 #+END_SRC
+
 ** Dired
 
 #+BEGIN_SRC emacs-lisp
@@ -124,8 +135,9 @@ Never use tabs. Tabs are the devil’s whitespace.
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
+  (setq frame-background-mode 'dark)
   (setenv "PATH" "/home/ihsn/.local/bin:/usr/local/opt/m4/bin:/usr/local/bin/:/usr/local/sbin:/usr/local/opt/sqlite/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games")
-  (setq shell-file-name (executable-find "/usr/bin/zsh"))
+  (setq shell-file-name (executable-find "/usr/local/bin/zsh"))
   (setq frame-resize-pixelwise t)
   (set-frame-position (selected-frame) 960 0)
   (setq vc-follow-symlinks nil)
@@ -157,13 +169,17 @@ Never use tabs. Tabs are the devil’s whitespace.
 #+BEGIN_SRC emacs-lisp
   (tool-bar-mode 0)
   (menu-bar-mode 0)
-  (scroll-bar-mode 0)
+
+  (if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)))
+
   (show-paren-mode 1)
   (save-place-mode 1)
   (display-time-mode 1)
   (global-linum-mode 0)
   (blink-cursor-mode 0)
-  (fancy-battery-mode 1)
   (column-number-mode 1)
   (global-hl-line-mode 1)
   (add-hook 'prog-mode-hook #'hs-minor-mode)
@@ -251,6 +267,27 @@ Never use tabs. Tabs are the devil’s whitespace.
 #+END_SRC
 
 * Packages
+** Approximate-Colors
+#+BEGIN_SRC emacs-lisp
+(use-package color-theme-approximate    
+  :config
+  (color-theme-approximate-on)
+)
+#+END_SRC
+
+** Mode-Line
+#+BEGIN_SRC emacs-lisp
+  (use-package fancy-battery
+  :config
+    (fancy-battery-mode 1))
+    
+  ;; (use-package doom-modeline
+  ;; :ensure t
+  ;; :hook (after-init . doom-modeline-mode)
+  ;; :config
+  ;;  (setq doom-modeline-height 5))
+#+END_SRC
+
 ** Evil
 #+BEGIN_SRC emacs-lisp
   (use-package evil
@@ -359,15 +396,6 @@ programming.
      (minions-mode 1))
 #+END_SRC
 
-** Pdf-Tools
-#+BEGIN_SRC emacs-lisp
-  (use-package pdf-tools
-  :config
-    (pdf-tools-install)
-    (pdf-loader-install)
-    (add-hook 'pdf-tools-enabled-hook 'pdf-view-midnight-minor-mode))
-#+END_SRC
-
 ** Ledger
 #+BEGIN_SRC emacs-lisp
   (use-package ledger-mode
@@ -445,6 +473,14 @@ Other window shortcut
 ** Org
 #+BEGIN_SRC emacs-lisp
   (use-package org)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+
+(setq org-todo-keywords
+      '((sequence "TODO" "|" "DONE")
+        (sequence "MOOC" "STARTED" "|" "COMPLETE" "SUSPENDED")))
+
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
@@ -544,6 +580,10 @@ Don't ask before evaluating code blocks.
     (setq markdown-command "multimarkdown"))
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp
+  '(markdown-hide-urls t)
+#+END_SRC
+
 ** Company{,-jedi}
 Side note: Check this page for jedi with python3 issues:
 https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.html
@@ -627,23 +667,23 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 
 * Org-Babel Languages
 #+BEGIN_SRC emacs-lisp
-  (setq-default
-    org-babel-load-languages '((python . t)
-                              (ledger . t)))
+  (org-babel-do-load-languages 'org-babel-load-languages
+    '(
+      (shell . t)
+      (python . t)
+    )
+  )
 #+END_SRC
 
-
 * *FORSAKEN*
-** Mode-Line
+
+** Pdf-Tools
 #+BEGIN_SRC emacs-lisp
-  ;; (use-package fancy-battery
-  ;; :ensure t)
-  ;;   
-  ;; (use-package doom-modeline
-  ;; :ensure t
-  ;; :hook (after-init . doom-modeline-mode)
+  ;; (use-package pdf-tools
   ;; :config
-  ;;   (setq doom-modeline-height 5))
+  ;;   (pdf-tools-install)
+  ;;   (pdf-loader-install)
+  ;;   (add-hook 'pdf-tools-enabled-hook 'pdf-view-midnight-minor-mode))
 #+END_SRC
 
 ** Subword (for camel case word jumping)
@@ -680,9 +720,9 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 
 ** Ranger
 #+BEGIN_SRC emacs-lisp
-  ;;(use-package ranger
-  ;;:config
-  ;;  (ranger-override-dired-mode t))
+  ;; (use-package ranger
+  ;; :config
+  ;;   (ranger-override-dired-mode t))
 #+END_SRC
 
 ** Fill-Column-Indicator
