@@ -29,11 +29,12 @@ set foldmethod=syntax
 filetype plugin indent on
 set shell=/usr/local/bin/zsh
 setglobal fileencoding=utf-8
-"set autochdir "relative path
+set autochdir "relative path
 set backspace=indent,eol,start
 autocmd InsertEnter,InsertLeave * set cul!
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
+colorscheme base16-gruvbox-dark-hard
 let mapleader = '\'
 
 " Uncomment the following to have Vim jump to the last position when

@@ -20,6 +20,9 @@ vn <Space> za
 nn <leader>z zMzvzz
 " focus current fold
 
+" Goyo
+nmap <M-g> :Goyo<CR>
+
 " fzf (lets make some emacs noise)
 nmap <M-f> :Files<CR>
 nmap <M-s> :BLines<CR>

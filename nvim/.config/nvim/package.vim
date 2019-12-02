@@ -19,9 +19,4 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', { 'dir': '~/.config/nvim/package/fzf.vim', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-""python3 install.py --all or --python
-"Plug 'ycm-core/YouCompleteMe'
-
-"Plug 'scrooloose/syntastic'
-
 call plug#end()
