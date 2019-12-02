@@ -1,0 +1,41 @@
+** Dotfiles
+Ready to [[https://www.gnu.org/software/stow/][stow]] it.
+You can use [[https://www.gnu.org/software/stow/][stow]] just for one program. Example
+
+```sh
+cd dotfiles
+stow emacs #Just install the emacs configuration
+```
+
+If there is not a file in the destination directory then your new emacs
+configuration is ready.
+
+| Sort     | Value       |
+|----------+-------------|
+| OS       | *[[https://support.apple.com/macos/mojave][MacOS]]*     |
+| WM       | *[[https://www.wikiwand.com/en/Quartz_(graphics_layer)][Quartz]]*    |
+| Terminal | *[[https://github.com/jwilm/alacritty][Alacritty]]* |
+| Shell    | *[[https://zsh.org/][zsh]]*       |
+| Editor   | *[[https://www.gnu.org/software/emacs/][GNU Emacs]]* |
+| Browser  | *[[https://www.google.com/chrome/][Chrome]]*    |
+
+** Notes
+(Optional/dmenu.sh script takes care of the issue below automatically)
+
+**(Deprecated)** +In order to install *dmenu_run* cache list you should *keep*+
++just the *else section* of the */usr/bin/dmenu_path* file. So the+
++/usr/bin/dmenu_path should look like:+
+
+#+BEGIN_SRC bash
+
+  #!/bin/sh
+  
+  cachedir="${XDG_CACHE_HOME:-"$HOME/.cache"}"
+  cache="$cachedir/dmenu_run"
+  
+  [ ! -e "$cachedir" ] && mkdir -p "$cachedir"
+  
+  IFS=:
+  cat "$cache"
+
+#+END_SRC
