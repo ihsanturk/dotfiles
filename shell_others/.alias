@@ -1,6 +1,7 @@
 #!/bin/sh
 
 alias n="nnn -d"
+alias vim="nvim"
 alias wp="wikipedia"
 # alias open='xdg-open'
 alias ec="emacsclient"
