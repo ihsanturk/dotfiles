@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Necessary Packages:
+#   jq
+
 #args
 printDescription="false"
 
