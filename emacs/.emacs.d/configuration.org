@@ -116,8 +116,7 @@ Never use tabs. Tabs are the devil’s whitespace.
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-  ;; (setq frame-background-mode 'light)
-  (setenv "PATH" "/usr/local/bin/:/usr/local/sbin:/bin")
+  (setenv "PATH" "/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/sbin")
   (setq shell-file-name (executable-find "/usr/local/bin/zsh"))
   (setq frame-resize-pixelwise t)
   (set-frame-position (selected-frame) 960 0)
@@ -245,6 +244,13 @@ Never use tabs. Tabs are the devil’s whitespace.
 #+END_SRC
 
 * Packages
+** Go mode
+#+BEGIN_SRC emacs-lisp
+
+  (use-package go-mode)
+
+#+END_SRC
+
 ** Approximate-Colors
 #+BEGIN_SRC emacs-lisp
   (use-package color-theme-approximate    
@@ -302,7 +308,7 @@ Persistent highlight for regex searches (lock)
     'highlight-remove-all)
 #+END_SRC
 
-** Neo-Tree
+** Neo Tree
 #+BEGIN_SRC emacs-lisp
   (use-package neotree
   :config
@@ -333,14 +339,14 @@ programming.
     (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 #+END_SRC
 
-** Undo-Tree
+** Undo Tree
 #+BEGIN_SRC emacs-lisp
   (use-package undo-tree
   :config
     (global-undo-tree-mode 1))
 #+END_SRC
 
-** Which-Key
+** Which Key
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
   :config
@@ -360,7 +366,7 @@ programming.
     (dashboard-setup-startup-hook))
 #+END_SRC
 
-** Multi-Term
+** Multi Term
 #+BEGIN_SRC emacs-lisp
   (use-package multi-term
   :config
@@ -520,19 +526,19 @@ Side note: Check [[https://archive.zhimingwang.org/blog/2015-04-26-using-python-
     (add-hook 'with-editor-mode-hook 'evil-insert-state))
 #+END_SRC
 
-** Csv-mode
+** Csv mode
 #+BEGIN_SRC emacs-lisp
   (use-package csv)
 #+END_SRC
 
-** Js2-mode
+** Js2 mode
 #+BEGIN_SRC emacs-lisp
   (use-package js2-mode
   :mode
     ("\\.js\\'" . js2-mode))
 #+END_SRC
 
-** Config-General
+** Config General
 #+BEGIN_SRC emacs-lisp
   (use-package config-general-mode
   :mode
