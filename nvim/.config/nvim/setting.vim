@@ -7,6 +7,7 @@ set hlsearch
 set t_Co=256
 set ttimeout
 set wildmenu
+set tabstop=2 
 set expandtab
 set incsearch
 set smartcase
@@ -15,10 +16,9 @@ set ignorecase
 set noswapfile
 set splitbelow
 set splitright
-set tabstop=2 
+set showbreak=↪
 set scrolloff=5
 set shiftwidth=2
-set showbreak=↪
 set termguicolors
 set ttimeoutlen=10
 set background=dark
