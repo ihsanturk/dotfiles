@@ -14,7 +14,7 @@ configuration is ready.
 |----------+-------------|
 | OS       | *[[https://support.apple.com/macos/mojave][MacOS]]*     |
 | WM       | *[[https://www.wikiwand.com/en/Quartz_(graphics_layer)][Quartz]]*    |
-| Terminal | *[[https://github.com/jwilm/alacritty][Alacritty]]* |
+| Terminal | *[[https://sw.kovidgoyal.net/kitty/][Kitty]]*     |
 | Shell    | *[[https://zsh.org/][Zsh]]*       |
 | Editor   | *[[https://www.gnu.org/software/emacs/][GNU Emacs]]* |
 | Browser  | *[[https://www.google.com/chrome/][Chrome]]*    |
