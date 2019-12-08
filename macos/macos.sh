@@ -4,8 +4,8 @@
 # Stop System Preferences from overriding stuff
 osascript -e 'tell application "System Preferences" to quit'
 
-# show battery percentage in menu bar
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+## show battery percentage in menu bar
+# defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
@@ -51,4 +51,3 @@ defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock show-recents -bool false
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
-
