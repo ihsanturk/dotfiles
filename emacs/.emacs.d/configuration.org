@@ -18,11 +18,16 @@
 
 ** Theme
 #+BEGIN_SRC emacs-lisp
-  (use-package gruvbox-theme
-  :config
-    (load-theme 'gruvbox-dark-hard t)
-    (unless (display-graphic-p)
-      (set-background-color "black")))
+(use-package gruvbox-theme
+	:config
+	(load-theme 'gruvbox-dark-hard t)
+	(if (not (display-graphic-p))
+		(progn
+			(set-background-color "black")
+			(set-foreground-color "white")
+		)
+	)
+)
 #+END_SRC
 
 ** Font
@@ -674,3 +679,5 @@ Open media with the appropriate programs.
   ;; :config
   ;; (setq py-python-command "python3"))
 #+END_SRC
+
+
