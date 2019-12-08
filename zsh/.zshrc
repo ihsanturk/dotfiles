@@ -22,12 +22,11 @@ plugins=(
 
 autoload -U compinit && compinit
 
-export THEOS=/opt/theos
-export EDITOR='vim'
 export KEYTIMEOUT=1
 export GOPATH="${HOME}/go"
+export EDITOR='emacsclient'
 export ZSH="$HOME/.oh-my-zsh"
-export GTK_THEME="Mojave-dark"
+# export GTK_THEME="Mojave-dark"
 # export TERMINFO=/usr/lib/terminfo
 # export FZF_DEFAULT_COMMAND="find -L"
 export SSLKEYLOGFILE="${HOME}/SSLKeyLogFile"
@@ -41,11 +40,11 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/m4/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH="/usr/local/bin/:/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 ## Wayland
-export MOZ_ENABLE_WAYLAND=1
+# export MOZ_ENABLE_WAYLAND=1
 # export GDK_BACKEND=wayland
 # export CLUTTER_BACKEND=wayland
 
@@ -56,3 +55,5 @@ source ${HOME}/.func
 source ${HOME}/.alias
 source ${HOME}/.profile
 source $ZSH/oh-my-zsh.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
