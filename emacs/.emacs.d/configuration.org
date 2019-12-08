@@ -9,11 +9,10 @@
   (setq load-prefer-newer t)
 #+END_SRC
 
-* UI Look
-** All-The-Icons
+* UI
+** All The Icons
 #+BEGIN_SRC emacs-lisp
   (use-package all-the-icons
-  :ensure t
   :hook (all-the-icons-install-fonts))
 #+END_SRC
 
@@ -23,7 +22,7 @@
   :config
     (if (display-graphic-p)
       (load-theme 'gruvbox-dark-hard t)
-      (load-theme 'wheatgrass)))
+      (disable-theme 'gruvbox-dark-hard)))
 #+END_SRC
 
 ** Font
@@ -33,7 +32,7 @@
       (font . "Menlo-18")))
 #+END_SRC
 
-** Org-Title-Sizes
+** Org Title Sizes
 #+BEGIN_SRC emacs-lisp
   (setq solarized-scale-org-headlines nil)
 #+END_SRC
@@ -56,10 +55,6 @@
 
 ** Dired
 
-#+BEGIN_SRC emacs-lisp
-  (setq-default dired-listing-switches "-lhvA")
-#+END_SRC
-
 Less detail by default
 
 #+BEGIN_SRC emacs-lisp
@@ -74,20 +69,6 @@ Hide dotfiles by default, but toggle their visibility with =.=.
     :config
     (dired-hide-dotfiles-mode)
     (define-key dired-mode-map "." 'dired-hide-dotfiles-mode))
-#+END_SRC
-
-Open media with the appropriate programs.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package dired-open
-    :config
-    (setq dired-open-extensions
-          '(("pdf" . "mupdf")
-            ("xlsx" . "gnumeric")
-            ("mkv" . "mpv")
-            ("mp3" . "mpv")
-            ("mp4" . "mpv")
-            ("avi" . "mpv"))))
 #+END_SRC
 
 Always copy directories recursively instead of asking every time.
@@ -135,8 +116,8 @@ Never use tabs. Tabs are the devil’s whitespace.
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-  (setq frame-background-mode 'dark)
-  (setenv "PATH" "/home/ihsn/.local/bin:/usr/local/opt/m4/bin:/usr/local/bin/:/usr/local/sbin:/usr/local/opt/sqlite/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games")
+  ;; (setq frame-background-mode 'light)
+  (setenv "PATH" "/usr/local/bin/:/usr/local/sbin:/bin")
   (setq shell-file-name (executable-find "/usr/local/bin/zsh"))
   (setq frame-resize-pixelwise t)
   (set-frame-position (selected-frame) 960 0)
@@ -147,8 +128,7 @@ Never use tabs. Tabs are the devil’s whitespace.
 
   (setq inhibit-startup-screen t)
   (setq initial-scratch-message "")
-  (defun display-startup-echo-area-message ()
-    (message ""))
+  (defun display-startup-echo-area-message () (message ""))
   (setq c-set-style 'awk)
   (setq-default cursor-type 'bar)
   (set-window-scroll-bars (minibuffer-window) nil nil)
@@ -181,11 +161,10 @@ Never use tabs. Tabs are the devil’s whitespace.
   (global-linum-mode 0)
   (blink-cursor-mode 0)
   (column-number-mode 1)
-  (global-hl-line-mode 1)
   (add-hook 'prog-mode-hook #'hs-minor-mode)
   (set-window-scroll-bars (minibuffer-window) nil nil)
   ;; Inner gaps
-  (set-frame-parameter (selected-frame) 'internal-border-width 20)
+  (set-frame-parameter (selected-frame) 'internal-border-width 10)
 #+END_SRC
 
 ** Kill Always Current Buffer
@@ -201,11 +180,10 @@ Never use tabs. Tabs are the devil’s whitespace.
   (add-hook 'sh-mode-hook
     (lambda ()
       (setq sh-basic-offset 2
-            sh-indentation 2)))
+        sh-indentation 2)))
 #+END_SRC
 
 ** Always Kill the Current Buffer =C-x k=.
-
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x k") 'hrs/kill-current-buffer)
 #+END_SRC
@@ -269,23 +247,9 @@ Never use tabs. Tabs are the devil’s whitespace.
 * Packages
 ** Approximate-Colors
 #+BEGIN_SRC emacs-lisp
-(use-package color-theme-approximate    
-  :config
-  (color-theme-approximate-on)
-)
-#+END_SRC
-
-** Mode-Line
-#+BEGIN_SRC emacs-lisp
-  (use-package fancy-battery
-  :config
-    (fancy-battery-mode 1))
-    
-  ;; (use-package doom-modeline
-  ;; :ensure t
-  ;; :hook (after-init . doom-modeline-mode)
-  ;; :config
-  ;;  (setq doom-modeline-height 5))
+  (use-package color-theme-approximate    
+    :config
+    (color-theme-approximate-on))
 #+END_SRC
 
 ** Evil
@@ -308,8 +272,7 @@ Never use tabs. Tabs are the devil’s whitespace.
     :after org
     :config
     (add-hook 'org-mode-hook 'evil-org-mode)
-    (add-hook 'evil-org-mode-hook
-              (lambda () (evil-org-set-key-theme)))
+    (add-hook 'evil-org-mode-hook (lambda () (evil-org-set-key-theme)))
     (require 'evil-org-agenda)
     (evil-org-agenda-set-keys))
 #+END_SRC
@@ -338,6 +301,7 @@ Persistent highlight for regex searches (lock)
   (define-key evil-normal-state-map (kbd "<escape>")
     'highlight-remove-all)
 #+END_SRC
+
 ** Neo-Tree
 #+BEGIN_SRC emacs-lisp
   (use-package neotree
@@ -346,35 +310,17 @@ Persistent highlight for regex searches (lock)
     (global-set-key (kbd "M-3") 'neotree-toggle)
     (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
     (add-hook 'neotree-mode-hook
-        (lambda ()
-           (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-           (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
-           (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-           (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
-           (define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
-           (define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
-           (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
-           (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
-           (define-key evil-normal-state-local-map (kbd ".") 'neotree-hidden-file-toggle))))
+      (lambda ()
+        (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+        (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
+        (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
+        (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+        (define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
+        (define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
+        (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
+        (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
+        (define-key evil-normal-state-local-map (kbd ".") 'neotree-hidden-file-toggle))))
 #+END_SRC
-
-** Enable Spell-Checking In The Usual Places
-#+BEGIN_SRC emacs-lisp
-  (use-package flyspell
-    :config
-    (add-hook 'text-mode-hook 'turn-on-auto-fill)
-    (add-hook 'gfm-mode-hook 'flyspell-mode)
-    (add-hook 'org-mode-hook 'flyspell-mode)
-    (add-hook 'latex-mode-hook 'flyspell-mode)
-
-    (add-hook 'git-commit-mode-hook 'flyspell-mode)
-    (add-hook 'mu4e-compose-mode-hook 'flyspell-mode))
-#+END_SRC
-
-** Flycheck
- #+BEGIN_SRC emacs-lisp
-   (use-package flycheck)
- #+END_SRC
 
 ** Diff Highlight
 Use the =diff-hl= package to highlight changed-and-uncommitted lines when
@@ -387,23 +333,6 @@ programming.
     (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 #+END_SRC
 
-** Minions
-#+BEGIN_SRC emacs-lisp
-   (use-package minions
-     :config
-     (setq minions-mode-line-lighter ""
-           minions-mode-line-delimiters '("" . ""))
-     (minions-mode 1))
-#+END_SRC
-
-** Ledger
-#+BEGIN_SRC emacs-lisp
-  (use-package ledger-mode
-  :mode "\\.ledger$"
-  :config
-    (setq ledger-binary-path "/usr/local/bin/ledger"))
-#+END_SRC
-
 ** Undo-Tree
 #+BEGIN_SRC emacs-lisp
   (use-package undo-tree
@@ -414,7 +343,6 @@ programming.
 ** Which-Key
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
-  :ensure t
   :config
     (which-key-mode))
 #+END_SRC
@@ -422,13 +350,12 @@ programming.
 ** Dashboard
 #+BEGIN_SRC emacs-lisp
   (use-package dashboard
-  :ensure t
   :config
     (setq dashboard-center-content t)
     (setq dashboard-set-navigator t)
     (setq dashboard-set-heading-icons t)
-    (setq dashboard-items '((recents  . 5)
-                        (agenda . 5)))
+    (setq dashboard-items '((recents  . 5) ))
+                           ;; (agenda . 5)))
     (setq dashboard-set-file-icons t)
     (dashboard-setup-startup-hook))
 #+END_SRC
@@ -442,8 +369,7 @@ programming.
 
 Disable evil mode in term-mode
 
-Paste in term-mode,
-Other window shortcut
+Paste in term-mode, Other window shortcut
 
 #+BEGIN_SRC emacs-lisp
   (defun hrs/term-paste (&optional string)
@@ -476,14 +402,6 @@ Other window shortcut
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-
-(setq org-todo-keywords
-      '((sequence "TODO" "|" "DONE")
-        (sequence "MOOC" "STARTED" "|" "COMPLETE" "SUSPENDED")))
-
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp
   (use-package org-bullets
     :init
     (add-hook 'org-mode-hook 'org-bullets-mode))
@@ -497,48 +415,17 @@ Other window shortcut
   (setq org-src-fontify-natively t)
 #+END_SRC
 
-Hitting =C-c C-x C-s= will mark a todo as done and move it to an appropriate
-place in the archive.
-
-#+BEGIN_SRC emacs-lisp
-  (defun hrs/mark-done-and-archive ()
-    "Mark the state of an org-mode item as DONE and archive it."
-    (interactive)
-    (org-todo 'done)
-    (org-archive-subtree))
-
-  (define-key org-mode-map (kbd "C-c C-x C-s") 'hrs/mark-done-and-archive)
-#+END_SRC
-
 #+BEGIN_SRC emacs-lisp
   (setq org-log-done 'time)
 #+END_SRC
 
-Hit =C-c i= to quickly open up my todo list.
+Hit =M-n= to quickly open up my notes.
 
 #+BEGIN_SRC emacs-lisp
-  (defun hrs/open-index-file ()
-    "Open the master org TODO list."
+  (setq org-notes-file "~/Dropbox/Document/Notes.org")
+  (global-set-key (kbd "M-n") (lambda()
     (interactive)
-    (find-file org-index-file)
-    (flycheck-mode -1)
-    (end-of-buffer))
-
-  (global-set-key (kbd "C-c i") 'hrs/open-index-file)
-#+END_SRC
-
-Hit =M-n= to quickly open up a capture template for a new todo.
-
-#+BEGIN_SRC emacs-lisp
-  (defun org-capture-todo ()
-    (interactive)
-    (org-capture :keys "t"))
-
-  (global-set-key (kbd "M-n") 'org-capture-todo)
-  (add-hook 'gfm-mode-hook
-            (lambda () (local-set-key (kbd "M-n") 'org-capture-todo)))
-  (add-hook 'haskell-mode-hook
-            (lambda () (local-set-key (kbd "M-n") 'org-capture-todo)))
+    (find-file org-notes-file)))
 #+END_SRC
 
 Don't ask before evaluating code blocks.
@@ -569,7 +456,6 @@ Don't ask before evaluating code blocks.
 ** Markdown
 #+BEGIN_SRC emacs-lisp
   (use-package markdown-mode
-  :ensure t
   :commands
     (markdown-mode gfm-mode)
   :mode
@@ -585,8 +471,9 @@ Don't ask before evaluating code blocks.
 #+END_SRC
 
 ** Company{,-jedi}
-Side note: Check this page for jedi with python3 issues:
-https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.html
+
+Side note: Check [[https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.html][this page]] for jedi with python3 issues:
+
 #+BEGIN_SRC emacs-lisp
   (use-package company
   :config
@@ -648,7 +535,6 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 ** Config-General
 #+BEGIN_SRC emacs-lisp
   (use-package config-general-mode
-  :ensure t
   :mode
     (("rc\\'" . config-general-mode)
     ("\\.conf\\'" . config-general-mode)))
@@ -675,7 +561,69 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
   )
 #+END_SRC
 
-* *FORSAKEN*
+* =FORSAKEN=
+** Ledger
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package ledger-mode
+  ;; :mode "\\.ledger$"
+  ;; :config
+  ;;   (setq ledger-binary-path "/usr/local/bin/ledger"))
+#+END_SRC
+
+** Minions
+#+BEGIN_SRC emacs-lisp
+   ;; (use-package minions
+   ;;   :config
+   ;;   (setq minions-mode-line-lighter ""
+   ;;         minions-mode-line-delimiters '("" . ""))
+   ;;   (minions-mode 1))
+#+END_SRC
+
+** Flycheck
+ #+BEGIN_SRC emacs-lisp
+   ;; (use-package flycheck)
+ #+END_SRC
+
+** Mode-Line
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package fancy-battery
+  ;; :config
+  ;;   (fancy-battery-mode 1))
+    
+  ;; (use-package doom-modeline
+  ;; :hook (after-init . doom-modeline-mode)
+  ;; :config
+  ;;  (setq doom-modeline-height 5))
+#+END_SRC
+
+** Enable Spell-Checking In The Usual Places
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package flyspell
+  ;;   :config
+  ;;   (add-hook 'text-mode-hook 'turn-on-auto-fill)
+  ;;   (add-hook 'gfm-mode-hook 'flyspell-mode)
+  ;;   (add-hook 'org-mode-hook 'flyspell-mode)
+  ;;   (add-hook 'latex-mode-hook 'flyspell-mode)
+
+  ;;   (add-hook 'git-commit-mode-hook 'flyspell-mode)
+  ;;   (add-hook 'mu4e-compose-mode-hook 'flyspell-mode))
+#+END_SRC
+
+** Dired
+
+Open media with the appropriate programs.
+
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package dired-open
+  ;;   :config
+  ;;   (setq dired-open-extensions
+  ;;         '(("pdf" . "mupdf")
+  ;;           ("xlsx" . "gnumeric")
+  ;;           ("mkv" . "mpv")
+  ;;           ("mp3" . "mpv")
+  ;;           ("mp4" . "mpv")
+  ;;           ("avi" . "mpv"))))
+#+END_SRC
 
 ** Pdf-Tools
 #+BEGIN_SRC emacs-lisp
@@ -694,28 +642,11 @@ https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.h
 
 ** LaTeX Compile After Save
 #+BEGIN_SRC emacs-lisp
-	;; (add-hook 'after-save-hook
-	;;   (lambda ()
-	;;     (if (eq major-mode 'latex-mode)
-	;;       (recompile)
-	;;       (evil-scroll-line-to-center))))
-#+END_SRC
-
-** Org-Inbox-TODOs
-#+BEGIN_SRC emacs-lisp
-  ;; (defun org-file-path (filename)
-  ;;   "Return the absolute address of an org file, given its relative name."
-  ;;   (concat (file-name-as-directory org-directory) filename))
-
-  ;; (setq org-directory "~/Documents/org")
-  ;; (setq org-index-file (org-file-path "index.org"))
-  ;; (setq org-index-file (org-file-path "index.org"))
-  ;; (setq org-archive-location
-  ;;       (concat (org-file-path "archive.org") "::* From %s"))
-#+END_SRC
-  
-#+BEGIN_SRC emacs-lisp
-  ;; (setq org-agenda-files (list org-index-file))
+  ;; (add-hook 'after-save-hook
+  ;;   (lambda ()
+  ;;     (if (eq major-mode 'latex-mode)
+  ;;       (recompile)
+  ;;       (evil-scroll-line-to-center))))
 #+END_SRC
 
 ** Ranger
