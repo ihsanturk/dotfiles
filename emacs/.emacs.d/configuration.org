@@ -20,9 +20,9 @@
 #+BEGIN_SRC emacs-lisp
   (use-package gruvbox-theme
   :config
-    (if (display-graphic-p)
-      (load-theme 'gruvbox-dark-hard t)
-      (disable-theme 'gruvbox-dark-hard)))
+    (load-theme 'gruvbox-dark-hard t)
+    (unless (display-graphic-p)
+      (set-background-color "black")))
 #+END_SRC
 
 ** Font
@@ -41,11 +41,6 @@
 ** Paragraph Wrap Limit 80 Column
 #+BEGIN_SRC emacs-lisp
   (setq-default fill-column 80)
-#+END_SRC
-
-** Tab = 2 Spaces
-#+BEGIN_SRC emacs-lisp
-(global-set-key "\t" (lambda () (interactive) (insert-char 32 2)))
 #+END_SRC
 
 ** Do Not Wrap Lines
@@ -109,19 +104,13 @@ makes that automatic.
 
 ** Custom Variables
 
-Never use tabs. Tabs are the devil’s whitespace.
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default indent-tabs-mode nil)
-#+END_SRC
-
 #+BEGIN_SRC emacs-lisp
   (setenv "PATH" "/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/sbin")
   (setq shell-file-name (executable-find "/usr/local/bin/zsh"))
   (setq frame-resize-pixelwise t)
   (set-frame-position (selected-frame) 960 0)
   (setq vc-follow-symlinks nil)
-  (setq-default tab-width 8)
+  (setq-default tab-width 2)
   (fset 'yes-or-no-p 'y-or-n-p)
   (setq backup-directory-alist `(("." . "~/.emacs.d/.backup")))
 
@@ -172,14 +161,6 @@ Never use tabs. Tabs are the devil’s whitespace.
     "Kill the current buffer without prompting."
     (interactive)
     (kill-buffer (current-buffer)))
-#+END_SRC
-
-** Sh Indent With 2 Spaces.
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'sh-mode-hook
-    (lambda ()
-      (setq sh-basic-offset 2
-        sh-indentation 2)))
 #+END_SRC
 
 ** Always Kill the Current Buffer =C-x k=.
@@ -246,9 +227,7 @@ Never use tabs. Tabs are the devil’s whitespace.
 * Packages
 ** Go mode
 #+BEGIN_SRC emacs-lisp
-
   (use-package go-mode)
-
 #+END_SRC
 
 ** Approximate-Colors
