@@ -6,4 +6,5 @@ brew install tmux
 brew install neovim
 brew install python3
 brew install cointop
+brew install qrencode
 brew cask install kitty
