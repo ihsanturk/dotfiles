@@ -230,6 +230,16 @@ makes that automatic.
 #+END_SRC
 
 * Packages
+** Csound	
+#+BEGIN_SRC emacs-lisp
+(use-package csound-mode
+  :mode (("\\.csd\\'" . csound-mode)
+  	 ("\\.orc\\'" . csound-mode)
+  	 ("\\.sco\\'" . csound-mode)
+  	 ("\\.udo\\'" . csound-mode))
+  :load-path "packages/csound-mode/")
+#+END_SRC
+
 ** Go mode
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode)

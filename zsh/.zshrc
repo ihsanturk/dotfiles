@@ -27,17 +27,24 @@ export GOPATH="${HOME}/go"
 export EDITOR='emacsclient'
 export ZSH="$HOME/.oh-my-zsh"
 # export GTK_THEME="Mojave-dark"
-# export TERMINFO=/usr/lib/terminfo
-# export FZF_DEFAULT_COMMAND="find -L"
 export SSLKEYLOGFILE="${HOME}/SSLKeyLogFile"
+
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export LDFLAGS="-L/usr/local/opt/openblas/lib"
+export CPPFLAGS="-I/usr/local/opt/openblas/include"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
 export PKG_CONFIG_PATH=\
 "/lib/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig"
 export PKG_CONFIG_PATH=\
 "/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/share/pkgconfig"
+export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:/usr/local/opt/csound/Frameworks"
+
 
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/m4/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
