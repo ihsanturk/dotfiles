@@ -7,4 +7,5 @@ brew install neovim
 brew install python3
 brew install cointop
 brew install qrencode
+brew install mitmproxy
 brew cask install kitty
