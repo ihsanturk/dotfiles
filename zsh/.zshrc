@@ -7,8 +7,8 @@ DISABLE_UPDATE_PROMPT="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 LESSHISTFILE=-
-HISTSIZE=5000000
-SAVEHIST=5000000
+HISTSIZE=9000000
+SAVEHIST=9000000
 HISTFILE=~/.zsh_history
 
 plugins=(
@@ -23,8 +23,9 @@ plugins=(
 autoload -U compinit && compinit
 
 export KEYTIMEOUT=1
+export EDITOR='nvim'
+export VISUAL='nvim'
 export GOPATH="${HOME}/go"
-export EDITOR='emacsclient'
 export ZSH="$HOME/.oh-my-zsh"
 # export GTK_THEME="Mojave-dark"
 export SSLKEYLOGFILE="${HOME}/SSLKeyLogFile"
