@@ -3,10 +3,11 @@
 # edit1: This mode info strings effects the all cli interpreters. OMG
 #
 
-set editing-mode vi
-set show-mode-in-prompt on
-set keyseq-timeout 0
+## Vi-Mode
+# set editing-mode vi
+# set show-mode-in-prompt on
+# set keyseq-timeout 0
+# set vi-ins-mode-string ""
+# set vi-cmd-mode-string ""
 
-set vi-ins-mode-string ""
-set vi-cmd-mode-string ""
 set completion-ignore-case on
