@@ -18,16 +18,19 @@
 
 ** Theme
 #+BEGIN_SRC emacs-lisp
-(use-package gruvbox-theme
-	:config
-	(load-theme 'gruvbox-dark-hard t)
-	(if (not (display-graphic-p))
+  (use-package gruvbox-theme
+  	:config
+  	(load-theme 'gruvbox-dark-hard t)
+  )
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+	(if (not (display-graphic-p)) ;; if session is in a terminal then correct colors.
 		(progn
 			(set-background-color "black")
 			(set-foreground-color "white")
 		)
 	)
-)
 #+END_SRC
 
 ** Font
@@ -37,12 +40,13 @@
       (font . "Menlo-18")))
 #+END_SRC
 
-** Org Title Sizes
+* Custom Emacs Settings
+** Open Notes.org on startup
 #+BEGIN_SRC emacs-lisp
-  (setq solarized-scale-org-headlines nil)
+(setq initial-buffer-choice
+  "~/Dropbox/Document/Notes.org")
 #+END_SRC
 
-* Custom Emacs Settings
 ** Paragraph Wrap Limit 80 Column
 #+BEGIN_SRC emacs-lisp
   (setq-default fill-column 80)
@@ -157,7 +161,7 @@ makes that automatic.
   (add-hook 'prog-mode-hook #'hs-minor-mode)
   (set-window-scroll-bars (minibuffer-window) nil nil)
   ;; Inner gaps
-  (set-frame-parameter (selected-frame) 'internal-border-width 10)
+  (set-frame-parameter (selected-frame) 'internal-border-width 5)
 #+END_SRC
 
 ** Kill Always Current Buffer
@@ -173,7 +177,7 @@ makes that automatic.
   (global-set-key (kbd "C-x k") 'hrs/kill-current-buffer)
 #+END_SRC
 
-** Compilation in Same Window  
+** Compilation in Same Window
 #+BEGIN_SRC emacs-lisp
   ;; Always open compilation buffers in the same window.
   (add-to-list 'display-buffer-alist
@@ -184,7 +188,7 @@ makes that automatic.
                            '((inhibit-same-window . nil)
                              (reusable-frames . visible)
                              (inhibit-switch-frame . nil)))))
-  
+
   (defun display-buffer-reuse-major-mode-window (buffer alist)
     (let* ((alist-entry (assq 'reusable-frames alist))
            (frames (cond (alist-entry (cdr alist-entry))
@@ -230,7 +234,13 @@ makes that automatic.
 #+END_SRC
 
 * Packages
-** Csound	
+** Python-mode
+#+BEGIN_SRC emacs-lisp
+  (use-package python-mode
+  :config
+    (setq py-python-command "python3"))
+#+END_SRC
+** Csound
 #+BEGIN_SRC emacs-lisp
 (use-package csound-mode
   :mode (("\\.csd\\'" . csound-mode)
@@ -240,24 +250,11 @@ makes that automatic.
   :load-path "packages/csound-mode/")
 #+END_SRC
 
-** Go mode
-#+BEGIN_SRC emacs-lisp
-  (use-package go-mode)
-#+END_SRC
-
-** Approximate-Colors
-#+BEGIN_SRC emacs-lisp
-  (use-package color-theme-approximate    
-    :config
-    (color-theme-approximate-on))
-#+END_SRC
-
 ** Evil
 #+BEGIN_SRC emacs-lisp
   (use-package evil
   :config
     (evil-mode 1)
-    (evil-set-initial-state 'dashboard-mode 'emacs)
   )
 #+END_SRC
 
@@ -284,20 +281,20 @@ Persistent highlight for regex searches (lock)
     (interactive)
     (hi-lock-mode -1)
     (hi-lock-mode 1))
-  
+
   (defun search-highlight-persist ()
     (highlight-regexp (car-safe (if isearch-regexp
                                     regexp-search-ring
                                   search-ring)) (facep 'hi-yellow)))
-  
+
   (defadvice isearch-exit (after isearch-hl-persist activate)
     (highlight-remove-all)
     (search-highlight-persist))
-  
+
   (defadvice evil-search-incrementally (after evil-search-hl-persist activate)
     (highlight-remove-all)
     (search-highlight-persist))
-    
+
   (define-key evil-normal-state-map (kbd "<escape>")
     'highlight-remove-all)
 #+END_SRC
@@ -347,19 +344,6 @@ programming.
     (which-key-mode))
 #+END_SRC
 
-** Dashboard
-#+BEGIN_SRC emacs-lisp
-  (use-package dashboard
-  :config
-    (setq dashboard-center-content t)
-    (setq dashboard-set-navigator t)
-    (setq dashboard-set-heading-icons t)
-    (setq dashboard-items '((recents  . 5) ))
-                           ;; (agenda . 5)))
-    (setq dashboard-set-file-icons t)
-    (dashboard-setup-startup-hook))
-#+END_SRC
-
 ** Multi Term
 #+BEGIN_SRC emacs-lisp
   (use-package multi-term
@@ -384,16 +368,6 @@ Paste in term-mode, Other window shortcut
               (define-key term-raw-map (kbd "C-y") 'hrs/term-paste)
               (define-key term-raw-map (kbd "M-o") 'other-window)
               (setq yas-dont-activate t)))
-#+END_SRC
-
-** Helpful
-#+BEGIN_SRC emacs-lisp
-  (use-package helpful
-  :config
-    (global-set-key (kbd "C-h f") #'helpful-callable)
-    (global-set-key (kbd "C-h v") #'helpful-variable)
-    (global-set-key (kbd "C-h k") #'helpful-key)
-    (evil-define-key 'normal helpful-mode-map (kbd "q") 'quit-window))
 #+END_SRC
 
 ** Org
@@ -470,37 +444,6 @@ Don't ask before evaluating code blocks.
   '(markdown-hide-urls t)
 #+END_SRC
 
-** Company{,-jedi}
-
-Side note: Check [[https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.html][this page]] for jedi with python3 issues:
-
-#+BEGIN_SRC emacs-lisp
-  (use-package company
-  :config
-    (defun company-semantic-setup ()
-    "Configure company-backends for company-semantic and company-yasnippet."
-    (delete 'company-irony company-backends)
-    (push '(company-semantic :with company-yasnippet) company-backends))
-    (add-hook 'after-init-hook 'global-company-mode)
-    (setq company-backends (delete 'company-semantic company-backends))
-
-    (require 'cc-mode)
-    (define-key c-mode-map  [(tab)] 'company-complete)
-    (define-key c++-mode-map  [(tab)] 'company-complete))
-
-  (use-package company-jedi
-    :config
-    (setq jedi:environment-root "jedi")
-    (defun company-jedi-setup ()
-    	(add-to-list 'company-backends 'company-jedi))
-    (add-hook 'python-mode-hook 'jedi:install-server)
-    (add-hook 'python-mode-hook 'company-jedi-setup)
-
-    (setq jedi:setup-keys t)
-    (setq jedi:complete-on-dot t)
-    (add-hook 'python-mode-hook 'jedi:setup))
-#+END_SRC
-
 ** Magit
 #+BEGIN_SRC emacs-lisp
   (use-package magit
@@ -562,6 +505,77 @@ Side note: Check [[https://archive.zhimingwang.org/blog/2015-04-26-using-python-
 #+END_SRC
 
 * =FORSAKEN=
+** Go mode
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package go-mode)
+#+END_SRC
+
+** Dashboard
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package dashboard
+  ;; :config
+  ;;   (setq dashboard-center-content t)
+  ;;   (setq dashboard-set-navigator t)
+  ;;   (setq dashboard-set-heading-icons t)
+  ;;   (setq dashboard-items '((recents  . 5) ))
+  ;;   (setq dashboard-set-file-icons t)
+  ;;   (dashboard-setup-startup-hook)
+  ;;   (evil-set-initial-state 'dashboard-mode 'emacs))
+#+END_SRC
+
+** Company{,-jedi}
+
+Side note: Check [[https://archive.zhimingwang.org/blog/2015-04-26-using-python-3-with-emacs-jedi.html][this page]] for jedi with python3 issues:
+
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package company
+  ;; :config
+  ;;   (defun company-semantic-setup ()
+  ;;   "Configure company-backends for company-semantic and company-yasnippet."
+  ;;   (delete 'company-irony company-backends)
+  ;;   (push '(company-semantic :with company-yasnippet) company-backends))
+  ;;   (add-hook 'after-init-hook 'global-company-mode)
+  ;;   (setq company-backends (delete 'company-semantic company-backends))
+
+  ;;   (require 'cc-mode)
+  ;;   (define-key c-mode-map  [(tab)] 'company-complete)
+  ;;   (define-key c++-mode-map  [(tab)] 'company-complete))
+
+  ;; (use-package company-jedi
+  ;;   :config
+  ;;   (setq jedi:environment-root "jedi")
+  ;;   (defun company-jedi-setup ()
+  ;;   	(add-to-list 'company-backends 'company-jedi))
+  ;;   (add-hook 'python-mode-hook 'jedi:install-server)
+  ;;   (add-hook 'python-mode-hook 'company-jedi-setup)
+
+  ;;   (setq jedi:setup-keys t)
+  ;;   (setq jedi:complete-on-dot t)
+  ;;   (add-hook 'python-mode-hook 'jedi:setup))
+#+END_SRC
+
+** Helpful
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package helpful
+  ;; :config
+  ;;   (global-set-key (kbd "C-h f") #'helpful-callable)
+  ;;   (global-set-key (kbd "C-h v") #'helpful-variable)
+  ;;   (global-set-key (kbd "C-h k") #'helpful-key)
+  ;;   (evil-define-key 'normal helpful-mode-map (kbd "q") 'quit-window))
+#+END_SRC
+
+** Approximate-Colors
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package color-theme-approximate
+  ;;   :config
+  ;;   (color-theme-approximate-on))
+#+END_SRC
+
+** Org Title Sizes in Solarized Theme
+#+BEGIN_SRC emacs-lisp
+  ;; (setq solarized-scale-org-headlines nil)
+#+END_SRC
+
 ** Ledger
 #+BEGIN_SRC emacs-lisp
   ;; (use-package ledger-mode
@@ -589,7 +603,7 @@ Side note: Check [[https://archive.zhimingwang.org/blog/2015-04-26-using-python-
   ;; (use-package fancy-battery
   ;; :config
   ;;   (fancy-battery-mode 1))
-    
+
   ;; (use-package doom-modeline
   ;; :hook (after-init . doom-modeline-mode)
   ;; :config
@@ -682,12 +696,3 @@ Open media with the appropriate programs.
   ;; (add-hook 'python-mode-hook 'folding-blocks)
   ;; (add-hook 'js-mode-hook 'folding-blocks)
 #+END_SRC
-
-** Python-mode
-#+BEGIN_SRC emacs-lisp
-  ;; (use-package python-mode
-  ;; :config
-  ;; (setq py-python-command "python3"))
-#+END_SRC
-
-
