@@ -8,11 +8,12 @@
 
 call plug#begin()
 
+" Plug 'jceb/vim-orgmode' " pip install --user neovim
+Plug 'junegunn/vim-easy-align'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim'
-Plug 'mhinz/vim-startify'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
