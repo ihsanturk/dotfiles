@@ -9,5 +9,6 @@ brew install cointop
 brew install python3
 brew install qrencode
 brew install mitmproxy
-brew install youtube-dl
+brew install trash-cli
 brew cask install kitty
+brew install youtube-dl
