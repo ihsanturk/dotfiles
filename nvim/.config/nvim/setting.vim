@@ -7,6 +7,7 @@ set hlsearch
 set t_Co=256
 set ttimeout
 set wildmenu
+set expandtab
 set incsearch
 set linebreak
 set smartcase
@@ -16,10 +17,9 @@ set ignorecase
 set noswapfile
 set splitbelow
 set splitright
-set tabstop=2 
-set expandtab
+set tabstop=3 
 set scrolloff=3
-set shiftwidth=2
+set shiftwidth=3
 set showbreak=↪
 set termguicolors
 set ttimeoutlen=10
@@ -27,7 +27,7 @@ set background=dark
 set timeoutlen=1000
 set foldlevelstart=0
 set foldlevelstart=99
-set foldmethod=syntax
+" set foldmethod=syntax
 filetype plugin indent off
 set autochdir "relative path
 set shell=/usr/local/bin/zsh
