@@ -27,32 +27,38 @@ sudo hdparm -Y /dev/sdb 1>/dev/null'
 
 alias l='ls'
 alias n='nnn'
-# alias rm='trash'
+alias rm='trash'
 alias ll='ls -lh'
-alias la='ls -lAh'
+alias la='ls -Ah'
+alias ..='cd ..'
+alias ...='cd ../..'
 
-## ARCH
-#alias pu='sudo pacman -Syu'
-#alias pl='sudo pacman -Q | dmenu -l 10'
-## -s for dependencies
-#alias pi='sudo pacman -S'
-#alias pru='sudo pacman -R $(pacman -Qdtq)'
-#alias pr='sudo pacman -Rcns $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
-#
-#alias yi='yay -S'
-#alias yu='yay -Syu'
-#alias yf='yay -Q | dmenu -l 10'
-#alias yr='yay -R $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
+## Arch
+# alias pu='sudo pacman -Syu'
+# alias pl='sudo pacman -Q | dmenu -l 10'
+# alias pi='sudo pacman -S'
+# alias pru='sudo pacman -R $(pacman -Qdtq)'
+# alias pr='sudo pacman -Rcns $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
+# alias yi='yay -S'
+# alias yu='yay -Syu'
+# alias yf='yay -Q | dmenu -l 10'
+# alias yr='yay -R $(pacman -Q | dmenu -l 10 | sed "s/\s.*//g")'
 
-# UBUNTU
-alias pf='apt search'
-alias pr='sudo apt remove'
-alias pu='sudo apt update'
-alias pi='sudo apt install'
+# Brew 
+alias pf='brew search'
+alias pr='brew uninstall'
+alias pu='brew update'
+alias pi='brew install'
 
-# VOID
-#alias pi='sudo xbps-install'
-#alias pf='sudo xbps-query -s'
-#alias pl='sudo xbps-query -m'
-#alias pr='sudo xbps-remove -R'
-#alias pu='sudo xbps-install -Syuv'
+## Ubuntu
+# alias pf='apt search'
+# alias pr='sudo apt remove'
+# alias pu='sudo apt update'
+# alias pi='sudo apt install'
+
+## Void
+# alias pi='sudo xbps-install'
+# alias pf='sudo xbps-query -s'
+# alias pl='sudo xbps-query -m'
+# alias pr='sudo xbps-remove -R'
+# alias pu='sudo xbps-install -Syuv'
