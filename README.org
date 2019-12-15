@@ -16,7 +16,8 @@ configuration is ready.
 | WM       | *[[https://www.wikiwand.com/en/Quartz_(graphics_layer)][Quartz]]*    |
 | Terminal | *[[https://sw.kovidgoyal.net/kitty/][Kitty]]*     |
 | Shell    | *[[https://zsh.org/][Zsh]]*       |
-| Editor   | *[[https://www.gnu.org/software/emacs/][GNU Emacs]]* |
+| Editor 1 | *[[https://www.gnu.org/software/emacs/][GNU Emacs]]* |
+| Editor 2 | *[[https://neovim.io/][Nvim]]*      |
 | Browser  | *[[https://www.google.com/chrome/][Chrome]]*    |
 
 ** Notes
