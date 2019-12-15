@@ -24,12 +24,12 @@ do
         username=$(sed 1q $cachePath)
         password=$(sed '2q;d' $cachePath)
       fi
-      curl "${baseLogInURL}&username=${username}&password=${password}" --compressed|
+      curl -s "${baseLogInURL}&username=${username}&password=${password}" --compressed|
         grep -o "logged in" 2>&1 >/dev/null &&
           echo Success || echo Fail
       ;;
     -o|--logout)
-      curl ${baseLogOutURL} |
+      curl -s ${baseLogOutURL} |
         grep -o "logged out" 2>&1 >/dev/null && echo Success || echo Fail
       ;;
     *)
