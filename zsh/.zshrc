@@ -10,7 +10,10 @@ HISTSIZE=9000000
 SAVEHIST=9000000
 HISTFILE=~/.zsh_history
 
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+# prompt_newline='%666v'
+# PROMPT=" $PROMPT"
+
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
 autoload -U compinit && compinit
 
 set -o emacs
