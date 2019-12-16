@@ -28,7 +28,7 @@ set timeoutlen=1000
 set foldlevelstart=0
 set foldlevelstart=99
 " set foldmethod=syntax
-filetype plugin indent off
+filetype plugin indent on
 set autochdir "relative path
 set shell=/usr/local/bin/zsh
 setglobal fileencoding=utf-8
