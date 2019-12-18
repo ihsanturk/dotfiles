@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ## Set default shell zsh
 # sudo pacman -S zsh
