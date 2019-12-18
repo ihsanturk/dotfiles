@@ -1,5 +1,6 @@
 #!/bin/sh
 
+alias :q="exit"
 alias n="nnn -d"
 alias vim="nvim"
 alias wp="wikipedia"
