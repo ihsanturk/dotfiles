@@ -1,5 +1,5 @@
-nmap n nzz
-nmap N Nzz
+" nmap n nzz
+" nmap N Nzz
 nmap * *<c-o>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)

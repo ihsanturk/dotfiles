@@ -1,6 +1,6 @@
-set wrap
 syntax on
 set nolist
+set nowrap
 set mouse=a
 set timeout
 set hlsearch
