@@ -10,6 +10,7 @@ nmap ga <Plug>(LiveEasyAlign)
 
 nmap <leader>d  "_d
 nmap <M-S-k>    :bd<cr>
+nmap <M-o>      <C-w><C-w>
 nmap <S-Tab>    :bp<cr>
 nmap <Tab>      :bn<cr>
 tno  <Esc>      <C-\><C-n>
