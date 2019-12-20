@@ -1,0 +1,9 @@
+#!/bin/sh
+
+printf "Base64: " &&
+   printf $1 | base64 -D &&
+   echo
+printf "MD5   : " &&
+   curl -s "https://hashtoolkit.com/reverse-hash?hash=$1" |
+      pup 'body > div.container > div > div.col-md-8.column > div:nth-child(8) > table > tbody > tr > td.res-text > span:nth-child(1) text{}'
+      echo
