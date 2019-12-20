@@ -20,5 +20,6 @@ url=$(echo $url | sed 's:blob/::g')
 url=$(echo $url | sed 's/github\.com/raw.githubusercontent.com/g')
 filename="$(echo $url | awk -F/ '{printf $NF}')"
 
-curl -s -o /tmp/$filename $url &&
-  $EDITOR /tmp/$filename || echo Error && exit 3
+mkdir -p /tmp/gfv/
+curl -s -o /tmp/gfv/$filename $url &&
+  $EDITOR /tmp/gfv/$filename || echo Error && exit 3
