@@ -11,6 +11,8 @@ call plug#begin()
 Plug 'junegunn/vim-easy-align'
 Plug 'chriskempson/base16-vim'
 Plug 'markonm/traces.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -21,6 +23,4 @@ call plug#end()
 
 " FORSAKEN
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 " Plug 'tpope/vim-obsession'
