@@ -1,5 +1,22 @@
-" nmap n nzz
-" nmap N Nzz
+" autohighlight
+nmap <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+function! AutoHighlightToggle()
+   if exists('#auto_highlight')
+      au! auto_highlight
+      augroup! auto_highlight
+      setl updatetime=20
+      echo 'Highlight current word: off'
+      return 0
+   else
+      augroup auto_highlight
+         au!
+         au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+      augroup end
+      setl updatetime=20
+      echo 'Highlight current word: ON'
+      return 1
+   endif
+endfunction
 nmap * *<c-o>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -10,14 +27,14 @@ nmap ga <Plug>(LiveEasyAlign)
 
 nmap <leader>d  "_d
 nmap <M-S-k>    :bd<cr>
-nmap <M-o>      <C-w><C-w>
 nmap <S-Tab>    :bp<cr>
 nmap <Tab>      :bn<cr>
+nmap <esc><esc> :noh<cr>
+nmap <M-o>      <C-w><C-w>
 tno  <Esc>      <C-\><C-n>
 nmap <leader>i  /)<Return>:noh<cr>i
 nmap <M-3>      :NERDTreeToggle<cr><C-w>=
 nmap <M-k>      :bp<bar>sp<bar>bn<bar>bd<cr>
-nmap <esc><esc> :noh<cr>:call clearmatches()<cr>
 nmap <leader>r  :so ~/.config/nvim/init.vim<cr>:noh<cr>
 vn   <leader>s  :!awk '{ print length(), $0\|"sort -n" }'\|cut -d' ' -f2-<cr>
 
@@ -49,3 +66,4 @@ cnorea qw  wq
 cnorea Wq  wq
 
 autocmd FileType c,cpp,javascript imap {} {<Return><Return>}<esc>kS
+

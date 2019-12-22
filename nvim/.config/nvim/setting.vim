@@ -27,7 +27,7 @@ set background=dark
 set timeoutlen=1000
 set foldlevelstart=0
 set foldlevelstart=99
-" set foldmethod=syntax
+set foldmethod=indent
 filetype plugin indent on
 set autochdir "relative path
 set shell=/usr/local/bin/zsh
@@ -35,14 +35,12 @@ setglobal fileencoding=utf-8
 set backspace=indent,eol,start
 autocmd InsertEnter,InsertLeave * set cul!
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-set inccommand=nosplit "Wow, I've been looking for so long for this setting.
-
+" set inccommand=nosplit "Wow, I've been looking for so long for this setting.
 
 colorscheme base16-gruvbox-dark-hard
 let mapleader = '\'
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
+" jump to the last position
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -54,6 +52,7 @@ endif
 let g:airline_symbols.space = "\ua0"
 
 
+" 80 col rule
 if exists('+colorcolumn')
 	set colorcolumn=80
 else
@@ -61,6 +60,7 @@ else
 endif
 
 
+" persistent_undo
 if has('persistent_undo')
 	set undofile
 	set undodir=~/.cache/vim
