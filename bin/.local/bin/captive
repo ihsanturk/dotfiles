@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 baseLogInURL="\
 http://ns1.google.net/login?dst=http%3A%2F%2Fns1.google.com%2F&popup=false"
