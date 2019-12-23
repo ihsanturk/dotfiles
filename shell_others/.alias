@@ -2,9 +2,9 @@
 
 alias :q="exit"
 alias :Q="exit"
+alias vim='nvim'
 alias n="nnn -d"
 alias wp="wikipedia"
-alias vim='nvim'
 # alias open='xdg-open'
 alias ec="emacsclient"
 alias clear='printf ""'
