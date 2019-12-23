@@ -12,13 +12,13 @@ set incsearch
 set linebreak
 set smartcase
 set autoindent
-set cursorline
 set ignorecase
 set noswapfile
 set splitbelow
 set splitright
 set tabstop=3 
 set scrolloff=3
+set nocursorline
 set shiftwidth=3
 set showbreak=↪
 set termguicolors

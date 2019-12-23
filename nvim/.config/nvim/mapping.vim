@@ -33,6 +33,7 @@ nmap <esc><esc> :noh<cr>
 nmap <M-o>      <C-w><C-w>
 tno  <Esc>      <C-\><C-n>
 nmap <leader>i  /)<Return>:noh<cr>i
+nmap <M-1>      :set cursorcolumn!<cr>
 nmap <M-3>      :NERDTreeToggle<cr><C-w>=
 nmap <M-k>      :bp<bar>sp<bar>bn<bar>bd<cr>
 nmap <leader>r  :so ~/.config/nvim/init.vim<cr>:noh<cr>

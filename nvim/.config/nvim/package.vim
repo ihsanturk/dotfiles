@@ -8,6 +8,7 @@
 
 call plug#begin()
 
+Plug 'dbeniamine/cheat.sh-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'chriskempson/base16-vim'
 Plug 'markonm/traces.vim'
