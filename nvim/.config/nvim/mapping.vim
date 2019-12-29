@@ -33,16 +33,19 @@ vn <Space>          za
 nmap <leader>d      "_d
 imap <C-d>         <Del>
 imap <M-backspace> <C-w>
+cmap <M-backspace> <C-w>
 imap <C-b>         <Left>
 imap <C-f>         <Right>
 nmap <S-Tab>       :bp<cr>
 nmap <Tab>         :bn<cr>
 nn <leader>z        zMzvzz
 imap <M-b>         <S-Left>
+cmap <M-b>         <S-Left>
 imap <M-d>          <C-o>de
 nmap <M-S-k>       :bd<cr> 
 nmap <esc><esc>    :noh<cr>
 imap <M-f>         <S-Right>
+cmap <M-f>         <S-Right>
 nmap <M-o>         <C-w><C-w>
 tno  <Esc>         <C-\><C-n>
 nmap <leader>i     /)<Return>:noh<cr>i
@@ -64,7 +67,7 @@ nmap <M-x> :Commands<CR>
 nmap <M-h> :Helptags!<CR>
 let  g:fzf_commands_expect = 'alt-enter'
 
-map    q:  :q
+" map    q:  :q
 cnorea E   e
 cnorea man Man
 cnorea Q   q
