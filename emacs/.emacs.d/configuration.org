@@ -18,19 +18,10 @@
 
 ** Theme
 #+BEGIN_SRC emacs-lisp
-  (use-package gruvbox-theme
+  (use-package base16-theme
   	:config
-  	(load-theme 'gruvbox-dark-hard t)
+  	(load-theme 'base16-gruvbox-dark-hard t)
   )
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp
-	(if (not (display-graphic-p)) ;; if session is in a terminal then correct colors.
-		(progn
-			(set-background-color "black")
-			(set-foreground-color "white")
-		)
-	)
 #+END_SRC
 
 ** Font
@@ -40,13 +31,42 @@
       (font . "Menlo-18")))
 #+END_SRC
 
-* Custom Emacs Settings
-** Open Notes.org on startup
+* Snippets
+  
+Expand Curly Braces in Programming Modes
+
 #+BEGIN_SRC emacs-lisp
-(setq initial-buffer-choice
-  "~/Dropbox/Document/Notes.org")
+   (defun my/expand-curlies ()
+      (interactive)
+   	(backward-char)
+   	(newline)
+   	(newline)
+   	(previous-line)
+   )
+   (defun my/keys-expand-curlies ()
+      (local-set-key (kbd "{}") #'my/expand-curlies))
+		
+   (add-hook 'prog-mode-hook #'my/keys-expand-curlies)
 #+END_SRC
 
+* Custom Emacs Settings 
+** Auto-Save Directory
+#+BEGIN_SRC emacs-lisp
+
+  ;; (mkdir "~/.emacs-saves/")
+  (setq auto-save-file-name-transforms
+   `(
+      (".*" "~/.emacs-saves/" t)
+    )
+  )
+
+#+END_SRC
+** Default Python Version
+#+BEGIN_SRC emacs-lisp
+
+  (setq python-shell-interpreter "python3")
+
+#+END_SRC
 ** Paragraph Wrap Limit 80 Column
 #+BEGIN_SRC emacs-lisp
   (setq-default fill-column 80)
@@ -114,12 +134,12 @@ makes that automatic.
 ** Custom Variables
 
 #+BEGIN_SRC emacs-lisp
-  (setenv "PATH" "/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/sbin")
+  (setenv "PATH" "/Users/ihsan/.local/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/sbin:/sbin")
   (setq shell-file-name (executable-find "/usr/local/bin/zsh"))
   (setq frame-resize-pixelwise t)
   (set-frame-position (selected-frame) 960 0)
   (setq vc-follow-symlinks nil)
-  (setq-default tab-width 2)
+  (setq-default tab-width 3)
   (fset 'yes-or-no-p 'y-or-n-p)
   (setq backup-directory-alist `(("." . "~/.emacs.d/.backup")))
 
@@ -134,7 +154,7 @@ makes that automatic.
   (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
   (setq scroll-step 1) ;; keyboard scroll one line at a time
-  (setq scroll-margin 5
+  (setq scroll-margin 3
     scroll-conservatively 0
     scroll-up-aggressively 0.01
     scroll-down-aggressively 0.01)
@@ -234,14 +254,17 @@ makes that automatic.
 #+END_SRC
 
 * Packages
-** Csound
+** Writeroom
 #+BEGIN_SRC emacs-lisp
-(use-package csound-mode
-  :mode (("\\.csd\\'" . csound-mode)
-  	 ("\\.orc\\'" . csound-mode)
-  	 ("\\.sco\\'" . csound-mode)
-  	 ("\\.udo\\'" . csound-mode))
-  :load-path "packages/csound-mode/")
+  (use-package writeroom-mode
+  :config
+    (global-set-key (kbd "M-g")
+	    (progn
+        'global-writeroom-mode
+	      'writeroom-mode
+			)
+    )
+  )
 #+END_SRC
 
 ** Evil
@@ -498,7 +521,35 @@ Don't ask before evaluating code blocks.
   )
 #+END_SRC
 
+* Theme Fix
+#+BEGIN_SRC emacs-lisp
+	(if (not (display-graphic-p)) ;; if session is in a terminal then correct colors.
+		(progn
+			(set-background-color "black")
+			(set-foreground-color "white")
+		)
+	)
+#+END_SRC
+
+#+RESULTS:
+
 * =FORSAKEN=
+** Csound
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package csound-mode
+  ;;   :mode (("\\.csd\\'" . csound-mode)
+  ;;   	 ("\\.orc\\'" . csound-mode)
+  ;;   	 ("\\.sco\\'" . csound-mode)
+  ;;   	 ("\\.udo\\'" . csound-mode))
+  ;;   :load-path "packages/csound-mode/")
+#+END_SRC
+
+** Open Notes.org on startup
+#+BEGIN_SRC emacs-lisp
+  ;; (setq initial-buffer-choice
+  ;;   "~/Dropbox/Document/Notes.org")
+#+END_SRC
+
 ** Go mode
 #+BEGIN_SRC emacs-lisp
   ;; (use-package go-mode)
