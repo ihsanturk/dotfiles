@@ -6,7 +6,7 @@ sleep 0.2
 terms=$(echo $@ | sed 's/ /+/g')
 url="localhost:8080/translate/$terms"
 
-body=$(echo $(curl "$url" | jq '.response|.[]|.tr' | sed 5q |
+body=$(echo $(curl -s "$url" | jq '.response|.[]|.tr' | sed 5q |
 sed 's/^"/~~/g; s/"$/++/g; s/~~//g;s/++/, /g')) &>/dev/null
 
 if ! [ "$terms" = "" ]; then 
