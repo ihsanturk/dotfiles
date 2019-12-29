@@ -8,6 +8,8 @@
 
 call plug#begin()
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'chriskempson/base16-vim'

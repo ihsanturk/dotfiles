@@ -19,31 +19,37 @@ function! AutoHighlightToggle()
 endfunction
 nmap * *<c-o>
 
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(LiveEasyAlign)
-
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(LiveEasyAlign)
 
-nmap <leader>d  "_d
-nmap <M-S-k>    :bd<cr>
-nmap <S-Tab>    :bp<cr>
-nmap <Tab>      :bn<cr>
-nmap <esc><esc> :noh<cr>
-nmap <M-o>      <C-w><C-w>
-tno  <Esc>      <C-\><C-n>
-nmap <leader>i  /)<Return>:noh<cr>i
-nmap <M-1>      :set cursorcolumn!<cr>
-nmap <M-3>      :NERDTreeToggle<cr><C-w>=
-nmap <M-k>      :bp<bar>sp<bar>bn<bar>bd<cr>
-nmap <leader>r  :so ~/.config/nvim/init.vim<cr>:noh<cr>
-vn   <leader>s  :!awk '{ print length(), $0\|"sort -n" }'\|cut -d' ' -f2-<cr>
+let width = 3
+nmap <leader>t  :set expandtab tabstop=width softtabstop=width shiftwidth=width
 
-" folding
-nn <Space> za
-vn <Space> za
-nn <leader>z zMzvzz
-" focus current fold
+nn <Space>          za
+vn <Space>          za
+nmap <leader>d      "_d
+imap <C-d>         <Del>
+imap <M-backspace> <C-w>
+imap <C-b>         <Left>
+imap <C-f>         <Right>
+nmap <S-Tab>       :bp<cr>
+nmap <Tab>         :bn<cr>
+nn <leader>z        zMzvzz
+imap <M-b>         <S-Left>
+nmap <M-S-k>       :bd<cr> 
+nmap <esc><esc>    :noh<cr>
+imap <M-f>         <S-Right>
+nmap <M-o>         <C-w><C-w>
+tno  <Esc>         <C-\><C-n>
+nmap <leader>i     /)<Return>:noh<cr>i
+nmap <M-1>         :set cursorcolumn!<cr>
+nmap <M-3>         :NERDTreeToggle<cr><C-w>=
+nmap <M-k>         :bp<bar>sp<bar>bn<bar>bd<cr>
+nmap <leader>r     :so ~/.config/nvim/init.vim<cr>:noh<cr>
+vn   <leader>s     :!awk '{ print length(), $0\|"sort -n" }'\|cut -d' ' -f2-<cr>
 
 " Goyo
 nmap <M-g> :Goyo<CR>
@@ -65,6 +71,3 @@ cnorea W   w
 cnorea Q!  q!
 cnorea qw  wq
 cnorea Wq  wq
-
-autocmd FileType c,cpp,javascript imap {} {<Return><Return>}<esc>kS
-

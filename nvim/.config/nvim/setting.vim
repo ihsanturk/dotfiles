@@ -7,7 +7,6 @@ set hlsearch
 set t_Co=256
 set ttimeout
 set wildmenu
-set expandtab
 set incsearch
 set linebreak
 set smartcase
@@ -16,10 +15,8 @@ set ignorecase
 set noswapfile
 set splitbelow
 set splitright
-set tabstop=3 
 set scrolloff=3
 set nocursorline
-set shiftwidth=3
 set showbreak=↪
 set termguicolors
 set ttimeoutlen=10
@@ -35,6 +32,8 @@ setglobal fileencoding=utf-8
 set backspace=indent,eol,start
 autocmd InsertEnter,InsertLeave * set cul!
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+autocmd FileType python set expandtab tabstop=3 softtabstop=3 shiftwidth=3
+autocmd FileType go set expandtab tabstop=3 softtabstop=3 shiftwidth=3
 " set inccommand=nosplit "Wow, I've been looking for so long for this setting.
 
 colorscheme base16-gruvbox-dark-hard
