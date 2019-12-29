@@ -39,6 +39,7 @@ nmap <S-Tab>       :bp<cr>
 nmap <Tab>         :bn<cr>
 nn <leader>z        zMzvzz
 imap <M-b>         <S-Left>
+imap <M-d>          <C-o>de
 nmap <M-S-k>       :bd<cr> 
 nmap <esc><esc>    :noh<cr>
 imap <M-f>         <S-Right>
