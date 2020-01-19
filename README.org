@@ -2,10 +2,12 @@
 Ready to [[https://www.gnu.org/software/stow/][stow]] it.
 You can use [[https://www.gnu.org/software/stow/][stow]] just for one program. Example
 
-```sh
-cd dotfiles
-stow emacs #Just install the emacs configuration
-```
+#+BEGIN_SRC bash
+
+	 cd dotfiles
+	 stow emacs/ #Just install the emacs configuration
+	 
+#+END_SRC
 
 If there is not a file in the destination directory then your new emacs
 configuration is ready.
@@ -29,14 +31,14 @@ configuration is ready.
 
 #+BEGIN_SRC bash
 
-  #!/bin/sh
-  
-  cachedir="${XDG_CACHE_HOME:-"$HOME/.cache"}"
-  cache="$cachedir/dmenu_run"
-  
-  [ ! -e "$cachedir" ] && mkdir -p "$cachedir"
-  
-  IFS=:
-  cat "$cache"
+	 #!/bin/sh
+
+	 cachedir="${XDG_CACHE_HOME:-"$HOME/.cache"}"
+	 cache="$cachedir/dmenu_run"
+
+	 [ ! -e "$cachedir" ] && mkdir -p "$cachedir"
+
+	 IFS=:
+	 cat "$cache"
 
 #+END_SRC
