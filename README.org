@@ -4,8 +4,8 @@ You can use [[https://www.gnu.org/software/stow/][stow]] just for one program. E
 
 #+BEGIN_SRC bash
 
-	 cd dotfiles
-	 stow emacs/ #Just install the emacs configuration
+cd dotfiles
+stow emacs/ #Just install the emacs configuration
 	 
 #+END_SRC
 
@@ -31,14 +31,14 @@ configuration is ready.
 
 #+BEGIN_SRC bash
 
-	 #!/bin/sh
+#!/bin/sh
 
-	 cachedir="${XDG_CACHE_HOME:-"$HOME/.cache"}"
-	 cache="$cachedir/dmenu_run"
+cachedir="${XDG_CACHE_HOME:-"$HOME/.cache"}"
+cache="$cachedir/dmenu_run"
 
-	 [ ! -e "$cachedir" ] && mkdir -p "$cachedir"
+[ ! -e "$cachedir" ] && mkdir -p "$cachedir"
 
-	 IFS=:
-	 cat "$cache"
+IFS=:
+cat "$cache"
 
 #+END_SRC
