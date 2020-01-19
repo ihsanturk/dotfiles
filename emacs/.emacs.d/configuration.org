@@ -50,6 +50,13 @@ Expand Curly Braces in Programming Modes
 #+END_SRC
 
 * Custom Emacs Settings 
+** Org Latex Renderer
+#+BEGIN_SRC emacs-lisp
+
+   (setq org-latex-create-formula-image-program 'dvisvgm)
+
+#+END_SRC
+
 ** Auto-Save Directory
 #+BEGIN_SRC emacs-lisp
 
