@@ -1,0 +1,3 @@
+#!/bin/bash
+
+for i in {0..16}; do tput setaf $i; echo $i hello; done
