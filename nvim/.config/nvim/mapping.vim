@@ -25,32 +25,50 @@ xmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(LiveEasyAlign)
 
-let width = 3
-nmap <leader>t  :set expandtab tabstop=width softtabstop=width shiftwidth=width
+vn   i2            i"
+vn   a2            a"
+nn   ci2           ci"
+nn   ca2           ca"
+nn   di2           di"
+nn   da2           da"
+nn   yi2           yi"
+nn   ya2           ya"
 
-nn <Space>          za
-vn <Space>          za
-nmap <leader>d      "_d
+vn   i9            i(
+vn   i0            i)
+vn   a9            a(
+vn   a0            a)
+nn   ci9           ci(
+nn   ci0           ci)
+nn   ca9           ca(
+nn   ca0           ca)
+nn   di9           di(
+nn   di0           di)
+nn   da9           da(
+nn   da0           da)
+
+nn <Space>         za
+vn <Space>         za
+nmap <leader>d     "_d
+cmap <M-backspace> <C-w>
 imap <C-d>         <Del>
 imap <M-backspace> <C-w>
-cmap <M-backspace> <C-w>
 imap <C-b>         <Left>
 imap <C-f>         <Right>
 nmap <S-Tab>       :bp<cr>
 nmap <Tab>         :bn<cr>
-nn <leader>z        zMzvzz
-imap <M-b>         <S-Left>
+nn <leader>z       zMzvzz
 cmap <M-b>         <S-Left>
-imap <M-d>          <C-o>de
+imap <M-b>         <S-Left>
+imap <M-d>         <C-o>de
 nmap <M-S-k>       :bd<cr> 
 nmap <esc><esc>    :noh<cr>
-imap <M-f>         <S-Right>
 cmap <M-f>         <S-Right>
+imap <M-f>         <S-Right>
 nmap <M-o>         <C-w><C-w>
 tno  <Esc>         <C-\><C-n>
 nmap <leader>i     /)<Return>:noh<cr>i
 nmap <M-1>         :set cursorcolumn!<cr>
-nmap <M-3>         :NERDTreeToggle<cr><C-w>=
 nmap <M-k>         :bp<bar>sp<bar>bn<bar>bd<cr>
 nmap <leader>r     :so ~/.config/nvim/init.vim<cr>:noh<cr>
 vn   <leader>s     :!awk '{ print length(), $0\|"sort -n" }'\|cut -d' ' -f2-<cr>
@@ -70,6 +88,7 @@ let  g:fzf_commands_expect = 'alt-enter'
 " map    q:  :q
 cnorea E   e
 cnorea man Man
+cnorea cdc cd %:p:h
 cnorea Q   q
 cnorea W   w
 cnorea Q!  q!

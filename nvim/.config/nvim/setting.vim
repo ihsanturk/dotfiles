@@ -1,5 +1,6 @@
+set list
+set tw=79
 syntax on
-set nolist
 set nowrap
 set mouse=a
 set timeout
@@ -15,7 +16,7 @@ set ignorecase
 set noswapfile
 set splitbelow
 set splitright
-set scrolloff=3
+set scrolloff=1
 set nocursorline
 set showbreak=↪
 set termguicolors
@@ -26,47 +27,56 @@ set foldlevelstart=0
 set foldlevelstart=99
 set foldmethod=indent
 filetype plugin indent on
-set autochdir "relative path
+"set autochdir "relative path
 set shell=/usr/local/bin/zsh
 setglobal fileencoding=utf-8
 set backspace=indent,eol,start
-autocmd InsertEnter,InsertLeave * set cul!
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-autocmd FileType python set expandtab tabstop=3 softtabstop=3 shiftwidth=3
-autocmd FileType go set expandtab tabstop=3 softtabstop=3 shiftwidth=3
-" set inccommand=nosplit "Wow, I've been looking for so long for this setting.
+set listchars=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ "▸¬
+autocmd FileType zsh,html,sh,go,python,c,cpp set
+			\ noexpandtab tabstop=3 softtabstop=3 shiftwidth=3
+set inccommand=nosplit "Wow, I've been looking for so long for this setting.
 
 colorscheme base16-gruvbox-dark-hard
 let mapleader = '\'
+let g:is_posix = 1
+let g:netrw_liststyle=3
+
+" assumes set ignorecase smartcase
+augroup dynamic_smartcase
+	autocmd!
+	autocmd CmdLineEnter : set nosmartcase
+	autocmd CmdLineLeave : set smartcase
+augroup END
 
 " jump to the last position
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+   au BufReadPost * if line("'\"") > 1 &&
+            \ line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
 
 
 " 80 col rule
 if exists('+colorcolumn')
-	set colorcolumn=80
+   set colorcolumn=80
 else
-	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 
 " persistent_undo
 if has('persistent_undo')
-	set undofile
-	set undodir=~/.cache/vim
+   set undofile
+   set undodir=~/.cache/vim
 endif
 
 
 if has('unnamedplus')
-	set clipboard=unnamed,unnamedplus
+   set clipboard=unnamed,unnamedplus
 endif
 scriptencoding utf-8
