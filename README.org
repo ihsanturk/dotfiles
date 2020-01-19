@@ -3,10 +3,8 @@ Ready to [[https://www.gnu.org/software/stow/][stow]] it.
 You can use [[https://www.gnu.org/software/stow/][stow]] just for one program. Example
 
 #+BEGIN_SRC bash
-
 cd dotfiles
 stow emacs/ #Just install the emacs configuration
-	 
 #+END_SRC
 
 If there is not a file in the destination directory then your new emacs
