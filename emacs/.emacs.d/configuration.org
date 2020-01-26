@@ -19,8 +19,8 @@
 ** Theme
 #+BEGIN_SRC emacs-lisp
   (use-package base16-theme
-  	:config
-  	(load-theme 'base16-gruvbox-dark-hard t)
+	:config
+	(load-theme 'base16-gruvbox-dark-hard t)
   )
 #+END_SRC
 
@@ -38,6 +38,8 @@ Expand Curly Braces in Programming Modes
 #+BEGIN_SRC emacs-lisp
    (defun my/expand-curlies ()
       (interactive)
+		(insert "{")
+		(insert "}")
    	(backward-char)
    	(newline)
    	(newline)
@@ -173,12 +175,10 @@ makes that automatic.
 #+BEGIN_SRC emacs-lisp
   (tool-bar-mode 0)
   (menu-bar-mode 0)
-
   (if (display-graphic-p)
-    (progn
-      (tool-bar-mode -1)
-      (scroll-bar-mode -1)))
-
+	 (progn
+		(tool-bar-mode -1)
+		(scroll-bar-mode -1)))
   (show-paren-mode 1)
   (save-place-mode 1)
   (display-time-mode 1)
@@ -187,8 +187,7 @@ makes that automatic.
   (column-number-mode 1)
   (add-hook 'prog-mode-hook #'hs-minor-mode)
   (set-window-scroll-bars (minibuffer-window) nil nil)
-  ;; Inner gaps
-  (set-frame-parameter (selected-frame) 'internal-border-width 5)
+  ;; (set-frame-parameter (selected-frame) 'internal-border-width 5) ;; innr gap
 #+END_SRC
 
 ** Kill Always Current Buffer
@@ -528,19 +527,17 @@ Don't ask before evaluating code blocks.
   )
 #+END_SRC
 
-* Theme Fix
+* =FORSAKEN=
+** Theme Fix
 #+BEGIN_SRC emacs-lisp
-	(if (not (display-graphic-p)) ;; if session is in a terminal then correct colors.
-		(progn
-			(set-background-color "black")
-			(set-foreground-color "white")
-		)
-	)
+  ;; (if (not (display-graphic-p)) ;; if session is in a terminal then correct colors.
+  ;; 	(progn
+  ;; 		(set-background-color "black")
+  ;; 		(set-foreground-color "white")
+  ;; 	)
+  ;; )
 #+END_SRC
 
-#+RESULTS:
-
-* =FORSAKEN=
 ** Csound
 #+BEGIN_SRC emacs-lisp
   ;; (use-package csound-mode
