@@ -17,6 +17,7 @@ set noswapfile
 set splitbelow
 set splitright
 set scrolloff=1
+set laststatus=0
 set nocursorline
 set showbreak=↪
 set termguicolors
