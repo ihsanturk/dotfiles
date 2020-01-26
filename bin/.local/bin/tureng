@@ -14,5 +14,3 @@ if ! [ "$terms" = "" ]; then
   osascript -e "\
   display notification \"$body\" with title \"Tureng\""
 fi
-
-pkill tureng-api
