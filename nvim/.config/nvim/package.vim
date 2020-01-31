@@ -1,5 +1,6 @@
 call plug#begin()
 
+Plug 'liuchengxu/vim-clap'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'qxxxb/vim-searchhi'
 Plug 'makerj/vim-pdf'
@@ -19,6 +20,8 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
+" Searchhi
+map <silent> <C-L> <Plug>(searchhi-clear-all)
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
 

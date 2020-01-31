@@ -5,7 +5,7 @@ if !has("gui_running")
 endif
 
 " GUI color definitions
-let s:gui00        = "111111" "was 1d2021
+let s:gui00        = "101010" "was 1d2021
 let g:base16_gui00 = "1d2021"
 let s:gui01        = "222222" "gray, 80th column
 let g:base16_gui01 = "3c3836"
