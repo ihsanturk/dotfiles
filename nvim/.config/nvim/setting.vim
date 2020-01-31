@@ -22,6 +22,7 @@ set nocursorline
 set showbreak=↪
 set termguicolors
 set ttimeoutlen=10
+set wildignorecase
 set background=dark
 set timeoutlen=1000
 set foldlevelstart=0
