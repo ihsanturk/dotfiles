@@ -15,6 +15,7 @@ alias clear='printf ""'
 alias rclear='tput clear'
 alias watch='watch -ctn0.5'
 alias grep="grep --color=auto"
+alias acs="printf '=%.0s' {1..80}"
 alias mantitle='apropos . | fzf --height 10'
 alias cpwd='pwd | pbcopy -selection clipboard'
 alias eusc='nvim ${HOME}/dotfiles/doc/Document/useful_commands.sh'
