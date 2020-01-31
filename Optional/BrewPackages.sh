@@ -5,6 +5,7 @@ brew install mosh
 brew install stow
 brew install tmux
 brew install watch
+brew install ispell
 brew install neovim
 brew install cointop
 brew install python3
