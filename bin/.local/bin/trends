@@ -1,0 +1,23 @@
+#!/bin/sh
+
+case "$1" in
+	-c|--country) cc=$2;;
+	*) cc=TR ;;
+esac
+
+curl -s "https://trends.google.com/trends/trendingsearches/daily/rss?geo=$cc" |
+	grep -o '<title>.*<\/title>' |
+	sed 's/^\s*<title>\(.*\)<\/title>/\1/;1d' > /tmp/trends.txt
+
+colorcode=257
+cat /tmp/trends.txt | while read -r line; do
+	[ $colorcode -gt 250 ] && tput bold;
+	if [ $colorcode -eq 257 ]; then
+		tput bold;
+		tput setaf 2;
+	else
+		tput setaf $colorcode
+	fi
+	printf " • $line\n"
+	let colorcode--
+done
