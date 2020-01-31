@@ -1,5 +1,6 @@
 call plug#begin()
 
+Plug 'jceb/vim-orgmode'
 Plug 'liuchengxu/vim-clap'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'qxxxb/vim-searchhi'
