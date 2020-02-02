@@ -1,5 +1,6 @@
 call plug#begin()
 
+Plug 'tpope/vim-surround'
 Plug 'jceb/vim-orgmode'
 Plug 'liuchengxu/vim-clap'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -21,12 +22,15 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-" Searchhi
-map <silent> <C-L> <Plug>(searchhi-clear-all)
-" If installed using Homebrew
-set rtp+=/usr/local/opt/fzf
+" vimwiki
+let g:vimwiki_url_maxsave = 1
+let g:vimwiki_listsyms = '✗◐✓'
+" let g:vimwiki_listsym_rejected = '✗'
 
-" Goyo :q not quits at all.
+" fzf
+set rtp+=/usr/local/opt/fzf " If installed using Homebrew
+
+" goyo :q not quits at all.
 function! s:goyo_enter()
 	let b:quitting = 0
 	let b:quitting_bang = 0

@@ -34,7 +34,7 @@ set shell=/usr/local/bin/zsh
 setglobal fileencoding=utf-8
 set backspace=indent,eol,start
 set listchars=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ "▸¬
-autocmd FileType javascript,vim,zsh,html,sh,go,python,c,cpp set
+autocmd FileType wiki,javascript,vim,zsh,html,sh,go,python,c,cpp set
 			\ noexpandtab tabstop=3 softtabstop=3 shiftwidth=3
 set inccommand=nosplit " Wow, I've been looking for so long for this setting.
 
