@@ -1,25 +1,22 @@
 #!/bin/sh
 
-alias v="nvim"
-alias :Q="exit"
-alias :q="exit"
-alias mv="mv -n"
-alias n="nnn -d"
+alias v='nvim'
+alias mv='mv -n'
+alias n='nnn -d'
 alias vim='nvim'
-alias eixt="exit"
-alias exti="exit"
-alias wp="wikipedia"
-alias ec="emacsclient"
-# alias open='xdg-open'
+alias wp='wikipedia'
+alias ec='emacsclient'
 alias clear='printf ""'
+alias cpwd='pwd | pbcopy'
 alias rclear='tput clear'
 alias watch='watch -ctn0.5'
 alias grep="grep --color=auto"
+# alias open='xdg-open' # LINUX
 alias acs="printf '=%.0s' {1..80}"
 alias mantitle='apropos . | fzf --height 10'
-alias cpwd='pwd | pbcopy -selection clipboard'
+alias todo='vim ~/Dropbox/Document/Notes/todo.wiki'
 alias eusc='nvim ${HOME}/dotfiles/doc/Document/useful_commands.sh'
-# alias nk='setxkbmap -option caps:escape; xset r rate 220 40; setxkbmap gb'
+alias eixt='exit'; alias exti='exit'; alias :Q='exit'; alias :q='exit'
 alias usc='cat ${HOME}/dotfiles/doc/Document/useful_commands.sh | fzf --height 10'
 alias disk2='\
 sudo fsck.hfsplus -f /dev/sdb2;\
