@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo 'Your brain says;'
+
+# TODO Make a great schema for kb (knowledgebase).
+# TODO Compare the 'question argument sentence' with the questions in kb.
+# TODO Find the best score and list answers.
