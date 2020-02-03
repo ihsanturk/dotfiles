@@ -25,7 +25,7 @@ alias eusc='nvim ${HOME}/dotfiles/doc/Document/useful_commands.sh'
 alias eixt='exit'; alias exti='exit'; alias :Q='exit'; alias :q='exit'
 
 alias todo=\
-'vim ~/Dropbox/Document/Notes/todo.wiki -c "2 | startinsert |norm o- TODO  "'
+'vim ~/Dropbox/Document/Notes/todo.wiki -c "2 | startinsert |norm o- [ ]  "'
 
 # Brew 
 alias ps='brew search'
