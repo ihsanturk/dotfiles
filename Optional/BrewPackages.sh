@@ -14,3 +14,7 @@ brew install mitmproxy
 brew install trash-cli
 brew cask install kitty
 brew install youtube-dl
+
+brew tap teamookla/speedtest
+brew update
+brew install speedtest --force

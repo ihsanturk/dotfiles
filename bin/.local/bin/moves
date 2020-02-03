@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# List move column in $db with fzf.
+
+db=${HOME}/Dropbox/Data/moves.db;
+which fzf >/dev/null ||
+	echo "`tput setaf 1; tput bold`FZF not installed.`tput setaf sgr02`" ||
+	exit 2;
+[ -f $db ] || exit 0;
+sqlite3 $db 'select date,move from moves' | fzf
