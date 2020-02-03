@@ -1,17 +1,12 @@
 call plug#begin()
 
-Plug 'tpope/vim-surround'
 Plug 'jceb/vim-orgmode'
-Plug 'liuchengxu/vim-clap'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'qxxxb/vim-searchhi'
-Plug 'makerj/vim-pdf'
+Plug 'markonm/traces.vim'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'itchyny/calendar.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vimwiki/vimwiki'
-Plug 'markonm/traces.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dbeniamine/cheat.sh-vim'
@@ -25,7 +20,6 @@ call plug#end()
 " vimwiki
 let g:vimwiki_url_maxsave = 1
 let g:vimwiki_listsyms = '✗◐✓'
-" let g:vimwiki_listsym_rejected = '✗'
 
 " fzf
 set rtp+=/usr/local/opt/fzf " If installed using Homebrew
@@ -60,3 +54,8 @@ autocmd! User GoyoLeave call <SID>goyo_leave()
 " Plug 'tpope/vim-obsession'
 " Plug 'scrooloose/nerdtree'
 " nmap <M-3> :NERDTreeToggle<cr><C-w>=
+" Plug 'itchyny/calendar.vim'
+" Plug 'liuchengxu/vim-clap'
+" Plug 'tpope/vim-surround'
+" Plug 'makerj/vim-pdf'
+" Plug 'plasticboy/vim-markdown'

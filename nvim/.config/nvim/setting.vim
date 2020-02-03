@@ -41,6 +41,10 @@ set inccommand=nosplit " Wow, I've been looking for so long for this setting.
 " Appearance
 colorscheme gruvbox-dark-hard-modified
 
+" Set scripts to be executable from the shell
+au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent
+			\ !chmod +x <afile> | endif | endif
+
 highlight CurrentSearch
 	 \ cterm=reverse,bold ctermfg=108 ctermbg=235
 	 \ gui=reverse,bold guifg=#8ec07c guibg=#282828
