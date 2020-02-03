@@ -1,2 +1,0 @@
-#!/bin/sh
-nvim -c "tab Man $1 | tabonly"
