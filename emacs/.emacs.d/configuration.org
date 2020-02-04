@@ -42,6 +42,14 @@
    (setq-default mode-line-format nil)
    (setq mode-line-format nil)
 	
+	;; Disable background color in terminal 
+	(defun on-after-init ()
+   (unless (display-graphic-p (selected-frame))
+      (set-face-background 'default "unspecified-bg" (selected-frame))))
+ 
+   (add-hook 'window-setup-hook 'on-after-init)
+
+	
 #+END_SRC
 * Snippets
   
