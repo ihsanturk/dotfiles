@@ -1,3 +1,7 @@
+" Scroll with staying where cursor is.
+nmap <C-j> <C-e>j
+nmap <C-k> <C-y>k
+
 " autohighlight
 nmap <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 function! AutoHighlightToggle()
@@ -55,6 +59,8 @@ imap <C-b>         <Left>
 nn <leader>z       zMzvzz
 imap <C-f>         <Right>
 imap <M-d>         <C-o>de
+imap <C-e>         <esc>A
+imap <C-a>         <esc>I
 nmap <S-Tab>       :bp<cr>
 nmap <Tab>         :bn<cr>
 cmap <M-b>         <S-Left>
