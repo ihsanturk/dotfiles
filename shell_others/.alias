@@ -13,19 +13,15 @@ alias ll='ls -lh'
 alias ...='cd ../..'
 alias wp='wikipedia'
 alias ec='emacsclient'
-alias clear='printf ""'
 alias cpwd='pwd | pbcopy'
 alias rclear='tput clear'
-alias watch='watch -ctn0.5'
+alias watch='watch -ctn0.1'
 alias grep="grep --color=auto"
-# alias open='xdg-open' # LINUX
 alias acs="printf '=%.0s' {1..80}"
-alias mantitle='apropos . | fzf --height 10'
-alias eusc='nvim ${HOME}/dotfiles/doc/Document/useful_commands.sh'
+alias :wq='exit'; alias :Wq='exit' alias :wQ='exit'; alias :WQ='exit'
 alias eixt='exit'; alias exti='exit'; alias :Q='exit'; alias :q='exit'
-
 alias todo=\
-'vim ~/Dropbox/Document/Notes/todo.wiki -c "2 | startinsert |norm o- [ ]  "'
+'nvim ~/Dropbox/Document/Notes/todo.wiki -c "2 | startinsert |norm o- [ ]  "'
 
 # Brew 
 alias ps='brew search'
