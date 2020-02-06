@@ -21,6 +21,8 @@ alias acs="printf '=%.0s' {1..80}"
 alias :wq='exit'; alias :Wq='exit' alias :wQ='exit'; alias :WQ='exit'
 alias eixt='exit'; alias exti='exit'; alias :Q='exit'; alias :q='exit'
 alias todo=\
+'nvim ~/Dropbox/Document/Notes/todo.wiki -c "2"'
+alias todoappend=\
 'nvim ~/Dropbox/Document/Notes/todo.wiki -c "2 | startinsert |norm o- [ ]  "'
 
 # Brew 
