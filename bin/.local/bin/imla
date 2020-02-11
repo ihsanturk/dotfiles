@@ -1,22 +1,23 @@
-#!/bin/bash
+#!/bin/sh
+#
+# Created: 2019 --- -- --:--:--
+# Updated: 2020 Feb 09 22:38:20  
+#
+# Requirements:
+#   - jq
+#   - curl
+# If there are any stdin then don't open fzf interactively instead use -f 
+# option to print the result.
 
-cachedir="${XDG_CACHE_HOME:-"$HOME/.cache"}"
-cache="$cachedir/turkish_words"
-#/home/ihsn/.cache/turkish_words 
+url='https://sozluk.gov.tr/autocomplete.json'
+cachedir=$HOME/.cache/sozlukgovtr
+cache=$cachedir/autocomplete
+data=/tmp/turkish_autocomplete.json
+mkdir -p $cachedir
 
-[ ! -e "$cachedir" ] && mkdir -p "$cachedir"
-#TODO: If curl not installed then print output error
-[ ! -e "$cache" ] &&
-	curl --silent -o $cache "https://sozluk.gov.tr/autocomplete.json" &&
-		sed -i 's/},{/\n/g' $cache &&
-		sed -i 's/[]}{[]//g' $cache &&
-		sed -i 's/"madde"://g' $cache &&
-		sed -i 's/^"//g' $cache &&
-		sed -i 's/"$//g' $cache &&
-		cat $cache | awk '{ print length, $0 }' |
-			sort -n -s | cut -d" " -f2- | sed '/^\s*$/d' > /tmp/turkish_words &&
-			cp /tmp/turkish_words $cache &&
-			rm /tmp/turkish_words
+[ -f $cache ] || [ -f $data ] && cat $data | jq -r '.[].madde' > $cache ||
+	curl -so $data $url && cat $data | jq -r '.[].madde' > $cache;
+cat $cache | fzf;
 
-IFS=:
-cat "$cache" | dmenu -f -i -l 10
+# curl "https://sozluk.gov.tr/gts?$phrase" \
+# -H 'Accept: application/json' \
