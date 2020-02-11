@@ -20,6 +20,7 @@ im <M-b>         <S-Left>
 cm <M-f>         <S-Right>
 im <M-f>         <S-Right>
 tno <Esc>        <C-\><C-n>
+im <M-o>         <esc><C-w>w
 tmap <M-o>       <C-\><C-n><C-w>w
 nm <leader>i     /)<Return>:noh<cr>i
 nn <leader>t     :5new<cr>:r! tureng 
