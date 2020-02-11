@@ -1,14 +1,11 @@
 * Use-Package Updates
 #+BEGIN_SRC emacs-lisp
-  (require 'use-package-ensure)
-  (setq use-package-always-ensure t)
-
-  (use-package auto-compile
-  :config (auto-compile-on-load-mode))
-
-  (setq load-prefer-newer t)
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+(use-package auto-compile
+:config (auto-compile-on-load-mode))
+(setq load-prefer-newer t)
 #+END_SRC
-
 * UI
 ** All The Icons
 #+BEGIN_SRC emacs-lisp
@@ -21,10 +18,10 @@
 ** Theme
 #+BEGIN_SRC emacs-lisp
 
-  (use-package base16-theme
-	:config
-	(load-theme 'base16-gruvbox-dark-hard t))
-  
+   (use-package base16-theme
+   :config
+   (load-theme 'base16-gruvbox-dark-hard t))
+
 #+END_SRC
 
 ** Font
@@ -36,23 +33,8 @@
 		
 #+END_SRC
 
-** Appearance
-#+BEGIN_SRC emacs-lisp
-
-   (setq-default mode-line-format nil)
-   (setq mode-line-format nil)
-	
-	;; Disable background color in terminal 
-	(defun on-after-init ()
-   (unless (display-graphic-p (selected-frame))
-      (set-face-background 'default "unspecified-bg" (selected-frame))))
- 
-   (add-hook 'window-setup-hook 'on-after-init)
-
-	
-#+END_SRC
 * Snippets
-  
+
 Expand Curly Braces in Programming Modes
 
 #+BEGIN_SRC emacs-lisp
@@ -71,7 +53,16 @@ Expand Curly Braces in Programming Modes
    (add-hook 'prog-mode-hook #'my/keys-expand-curlies)
 #+END_SRC
 
-* Custom Emacs Settings 
+* Custom Emacs Settings
+** Annoying Alter Sound (Bell) 
+#+BEGIN_SRC emacs-lisp
+(setq ring-bell-function 'ignore)
+#+END_SRC
+** Clipboard
+#+BEGIN_SRC emacs-lisp
+(setq x-select-enable-clipboard t 
+      x-select-enable-primary t)
+#+END_SRC
 ** Org Latex Renderer
 #+BEGIN_SRC emacs-lisp
 
@@ -184,7 +175,7 @@ makes that automatic.
   (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
   (setq scroll-step 1) ;; keyboard scroll one line at a time
-  (setq scroll-margin 3
+  (setq scroll-margin 1
     scroll-conservatively 0
     scroll-up-aggressively 0.01
     scroll-down-aggressively 0.01)
@@ -451,7 +442,7 @@ Paste in term-mode, Other window shortcut
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-ellipsis "⤵")
+  (setq org-ellipsis "¬");;⤵
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
@@ -574,6 +565,11 @@ Don't ask before evaluating code blocks.
 #+END_SRC
 
 * =FORSAKEN=
+** Appearance
+#+BEGIN_SRC emacs-lisp
+  ;; (setq-default mode-line-format nil)
+  ;; (setq mode-line-format nil)
+#+END_SRC
 ** Theme Fix
 #+BEGIN_SRC emacs-lisp
   ;; (if (not (display-graphic-p)) ;; if session is in a terminal then correct colors.
