@@ -1,8 +1,8 @@
-autocmd FileType go nmap <leader>c :make<cr>
-autocmd FileType go nmap <leader>g :GoDef<cr>
-autocmd FileType go nmap <leader>l :GoLint<cr>
-autocmd FileType go nmap <leader>t :GoTest<cr>
-autocmd FileType go nmap <leader>b :GoBuild<cr>
-autocmd FileType go nmap <leader>i :GoInstall<cr>
-autocmd FileType c,cpp,javascript imap {} {<Return><Return>}<esc>kS
-autocmd FileType python imap ,in <esc>0iif __name__ == '__main__':<Return>
+au FileType go nm <leader>c :make<cr>
+au FileType go nm <leader>g :GoDef<cr>
+au FileType go nm <leader>l :GoLint<cr>
+au FileType go nm <leader>t :GoTest<cr>
+au FileType go nm <leader>b :GoBuild<cr>
+au FileType go nm <leader>i :GoInstall<cr>
+au FileType c,cpp,javascript im {} {<Return><Return>}<esc>kS
+au FileType python im ,in <esc>0iif __name__ == '__main__':<Return>

@@ -9,21 +9,22 @@ alias n='nnn -d'
 alias rm='trash'
 alias vim='nvim'
 alias la='ls -Ah'
-alias ll='ls -lh'
 alias ...='cd ../..'
 alias wp='wikipedia'
 alias ec='emacsclient'
 alias cpwd='pwd | pbcopy'
 alias rclear='tput clear'
-alias watch='watch -ctn0.1'
+alias watch='watch -cn0.1'
 alias grep="grep --color=auto"
 alias acs="printf '=%.0s' {1..80}"
+alias ll="ls -lh | awk '{ print $NF }'"
+alias mp3='youtube-dl -x --audio-format mp3'
+alias todo='nvim ~/Dropbox/Document/Wiki/todo.wiki -c "2"'
 alias :wq='exit'; alias :Wq='exit' alias :wQ='exit'; alias :WQ='exit'
 alias eixt='exit'; alias exti='exit'; alias :Q='exit'; alias :q='exit'
-alias todo=\
-'nvim ~/Dropbox/Document/Notes/todo.wiki -c "2"'
+
 alias todoappend=\
-'nvim ~/Dropbox/Document/Notes/todo.wiki -c "2 | startinsert |norm o- [ ]  "'
+'nvim ~/Dropbox/Document/Wiki/todo.wiki -c "4 | startinsert | norm O "'
 
 # Brew 
 alias ps='brew search'

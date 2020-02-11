@@ -1,52 +1,90 @@
 call plug#begin()
 
-Plug 'jceb/vim-orgmode'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'qxxxb/vim-searchhi'
-Plug 'markonm/traces.vim'
-Plug 'godlygeek/tabular'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'vimwiki/vimwiki'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dbeniamine/cheat.sh-vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/goyo.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf.vim'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/goyo.vim'
+Plug 'markonm/traces.vim'
+Plug 'qxxxb/vim-searchhi'
+Plug 'krisajenkins/vim-pipe'
+Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 call plug#end()
 
-" vimwiki
-let g:vimwiki_url_maxsave = 1
-let g:vimwiki_listsyms = '✗◐✓'
+"=== Vim-Pipe =================================================================
 
-" fzf
+let g:vimpipe_invoke_map = ' '
+nn <M-c> :call <SID>pipe()<CR>
+" Vim-pipe jump back to where I was
+function! <SID>pipe()
+	let line = line(".")
+	let column = col(".")
+	%call VimPipe()
+	call cursor(line, column)
+endfunc
+
+"=== NerdCommenter ============================================================
+
+let g:NERDSpaceDelims = 1
+
+"=== FZF (lets make some emacs noise) =========================================
+
+nmap <M-f> :Files<CR>
+nmap <M-s> :BLines<CR>
+nmap <M-b> :Buffers<CR>
+nmap <M-r> :History<CR>
+nmap <M-x> :Commands<CR>
+nmap <M-h> :Helptags!<CR>
+let  g:fzf_commands_expect = 'alt-enter'
+
 set rtp+=/usr/local/opt/fzf " If installed using Homebrew
 
-" goyo :q not quits at all.
-function! s:goyo_enter()
-	let b:quitting = 0
-	let b:quitting_bang = 0
-	autocmd QuitPre <buffer> let b:quitting = 1
-	cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-endfunction
+"=== Goyo =====================================================================
 
-function! s:goyo_leave()
-	" Quit Vim if this is the only remaining buffer
-	if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-		if b:quitting_bang
-			qa!
-		else
-			qa
-		endif
-	endif
-endfunction
+nmap <M-g> :Goyo<CR>
 
-autocmd! User GoyoEnter call <SID>goyo_enter()
-autocmd! User GoyoLeave call <SID>goyo_leave()
+"=== EasyAlign ================================================================
 
-" FORSAKEN
+xmap ga <Plug>(LiveEasyAlign)
+nmap ga <Plug>(LiveEasyAlign)
+
+"=== Searchhi =================================================================
+
+nmap # <Plug>(searchhi-#)
+nmap * <Plug>(searchhi-*)
+nmap N <Plug>(searchhi-N)
+nmap n <Plug>(searchhi-n)
+nmap g# <Plug>(searchhi-g#)
+nmap g* <Plug>(searchhi-g*)
+nmap gD <Plug>(searchhi-gD)
+nmap gd <Plug>(searchhi-gd)
+vmap # <Plug>(searchhi-v-#)
+vmap * <Plug>(searchhi-v-*)
+vmap N <Plug>(searchhi-v-N)
+vmap n <Plug>(searchhi-v-n)
+vmap g# <Plug>(searchhi-v-g#)
+vmap g* <Plug>(searchhi-v-g*)
+vmap gD <Plug>(searchhi-v-gD)
+vmap gd <Plug>(searchhi-v-gd)
+nmap <C-c> mx<Plug>(searchhi-clear-all)<cr>`x
+
+"=== Vimwiki ==================================================================
+
+let g:vimwiki_list = [{'path': '~/Dropbox/Document/Wiki/',
+	                  \ 'path_html': '~/Dropbox/Document/WikiHTML'}]
+autocmd FileType vimwiki nmap <leader>e :set cole=0<cr>
+autocmd FileType vimwiki nmap <leader>v :set cole=2<cr>
+autocmd FileType vimwiki nmap <leader>b :silent VimwikiAll2HTML<cr>
+autocmd FileType vimwiki 
+	\ nmap <leader>o :silent !open ~/Dropbox/Document/WikiHTML/index.html<cr>
+
+"================================= FORSAKEN ===================================
+
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'chriskempson/base16-vim'
 " Plug 'vim-airline/vim-airline'
@@ -54,8 +92,14 @@ autocmd! User GoyoLeave call <SID>goyo_leave()
 " Plug 'tpope/vim-obsession'
 " Plug 'scrooloose/nerdtree'
 " nmap <M-3> :NERDTreeToggle<cr><C-w>=
+" let NERDTreeMinimalView = 1
+" let NERDTreeStatusline = " NerdTree"
+" let g:NERDTreeMapActivateNode = '<space>'
 " Plug 'itchyny/calendar.vim'
 " Plug 'liuchengxu/vim-clap'
 " Plug 'tpope/vim-surround'
 " Plug 'makerj/vim-pdf'
 " Plug 'plasticboy/vim-markdown'
+" Plug 'dbeniamine/cheat.sh-vim'
+" Plug 'HendrikPetertje/vimify'
+" let g:vimwiki_list_ignore_newline=0
