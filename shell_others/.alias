@@ -1,33 +1,27 @@
 #!/bin/sh
 
 alias l='ls'
-alias n='nnn'
-alias v='nvim'
 alias ..='cd ..'
 alias mv='mv -n'
-alias n='nnn -d'
 alias rm='trash'
-alias vim='nvim'
-alias la='ls -Ah'
 alias ...='cd ../..'
-alias wp='wikipedia'
 alias ec='emacsclient'
 alias cpwd='pwd | pbcopy'
-alias rclear='tput clear'
 alias watch='watch -cn0.1'
 alias grep="grep --color=auto"
-alias acs="printf '=%.0s' {1..80}"
-alias ll="ls -lh | awk '{ print $NF }'"
+alias :Q='exit'; alias :q='exit' 
+alias ll='ls -lh | awk "{ print \$NF }"'
 alias mp3='youtube-dl -x --audio-format mp3'
+alias seventynine="printf '=%.0s' {1..79};echo"
+alias eixt='exit'; alias exti='exit'; alias ixet='exit'
 alias todo='nvim ~/Dropbox/Document/Wiki/todo.wiki -c "2"'
 alias :wq='exit'; alias :Wq='exit' alias :wQ='exit'; alias :WQ='exit'
-alias eixt='exit'; alias exti='exit'; alias :Q='exit'; alias :q='exit'
 
 alias todoappend=\
 'nvim ~/Dropbox/Document/Wiki/todo.wiki -c "4 | startinsert | norm O "'
 
 # Brew 
 alias ps='brew search'
-alias pr='brew uninstall'
 alias pu='brew update'
 alias pi='brew install'
+alias pr='brew uninstall'
