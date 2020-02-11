@@ -1,16 +1,15 @@
-#!/bin/bash
+#!/bin/sh
+#
+# Created: 2020 Feb 09 22:54:30 
 
-pgrep tureng-api 2>&1 >/dev/null || tureng-api &>/dev/null &
-sleep 0.2
+pgrep tureng-api &>/dev/null || tureng-api &>/dev/null
+mkdir -p ${HOME}/.cache/tureng/
+while read args; do
+   phrase=$(echo $args | sed 's/ /+/g' | tr '[:upper:]' '[:lower:]');
+   file=${HOME}/.cache/tureng/$phrase.json;
+   curl -so $file "localhost:8080/translate/$phrase" &&
+   cat $file | jq -r '.response|.[]|.tr';
+done < "${@:-/dev/stdin}" # TODO If there is at least one argument then get
+#                           that instead of stdin.
 
-terms=$(echo $@ | sed 's/ /+/g')
-url="localhost:8080/translate/$terms"
-
-body=$(echo $(curl -s "$url" | jq '.response|.[]|.tr' | sed 5q |
-sed 's/^"/~~/g; s/"$/++/g; s/~~//g;s/++/, /g')) &>/dev/null
-
-if ! [ "$terms" = "" ]; then 
-  dunstify  "$body" &>/dev/null ||
-  osascript -e "\
-  display notification \"$body\" with title \"Tureng\""
-fi
+# cat $file | jq -r '.response|.[]|.en +", "+ .tr + ", " + .kategori';
