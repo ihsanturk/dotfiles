@@ -1,7 +1,21 @@
 #!/bin/sh
+#
+# Created at: 2020 Feb
+# Updated at: 2020 Feb 7 
+# Updated at: 2020 Feb 8 
+#
+# Brain connects to your brain and answers your questions in the args.
 
-echo 'Your brain says;'
+# kb=${HOME}/Dropbox/Document/Notes/; f="$1"; shift
+# grep -rhniw -C3 $f $kb | grep -rhniw -C3 $(echo $@ | sed 's/ /\\|/g') $kb |
+	# grep 'Solution' | sed 's/^*Solution...//g'
 
-# TODO Make a great schema for kb (knowledgebase).
-# TODO Compare the 'question argument sentence' with the questions in kb.
-# TODO Find the best score and list answers.
+kb=${HOME}/Dropbox/Document/Notes/; f=$1; shift;
+phrases=$(echo $@ | sed 's/ /\|/g');
+f=$(find $kb -name "$f.wiki") || exit 2;
+
+# cat < $f | awk "/$phrases/" RS="== " ORS="" |
+# sed '/^*Tags/d;/^{{{/d;/^}}}/d;s/^*Solution:\* //'
+
+awk "/$phrases/" RS="== " ORS="" $f |
+sed '/^*Tags/d;/^{{{/d;/^}}}/d;s/^*Solution:\* //'
