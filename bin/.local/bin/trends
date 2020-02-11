@@ -1,23 +1,51 @@
 #!/bin/sh
+#
+# Eksi and count options added at 2020 Feb 5 22:40
+#
+# TODO Store history in sqlite with dates.
 
+usage() {
+	toolname=$(echo $0 | awk -F'/' '{ printf $NF}')
+	>&2 echo "usage: $toolname [ -g|--google <CC> [count] | -e|--eksi [count] ]"
+}
+colored() {
+	colorcode=1;
+	while IFS= read -r line; do
+		[ $colorcode -lt 3 ] && tput bold;
+		tput setaf $colorcode; printf " • $line\n"; tput sgr0;
+		[ $colorcode -ge 3 ] && colorcode=15 || let colorcode++
+	done
+}
+
+# Args
+# unset cc; unset google; unset eksi
 case "$1" in
-	-c|--country) cc=$2;;
-	*) cc=TR ;;
+	(-g|--google)
+		google=true;
+		if [ "$2" = "" ];then usage; exit 2;
+		else
+			cc=$2;
+			if [ "$3" = "" ] || [ $3 -gt 20 ]; then count=10; else count=$3; fi
+		fi ;;
+	(-e|--eksi) eksi=true; [ "$2" = "" ] && count=10 || count=$2 ;;
+	(-h|--help) usage; exit 0 ;;
+	(*) usage; exit 2 ;;
 esac
 
-curl -s "https://trends.google.com/trends/trendingsearches/daily/rss?geo=$cc" |
-	grep -o '<title>.*<\/title>' |
-	sed 's/^\s*<title>\(.*\)<\/title>/\1/;1d' > /tmp/trends.txt
+# Request & Results
+if [ "$google" = "true" ]; then
+	file=/tmp/googletrends.txt
+	curl -s https://trends.google.com/trends/trendingsearches/daily/rss?geo=$cc|
+			grep -o '<title>.*<\/title>' |
+		sed 's/^\s*<title>\(.*\)<\/title>/\1/;1d' > $file
+	cat $file | head -n $count | colored
+elif [ "$eksi" = "true" ]; then
+	file=/tmp/eksitrends.txt
+	curl -s https://eksisozluk.com | 
+		pup -p '.topic-list.partial > li a text{}' | paste -d "|"  - - |
+		awk -F'|' '{ sub(/b/,"00",$2); print $2, "|", $1; }' | sort -nr > $file;
+		cat $file | head -n $count | colored
+fi
 
-colorcode=257
-cat /tmp/trends.txt | while read -r line; do
-	[ $colorcode -gt 250 ] && tput bold;
-	if [ $colorcode -eq 257 ]; then
-		tput bold;
-		tput setaf 2;
-	else
-		tput setaf $colorcode
-	fi
-	printf " • $line\n"
-	let colorcode--
-done
+
+
