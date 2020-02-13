@@ -1,8 +1,8 @@
 #!/bin/sh
 
 alias l='ls'
-alias la='ls -a'
 alias ..='cd ..'
+alias la='ls -a'
 alias mv='mv -n'
 alias rm='trash'
 alias ...='cd ../..'
@@ -14,9 +14,9 @@ alias :Q='exit'; alias :q='exit'
 alias ll='ls -lh | awk "{ print \$NF }"'
 alias mp3='youtube-dl -x --audio-format mp3'
 alias seventynine="printf '=%.0s' {1..79};echo"
-alias eixt='exit'; alias exti='exit'; alias ixet='exit'
 alias note='nvim ~/Dropbox/Document/Wiki/note/index.wiki'
 alias todo='nvim ~/Dropbox/Document/Wiki/todo.wiki -c "2"'
+alias exi='exit'; eixt='exit'; alias exti='exit'; alias ixet='exit'
 alias :wq='exit'; alias :Wq='exit' alias :wQ='exit'; alias :WQ='exit'
 
 alias todoappend=\
