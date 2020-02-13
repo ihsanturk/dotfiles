@@ -90,7 +90,6 @@ cnorea Q!  q!
 cnorea qw  wq
 cnorea Wq  wq
 cnorea man Man
-cnorea clap Clap
 cnorea cdc cd %:p:h
 
 "================================== FORSAKEN ==================================

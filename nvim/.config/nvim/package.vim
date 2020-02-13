@@ -18,7 +18,7 @@ call plug#end()
 
 "=== Vim-Pipe =================================================================
 
-let g:vimpipe_invoke_map = ' '
+let g:vimpipe_invoke_map = '<leader>q'
 nn <M-c> :call <SID>pipe()<CR>
 " Vim-pipe jump back to where I was
 function! <SID>pipe()

@@ -20,13 +20,12 @@ set backspace=indent,eol,start
 set laststatus=0 " Disable statusbar
 set ignorecase " Search case insensitive.
 autocmd FileType netrw setl bufhidden=delete " Netrw should be a buffer
-set inccommand=nosplit " Wow, I've been looking for so long for this setting.
 autocmd FileType vim set tw=79 " Wrap automatically if text beyonds the limit.
 set listchars=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 
 autocmd FileType 
 			\ html,css,vimwiki,javascript,vim,zsh,html,sh,go,python,c,cpp
-			\ set expandtab tabstop=3 softtabstop=3 shiftwidth=3 " Tabs look 3s.
+			\ set noexpandtab tabstop=3 softtabstop=3 shiftwidth=3 " Tabs look 3s.
 
 "=== Terminal Buffer Improvements =============================================
 
