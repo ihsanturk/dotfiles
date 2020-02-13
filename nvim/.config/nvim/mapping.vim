@@ -41,23 +41,23 @@ nm <C-k> <C-y>k
 "=== Autohighlight ============================================================
 
 nm <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<cr>
-function! AutoHighlightToggle()
+func! AutoHighlightToggle()
 	if exists('#auto_highlight')
 		au! auto_highlight
-		augroup! auto_highlight
+		aug! auto_highlight
 		setl updatetime=20
 		echo 'Highlight current word: off'
 		return 0
-	else
-		augroup auto_highlight
+	el
+		aug auto_highlight
 			au!
 			au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-		augroup end
+		aug end
 		setl updatetime=20
 		echo 'Highlight current word: ON'
-		return 1
+		retu 1
 	endif
-endfunction
+endf
 
 "=== Easier inside and around selection =======================================
 

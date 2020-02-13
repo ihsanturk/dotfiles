@@ -31,7 +31,7 @@ au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
 aug custom_term
 	au!
 	au BufWinEnter,WinEnter,TermOpen term://* start
-	au TermOpen * selocal bufhidden=hide
+	au TermOpen * setl bufhidden=hide
 aug END
 
 fun! TermTest(cmd)
@@ -40,7 +40,7 @@ endf
 fun! s:OnExit(job_id, code, event) dict
 	if a:code == 0
 		clo
-	en
+	end
 endf
 
 "=== Variables ================================================================
@@ -54,12 +54,12 @@ let g:netrw_dirhistmax = 0
 
 color gruvbox-dark-hard-modified
 
-"=== se scripts to be executable from the shell ==============================
+"=== Set scripts to be executable from the shell ==============================
 
 au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | sil
 			\ !chmod +x <afile> | en | endif
 
-"=== Assumes se ignorecase smartcase =========================================
+"=== Assumes set ignorecase smartcase =========================================
 
 aug dynamic_smartcase
 	au!
@@ -70,7 +70,7 @@ aug END
 "=== Jump/remember to the last position =======================================
 
 au BufReadPost * if line("'\"") > 1 && 
-			\ line("'\"") <= line("$") | exe "normal! g'\"zz" | en
+			\ line("'\"") <= line("$") | exe "normal! g'\"zz" | end
 
 "=== 80 column rule ===========================================================
 
@@ -78,17 +78,17 @@ if exists('+colorcolumn')
 	se cc=80
 else
 	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-en
+end
 
 "=== Persistent undo ==========================================================
 
 if has('persistent_undo')
 	se udf
 	se udir=~/.cache/vim
-en
+end
 if has('unnamedplus')
 	se cb=unnamed,unnamedplus
-en
+end
 scripte utf-8
 
 "================================== FORSAKEN ==================================
