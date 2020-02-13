@@ -87,6 +87,7 @@ cnorea Q   q
 cnorea W   w
 cnorea E   e
 cnorea Q!  q!
+cnorea Qa  qa
 cnorea qw  wq
 cnorea Wq  wq
 cnorea man Man
