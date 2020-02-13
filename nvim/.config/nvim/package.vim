@@ -1,20 +1,23 @@
 call plug#begin()
 
+Plug 'Shougo/deoplete.nvim'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
+Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/goyo.vim'
-Plug 'markonm/traces.vim'
 Plug 'qxxxb/vim-searchhi'
 Plug 'krisajenkins/vim-pipe'
 Plug 'junegunn/vim-easy-align'
-Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
+
+"=== Deoplete =================================================================
+
+let g:deoplete#enable_at_startup = 1
 
 "=== Vim-Pipe =================================================================
 
@@ -34,54 +37,54 @@ let g:NERDSpaceDelims = 1
 
 "=== FZF (lets make some emacs noise) =========================================
 
-nmap <M-f> :Files<CR>
-nmap <M-s> :BLines<CR>
-nmap <M-b> :Buffers<CR>
-nmap <M-r> :History<CR>
-nmap <M-x> :Commands<CR>
-nmap <M-h> :Helptags!<CR>
+nm <M-f> :Files<CR>
+nm <M-s> :BLines<CR>
+nm <M-b> :Buffers<CR>
+nm <M-r> :History<CR>
+nm <M-x> :Commands<CR>
+nm <M-h> :Helptags!<CR>
 let  g:fzf_commands_expect = 'alt-enter'
 
 set rtp+=/usr/local/opt/fzf " If installed using Homebrew
 
 "=== Goyo =====================================================================
 
-nmap <M-g> :Goyo<CR>
+nm <M-g> :Goyo<CR>
 
 "=== EasyAlign ================================================================
 
-xmap ga <Plug>(LiveEasyAlign)
-nmap ga <Plug>(LiveEasyAlign)
+xm ga <Plug>(LiveEasyAlign)
+nm ga <Plug>(LiveEasyAlign)
 
 "=== Searchhi =================================================================
 
-nmap # <Plug>(searchhi-#)
-nmap * <Plug>(searchhi-*)
-nmap N <Plug>(searchhi-N)
-nmap n <Plug>(searchhi-n)
-nmap g# <Plug>(searchhi-g#)
-nmap g* <Plug>(searchhi-g*)
-nmap gD <Plug>(searchhi-gD)
-nmap gd <Plug>(searchhi-gd)
-vmap # <Plug>(searchhi-v-#)
-vmap * <Plug>(searchhi-v-*)
-vmap N <Plug>(searchhi-v-N)
-vmap n <Plug>(searchhi-v-n)
-vmap g# <Plug>(searchhi-v-g#)
-vmap g* <Plug>(searchhi-v-g*)
-vmap gD <Plug>(searchhi-v-gD)
-vmap gd <Plug>(searchhi-v-gd)
-nmap <C-c> mx<Plug>(searchhi-clear-all)<cr>`x
+nm # <Plug>(searchhi-#)
+nm * <Plug>(searchhi-*)
+nm N <Plug>(searchhi-N)
+nm n <Plug>(searchhi-n)
+nm g# <Plug>(searchhi-g#)
+nm g* <Plug>(searchhi-g*)
+nm gD <Plug>(searchhi-gD)
+nm gd <Plug>(searchhi-gd)
+vm # <Plug>(searchhi-v-#)
+vm * <Plug>(searchhi-v-*)
+vm N <Plug>(searchhi-v-N)
+vm n <Plug>(searchhi-v-n)
+vm g# <Plug>(searchhi-v-g#)
+vm g* <Plug>(searchhi-v-g*)
+vm gD <Plug>(searchhi-v-gD)
+vm gd <Plug>(searchhi-v-gd)
+nm <C-c> mx<Plug>(searchhi-clear-all)<cr>`x
 
 "=== Vimwiki ==================================================================
 
 let g:vimwiki_list = [{'path': '~/Dropbox/Document/Wiki/',
 	                  \ 'path_html': '~/Dropbox/Document/WikiHTML'}]
-autocmd FileType vimwiki nmap <leader>e :set cole=0<cr>
-autocmd FileType vimwiki nmap <leader>v :set cole=2<cr>
-autocmd FileType vimwiki nmap <leader>b :silent VimwikiAll2HTML<cr>
+autocmd FileType vimwiki nm <leader>e :set cole=0<cr>
+autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
+autocmd FileType vimwiki nm <leader>b :silent VimwikiAll2HTML<cr>
 autocmd FileType vimwiki 
-	\ nmap <leader>o :silent !open ~/Dropbox/Document/WikiHTML/index.html<cr>
+	\ nm <leader>o :silent !open ~/Dropbox/Document/WikiHTML/index.html<cr>
 
 "================================= FORSAKEN ===================================
 
@@ -91,7 +94,7 @@ autocmd FileType vimwiki
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'tpope/vim-obsession'
 " Plug 'scrooloose/nerdtree'
-" nmap <M-3> :NERDTreeToggle<cr><C-w>=
+" nm <M-3> :NERDTreeToggle<cr><C-w>=
 " let NERDTreeMinimalView = 1
 " let NERDTreeStatusline = " NerdTree"
 " let g:NERDTreeMapActivateNode = '<space>'
@@ -99,7 +102,9 @@ autocmd FileType vimwiki
 " Plug 'liuchengxu/vim-clap'
 " Plug 'tpope/vim-surround'
 " Plug 'makerj/vim-pdf'
-" Plug 'plasticboy/vim-markdown'
 " Plug 'dbeniamine/cheat.sh-vim'
 " Plug 'HendrikPetertje/vimify'
 " let g:vimwiki_list_ignore_newline=0
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'plasticboy/vim-markdown'
+" Plug 'markonm/traces.vim' "Visual Ex-mode visual line issue

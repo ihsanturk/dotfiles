@@ -1,49 +1,47 @@
-set list
+se sb
+se lbr
+se scs
+se spr
+se tgc
+se wic
+se list
+se so=1
+se wmnu
+se nowrap
+se ttm=10
 syntax on
-set nowrap
-set ttm=10
-set mouse=a
-set t_Co=256
-set linebreak
-set smartcase
-set noswapfile
-set splitbelow
-set splitright
-set scrolloff=1
-set showbreak=↪
-set termguicolors
-set wildignorecase
-set concealcursor=ncv
+se mouse=a
+se sbr=↪
+se cocu=ncv
+se t_Co=256
+se noswapfile
+se icm=nosplit
+setg fenc=utf-8
 filetype plugin indent on
-setglobal fileencoding=utf-8
-set backspace=indent,eol,start
-set laststatus=0 " Disable statusbar
-set ignorecase " Search case insensitive.
-autocmd FileType netrw setl bufhidden=delete " Netrw should be a buffer
-autocmd FileType vim set tw=79 " Wrap automatically if text beyonds the limit.
-set listchars=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
-
-autocmd FileType 
-			\ html,css,vimwiki,javascript,vim,zsh,html,sh,go,python,c,cpp
-			\ set noexpandtab tabstop=3 softtabstop=3 shiftwidth=3 " Tabs look 3s.
+se ls=0 " Disable statusbar
+se backspace=indent,eol,start
+se ic " Search case insensitive.
+se noet ts=3 sts=3 sw=3 " Tabs look 3s.
+au FileType netrw sel bufhidden=delete " Netrw should be a buffer
+se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
+au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
 
 "=== Terminal Buffer Improvements =============================================
 
-autocmd BufWinEnter,WinEnter,TermOpen term://* startinsert
-
-augroup custom_term
-	autocmd!
-	autocmd TermOpen * setlocal bufhidden=hide
-augroup END
+aug custom_term
+	au!
+	au BufWinEnter,WinEnter,TermOpen term://* start
+	au TermOpen * selocal bufhidden=hide
+aug END
 
 fun! TermTest(cmd)
-	call termopen(a:cmd, {'on_exit': 's:OnExit'})
-endfun
+	cal termopen(a:cmd, {'on_exit': 's:OnExit'})
+endf
 fun! s:OnExit(job_id, code, event) dict
 	if a:code == 0
-		close
-	endif
-endfun
+		clo
+	en
+endf
 
 "=== Variables ================================================================
 
@@ -54,63 +52,57 @@ let g:netrw_dirhistmax = 0
 
 "=== Appearance ===============================================================
 
-colorscheme gruvbox-dark-hard-modified
+color gruvbox-dark-hard-modified
 
-"=== Set scripts to be executable from the shell ==============================
+"=== se scripts to be executable from the shell ==============================
 
-au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent
-			\ !chmod +x <afile> | endif | endif
+au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | sil
+			\ !chmod +x <afile> | en | endif
 
-"=== Assumes set ignorecase smartcase =========================================
+"=== Assumes se ignorecase smartcase =========================================
 
-augroup dynamic_smartcase
-	autocmd!
-	autocmd CmdLineEnter : set nosmartcase
-	autocmd CmdLineLeave : set smartcase
-augroup END
+aug dynamic_smartcase
+	au!
+	au CmdLineEnter : se nosmartcase
+	au CmdLineLeave : se smartcase
+aug END
 
 "=== Jump/remember to the last position =======================================
 
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 &&
-				\ line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
-endif
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
+au BufReadPost * if line("'\"") > 1 && 
+			\ line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 
 "=== 80 column rule ===========================================================
 
 if exists('+colorcolumn')
-	set colorcolumn=80
+	se cc=80
 else
 	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
+en
 
 "=== Persistent undo ==========================================================
 
 if has('persistent_undo')
-	set undofile
-	set undodir=~/.cache/vim
-endif
+	se udf
+	se udir=~/.cache/vim
+en
 if has('unnamedplus')
-	set clipboard=unnamed,unnamedplus
-endif
-scriptencoding utf-8
+	se cb=unnamed,unnamedplus
+en
+scripte utf-8
 
 "================================== FORSAKEN ==================================
 
-" set autochdir "relative path
-" set foldlevelstart=0
-" set foldlevelstart=99
-" set foldmethod=indent
-" set timeout " Default is already on
-" set hlsearch " Default is already on
-" set ttimeout " Default is already on
-" set wildmenu " Default is already on
-" set autoindent " Default is already on
-" set nocursorline " Default is already off
-" set timeoutlen=1000 " Default is already 1000
-" set background=dark " Default is already dark
-" set shell=/usr/local/bin/zsh " removed from neovim see also: vim-differences
+" se autochdir "relative path
+" se foldlevelstart=0
+" se foldlevelstart=99
+" se foldmethod=indent
+" se timeout " Default is already on
+" se hlsearch " Default is already on
+" se ttimeout " Default is already on
+" se wildmenu " Default is already on
+" se autoindent " Default is already on
+" se nocursorline " Default is already off
+" se timeoutlen=1000 " Default is already 1000
+" se background=dark " Default is already dark
+" se shell=/usr/local/bin/zsh " removed from neovim see also: vim-differences

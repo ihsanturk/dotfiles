@@ -1,6 +1,6 @@
 "=== Standart mappings ========================================================
 
-nn <Space>       za
+nn <Space> za
 vn <Space>       za
 cm <M-backspace> <C-w>
 im <C-d>         <Del>
@@ -15,22 +15,23 @@ nm <M-o>         <C-w>w
 nn <leader>z     zMzvzz
 im <C-f>         <Right>
 im <M-d>         <C-o>de
+nm <S-Tab>       :bp<cr>
+nm <Tab>         :bn<cr>
 cm <M-b>         <S-Left>
 im <M-b>         <S-Left>
 cm <M-f>         <S-Right>
 im <M-f>         <S-Right>
 tno <Esc>        <C-\><C-n>
+vn <leader>t :r! tureng<cr>
 im <M-o>         <esc><C-w>w
-tmap <M-o>       <C-\><C-n><C-w>w
-nm <leader>i     /)<Return>:noh<cr>i
+tma <M-o>       <C-\><C-n><C-w>w
+vn <leader>s :!sortlength<cr><C-l>
 nn <leader>t     :5new<cr>:r! tureng 
 nm <M-1>         :set cursorcolumn!<cr>
 nm <M-k>         :bp<bar>sp<bar>bn<bar>bd<cr>
 nm <leader>r     :so ~/.config/nvim/init.vim<cr>:noh<cr>
-vn <leader>s :!awk '{ print length(), $0\|"sort -n" }'\|cut -d' ' -f2-<cr>
 nm <M-t>     :let $DIR=expand('%:p:h')<cr>:vs +ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exec 'normal a'.system("date '+%Y %b %d %X' \| tr -d '\n'")<cr>
-vn <leader>t :let $PHRASE=getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]]<cr>:5new<cr>:r! tureng $PHRASE<cr>
 
 "=== Scroll with keeping where cursor is ======================================
 
@@ -95,7 +96,5 @@ cnorea cdc cd %:p:h
 
 "================================== FORSAKEN ==================================
 
-" nm <S-Tab>       :bp<cr>
-" nm <Tab>         :bn<cr>
 " nm <esc><esc>    :noh
-" tmap <M-S-o>     <C-w>p
+" tma <M-S-o>     <C-w>p
