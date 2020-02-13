@@ -1,4 +1,3 @@
 #!/bin/sh
 arg=$1
-[ "$arg" = "" ] && read -p "Which man page: " arg
-nvim -c "tab Man $arg | tabonly"
+[ "$arg" = "" ] && read -p "Which man page: " arg;nvim -c"tab Man $arg|tabonly"
