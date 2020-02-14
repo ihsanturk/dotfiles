@@ -11,6 +11,17 @@ ino ( ()<left>
 ino [ []<left>
 ino { {}<left>
 ino " ""<left>
-ino < <><left>
 ino ' ''<left>
+ino < <><left>
 ino ` ``<left>
+
+ino <expr> <cr>
+			\ getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>" 
+ino <expr> }
+			\ getline(".")[col(".")-2:col(".")-1]=="{}" ? "<Right>" : "}" 
+ino <expr> >
+			\ getline(".")[col(".")-2:col(".")-1]=="<>" ? "<Right>" : ">" 
+ino <expr> )
+			\ getline(".")[col(".")-2:col(".")-1]=="()" ? "<Right>" : ")" 
+ino <expr> ]
+			\ getline(".")[col(".")-2:col(".")-1]=="[]" ? "<Right>" : "]" 

@@ -33,10 +33,9 @@ let g:vimpipe_invoke_map = '<leader>q' " I don't use this.
 nn <M-c> :cal <SID>pipe()<CR>
 " Vim-pipe jump back to where I was
 func! <SID>pipe()
-	let line = line(".")
-	let column = col(".")
+	normal! mx
 	%cal VimPipe()
-	cal cursor(line, column)
+	normal! `xzz
 endf
 
 "TODO change filename with variable
