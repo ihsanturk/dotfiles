@@ -1,44 +1,29 @@
 "=== Standart mappings ========================================================
 
+nm * *<c-o>
 nn <Space> za
-vn <Space>       za
-cm <M-backspace> <C-w>
-im <C-d>         <Del>
-im <M-backspace> <C-w>
-im <C-a>         <esc>I
-im <C-b>         <Left>
-im <C-d>         <C-o>x
-im <C-e>         <esc>A
-nm *             *<c-o>
-nm <M-S-o>       <C-w>p
-nm <M-o>         <C-w>w
-nn <leader>z     zMzvzz
-im <C-f>         <Right>
-im <M-d>         <C-o>de
-nm <S-Tab>       :bp<cr>
-nm <Tab>         :bn<cr>
-cm <M-b>         <S-Left>
-im <M-b>         <S-Left>
-cm <M-f>         <S-Right>
-im <M-f>         <S-Right>
-tno <Esc>        <C-\><C-n>
-vn <leader>t :r! tureng<cr>
-im <M-o>         <esc><C-w>w
-tma <M-o>       <C-\><C-n><C-w>w
+vn <Space> za
+nm <M-o> <C-w>w
+nm <M-n> :bn<cr>
+nm <M-p> :bp<cr>
+nm <M-S-o> <C-w>p
+nn <leader>z zMzvzz
+im <M-o> <esc><C-w>w
+tno <Esc> <C-\><C-n>
+tma <M-o> <C-\><C-n><C-w>w
+nm <M-1> :set cursorcolumn!<cr>
 vn <leader>s :!sortlength<cr><C-l>
-nn <leader>t     :5new<cr>:r! tureng 
-nm <M-1>         :set cursorcolumn!<cr>
-nm <M-k>         :bp<bar>sp<bar>bn<bar>bd<cr>
-nm <leader>r     :so ~/.config/nvim/init.vim<cr>:noh<cr>
-nm <M-t>     :let $DIR=expand('%:p:h')<cr>:vs +ter<cr>cd $DIR;tput clear<cr>
-nn <leader>d :exec 'normal a'.system("date '+%Y %b %d %X' \| tr -d '\n'")<cr>
+nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr>
+nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
+nm <M-t> :let $DIR=expand('%:p:h')<cr>:vs +ter<cr>cd $DIR;tput clear<cr>
+nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><c-l>
 
 "=== Scroll with keeping where cursor is ======================================
 
 nm <C-j> <C-e>j
 nm <C-k> <C-y>k
 
-"=== Autohighlight ============================================================
+"=== Auto Highlight ===========================================================
 
 nm <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<cr>
 func! AutoHighlightToggle()
@@ -59,7 +44,7 @@ func! AutoHighlightToggle()
 	endif
 endf
 
-"=== Easier inside and around selection =======================================
+"=== Easier text-objects ======================================================
 
 vn i2  i"
 vn a2  a"
@@ -91,8 +76,10 @@ cnorea Q!  q!
 cnorea Qa  qa
 cnorea qw  wq
 cnorea Wq  wq
+cnorea wQ  wq
+cnorea WQ  wq
 cnorea man Man
-cnorea cdc cd %:p:h
+cnorea cdc cd %:p:h<cr>:
 
 "================================== FORSAKEN ==================================
 

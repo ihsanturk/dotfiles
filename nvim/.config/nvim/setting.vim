@@ -1,12 +1,16 @@
+se ic
 se sb
+se cul
 se lbr
 se scs
 se spr
 se tgc
 se wic
 se list
+se ls=0
 se so=1
 se wmnu
+se cole=2
 se nowrap
 se ttm=10
 syntax on
@@ -17,12 +21,11 @@ se t_Co=256
 se noswapfile
 se icm=nosplit
 setg fenc=utf-8
+se spf=en.utf-8.add
+se noet ts=3 sts=3 sw=3
 filetype plugin indent on
-se ls=0 " Disable statusbar
 se backspace=indent,eol,start
-se ic " Search case insensitive.
-se noet ts=3 sts=3 sw=3 " Tabs look 3s.
-au FileType netrw sel bufhidden=delete " Netrw should be a buffer
+au FileType netrw setl bufhidden=delete " Netrw should be a buffer
 se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
 

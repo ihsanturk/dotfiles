@@ -1,19 +1,27 @@
-call plug#begin()
+cal plug#begin()
 
-Plug 'Shougo/deoplete.nvim'
+Plug 'keith/swift.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
-Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/goyo.vim'
 Plug 'qxxxb/vim-searchhi'
+Plug 'Shougo/deoplete.nvim'
+Plug 'ihsanturk/vim-tureng'
 Plug 'krisajenkins/vim-pipe'
 Plug 'junegunn/vim-easy-align'
+Plug 'plasticboy/vim-markdown'
+Plug 'ihsanturk/vim-emacs-like'
+Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-call plug#end()
+cal plug#end()
+
+"=== Vim-Markdown =============================================================
+
+let g:vim_markdown_folding_disabled = 1
 
 "=== Deoplete =================================================================
 
@@ -21,15 +29,19 @@ let g:deoplete#enable_at_startup = 1
 
 "=== Vim-Pipe =================================================================
 
-let g:vimpipe_invoke_map = '<leader>q'
-nn <M-c> :call <SID>pipe()<CR>
+let g:vimpipe_invoke_map = '<leader>q' " I don't use this.
+nn <M-c> :cal <SID>pipe()<CR>
 " Vim-pipe jump back to where I was
-function! <SID>pipe()
+func! <SID>pipe()
 	let line = line(".")
 	let column = col(".")
-	%call VimPipe()
-	call cursor(line, column)
-endfunc
+	%cal VimPipe()
+	cal cursor(line, column)
+endf
+
+"TODO change filename with variable
+au FileType swift let b:vimpipe_command='swift ' . expand("%:p")
+let g:vimpipe_silent = 1
 
 "=== NerdCommenter ============================================================
 
@@ -43,9 +55,8 @@ nm <M-b> :Buffers<CR>
 nm <M-r> :History<CR>
 nm <M-x> :Commands<CR>
 nm <M-h> :Helptags!<CR>
-let  g:fzf_commands_expect = 'alt-enter'
-
-set rtp+=/usr/local/opt/fzf " If installed using Homebrew
+let g:fzf_commands_expect = 'alt-enter'
+set rtp+=/usr/local/opt/fzf " If fzf installed using Homebrew
 
 "=== Goyo =====================================================================
 
@@ -82,9 +93,6 @@ let g:vimwiki_list = [{'path': '~/Dropbox/Document/Wiki/',
 	                  \ 'path_html': '~/Dropbox/Document/WikiHTML'}]
 autocmd FileType vimwiki nm <leader>e :set cole=0<cr>
 autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
-autocmd FileType vimwiki nm <leader>b :silent VimwikiAll2HTML<cr>
-autocmd FileType vimwiki 
-	\ nm <leader>o :silent !open ~/Dropbox/Document/WikiHTML/index.html<cr>
 
 "================================= FORSAKEN ===================================
 
@@ -106,5 +114,4 @@ autocmd FileType vimwiki
 " Plug 'HendrikPetertje/vimify'
 " let g:vimwiki_list_ignore_newline=0
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'plasticboy/vim-markdown'
 " Plug 'markonm/traces.vim' "Visual Ex-mode visual line issue
