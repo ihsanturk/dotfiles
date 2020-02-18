@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Default `fold` to screen width and break at spaces
+# 80 column rule
 function fold {
 	if [ $# -eq 0 ]; then
 		/usr/bin/fold -w 79 -s
@@ -9,7 +9,7 @@ function fold {
 	fi
 }
 
-# Use `fzf` against system dictionary
+# Use `fzf` with /usr/share/dict/words
 function spell {
 	cat /usr/share/dict/words |
 		fzf --preview 'wn {} -over | fold' --preview-window=up:60%
