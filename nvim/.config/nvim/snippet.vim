@@ -7,13 +7,21 @@ au FileType go nm <leader>i :GoInstall<cr>
 
 au FileType python ia ifn "if __name__ == '__main__':
 
-ino ( ()<left>
-ino [ []<left>
-ino { {}<left>
-ino " ""<left>
-ino ' ''<left>
-ino < <><left>
-ino ` ``<left>
+ino <expr> `
+			\ getline(".")[col(".")-1]=="`" ? "`" : "``<Left>"
+ino <expr> <
+			\ getline(".")[col(".")-1]==">" ? "<" : "<><Left>"
+ino <expr> "
+			\ getline(".")[col(".")-1]=='"' ? '"' : '""<Left>'
+ino <expr> '
+			\ getline(".")[col(".")-1]=="'" ? "'" : "''<Left>"
+ino <expr> {
+			\ getline(".")[col(".")-1]=="}" ? "{" : "{}<Left>"
+ino <expr> (
+			\ getline(".")[col(".")-1]==")" ? "(" : "()<Left>"
+ino <expr> [
+			\ getline(".")[col(".")-1]=="]" ? "[" : "[]<Left>"
+
 
 ino <expr> <cr>
 			\ getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>" 
