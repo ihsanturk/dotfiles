@@ -1,42 +1,40 @@
-#!/bin/bash
+#!/bin/sh
 
 baseLogInURL="\
 http://ns1.google.net/login?dst=http%3A%2F%2Fns1.google.com%2F&popup=false"
 baseLogOutURL="http://ns1.google.net/logout"
 cachePath=~/.captive_credentials
 
-for i in "$@"
-do
-  case $i in
-    -i|--login)
-      if ! [ -e ~/.captive_credentials ]; then
-        read -p "Username: " username
-        read -sp "Password: " password
-        echo
-        read -p "Would you like to save the credentials [Y/n]: " ynCache
-        case $ynCache in
-          [Nn]* ) echo Not saved.
-            ;;
-          * ) printf "$username\n$password" > $cachePath
-            ;;
-        esac
-      else
-        username=$(sed 1q $cachePath)
-        password=$(sed '2q;d' $cachePath)
-      fi
-      curl -s "${baseLogInURL}&username=${username}&password=${password}" --compressed|
-        grep -o "logged in" 2>&1 >/dev/null &&
-          echo Success || echo Fail
-      ;;
-    -o|--logout)
-      curl -s ${baseLogOutURL} |
-        grep -o "logged out" 2>&1 >/dev/null && echo Success || echo Fail
-      ;;
-    *)
-      i=$(echo $i | sed -e "s/\b\(.\)/\u\1/g")
-      TERM_="${TERM_} $i"
-      ;;
-  esac
+for i in "$@"; do
+	case $i in
+		-i|--login)
+			if ! [ -e ~/.captive_credentials ]; then
+				read -p "Username: " username
+				read -sp "Password: " password
+				echo
+				read -p "Would you like to save the credentials [Y/n]: " ynCache
+				case $ynCache in
+					[Nn]* ) echo Not saved.
+						;;
+					* ) printf "$username\n$password" > $cachePath
+						;;
+				esac
+			else
+				username=$(sed 1q $cachePath)
+				password=$(sed '2q;d' $cachePath)
+			fi
+			curl -s "${baseLogInURL}&username=${username}&password=${password}" --compressed|
+				grep -o "logged in" 2>&1 >/dev/null &&
+					echo Success || echo Fail
+			;;
+		-o|--logout)
+			curl -s ${baseLogOutURL} |
+				grep -o "logged out" 2>&1 >/dev/null && echo Success || echo Fail
+			;;
+		*)
+			i=$(echo $i | sed -e "s/\b\(.\)/\u\1/g")
+			TERM_="${TERM_} $i"
+			;;
+	esac
 done
-
 
