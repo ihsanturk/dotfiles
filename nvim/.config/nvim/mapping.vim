@@ -6,7 +6,7 @@ vn <Space> za
 nm <M-o> <C-w>w
 nm <M-n> :bn<cr>
 nm <M-p> :bp<cr>
-xn <M-n> :bn<cr>
+nn <M-n> :bn<cr>
 nm <M-S-o> <C-w>p
 nn <leader>z zMzvzz
 im <M-o> <esc><C-w>w
