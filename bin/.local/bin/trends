@@ -46,6 +46,3 @@ elif [ "$eksi" = "true" ]; then
 		awk -F'|' '{ sub(/b/,"00",$2); print $2, "|", $1; }' | sort -nr > $file;
 		cat $file | head -n $count | colored
 fi
-
-
-
