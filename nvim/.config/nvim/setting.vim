@@ -19,6 +19,7 @@ se sbr=↪
 se cocu=ncv
 se t_Co=256
 se noswapfile
+" se fdm=syntax
 se icm=nosplit
 setg fenc=utf-8
 se spf=en.utf-8.add
