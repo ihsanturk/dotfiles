@@ -14,13 +14,13 @@ se cole=2
 se nowrap
 se ttm=10
 syntax on
+se cocu=nc
 se mouse=a
 se sbr=↪
-se cocu=ncv
 se t_Co=256
 se noswapfile
-" se fdm=syntax
 se icm=nosplit
+" se fdm=syntax
 setg fenc=utf-8
 se spf=en.utf-8.add
 se noet ts=3 sts=3 sw=3
