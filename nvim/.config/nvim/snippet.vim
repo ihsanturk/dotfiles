@@ -7,6 +7,7 @@ au FileType go nm <leader>i :GoInstall<cr>
 
 au FileType python ia ifn "if __name__ == '__main__':
 
+"Expand automatically
 ino <expr> `
 			\ getline(".")[col(".")-1]=="`" ? "`" : "``<Left>"
 ino <expr> <
@@ -22,7 +23,7 @@ ino <expr> (
 ino <expr> [
 			\ getline(".")[col(".")-1]=="]" ? "[" : "[]<Left>"
 
-
+"Do not expand if did already.
 ino <expr> <cr>
 			\ getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>" 
 ino <expr> }
@@ -33,3 +34,20 @@ ino <expr> )
 			\ getline(".")[col(".")-2:col(".")-1]=="()" ? "<Right>" : ")" 
 ino <expr> ]
 			\ getline(".")[col(".")-2:col(".")-1]=="[]" ? "<Right>" : "]" 
+
+func! SmartBackspace()
+	let l:aroundchars = getline(".")[col(".")-2:col(".")-1]
+	if (l:aroundchars=='""') ||
+				\ (l:aroundchars=="''") ||
+				\ (l:aroundchars=='""') ||
+				\ (l:aroundchars=="``") ||
+				\ (l:aroundchars=="''") ||
+				\ (l:aroundchars=="{}") ||
+				\ (l:aroundchars=="<>") ||
+				\ (l:aroundchars=="()") ||
+				\ (l:aroundchars=="[]")
+		return "\<Right>\<Backspace>\<Backspace>" 
+	else
+		return "\<Backspace>" 
+endfunc
+ino <Backspace> <C-R>=SmartBackspace()<cr>
