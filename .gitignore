@@ -1,1 +1,16 @@
-image_preview_old/
+bin/.local/bin/brute/
+bin/.local/bin/ksu_login.py
+bin/.local/share
+emacs/.emacs.d/.backup/
+emacs/.emacs.d/auto-save-list
+emacs/.emacs.d/elpa
+emacs/.emacs.d/eshell
+emacs/.emacs.d/places
+emacs/.emacs.d/recentf
+emacs/.emacs.d/smex-items
+emacs/.emacs.d/transient
+emacs/.emacs.d/configuration.el
+nvim/.config/nvim/autoload
+nvim/.config/nvim/package
+nvim/.config/nvim/plugged
+nvim/.config/nvim/spell
