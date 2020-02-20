@@ -1,6 +1,5 @@
 se ic
 se sb
-se cul
 se lbr
 se scs
 se spr
@@ -10,6 +9,7 @@ se list
 se ls=0
 se so=1
 se wmnu
+se nocul
 se cole=2
 se nowrap
 se ttm=10

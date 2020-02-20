@@ -11,6 +11,7 @@ nm <M-S-o> <C-w>p
 nn <leader>z zMzvzz
 im <M-o> <esc><C-w>w
 tno <Esc> <C-\><C-n>
+nm <leader>b :r!brain 
 tma <M-o> <C-\><C-n><C-w>w
 nm <M-1> :set cursorcolumn!<cr>
 vn <leader>s :!sortlength<cr><C-l>
