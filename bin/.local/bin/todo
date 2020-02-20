@@ -1,0 +1,11 @@
+#!/bin/sh
+
+todofile=$HOME/Dropbox/Document/Wiki/todo.wiki
+
+if [ "$1" = "-o" ] || [ "$1" = "--open" ]; then
+	$EDITOR $todofile;
+elif [ "$1" = "-a" ] || [ "$1" = "--append" ]; then
+	$EDITOR $todofile -c "7 | startinsert | norm O "
+else
+	awk -v RS='' 'NR==4' $todofile # Print current todo.
+fi
