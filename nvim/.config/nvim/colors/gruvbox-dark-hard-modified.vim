@@ -5,7 +5,7 @@ if !has("gui_running")
 endif
 
 " GUI color definitions
-let s:gui00        = "101010" "was 1d2021
+let s:gui00        = "101010" "was 1d2021, background
 let g:base16_gui00 = "1d2021"
 let s:gui01        = "222222" "gray, 80th column
 let g:base16_gui01 = "3c3836"
@@ -21,7 +21,7 @@ let s:gui06        = "ebdbb2" "cream
 let g:base16_gui06 = "ebdbb2"
 let s:gui07        = "fbf1c7"
 let g:base16_gui07 = "fbf1c7"
-let s:gui08        = "f54732"  "red, darker: BF4336
+let s:gui08        = "fc5c4b" "red, was f54732 darker: BF4336
 let g:base16_gui08 = "fb4934"
 let s:gui09        = "fe8019" "orange/brown
 let g:base16_gui09 = "fe8019"
