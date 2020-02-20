@@ -1,0 +1,24 @@
+#!/bin/sh
+
+url=http://jes.ksu.edu.tr/tr/rss/lastissue/tr
+cache=$HOME/.cache/jesksu.xml
+
+curl -so $cache $url # TODO Uncomment
+
+case $1 in
+	(-t|--title)
+		cat $cache | 
+			grep -o '<title>.*<\/title>' |
+			tr -s ' ' |
+			sed 's/^\s*<title>\(.*\)<\/title>/• \1/;1d' | fold -sw 79
+			;;
+	(-a|--author|*)
+		cat $cache |
+			grep -o '.*<\/author>' |
+			sed 's/^\s*\(.*\)<\/author>/• \1/' |
+			tr -s ' ' |
+			sed 's/ ,/,/g' |
+			fold -sw 79
+			;;
+	*)
+esac
