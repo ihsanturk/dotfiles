@@ -8,5 +8,6 @@ elif [ "$1" = "-a" ] || [ "$1" = "--append" ]; then
 	$EDITOR $todofile -c "7 | startinsert | norm O "
 else
 	# Print current todo with hiding the links.
-	awk -v RS='' 'NR==4' $todofile | sed 's/\[\[[^|]*|\(.*\)\]\]/\1/';
+	awk -v RS='' 'NR==4' $todofile |
+		sed 's/\[\[[^|]*|\(.*\)\]\]/\1/;s/:private://g';
 fi
