@@ -11,18 +11,12 @@ au FileType python se noet ts=3 sts=3 sw=3
 "Expand automatically
 ino <expr> `
 			\ getline(".")[col(".")-1]=="`" ? "`" : "``<Left>"
-ino <expr> <
-			\ getline(".")[col(".")-1]==">" ? "<" : "<><Left>"
-ino <expr> "
-			\ getline(".")[col(".")-1]=='"' ? '"' : '""<Left>'
-ino <expr> '
-			\ getline(".")[col(".")-1]=="'" ? "'" : "''<Left>"
-ino <expr> {
-			\ getline(".")[col(".")-1]=="}" ? "{" : "{}<Left>"
-ino <expr> (
-			\ getline(".")[col(".")-1]==")" ? "(" : "()<Left>"
-ino <expr> [
-			\ getline(".")[col(".")-1]=="]" ? "[" : "[]<Left>"
+ino < <><Left>
+ino " ""<Left>
+ino ' ''<Left>
+ino { {}<Left>
+ino ( ()<Left>
+ino [ []<Left>
 
 "Do not expand if did already.
 ino <expr> <cr>
