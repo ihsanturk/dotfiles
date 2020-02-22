@@ -5,7 +5,6 @@ se scs
 se spr
 se tgc
 se wic
-se list
 se ls=0
 se so=1
 se wmnu
