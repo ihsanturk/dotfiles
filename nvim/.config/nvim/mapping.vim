@@ -16,7 +16,8 @@ tma <M-o> <C-\><C-n><C-w>w
 nm <M-1> :set cursorcolumn!<cr>
 vn <leader>s :!sortlength<cr><C-l>
 nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr>
-nn <leader>s mx:'{+1,'}-1!sortlength<cr>`x
+nn <leader>sr mx:'{+1,'}-1!sort -R<cr>`x
+nn <leader>sl mx:'{+1,'}-1!sortlength<cr>`x
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <M-t> :let $DIR=expand('%:p:h')<cr>:vs +ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
