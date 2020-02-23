@@ -26,7 +26,6 @@ se spf=en.utf-8.add
 se noet ts=3 sts=3 sw=3
 filetype plugin indent on
 se backspace=indent,eol,start
-au FileType netrw setl bufhidden=delete " Netrw should be a buffer
 se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
 
@@ -110,3 +109,4 @@ scripte utf-8
 " se timeoutlen=1000 " Default is already 1000
 " se background=dark " Default is already dark
 " se shell=/usr/local/bin/zsh " removed from neovim see also: vim-differences
+" au FileType netrw setl bufhidden=delete " Netrw shouldn't be a buffer
