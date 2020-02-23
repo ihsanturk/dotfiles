@@ -6,7 +6,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
 Plug 'qxxxb/vim-searchhi'
-Plug 'Shougo/deoplete.nvim'
 Plug 'ihsanturk/vim-tureng'
 Plug 'krisajenkins/vim-pipe'
 Plug 'airblade/vim-gitgutter'
@@ -17,6 +16,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 cal plug#end()
 
