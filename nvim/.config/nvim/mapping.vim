@@ -19,6 +19,7 @@ nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr>
 nn <leader>sr mx:'{+1,'}-1!sort -R<cr>`x
 nn <leader>sl mx:'{+1,'}-1!sortlength<cr>`x
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
+nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <M-t> :let $DIR=expand('%:p:h')<cr>:vs +ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
