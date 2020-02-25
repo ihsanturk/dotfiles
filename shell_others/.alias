@@ -14,13 +14,15 @@ alias cpwd='pwd | pbcopy'
 alias watch='watch -cn0.1'
 alias grep="grep --color=auto"
 alias :Q='exit'; alias :q='exit' 
+alias :w="echo you such a vimmer"
+alias :wq='echo you such a vimmer'
 alias ll='ls -lh | awk "{ print \$NF }"'
 alias mp3='youtube-dl -x --audio-format mp3'
 alias seventynine="printf '=%.0s' {1..79};echo"
 alias note='nvim ~/Dropbox/Document/Wiki/note/index.wiki'
 alias :wq='exit'; alias :Wq='exit' alias :wQ='exit'; alias :WQ='exit'
 alias captiveloop='until captive -i | grep -m 1 "Success"; do : ; done'
-alias exi='exit'; alias eixt='exit'; alias exti='exit'; alias ixet='exit';
+alias exi='exit'; alias eixt='exit'; alias exti='exit'; alias ixet='exit'
 
 # Brew 
 alias ps='brew search'
