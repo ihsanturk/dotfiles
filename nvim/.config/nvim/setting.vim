@@ -20,8 +20,10 @@ se t_Co=256
 se noswapfile
 se icm=nosplit
 setg fenc=utf-8
+set viminfo='1000
 se spf=en.utf-8.add
 se noet ts=3 sts=3 sw=3
+set maxmempattern=20000
 filetype plugin indent on
 se shell=/usr/local/bin/zsh
 se backspace=indent,eol,start
