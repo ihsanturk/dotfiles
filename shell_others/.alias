@@ -1,6 +1,7 @@
 #!/bin/sh
 
 alias l='ls'
+alias v='nvim'
 alias gti='git'
 alias tn='tmux'
 alias ..='cd ..'
@@ -16,7 +17,7 @@ alias t='tmux attach || tmux'
 alias grep="grep --color=auto"
 alias :Q='exit'; alias :q='exit' 
 alias :wq='echo you such a vimmer'
-alias v='nvim -S $HOME/Session.vim'
+alias vs='nvim -S $HOME/Session.vim'
 alias ll='ls -lh | awk "{ print \$NF }"'
 alias mp3='youtube-dl -x --audio-format mp3'
 alias seventynine="printf '=%.0s' {1..79};echo"
