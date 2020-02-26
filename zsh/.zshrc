@@ -48,6 +48,7 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export CPPFLAGS="-I/usr/local/opt/openblas/include"
+export PATH="/usr/local/opt/protobuf@3.7/bin:$PATH"
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 source $HOME/.func
@@ -57,4 +58,3 @@ source $HOME/.abbrev.zsh
 source $ZPLUG_HOME/init.zsh
 source $HOME/.secret.credentials
 source $ZSH/oh-my-zsh.sh # Should be the last line
-export PATH="/usr/local/opt/protobuf@3.7/bin:$PATH"

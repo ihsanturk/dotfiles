@@ -1,6 +1,5 @@
 se ic
 se sb
-se acd
 se lbr
 se scs
 se spr
@@ -20,7 +19,6 @@ se sbr=↪
 se t_Co=256
 se noswapfile
 se icm=nosplit
-" se fdm=syntax
 setg fenc=utf-8
 se spf=en.utf-8.add
 se noet ts=3 sts=3 sw=3
@@ -28,6 +26,21 @@ filetype plugin indent on
 se backspace=indent,eol,start
 se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
+
+
+"=== Follow symlinks ==========================================================
+
+function! s:MyFollowSymlink()
+    silent! let s:fname = resolve(expand('%:p'))
+    silent! bwipeout
+    silent! exec "edit " .s:fname
+endfunction
+command! FollowSymlink call s:MyFollowSymlink()
+
+augroup followsymlink
+    autocmd!
+    autocmd BufReadPost * FollowSymlink
+augroup END
 
 "=== Terminal Buffer Improvements =============================================
 

@@ -3,6 +3,7 @@
 alias l='ls'
 alias v='nvim'
 alias gti='git'
+alias tn='tmux'
 alias ..='cd ..'
 alias la='ls -a'
 alias mv='mv -n'
@@ -12,6 +13,7 @@ alias gs='git status'
 alias ec='emacsclient'
 alias cpwd='pwd | pbcopy'
 alias watch='watch -cn0.1'
+alias t='tmux attach || tmux'
 alias grep="grep --color=auto"
 alias :Q='exit'; alias :q='exit' 
 alias :w="echo you such a vimmer"
