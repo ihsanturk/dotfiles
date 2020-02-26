@@ -16,12 +16,12 @@ alias watch='watch -cn0.1'
 alias t='tmux attach || tmux'
 alias grep="grep --color=auto"
 alias :Q='exit'; alias :q='exit' 
-alias :w="echo you such a vimmer"
 alias :wq='echo you such a vimmer'
 alias ll='ls -lh | awk "{ print \$NF }"'
 alias mp3='youtube-dl -x --audio-format mp3'
 alias seventynine="printf '=%.0s' {1..79};echo"
 alias note='nvim ~/Dropbox/Document/Wiki/note/index.wiki'
+alias :w="echo you such a vimmer"; alias :W="echo you such a vimmer"
 alias :wq='exit'; alias :Wq='exit' alias :wQ='exit'; alias :WQ='exit'
 alias captiveloop='until captive -i | grep -m 1 "Success"; do : ; done'
 alias exi='exit'; alias eixt='exit'; alias exti='exit'; alias ixet='exit'
