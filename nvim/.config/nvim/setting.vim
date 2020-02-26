@@ -23,6 +23,7 @@ setg fenc=utf-8
 se spf=en.utf-8.add
 se noet ts=3 sts=3 sw=3
 filetype plugin indent on
+se shell=/usr/local/bin/zsh
 se backspace=indent,eol,start
 se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
@@ -30,17 +31,17 @@ au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
 
 "=== Follow symlinks ==========================================================
 
-function! s:MyFollowSymlink()
-    silent! let s:fname = resolve(expand('%:p'))
-    silent! bwipeout
-    silent! exec "edit " .s:fname
-endfunction
-command! FollowSymlink call s:MyFollowSymlink()
-
-augroup followsymlink
-    autocmd!
-    autocmd BufReadPost * FollowSymlink
-augroup END
+"function! s:MyFollowSymlink()
+"    silent! let s:fname = resolve(expand('%:p'))
+"    silent! bwipeout
+"    silent! exec "edit " .s:fname
+"endfunction
+"command! FollowSymlink call s:MyFollowSymlink()
+"
+"augroup followsymlink
+"    autocmd!
+"    autocmd BufReadPost * FollowSymlink
+"augroup END
 
 "=== Terminal Buffer Improvements =============================================
 
@@ -121,5 +122,4 @@ scripte utf-8
 " se nocursorline " Default is already off
 " se timeoutlen=1000 " Default is already 1000
 " se background=dark " Default is already dark
-" se shell=/usr/local/bin/zsh " removed from neovim see also: vim-differences
 " au FileType netrw setl bufhidden=delete " Netrw shouldn't be a buffer

@@ -15,7 +15,6 @@ nm <leader>b :r!brain
 tma <M-o> <C-\><C-n><C-w>w
 nm <M-1> :set cursorcolumn!<cr>
 vn <leader>s :!sortlength<cr><C-l>
-nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr>
 nn <leader>sr mx:'{+1,'}-1!sort -R<cr>`x
 nn <leader>sl mx:'{+1,'}-1!sortlength<cr>`x
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
@@ -90,3 +89,4 @@ cnorea cdc cd %:p:h<cr>:
 
 " nm <esc><esc>    :noh
 " tma <M-S-o>     <C-w>p
+" nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr> "Using a plugin for that see: packages

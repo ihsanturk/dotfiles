@@ -24,6 +24,16 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 cal plug#end()
 
+"=== Close buffer but don't close window vim-bufkill ==========================
+
+cnorea bd BD
+cnorea Bd BD
+nm <M-k> :BD<cr>
+
+"=== CodeStats ================================================================
+
+let g:codestats_api_key = $CODESTATS_API_KEY
+
 "=== Vim-Markdown =============================================================
 
 let g:vim_markdown_folding_disabled = 1
