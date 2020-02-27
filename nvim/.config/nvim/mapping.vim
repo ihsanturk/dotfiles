@@ -13,6 +13,7 @@ im <M-o> <esc><C-w>w
 tno <Esc> <C-\><C-n>
 nm <leader>b :r!brain 
 tma <M-o> <C-\><C-n><C-w>w
+tma <M-S-o> <C-\><C-n><C-w>p
 nm <M-1> :set cursorcolumn!<cr>
 vn <leader>s :!sortlength<cr><C-l>
 nn <leader>sr mx:'{+1,'}-1!sort -R<cr>`x
@@ -88,5 +89,4 @@ cnorea cdc cd %:p:h<cr>:
 "================================== FORSAKEN ==================================
 
 " nm <esc><esc>    :noh
-" tma <M-S-o>     <C-w>p
 " nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr> "Using a plugin for that see: packages

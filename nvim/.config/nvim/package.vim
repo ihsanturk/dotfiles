@@ -18,9 +18,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'https://gitlab.com/code-stats/code-stats-vim.git', { 'tag': 'v0.6.0' }
 
 cal plug#end()
 

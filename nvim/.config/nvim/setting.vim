@@ -49,7 +49,7 @@ au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
 
 aug custom_term
 	au!
-	au BufWinEnter,WinEnter,TermOpen term://* start
+	au BufWinEnter,TermOpen term://* start
 	au TermOpen * setl bufhidden=hide
 aug END
 
