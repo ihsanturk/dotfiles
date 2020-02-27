@@ -2,7 +2,7 @@
 
 #TODO: If last update on the site is matching download date then use cached.
 
-cat /tmp/ksuyemek.html |
+curl -s http://www.ksu.edu.tr/default.aspx?SId=8103 |
 	pup '#dataTables-example > tbody > tr > td text{}' |
 	grep -A6 "`date '+%d.%m.%Y'`" |
 	sed "/`date '+%d.%m.%Y'`/d;$!N;s/ \n/, /" | tr -s ' '
