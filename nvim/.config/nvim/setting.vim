@@ -30,21 +30,6 @@ se backspace=indent,eol,start
 se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
 
-
-"=== Follow symlinks ==========================================================
-
-"function! s:MyFollowSymlink()
-"    silent! let s:fname = resolve(expand('%:p'))
-"    silent! bwipeout
-"    silent! exec "edit " .s:fname
-"endfunction
-"command! FollowSymlink call s:MyFollowSymlink()
-"
-"augroup followsymlink
-"    autocmd!
-"    autocmd BufReadPost * FollowSymlink
-"augroup END
-
 "=== Terminal Buffer Improvements =============================================
 
 aug custom_term
