@@ -53,8 +53,8 @@ func! <SID>pipe()
 	normal! `xzz
 endf
 
-"TODO change filename with variable
 au FileType swift let b:vimpipe_command='swift ' . expand("%:p")
+au FileType rust let b:vimpipe_command='rustc ' . expand("%:p")
 let g:vimpipe_silent = 1
 
 "=== NerdCommenter ============================================================
