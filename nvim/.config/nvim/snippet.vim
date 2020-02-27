@@ -6,7 +6,7 @@ au FileType go nm <leader>b :GoBuild<cr>
 au FileType go nm <leader>i :GoInstall<cr>
 
 au FileType python ia ifn "if __name__ == '__main__':
-au FileType python se noet ts=3 sts=3 sw=3
+au FileType rust,python se noet ts=3 sts=3 sw=3
 
 "Expand automatically
 ino <expr> `
