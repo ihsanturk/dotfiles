@@ -5,6 +5,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
+Plug 'etdev/vim-hexcolor'
 Plug 'qpkorr/vim-bufkill'
 Plug 'qxxxb/vim-searchhi'
 Plug 'tpope/vim-fugitive'
@@ -16,7 +17,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'ihsanturk/vim-emacs-like'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -129,3 +129,4 @@ autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
 " let g:vimwiki_list_ignore_newline=0
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'markonm/traces.vim' "Visual Ex-mode visual line issue
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Not using so much
