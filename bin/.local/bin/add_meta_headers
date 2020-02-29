@@ -1,0 +1,17 @@
+#!/bin/sh
+
+[ "$1" = "" ] &&
+	>&2 echo "`basename $0`: usage: `basename $0` <target_directory>" && exit 2
+[ -d $1 ] || >&2 echo "`basename $0`: $1: no such directory" || exit 2
+sourcedir=$1
+
+find $sourcedir -name "*.md" | while read file; do
+	if [ "`head -1 $file`" = "+++" ]; then
+		echo SKIP $file
+	else
+		echo "`tput setaf 2`ADDING $file"
+		ex -sc "1i|+++
+title = \"`grep '^# ' $file | head -1 | sed 's/# //'`\"
++++" -c x $file
+	fi
+done

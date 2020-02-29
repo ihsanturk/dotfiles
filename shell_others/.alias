@@ -22,8 +22,8 @@ alias captiveloop='until captive -i | grep -m 1 "Success"; do : ; done'
 
 # Typo
 alias gti='git'
-alias :Q='exit'; alias :q='exit' 
 alias :wq='echo you such a vimmer'
+alias :Q='exit'; alias :q='exit'; alias xeit=exit
 alias :w="echo you such a vimmer"; alias :W="echo you such a vimmer"
 alias :wq='exit'; alias :Wq='exit' alias :wQ='exit'; alias :WQ='exit'
 alias exi='exit'; alias eixt='exit'; alias exti='exit'; alias ixet='exit'
