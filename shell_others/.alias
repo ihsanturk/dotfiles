@@ -12,11 +12,11 @@ alias gs='git status'
 alias ec='emacsclient'
 alias cpwd='pwd | pbcopy'
 alias watch='watch -cn0.1'
-alias t='tmux attach || tmux'
 alias grep="grep --color=auto"
 alias vs='nvim -S $HOME/Session.vim'
-alias ll='ls -lh | awk "{ print \$NF }"'
+alias t='tmux attach &>/dev/null || tmux'
 alias mp3='youtube-dl -x --audio-format mp3'
+alias ll='ls -lh | awk "{ print \$NF }" | sed 1d'
 alias note='nvim ~/Dropbox/Document/Wiki/note/index.wiki'
 alias captiveloop='until captive -i | grep -m 1 "Success"; do : ; done'
 
