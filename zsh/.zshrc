@@ -8,6 +8,13 @@ HISTSIZE=9000000
 SAVEHIST=9000000
 HISTFILE=~/.zsh_history
 
+eval "$(fasd --init auto)"
+eval "$(fasd --init zsh-hook)"          # define _fasd_preexec and add it to zsh preexec array
+eval "$(fasd --init zsh-ccomp)"         # zsh command mode completion definitions
+eval "$(fasd --init zsh-ccomp-install)" # setup command mode completion for zsh
+eval "$(fasd --init zsh-wcomp)"         # zsh word mode completion definitions
+eval "$(fasd --init zsh-wcomp-install)" # setup word mode completion for zsh
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
