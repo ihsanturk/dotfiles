@@ -2,17 +2,7 @@
 # ~/.zshrc
 #
 
-# Oh-My-Zsh
-ZSH_THEME="robbyrussell"
-export ZSH="$HOME/.oh-my-zsh"
-plugins=(
-	z
-	git
-	zsh-completions
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-)
-
+PS1="➜  ~ " # provide a nice prompt till the theme loads
 LESSHISTFILE=-
 HISTSIZE=9000000
 SAVEHIST=9000000
@@ -55,6 +45,38 @@ source $HOME/.func
 source $HOME/.alias
 source $HOME/.profile
 source $HOME/.abbrev.zsh
-source $ZPLUG_HOME/init.zsh
 source $HOME/.secret.credentials
-source $ZSH/oh-my-zsh.sh # Should be the last line
+source $HOME/.zinit/bin/zinit.zsh
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+	print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+	command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+	command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+		print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
+		print -P "%F{160}▓▒░ The clone has failed.%f"
+fi
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit installer's chunk
+
+setopt promptsubst
+zinit ice wait lucid
+zinit snippet OMZ::lib/git.zsh
+zinit ice wait lucid
+zinit snippet OMZ::lib/completion.zsh
+zinit ice wait atload"unalias grv" lucid
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit ice wait lucid
+zinit snippet OMZ::lib/spectrum.zsh
+zinit ice wait lucid
+zinit snippet OMZ::lib/theme-and-appearance.zsh
+zinit ice wait'!' lucid
+zinit snippet OMZ::themes/robbyrussell.zsh-theme
+zinit ice wait lucid
+zinit light zsh-users/zsh-autosuggestions
+zinit ice wait atinit"zpcompinit" lucid
+zinit light zdharma/fast-syntax-highlighting
+zinit wait lucid atload"zicompinit; zicdreplay" blockf for \
+	zsh-users/zsh-completions
