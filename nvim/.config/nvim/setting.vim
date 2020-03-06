@@ -29,6 +29,7 @@ se shell=/usr/local/bin/zsh
 se backspace=indent,eol,start
 se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
+au FileType sql se makeprg=cat\ %\ \\\|\ mysql\ -uroot
 
 "=== Terminal Buffer Improvements =============================================
 
