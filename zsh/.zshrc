@@ -51,10 +51,10 @@ export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 export FZF_CTRL_R_OPTS="--height 1% --sort --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
-export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+# export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    # nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    # -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    # -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
 source $HOME/.func
 source $HOME/.alias
