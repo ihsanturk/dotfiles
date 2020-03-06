@@ -10,7 +10,6 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'qxxxb/vim-searchhi'
 Plug 'tpope/vim-fugitive'
 Plug 'ihsanturk/vim-tureng'
-Plug 'krisajenkins/vim-pipe'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-easy-align'
 Plug 'plasticboy/vim-markdown'
@@ -41,21 +40,6 @@ let g:vim_markdown_folding_disabled = 1
 "=== Deoplete =================================================================
 
 let g:deoplete#enable_at_startup = 1
-
-"=== Vim-Pipe =================================================================
-
-let g:vimpipe_invoke_map = '<leader>q' " I don't use this.
-nn <M-c> :cal <SID>pipe()<CR>
-" Vim-pipe jump back to where I was
-func! <SID>pipe()
-	normal! mx
-	%cal VimPipe()
-	normal! `xzz
-endf
-
-au FileType swift let b:vimpipe_command='swift ' . expand("%:p")
-au FileType rust let b:vimpipe_command='rustc ' . expand("%:p")
-let g:vimpipe_silent = 1
 
 "=== NerdCommenter ============================================================
 
@@ -130,3 +114,4 @@ autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'markonm/traces.vim' "Visual Ex-mode visual line issue
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Not using so much
+" Plug 'krisajenkins/vim-pipe'
