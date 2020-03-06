@@ -13,6 +13,8 @@ im <M-o> <esc><C-w>w
 tno <Esc> <C-\><C-n>
 nm <leader>b :r!brain 
 tma <M-o> <C-\><C-n><C-w>w
+nn <leader>e :se cole=0<cr>
+nn <leader>v :se cole=3<cr>
 tma <M-S-o> <C-\><C-n><C-w>p
 nm <M-1> :set cursorcolumn!<cr>
 vn <leader>s :!sortlength<cr><C-l>
