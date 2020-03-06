@@ -8,6 +8,7 @@ nm <M-n> :bn<cr>
 nm <M-p> :bp<cr>
 nn <M-n> :bn<cr>
 nm <M-S-o> <C-w>p
+nn <M-c> :make<cr>
 nn <leader>z zMzvzz
 im <M-o> <esc><C-w>w
 tno <Esc> <C-\><C-n>
