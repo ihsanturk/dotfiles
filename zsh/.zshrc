@@ -49,7 +49,7 @@ export CPPFLAGS="-I/usr/local/opt/openblas/include"
 export PATH="/usr/local/opt/protobuf@3.7/bin:$PATH"
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
-export FZF_CTRL_R_OPTS="--height 1% --sort --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+export FZF_CTRL_R_OPTS="--height 1% --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
 # export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
     # nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
