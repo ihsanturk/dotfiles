@@ -33,6 +33,7 @@ export CLICOLOR_FORCE=1
 export GIN_MODE=release
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+export FZF_ALT_C_OPTS="--height 5%"
 export PATH="$HOME/.local/bin:$PATH"
 export ZPLUG_HOME=/usr/local/opt/zplug
 export PATH="/usr/local/opt/m4/bin:$PATH"
@@ -48,8 +49,16 @@ export CPPFLAGS="-I/usr/local/opt/openblas/include"
 export PATH="/usr/local/opt/protobuf@3.7/bin:$PATH"
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
+export FZF_CTRL_R_OPTS="--height 1% --sort --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+
+export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
 source $HOME/.func
 source $HOME/.alias
+source $HOME/.fzf.zsh
 source $HOME/.profile
 source $HOME/.abbrev.zsh
 source $HOME/.secret.credentials
@@ -68,6 +77,7 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit installer's chunk
 
+# Plugins
 setopt promptsubst
 zinit ice wait lucid
 zinit snippet OMZ::lib/git.zsh
