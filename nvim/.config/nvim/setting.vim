@@ -27,9 +27,9 @@ set maxmempattern=20000
 filetype plugin indent on
 se shell=/usr/local/bin/zsh
 se backspace=indent,eol,start
-se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
-au FileType vim se tw=79 " Wrap automatically if text beyonds the limit.
 au FileType sql se makeprg=cat\ %\ \\\|\ mysql\ -uroot
+se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
+au FileType vimwiki,vim se tw=79 " Wrap automatically if text beyonds the limit.
 
 "=== Terminal Buffer Improvements =============================================
 
