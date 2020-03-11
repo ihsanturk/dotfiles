@@ -30,7 +30,16 @@ se shell=/usr/local/bin/zsh
 se backspace=indent,eol,start
 au FileType sql se makeprg=cat\ %\ \\\|\ mysql\ -uroot
 se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
-au FileType vimwiki,vim se tw=79 " Wrap automatically if text beyonds the limit.
+au FileType vimwiki,vim se tw=79 " Wrap automatically if text beyonds the limit
+
+"=== Template =================================================================
+
+if has("autocmd")
+	aug templates
+		au BufNewFile *.c    0r ~/.vim/template/skeleton.c
+		au BufNewFile *.wiki 0r ~/.vim/template/skeleton.wiki
+	aug END
+endif
 
 "=== Terminal Buffer Improvements =============================================
 
