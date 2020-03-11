@@ -1,5 +1,6 @@
 cal plug#begin()
 
+Plug 'neovim/nvim-lsp'
 Plug 'keith/swift.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf.vim'
@@ -22,6 +23,14 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'https://gitlab.com/code-stats/code-stats-vim.git', { 'tag': 'v0.6.0' }
 
 cal plug#end()
+
+"=== Gitgutter ================================================================
+
+se signcolumn=no
+highlight link GitGutterChangeLine DiffText
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_highlight_lines = 1
+let g:gitgutter_async = 1
 
 "=== Close buffer but don't close window vim-bufkill ==========================
 

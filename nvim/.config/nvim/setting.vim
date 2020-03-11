@@ -6,6 +6,7 @@ se spr
 se tgc
 se wic
 se ls=0
+se noea
 se so=1
 se wmnu
 se nocul
