@@ -26,8 +26,8 @@ set -o emacs
 unset LSCOLORS
 export CLICOLOR=1
 export KEYTIMEOUT=1
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export MYSQL_PWD=root
 export CLICOLOR_FORCE=1
 export GIN_MODE=release
