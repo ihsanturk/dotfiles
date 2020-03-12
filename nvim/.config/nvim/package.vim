@@ -1,6 +1,5 @@
 cal plug#begin()
 
-Plug 'keith/swift.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
@@ -96,7 +95,7 @@ nm <C-c> mx<Plug>(searchhi-clear-all)<cr>`x
 "=== Vimwiki ==================================================================
 
 let g:vimwiki_list = [{'path': '~/Dropbox/Document/Wiki/',
-					\ 'path_html': '~/Dropbox/Document/Blog/ihsanturk.dev/public/'}]
+	\ 'path_html': '~/Dropbox/Document/Blog/ihsanturk.dev/public/'}]
 autocmd FileType vimwiki nm <leader>e :set cole=0<cr>
 autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
 
@@ -125,3 +124,4 @@ autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
 " Plug 'krisajenkins/vim-pipe'
 " Plug 'morhetz/gruvbox'
 " Plug 'neovim/nvim-lsp'
+" Plug 'keith/swift.vim'
