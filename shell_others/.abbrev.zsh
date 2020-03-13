@@ -3,7 +3,8 @@ setopt extended_glob
 typeset -A abbreviations
 
 abbreviations=(
-	"g"	"grep -rniwl '' ."
+	# "g"	"grep -rniwl '' ."
+	"turneg"	"tureng"
 )
 
 magic-abbrev-expand() {
