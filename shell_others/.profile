@@ -12,3 +12,5 @@ export PATH="$VULKAN_SDK/bin$:$PATH"
 VERSION=v12.13.1
 DISTRO=linux-x64
 export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH
+
+export PATH="$HOME/.cargo/bin:$PATH"

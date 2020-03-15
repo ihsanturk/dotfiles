@@ -36,3 +36,4 @@
 # alias pl='sudo xbps-query -m'
 # alias pr='sudo xbps-remove -R'
 # alias pu='sudo xbps-install -Syuv'
+alias open='xdg-open' # LINUX
