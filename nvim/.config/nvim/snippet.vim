@@ -1,16 +1,16 @@
-au FileType go nm <leader>c :make<cr>
-au FileType go nm <leader>g :GoDef<cr>
-au FileType go nm <leader>l :GoLint<cr>
-au FileType go nm <leader>t :GoTest<cr>
-au FileType go nm <leader>b :GoBuild<cr>
-au FileType go nm <leader>i :GoInstall<cr>
+" ============================================================================
+" File:        snippet.vim
+" Description: vim snippets
+" Author:      ihsan <ihsanl at pm dot me>
+" License:     MIT license
+" ============================================================================
 
+" Section: Python {{{1
 au FileType python ia ifn "if __name__ == '__main__':
-au FileType rust,python se noet ts=3 sts=3 sw=3
 
-"Expand automatically
-ino <expr> `
-			\ getline(".")[col(".")-1]=="`" ? "`" : "``<Left>"
+" Section: Expand quotes/parantheses automatically {{{1
+
+ino <expr> ` getline(".")[col(".")-1]=="`" ? "`" : "``<Left>"
 ino < <><Left>
 ino " ""<Left>
 ino ' ''<Left>
@@ -18,17 +18,13 @@ ino { {}<Left>
 ino ( ()<Left>
 ino [ []<Left>
 
-"Do not expand if did already.
-ino <expr> <cr>
-			\ getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>" 
-ino <expr> }
-			\ getline(".")[col(".")-2:col(".")-1]=="{}" ? "<Right>" : "}" 
-ino <expr> >
-			\ getline(".")[col(".")-2:col(".")-1]=="<>" ? "<Right>" : ">" 
-ino <expr> )
-			\ getline(".")[col(".")-2:col(".")-1]=="()" ? "<Right>" : ")" 
-ino <expr> ]
-			\ getline(".")[col(".")-2:col(".")-1]=="[]" ? "<Right>" : "]" 
+" Do not expand if already did.
+
+ino <expr> <cr> getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>"
+ino <expr> } getline(".")[col(".")-2:col(".")-1]=="{}" ? "<Right>" : "}" 
+ino <expr> > getline(".")[col(".")-2:col(".")-1]=="<>" ? "<Right>" : ">" 
+ino <expr> ) getline(".")[col(".")-2:col(".")-1]=="()" ? "<Right>" : ")" 
+ino <expr> ] getline(".")[col(".")-2:col(".")-1]=="[]" ? "<Right>" : "]" 
 
 func! SmartBackspace()
 	let l:aroundchars = getline(".")[col(".")-2:col(".")-1]
@@ -46,3 +42,7 @@ func! SmartBackspace()
 		return "\<Backspace>" 
 endfunc
 ino <Backspace> <C-R>=SmartBackspace()<cr>
+
+" }}}
+
+" vim: set foldmethod=marker :

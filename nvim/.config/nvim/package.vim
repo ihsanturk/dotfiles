@@ -1,59 +1,57 @@
+" ============================================================================
+" File:        package.vim
+" Description: vim plugins with their options and settings
+" Author:      ihsan <ihsanl at pm dot me>
+" License:     MIT license
+" ============================================================================
+
 cal plug#begin()
 
-Plug 'vimwiki/vimwiki'
-Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
-Plug 'junegunn/goyo.vim'
 Plug 'etdev/vim-hexcolor'
-Plug 'qpkorr/vim-bufkill'
-Plug 'qxxxb/vim-searchhi'
 Plug 'tpope/vim-fugitive'
+Plug 'chrisbra/unicode.vim'
 Plug 'ihsanturk/vim-tureng'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/vim-easy-align'
-Plug 'plasticboy/vim-markdown'
 Plug 'ihsanturk/vim-emacs-like'
-Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git', { 'tag': 'v0.6.0' }
 
-cal plug#end()
-
-"=== Gitgutter ================================================================
-
+" Plugin: vim-gitgutter {{{1
+Plug 'airblade/vim-gitgutter'
+nn <leader>gd :GitGutterBufferToggle<cr>
 se signcolumn=no
 highlight link GitGutterChangeLine DiffText
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_highlight_lines = 1
 let g:gitgutter_async = 1
 
-"=== Close buffer but don't close window vim-bufkill ==========================
-
+" Plugin: vim-bufkill {{{1
+Plug 'qpkorr/vim-bufkill'
+" Close buffer but don't close window
 cnorea bd BD
 cnorea Bd BD
 nm <M-k> :BD<cr>
 
-"=== CodeStats ================================================================
-
+" Plugin: code-stats-vim {{{1
+Plug 'https://gitlab.com/code-stats/code-stats-vim.git', { 'tag': 'v0.6.0' }
 let g:codestats_api_key = $CODESTATS_API_KEY
 
-"=== Vim-Markdown =============================================================
-
+" Plugin: vim-markdown {{{1
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 
-"=== Deoplete =================================================================
-
+" Plugin: deoplete{-tabnine} {{{1
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 let g:deoplete#enable_at_startup = 1
 
-"=== NerdCommenter ============================================================
-
+" Plugin: nerdcommenter {{{1
+Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 
-"=== FZF (lets make some emacs noise) =========================================
-
+" Plugin: fzf.vim {{{1
+" lets make some emacs noise
+Plug 'junegunn/fzf.vim'
 nm <M-f> :Files<CR>
 nm <M-s> :BLines<CR>
 nm <M-b> :Buffers<CR>
@@ -63,17 +61,17 @@ nm <M-h> :Helptags!<CR>
 let g:fzf_commands_expect = 'alt-enter'
 set rtp+=/usr/local/opt/fzf " If fzf installed using Homebrew
 
-"=== Goyo =====================================================================
-
+" Plugin: goyo.vim {{{1
+Plug 'junegunn/goyo.vim'
 nm <M-g> :Goyo<CR>
 
-"=== EasyAlign ================================================================
-
+" Plugin: vim-easy-align {{{1
+Plug 'junegunn/vim-easy-align'
 xm ga <Plug>(LiveEasyAlign)
 nm ga <Plug>(LiveEasyAlign)
 
-"=== Searchhi =================================================================
-
+" Plugin: vim-searchhi {{{1
+Plug 'qxxxb/vim-searchhi'
 nm # <Plug>(searchhi-#)
 nm * <Plug>(searchhi-*)
 nm N <Plug>(searchhi-N)
@@ -92,14 +90,20 @@ vm gD <Plug>(searchhi-v-gD)
 vm gd <Plug>(searchhi-v-gd)
 nm <C-c> mx<Plug>(searchhi-clear-all)<cr>`x
 
-"=== Vimwiki ==================================================================
-
+" Plugin: vimwiki {{{1
+Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/Dropbox/Document/Wiki/',
 	\ 'path_html': '~/Dropbox/Document/Blog/ihsanturk.dev/public/'}]
 autocmd FileType vimwiki nm <leader>e :set cole=0<cr>
 autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
 
-"================================= FORSAKEN ===================================
+" =============================================================================
+
+" }}}
+
+cal plug#end()
+
+" FORSAKEN {{{1
 
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'chriskempson/base16-vim'
@@ -109,7 +113,7 @@ autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
 " Plug 'scrooloose/nerdtree'
 " nm <M-3> :NERDTreeToggle<cr><C-w>=
 " let NERDTreeMinimalView = 1
-" let NERDTreeStatusline = " NerdTree"
+" let NERDTreeStatusline = ' NerdTree'
 " let g:NERDTreeMapActivateNode = '<space>'
 " Plug 'itchyny/calendar.vim'
 " Plug 'liuchengxu/vim-clap'
@@ -120,8 +124,19 @@ autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
 " let g:vimwiki_list_ignore_newline=0
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'markonm/traces.vim' "Visual Ex-mode visual line issue
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Not using so much
 " Plug 'krisajenkins/vim-pipe'
 " Plug 'morhetz/gruvbox'
 " Plug 'neovim/nvim-lsp'
 " Plug 'keith/swift.vim'
+" Section: vim-go {{{2
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Not using so much
+" au FileType go nm <leader>g :GoDef<cr>
+" au FileType go nm <leader>l :GoLint<cr>
+" au FileType go nm <leader>t :GoTest<cr>
+" au FileType go nm <leader>b :GoBuild<cr>
+" au FileType go nm <leader>i :GoInstall<cr>
+" }}}
+
+" }}}
+
+" vim: set foldmethod=marker :

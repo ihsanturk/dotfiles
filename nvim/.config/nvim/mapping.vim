@@ -1,4 +1,11 @@
-"=== Standart mappings ========================================================
+" ============================================================================
+" File:        mapping.vim
+" Description: vim mappings
+" Author:      ihsan <ihsanl at pm dot me>
+" License:     MIT license
+" ============================================================================
+
+" Section: Standart mappings {{{1
 
 nm * *<c-o>
 nn <Space> za
@@ -26,12 +33,12 @@ nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <M-t> :let $DIR=expand('%:p:h')<cr>:vs +ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
-"=== Scroll with keeping where cursor is ======================================
+" Section: Scroll with pivot {{{1
 
 nm <C-j> <C-e>j
 nm <C-k> <C-y>k
 
-"=== Auto Highlight ===========================================================
+" Section: Auto Highlight {{{1
 
 nm <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<cr>
 func! AutoHighlightToggle()
@@ -52,7 +59,7 @@ func! AutoHighlightToggle()
 	endif
 endf
 
-"=== Easier text-objects ======================================================
+" Section: Easier text-objects {{{1
 
 vn i2  i"
 vn a2  a"
@@ -75,7 +82,7 @@ nn di0 di)
 nn da9 da(
 nn da0 da)
 
-"=== Ex/command mode ==========================================================
+" Section: Ex/Mommand Mode {{{1
 
 cnorea Q   q
 cnorea W   w
@@ -89,7 +96,10 @@ cnorea WQ  wq
 cnorea man Man
 cnorea cdc cd %:p:h<cr>:
 
-"================================== FORSAKEN ==================================
+" FORSAKEN {{{1
 
-" nm <esc><esc>    :noh
+" nm <esc><esc> :noh
 " nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr> "Using a plugin for that see: packages
+" }}}
+
+" vim: set foldmethod=marker :
