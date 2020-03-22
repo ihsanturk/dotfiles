@@ -2,6 +2,7 @@
 
 alias l='ls'
 alias v='nvim'
+alias c='pbcopy'
 alias tn='tmux'
 alias ..='cd ..'
 alias la='ls -a'
