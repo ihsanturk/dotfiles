@@ -65,7 +65,8 @@ endif
 aug custom_term
 	au!
 	au BufWinEnter,TermOpen term://* start
-	au TermOpen * setl bh=hide nonu nornu
+	au TermOpen * setl bh=hide nonu nornu ls=0
+	au TermClose * :q
 aug END
 
 fun! TermTest(cmd)
