@@ -1,2 +1,5 @@
 #!/bin/sh
+#
+# Copy the absolute file path to clipboard.
+#
 echo `pwd`/$1 | pbcopy
