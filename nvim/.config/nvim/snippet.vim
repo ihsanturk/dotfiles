@@ -18,7 +18,7 @@ ino { {}<Left>
 ino ( ()<Left>
 ino [ []<Left>
 
-" Do not expand if already did.
+" Section: Do not expand if already did. {{{2
 
 ino <expr> <cr> getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>"
 ino <expr> } getline(".")[col(".")-2:col(".")-1]=="{}" ? "<Right>" : "}" 
@@ -26,17 +26,27 @@ ino <expr> > getline(".")[col(".")-2:col(".")-1]=="<>" ? "<Right>" : ">"
 ino <expr> ) getline(".")[col(".")-2:col(".")-1]=="()" ? "<Right>" : ")" 
 ino <expr> ] getline(".")[col(".")-2:col(".")-1]=="[]" ? "<Right>" : "]" 
 
+func! SmartSpace()
+	let l:aroundchars = getline(".")[col(".")-2:col(".")-1]
+	if (l:aroundchars=='""') ||
+	 \ (l:aroundchars=="''") ||
+	 \ (l:aroundchars=="``") ||
+	 \ (l:aroundchars=="<>")
+		return "\<Right>\<Backspace>\<Space>" 
+	else
+		return "\<Space>" 
+endfunc
+ino <Space> <C-R>=SmartSpace()<cr>
+
 func! SmartBackspace()
 	let l:aroundchars = getline(".")[col(".")-2:col(".")-1]
 	if (l:aroundchars=='""') ||
-				\ (l:aroundchars=="''") ||
-				\ (l:aroundchars=='""') ||
-				\ (l:aroundchars=="``") ||
-				\ (l:aroundchars=="''") ||
-				\ (l:aroundchars=="{}") ||
-				\ (l:aroundchars=="<>") ||
-				\ (l:aroundchars=="()") ||
-				\ (l:aroundchars=="[]")
+	 \ (l:aroundchars=="''") ||
+	 \ (l:aroundchars=="``") ||
+	 \ (l:aroundchars=="{}") ||
+	 \ (l:aroundchars=="<>") ||
+	 \ (l:aroundchars=="()") ||
+	 \ (l:aroundchars=="[]")
 		return "\<Right>\<Backspace>\<Backspace>" 
 	else
 		return "\<Backspace>" 
