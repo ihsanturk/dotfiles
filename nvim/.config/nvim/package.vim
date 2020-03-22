@@ -16,15 +16,20 @@ Plug 'ihsanturk/vim-emacs-like'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+" Section: Plugin: vim-airline {{{1
+
+Plug 'vim-airline/vim-airline'
+
+"}}}
 " Plugin: vim-gitgutter {{{1
 
 Plug 'airblade/vim-gitgutter'
 
 nn <leader>gd :GitGutterBufferToggle<cr>
-se signcolumn=no
+se signcolumn=yes
 highlight link GitGutterChangeLine DiffText
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_override_sign_column_highlight = 1
+let g:gitgutter_highlight_lines = 0
 let g:gitgutter_async = 1
 
 " }}}
@@ -138,6 +143,16 @@ Plug 'mattn/emmet-vim'
 let g:user_emmet_leader_key='<tab>'
 
 " }}}
+" Plugin: gruvbox {{{1
+" Appearance
+
+Plug 'morhetz/gruvbox'
+
+let g:gruvbox_italic = 1
+let g:gruvbox_termcolors=256
+let g:gruvbox_contrast_dark = 'hard'
+
+" }}}
 
 cal plug#end()
 
@@ -163,7 +178,6 @@ cal plug#end()
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'markonm/traces.vim' "Visual Ex-mode visual line issue
 " Plug 'krisajenkins/vim-pipe'
-" Plug 'morhetz/gruvbox'
 " Plug 'neovim/nvim-lsp'
 " Plug 'keith/swift.vim'
 " Section: vim-go {{{2

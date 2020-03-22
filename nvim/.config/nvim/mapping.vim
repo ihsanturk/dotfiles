@@ -11,10 +11,12 @@ nm * *<c-o>
 nn <Space> za
 vn <Space> za
 nm <M-o> <C-w>w
+nn <C-Space> zM
 nm <M-n> :bn<cr>
 nm <M-p> :bp<cr>
 nn <M-n> :bn<cr>
 nm <M-S-o> <C-w>p
+nn <M-Space> zMzo
 nn <M-c> :make<cr>
 nn <leader>z zMzvzz
 im <M-o> <esc><C-w>w
@@ -30,7 +32,7 @@ nn <leader>sr mx:'{+1,'}-1!sort -R<cr>`x
 nn <leader>sl mx:'{+1,'}-1!sortlength<cr>`x
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
-nm <M-t> :let $DIR=expand('%:p:h')<cr>:vs +ter<cr>cd $DIR;tput clear<cr>
+nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
 " Section: Scroll with pivot {{{1
@@ -59,7 +61,7 @@ func! AutoHighlightToggle()
 	endif
 endf
 
-" Section: Easier text-objects {{{1
+" Section: Easier text-objects on numbers {{{1
 
 vn i2  i"
 vn a2  a"
@@ -85,6 +87,7 @@ nn da0 da)
 " Section: Ex/Mommand Mode {{{1
 
 cnorea Q   q
+cnorea H   h
 cnorea W   w
 cnorea E   e
 cnorea Q!  q!
@@ -95,7 +98,13 @@ cnorea wQ  wq
 cnorea WQ  wq
 cnorea man Man
 cnorea cdc cd %:p:h<cr>:
+" }}}
+" Section: FoxDot {{{1
 
+" Open a terminal buffer and run foxdot command with pipe option
+nm <leader>f mxyap<C-w>wpi<cr><esc><C-w>w`x
+
+" }}}
 " FORSAKEN {{{1
 
 " nm <esc><esc> :noh

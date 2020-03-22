@@ -10,11 +10,12 @@
 se ic
 se sb
 se lbr
+se rnu
 se scs
 se spr
 se tgc
 se wic
-se ls=0
+se ls=2
 se noea
 se so=1
 se wmnu
@@ -32,7 +33,6 @@ se noswapfile
 se icm=nosplit
 setg fenc=utf-8
 set viminfo='1000
-se spf=en.utf-8.add
 se noet ts=3 sts=3 sw=3
 set maxmempattern=20000
 filetype plugin indent on
@@ -40,14 +40,16 @@ se shell=/usr/local/bin/zsh
 se backspace=indent,eol,start
 au FileType rust,python se noet ts=3 sts=3 sw=3
 au FileType sql se makeprg=cat\ %\ \\\|\ mysql\ -uroot
-se lcs=tab:\|\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
+se lcs=tab:⁝\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 au FileType vimwiki,vim se tw=79 " Wrap automatically if text beyonds the limit
 
+" }}}
 " Section: SQL Query {{{1
 
 au BufWritePost ~/.query.sql 
 			\ :silent!cat ~/.query.sql|mysql -turoot > ~/.query_result.txt
 
+" }}}
 " Section: Template {{{1
 
 if has("autocmd")
@@ -57,12 +59,13 @@ if has("autocmd")
 	aug END
 endif
 
+" }}}
 " Section: Terminal Buffer Improvements {{{1
 
 aug custom_term
 	au!
 	au BufWinEnter,TermOpen term://* start
-	au TermOpen * setl bufhidden=hide
+	au TermOpen * setl bh=hide nonu nornu
 aug END
 
 fun! TermTest(cmd)
@@ -74,6 +77,7 @@ fun! s:OnExit(job_id, code, event) dict
 	end
 endf
 
+" }}}
 " Section: Variables {{{1
 
 let mapleader = '\'
@@ -81,15 +85,13 @@ let g:netrw_liststyle=3
 let g:is_posix = 1 "shell
 let g:netrw_dirhistmax = 0
 
-" Section: Appearance {{{1
-
-color gruvbox-dark-hard-modified
-
+" }}}
 " Section: Set scripts to be executable from the shell {{{1
 
 au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | sil
 			\ !chmod +x <afile> | en | endif
 
+" }}}
 " Section: Assumes set ignorecase smartcase {{{1
 
 aug dynamic_smartcase
@@ -98,11 +100,13 @@ aug dynamic_smartcase
 	au CmdLineLeave : se smartcase
 aug END
 
+" }}}
 " Section: Jump/remember to the last position {{{1
 
 au BufReadPost * if line("'\"") > 1 && 
 			\ line("'\"") <= line("$") | exe "normal! g'\"zz" | end
 
+" }}}
 " Section: 80 column rule {{{1
 
 if exists('+colorcolumn')
@@ -111,6 +115,7 @@ else
 	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 end
 
+" }}}
 " Section: Persistent undo {{{1
 
 if has('persistent_undo')
@@ -121,6 +126,16 @@ if has('unnamedplus')
 	se cb=unnamed,unnamedplus
 end
 scripte utf-8
+
+" }}}
+" Section: Appearance {{{1
+
+color gruvbox
+hi ColorColumn guibg=#302826
+hi CursorLineNr guibg=#282828
+hi Visual ctermbg=grey gui=none guibg=#333333
+
+"}}}
 
 " FORSAKEN {{{1
 
