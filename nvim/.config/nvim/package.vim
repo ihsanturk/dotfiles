@@ -65,11 +65,9 @@ Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 let g:deoplete#enable_at_startup = 1
 
 " }}}
-" Plugin: nerdcommenter {{{1
+" Plugin: vim-commentary {{{1
 
-Plug 'scrooloose/nerdcommenter'
-
-let g:NERDSpaceDelims = 1
+Plug 'tpope/vim-commentary'
 
 " }}}
 " Plugin: fzf.vim {{{1
