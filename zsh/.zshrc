@@ -8,13 +8,6 @@ HISTSIZE=9000000
 SAVEHIST=9000000
 HISTFILE=~/.zsh_history
 
-eval "$(fasd --init auto)"
-eval "$(fasd --init zsh-hook)"          # define _fasd_preexec and add it to zsh preexec array
-eval "$(fasd --init zsh-ccomp)"         # zsh command mode completion definitions
-eval "$(fasd --init zsh-ccomp-install)" # setup command mode completion for zsh
-eval "$(fasd --init zsh-wcomp)"         # zsh word mode completion definitions
-eval "$(fasd --init zsh-wcomp-install)" # setup word mode completion for zsh
-
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
@@ -50,11 +43,6 @@ export PATH="/usr/local/opt/protobuf@3.7/bin:$PATH"
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 export FZF_CTRL_R_OPTS="--height 1% --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-
-# export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    # nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    # -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    # -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
 source $HOME/.func
 source $HOME/.alias
