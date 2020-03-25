@@ -16,6 +16,7 @@ se scs
 se spr
 se tgc
 se wic
+se list
 se ls=2
 se noea
 se so=1

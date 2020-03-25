@@ -25,11 +25,11 @@ nm <leader>b :r!brain
 tma <M-o> <C-\><C-n><C-w>w
 nn <leader>e :se cole=0<cr>
 nn <leader>v :se cole=3<cr>
+vn gs :!sortlength<cr><C-l>
 tma <M-S-o> <C-\><C-n><C-w>p
 nm <M-1> :set cursorcolumn!<cr>
-vn <leader>s :!sortlength<cr><C-l>
-nn <leader>sr mx:'{+1,'}-1!sort -R<cr>`x
-nn <leader>sl mx:'{+1,'}-1!sortlength<cr>`x
+nn gsr mx:'{+1,'}-1!sort -R<cr>`x
+nn gsl mx:'{+1,'}-1!sortlength<cr>`x
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
