@@ -8,6 +8,7 @@
 " Section: Standart settings {{{1
 
 se ic
+se nu
 se sb
 se lbr
 se rnu
@@ -135,6 +136,7 @@ color gruvbox
 hi ColorColumn guibg=#302826
 hi CursorLineNr guibg=#282828
 hi Visual ctermbg=grey gui=none guibg=#333333
+" terminal git info red should be: #F34833
 
 "}}}
 
