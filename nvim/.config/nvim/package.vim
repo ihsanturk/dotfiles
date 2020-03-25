@@ -16,6 +16,11 @@ Plug 'ihsanturk/vim-emacs-like'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+" Section: Plugin: targets.vim {{{1
+
+Plug 'wellle/targets.vim'
+
+" }}}
 " Section: Plugin: vim-airline {{{1
 
 Plug 'vim-airline/vim-airline'
