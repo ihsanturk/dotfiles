@@ -87,3 +87,4 @@ zinit ice wait'!' lucid
 zinit snippet OMZ::themes/robbyrussell.zsh-theme
 zinit wait lucid atload"zicompinit; zicdreplay" blockf for \
 	zsh-users/zsh-completions
+zinit light https://github.com/agkozak/zsh-z/blob/master/zsh-z.plugin.zsh
