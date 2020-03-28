@@ -91,8 +91,7 @@ let g:netrw_dirhistmax = 0
 " }}}
 " Section: Set scripts to be executable from the shell {{{1
 
-au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | sil
-			\ !chmod +x <afile> | en | endif
+au FileType sh if getline(1) =~ "^#!.*/bin/" | sil !chmod +x <afile> | en
 
 " }}}
 " Section: Assumes set ignorecase smartcase {{{1
