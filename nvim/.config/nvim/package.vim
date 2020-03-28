@@ -7,6 +7,7 @@
 
 cal plug#begin()
 
+Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'etdev/vim-hexcolor'
 Plug 'tpope/vim-fugitive'
