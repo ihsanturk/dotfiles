@@ -137,7 +137,9 @@ color gruvbox
 hi ColorColumn guibg=#302826
 hi CursorLineNr guibg=#282828
 hi Visual ctermbg=grey gui=none guibg=#333333
-" terminal git info red should be: #F34833
+hi TabLineSel ctermfg=142 ctermbg=237 guifg=#FABD2F guibg=#1b2021
+hi TabLine ctermfg=243 ctermbg=237 gui=none guifg=#7c6f64 guibg=#3c3836
+" terminal buffer red should be: #F34833
 
 "}}}
 
