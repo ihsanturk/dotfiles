@@ -10,6 +10,8 @@
 nm * *<c-o>
 nn <Space> za
 vn <Space> za
+nn <C-h> 2zh2h
+nn <C-l> 2zl2l
 nm <M-o> <C-w>w
 nn <C-Space> zM
 nm <M-n> :bn<cr>
