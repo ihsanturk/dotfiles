@@ -35,11 +35,14 @@ nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
+
+" }}}
 " Section: Scroll with pivot {{{1
 
 nm <C-j> <C-e>j
 nm <C-k> <C-y>k
 
+" }}}
 " Section: Auto Highlight {{{1
 
 nm <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<cr>
@@ -61,6 +64,7 @@ func! AutoHighlightToggle()
 	endif
 endf
 
+" }}}
 " Section: Easier text-objects on numbers {{{1
 
 vn i2  i"
@@ -84,6 +88,7 @@ nn di0 di)
 nn da9 da(
 nn da0 da)
 
+" }}}
 " Section: Ex/Mommand Mode {{{1
 
 cnorea Q   q
@@ -98,6 +103,7 @@ cnorea wQ  wq
 cnorea WQ  wq
 cnorea man Man
 cnorea cdc cd %:p:h<cr>:
+
 " }}}
 " Section: FoxDot {{{1
 
@@ -110,6 +116,7 @@ au FileType python vn <return> y<C-w>wpi<cr><esc><C-w>w
 
 " nm <esc><esc> :noh
 " nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr> "Using a plugin for that see: packages
+
 " }}}
 
 " vim: set foldmethod=marker :
