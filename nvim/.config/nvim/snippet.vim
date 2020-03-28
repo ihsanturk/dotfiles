@@ -5,9 +5,6 @@
 " License:     MIT license
 " ============================================================================
 
-" Section: Python {{{1
-au FileType python ia ifn "if __name__ == '__main__':
-
 " Section: Expand quotes/parantheses automatically {{{1
 
 ino <expr> ` getline(".")[col(".")-1]=="`" ? "`" : "``<Left>"
@@ -18,13 +15,18 @@ ino { {}<Left>
 ino ( ()<Left>
 ino [ []<Left>
 
-" Section: Do not expand if already did. {{{2
+" Section: Do not expand if already did {{{2
 
-ino <expr> <cr> getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>"
+ino <expr> <cr> getline(".")[col(".")-2:col(".")-1]=="{}" ?
+			\ "<cr><esc>O" : "<cr>"
 ino <expr> } getline(".")[col(".")-2:col(".")-1]=="{}" ? "<Right>" : "}" 
 ino <expr> > getline(".")[col(".")-2:col(".")-1]=="<>" ? "<Right>" : ">" 
 ino <expr> ) getline(".")[col(".")-2:col(".")-1]=="()" ? "<Right>" : ")" 
 ino <expr> ] getline(".")[col(".")-2:col(".")-1]=="[]" ? "<Right>" : "]" 
+
+" }}}
+" }}}
+" Section: Smart Space Key {{{1
 
 func! SmartSpace()
 	let l:aroundchars = getline(".")[col(".")-2:col(".")-1]
@@ -33,10 +35,13 @@ func! SmartSpace()
 	 \ (l:aroundchars=="``") ||
 	 \ (l:aroundchars=="<>")
 		return "\<Right>\<Backspace>\<Space>" 
-	else
-		return "\<Space>" 
-endfunc
+	end
+	return "\<Space>" 
+endf
 ino <Space> <C-R>=SmartSpace()<cr>
+
+" }}}
+" Section: Smart Backspace Key {{{1
 
 func! SmartBackspace()
 	let l:aroundchars = getline(".")[col(".")-2:col(".")-1]
