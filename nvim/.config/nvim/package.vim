@@ -9,6 +9,7 @@ cal plug#begin()
 
 Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
+Plug 'mkitt/tabline.vim'
 Plug 'etdev/vim-hexcolor'
 Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/unicode.vim'
