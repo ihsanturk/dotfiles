@@ -12,22 +12,15 @@ Plug 'godlygeek/tabular'
 Plug 'mkitt/tabline.vim'
 Plug 'etdev/vim-hexcolor'
 Plug 'tpope/vim-fugitive'
+Plug 'wellle/targets.vim'
 Plug 'chrisbra/unicode.vim'
 Plug 'ihsanturk/vim-tureng'
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
 Plug 'ihsanturk/vim-emacs-like'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-" Section: Plugin: targets.vim {{{1
-
-Plug 'wellle/targets.vim'
-
-" }}}
-" Section: Plugin: vim-airline {{{1
-
-Plug 'vim-airline/vim-airline'
-
-"}}}
 " Plugin: vim-gitgutter {{{1
 
 Plug 'airblade/vim-gitgutter'
@@ -70,11 +63,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 let g:deoplete#enable_at_startup = 1
-
-" }}}
-" Plugin: vim-commentary {{{1
-
-Plug 'tpope/vim-commentary'
 
 " }}}
 " Plugin: fzf.vim {{{1
