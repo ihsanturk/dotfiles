@@ -22,6 +22,7 @@ nn <M-Space> zMzo
 nn <M-c> :make<cr>
 nn <leader>z zMzvzz
 im <M-o> <esc><C-w>w
+nn gf :e <cfile><cr>
 tno <Esc> <C-\><C-n>
 nm <leader>b :r!brain 
 tma <M-o> <C-\><C-n><C-w>w
