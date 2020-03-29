@@ -35,6 +35,10 @@ func! SmartSpace()
 	 \ (l:aroundchars=="``") ||
 	 \ (l:aroundchars=="<>")
 		return "\<Right>\<Backspace>\<Space>" 
+	elseif (l:aroundchars=='[]') ||
+		  \ (l:aroundchars=="{}") ||
+		  \ (l:aroundchars=="()")
+		return "\<Space>\<Left>\<Space>" 
 	end
 	return "\<Space>" 
 endf
