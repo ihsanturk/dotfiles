@@ -1,42 +1,92 @@
 #!/bin/sh
 
-# ============================================================================
-# File:        todo
-# Description: View or alter todo items.
-# Author:      ihsan <ihsanl at pm dot me>
-# Created At:  1585439292
-# License:     MIT License
-# ============================================================================
+# =========================================================================== #
+# File:        todo                                                           #
+# Description: View or alter todo items.                                      #
+# Author:      ihsan <ihsanl at pm dot me>                                    #
+# Created At:  1585439292                                                     #
+# License:     MIT License                                                    #
+# =========================================================================== #
 
-tmpfile=$HOME/Dropbox/Document/Wiki/todo.wiki
-usage_message='[ -ah ] [ -i <index> ]'
-usage() { >&2 echo "usage: `basename $0` $usage_message"; }
 
-append=false
-while getopts :a args; do
+                     #=======================================#
+                    #======      ==   ===   ===   ==========/|
+                   #========= ==== == == == == == =========/#|
+                  #========= =====   ==   ====   =========/##|
+                 #========================================###|
+                 #                                       |###|
+                 # TODO 1585440860: Filter the first     |###|
+                 #                  work-in-progress     |###|
+                 #                  todo item if no      |###|
+                 #                  args given.          |###|
+                 #                                       |###|
+                 # TODO 1585440924: Decide how to select |###|
+                 #                  which todo item      |###|
+                 #                  while appending.     |###|
+                 #                  Index or search      |###|
+                 #                  through the text     |###|
+                 #                  values?              |###|
+                 #                                       |###|
+                 # TODO 1585441225: Update the json      |##/...
+                 #                  values using jq.     |#/........
+                 #                                       |/........
+                 #========================================........
+                 #...............................................
+
+
+file_data=$HOME/.cache/todo.json
+json_template='[ { "id": %s, "type": "todo", "text": "%s", "time": { "created": { "format": "timestamp", "value": "%s" }, "finished": { "format": "timestamp", "value": "" } } } ]'
+message_usage='[ -puh ] [ -a <todo> ] [ -i <index> ]'
+usage() { >&2 echo "usage: `basename $0` $message_usage"; }
+
+. $HOME/.config/todo/todo.sh
+
+index=-1
+push=false
+unset append
+update=false
+while getopts :a:puih: args; do
 	case $args in
-		(a) append=true;;
+		(a) append="$OPTARG";;
+		(p) push=true;;
+		(u) update=true;;
 		(i) index=$OPTARG;;
 		(h) usage; exit 0;;
 		([?]) usage; exit 2;;
 	esac
 done
 
-               #===============================================#
-               #                                               #
-               #    # TODO 1585440860: Filter the first        #
-               #    #                  work-in-progress        #
-               #    #                  todo item if no         #
-               #    #                  args given.             #
-               #                                               #
-               #    # TODO 1585440924: Decide how to select    #
-               #    #                  which todo item         #
-               #    #                  while appending.        #
-               #    #                  Index or search         #
-               #    #                  through the text        #
-               #    #                  values?                 #
-               #                                               #
-               #    # TODO 1585441225: Update the json         #
-               #    #                  values using jq.        #
-               #                                               #
-               #===============================================#
+# jq notes
+# Merge two json files: [https://stackoverflow.com/a/16835501/12536010]
+# Update single value : [https://stackoverflow.com/a/31037640/12536010]
+# Add a new element JSON array: [https://stackoverflow.com/a/42248841/12536010]
+
+file_tmp=$(mktemp)
+
+if ! [[ $append = "" ]]; then
+	# TODO 1585523276: Fix zsh/sh not compatible
+	jq ". += $(printf "$json_template" $(jq '. | length' $file_data) "$append" \
+		`date +%s`)" $file_data;# >> $file_tmp;
+	# cat $file_tmp > $file_data;
+fi
+
+if $push; then
+	# TODO 1585487086: Push to github.
+	echo pushing
+fi
+
+exit 0 # TODO 1585496013: DELETE
+
+if $update; then
+	if [ $index -gt -1 ]; then
+		# TODO 1585477353: Open the todo item which has the index.
+		echo Updating $index.
+	else
+		# TODO 1585477335: List the todo text values with their items.
+		echo Here your todo items with indexes.
+	fi
+fi
+
+if [ $index -gt -1 ]; then
+	echo $index
+fi
