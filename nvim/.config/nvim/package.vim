@@ -7,6 +7,7 @@
 
 cal plug#begin()
 
+Plug 'mattn/emmet-vim'
 Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'mkitt/tabline.vim'
@@ -127,13 +128,6 @@ let g:vimwiki_list = [{'path': '~/Dropbox/Document/Wiki/',
 	\ 'path_html': '~/Dropbox/Document/Blog/ihsanturk.dev/public/'}]
 autocmd FileType vimwiki nm <leader>e :set cole=0<cr>
 autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
-
-" }}}
-" Plugin: emmet-vim {{{1
-
-Plug 'mattn/emmet-vim'
-
-let g:user_emmet_leader_key='<tab>'
 
 " }}}
 " Plugin: gruvbox {{{1

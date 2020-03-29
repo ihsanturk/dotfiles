@@ -1,13 +1,42 @@
 #!/bin/sh
 
-todofile=$HOME/Dropbox/Document/Wiki/todo.wiki
+# ============================================================================
+# File:        todo
+# Description: View or alter todo items.
+# Author:      ihsan <ihsanl at pm dot me>
+# Created At:  1585439292
+# License:     MIT License
+# ============================================================================
 
-if [ "$1" = "-o" ] || [ "$1" = "--open" ]; then
-	$EDITOR $todofile;
-elif [ "$1" = "-a" ] || [ "$1" = "--append" ]; then
-	$EDITOR $todofile -c "7 | startinsert | norm O "
-else
-	# Print current todo with hiding the links.
-	awk -v RS='' 'NR==4' $todofile | tail -n1 | sed 's/^\t *//g' |
-		sed 's/\[\[[^|]*|\(.*\)\]\]/\1/;s/:private://g';
-fi
+tmpfile=$HOME/Dropbox/Document/Wiki/todo.wiki
+usage_message='[ -ah ] [ -i <index> ]'
+usage() { >&2 echo "usage: `basename $0` $usage_message"; }
+
+append=false
+while getopts :a args; do
+	case $args in
+		(a) append=true;;
+		(i) index=$OPTARG;;
+		(h) usage; exit 0;;
+		([?]) usage; exit 2;;
+	esac
+done
+
+               #===============================================#
+               #                                               #
+               #    # TODO 1585440860: Filter the first        #
+               #    #                  work-in-progress        #
+               #    #                  todo item if no         #
+               #    #                  args given.             #
+               #                                               #
+               #    # TODO 1585440924: Decide how to select    #
+               #    #                  which todo item         #
+               #    #                  while appending.        #
+               #    #                  Index or search         #
+               #    #                  through the text        #
+               #    #                  values?                 #
+               #                                               #
+               #    # TODO 1585441225: Update the json         #
+               #    #                  values using jq.        #
+               #                                               #
+               #===============================================#
