@@ -7,7 +7,6 @@
 
 cal plug#begin()
 
-Plug 'mattn/emmet-vim'
 Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'mkitt/tabline.vim'
