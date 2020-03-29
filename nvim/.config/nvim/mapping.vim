@@ -41,8 +41,8 @@ nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 " }}}
 " Section: Scroll with pivot {{{1
 
-nm <C-M-e> <C-e>j
-nm <C-M-y> <C-y>k
+nm <C-e> <C-e>j
+nm <C-y> <C-y>k
 
 " }}}
 " Section: Auto Highlight {{{1
