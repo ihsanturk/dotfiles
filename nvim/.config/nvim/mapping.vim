@@ -39,7 +39,6 @@ nn <leader>c :topleft 45vs :enew \|:setl nornu nonu<cr><C-w>w
 nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
-
 " }}}
 " Section: Scroll with pivot {{{1
 
@@ -123,4 +122,4 @@ au FileType python vn <return> y<C-w>wpi<cr><esc><C-w>w
 
 " }}}
 
-" vim: set foldmethod=marker :
+" vim: set fdm=marker :
