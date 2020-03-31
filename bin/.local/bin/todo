@@ -8,6 +8,14 @@
 # License:     MIT License                                                    #
 # =========================================================================== #
 
+# jq notes {{{1
+
+# Merge two json files: [https://stackoverflow.com/a/16835501/12536010]
+# Update single value : [https://stackoverflow.com/a/31037640/12536010]
+# Add a new element JSON array: [https://stackoverflow.com/a/42248841/12536010]
+
+# }}}
+# ASCII Art {{{1
 
                      #=======================================#
                     #======      ==   ===   ===   ==========/|
@@ -20,19 +28,22 @@
                  #                  todo item if no      |###|
                  #                  args given.          |###|
                  #                                       |###|
-                 # TODO 1585440924: Decide how to select |###|
+                 # DONE 1585440924: Decide how to select |###|
                  #                  which todo item      |###|
-                 #                  while appending.     |###|
+                 #                  while updateing.     |###|
                  #                  Index or search      |###|
                  #                  through the text     |###|
                  #                  values?              |###|
                  #                                       |###|
-                 # TODO 1585441225: Update the json      |##/...
+                 # DONE 1585441225: Update the json      |##/...
                  #                  values using jq.     |#/........
                  #                                       |/........
                  #========================================........
-                 #...............................................
+                 # ..............................................
+                 #  ............................................
 
+# }}}
+# Vars {{{1
 
 file_data=$HOME/.cache/todo.json
 json_template='[ { "id": %s, "type": "todo", "text": "%s", "time": { "created": { "format": "timestamp", "value": "%s" }, "finished": { "format": "timestamp", "value": "" } } } ]'
