@@ -95,12 +95,9 @@ type_color() { case $1 in todo)echo 1;;done)echo 6;;winp)echo 3;;esac }
 todo_bg_color(){ case $1 in todo)echo -1;;done)echo -1;;winp)echo 236;;esac }
 todo_fg_color(){ case $1 in todo)echo 7;;done)echo 6;;winp)echo 3;;esac }
 
-# TODO 1585680675: Show the time finished if it is done.
 show_todo_item() {
 	counter_local=$1
-	while read type_; do
-		read text;
-		read created;
+	while read type_; do read text; read created; read finished;
 		[[ $text = "null" ]] ||
 			$only ||
 				( $show_numbers &&
@@ -115,8 +112,13 @@ show_todo_item() {
 			printf "$text";
 			tput sgr0;
 			$only ||
-				( $show_time &&
-					printf " $($colored && tput setaf 11)$(echo $created|fromnow)";)
+				( $show_time && (
+					[[ $type_ == "done" ]] &&
+						time_value=$finished ||
+						time_value=$created
+					printf " $($colored && tput setaf 11)$(echo $time_value|fromnow)";
+					)
+				)
 			echo # new line
 			let counter_local--
 	done
@@ -124,7 +126,7 @@ show_todo_item() {
 
 current_item() {
 	jq -r \
-		'(.[]|select(.type=="winp"))|.type,.text,.time.created.value' $file_data|
+'(.[]|select(.type=="winp"))|.type,.text,.time.created.value,.time.finished.value' $file_data|
 		show_todo_item 0
 }
 
@@ -138,7 +140,7 @@ get_todo_item() {
 			(i) id_local=$(($total_count - $OPTARG - 1)); counter=$OPTARG;;
 		esac
 	done
-	jq -r "reverse|.[$id_local]|.type,.text,.time.created.value" $file_data|
+	jq -r "reverse|.[$id_local]|.type,.text,.time.created.value,.time.finished.value" $file_data|
 		show_todo_item $counter
 }
 
