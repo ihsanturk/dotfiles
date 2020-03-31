@@ -23,7 +23,7 @@
                   #========= =====   ==   ====   =========/##|
                  #========================================###|
                  #                                       |###|
-                 # TODO 1585440860: Filter the first     |###|
+                 # DONE 1585440860: Filter the first     |###|
                  #                  work-in-progress     |###|
                  #                  todo item if no      |###|
                  #                  args given.          |###|
@@ -45,59 +45,170 @@
 # }}}
 # Vars {{{1
 
+file_bak=$HOME/.cache/todo.bak
+file_tmp_bak=$(mktemp)
+file_tmp_new=$(mktemp)
 file_data=$HOME/.cache/todo.json
-json_template='[ { "id": %s, "type": "todo", "text": "%s", "time": { "created": { "format": "timestamp", "value": "%s" }, "finished": { "format": "timestamp", "value": "" } } } ]'
-message_usage='[ -puh ] [ -a <todo> ] [ -i <index> ]'
+json_template='[ { "type": "%s", "text": "%s", "time": { "created": { "format": "timestamp", "value": "%s" }, "finished": { "format": "timestamp", "value": "" } } } ]'
+message_usage='[ -Cdhlnoprtuw ] [ -a <todo> ] [ -i <index> ]'
 usage() { >&2 echo "usage: `basename $0` $message_usage"; }
-
 . $HOME/.config/todo/todo.sh
+if ! [ -s $file_data ]; then echo '[]' >> $file_data; fi
+
+# }}}
+# Args {{{1
 
 index=-1
+list=false
+only=false
 push=false
-unset append
+remove=false
+status=todo
+colored=true
 update=false
-while getopts :a:puih: args; do
+show_time=false
+show_numbers=false
+unset append
+while getopts :a:i:ploCnturdwh args; do
 	case $args in
-		(a) append="$OPTARG";;
+		(l) list=true;;
+		(o) only=true;;
 		(p) push=true;;
+		(r) remove=true;;
 		(u) update=true;;
+		(C) colored=false;;
+		(d) status="done";;
 		(i) index=$OPTARG;;
+		(a) append=$OPTARG;;
+		(t) show_time=true;;
+		(n) show_numbers=true;;
+		(w) status="winp";;
 		(h) usage; exit 0;;
-		([?]) usage; exit 2;;
 	esac
 done
 
-# jq notes
-# Merge two json files: [https://stackoverflow.com/a/16835501/12536010]
-# Update single value : [https://stackoverflow.com/a/31037640/12536010]
-# Add a new element JSON array: [https://stackoverflow.com/a/42248841/12536010]
+# }}}
+# Helper Functions {{{1
 
-file_tmp=$(mktemp)
+index_is_valid() { [ $index -gt -1 ] && true || false; }
+type_color() { case $1 in todo)echo 1;;done)echo 6;;winp)echo 3;;esac }
+todo_bg_color(){ case $1 in todo)echo -1;;done)echo -1;;winp)echo 236;;esac }
+todo_fg_color(){ case $1 in todo)echo 7;;done)echo 6;;winp)echo 3;;esac }
+
+# TODO 1585680675: Show the time finished if it is done.
+show_todo_item() {
+	counter_local=$1
+	while read type_; do
+		read text;
+		read created;
+		[[ $text = "null" ]] ||
+			$only ||
+				( $show_numbers &&
+					printf "$($colored && (tput setaf 7))${counter_local}. ")
+			$only ||
+				printf "$($colored && (tput setaf `type_color $type_`))${type_}: ";
+			$colored && (
+				tput bold;
+				tput setaf $(todo_fg_color $type_);
+				tput setab $(todo_bg_color $type_)
+			)
+			printf "$text";
+			tput sgr0;
+			$only ||
+				( $show_time &&
+					printf " $($colored && tput setaf 11)$(echo $created|fromnow)";)
+			echo # new line
+			let counter_local--
+	done
+}
+
+current_item() {
+	jq -r \
+		'(.[]|select(.type=="winp"))|.type,.text,.time.created.value' $file_data|
+		show_todo_item 0
+}
+
+get_todo_item() {
+	local OPTIND OPTARG args
+	total_count=$(jq '. | length' $file_data)
+	counter=$(($total_count - 1))
+	while getopts :li: args; do
+		case $args in
+			(l) unset id_local;; # list all of them
+			(i) id_local=$(($total_count - $OPTARG - 1)); counter=$OPTARG;;
+		esac
+	done
+	jq -r "reverse|.[$id_local]|.type,.text,.time.created.value" $file_data|
+		show_todo_item $counter
+}
+
+# }}}
 
 if ! [[ $append = "" ]]; then
-	# TODO 1585523276: Fix zsh/sh not compatible
-	jq ". += $(printf "$json_template" $(jq '. | length' $file_data) "$append" \
-		`date +%s`)" $file_data;# >> $file_tmp;
-	# cat $file_tmp > $file_data;
-fi
-
-if $push; then
+	index_local=$(jq '. | length' $file_data)
+	jq ". += $(printf "$json_template" "$status" "$append" `date +%s`)" \
+		$file_data > $file_tmp_bak;
+	cat $file_tmp_bak > $file_data;
+	get_todo_item -i $index_local
+elif $list; then
+	if index_is_valid; then
+		get_todo_item -i $index
+	else
+		get_todo_item -l
+	fi
+elif $update; then
+	if index_is_valid; then
+		jq ".[$index]" $file_data | tee $file_tmp_bak $file_tmp_new &>/dev/null;
+		$EDITOR $file_tmp_new;
+		diff -q $file_tmp_bak $file_tmp_new &>/dev/null;
+		if [ $? -eq 1 ]; then
+			jq ".[$index] |= $(cat $file_tmp_new)" $file_data > $file_tmp_bak
+			cat $file_tmp_bak > $file_data;
+			get_todo_item -i $index
+		else
+			>&2 echo nothing changed
+			exit 2
+		fi
+	else # list todo items to show indexes and texts
+		get_todo_item -l
+	fi
+elif [[ $status = "winp" ]]; then
+	if index_is_valid; then
+		jq '(.[].type|select(.=="winp"))="todo"' $file_data > $file_tmp_bak
+		cat $file_tmp_bak > $file_data;
+		jq ".[$index].type = \"winp\"" $file_data > $file_tmp_bak
+		cat $file_tmp_bak > $file_data;
+		get_todo_item -i $index
+	else
+		get_todo_item -l
+	fi
+elif [[ $status = "done" ]]; then
+	if index_is_valid; then
+		jq ".[$index].type = \"done\"" $file_data > $file_tmp_bak
+		jq ".[$index].time.finished.value = \"`date +%s`\"" $file_tmp_bak > $file_tmp_new
+		cat $file_tmp_new > $file_data;
+		get_todo_item -i $index
+	else
+		get_todo_item -l
+	fi
+elif $remove; then
+	if index_is_valid; then
+		# TODO 1585661328: backup whole data.
+		bak_date=$(date +%s)
+		printf "\n//\\\\\\\\ $bak_date \\\\\\\\\n" >> $file_bak
+		jq . $file_data | tee -a $file_bak &>/dev/null;
+		printf "\n///// $bak_date ///\n" >> $file_bak
+		jq "del(.[$index])" $file_data > $file_tmp_new
+		cat $file_tmp_new > $file_data;
+		echo item $index deleted.
+	else # list todo items to show indexes and texts
+		get_todo_item -l
+	fi
+elif index_is_valid; then
+	get_todo_item -i $index
+elif $push; then
 	# TODO 1585487086: Push to github.
 	echo pushing
-fi
-
-exit 0 # TODO 1585496013: DELETE
-
-if $update; then
-	if [ $index -gt -1 ]; then
-		# TODO 1585477353: Open the todo item which has the index.
-		echo Updating $index.
-	else
-		# TODO 1585477335: List the todo text values with their items.
-		echo Here your todo items with indexes.
-	fi
-fi
-
-if [ $index -gt -1 ]; then
-	echo $index
+else
+	current_item
 fi
