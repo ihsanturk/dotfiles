@@ -90,6 +90,13 @@ done
 # }}}
 # Helper Functions {{{1
 
+backup_the_data() {
+	bak_date=$(date +%s)
+	printf "\n-------- $bak_date --------\n" >> $file_bak
+	jq . $file_data >> $file_bak
+	printf "\n-------- $bak_date --------\n" >> $file_bak
+}
+
 index_is_valid() { [ $index -gt -1 ] && true || false; }
 type_color() { case $1 in todo)echo 1;;done)echo 6;;winp)echo 3;;esac }
 todo_bg_color(){ case $1 in todo)echo -1;;done)echo -1;;winp)echo 236;;esac }
@@ -128,6 +135,7 @@ current_item() {
 	jq -r \
 '(.[]|select(.type=="winp"))|.type,.text,.time.created.value,.time.finished.value' $file_data|
 		show_todo_item 0
+	# TODO 1585682868: Get the correct index value using jq when getting winp.
 }
 
 get_todo_item() {
@@ -136,7 +144,7 @@ get_todo_item() {
 	counter=$(($total_count - 1))
 	while getopts :li: args; do
 		case $args in
-			(l) unset id_local;; # list all of them
+			(l) unset id_local;; # list all items.
 			(i) id_local=$(($total_count - $OPTARG - 1)); counter=$OPTARG;;
 		esac
 	done
@@ -195,11 +203,7 @@ elif [[ $status = "done" ]]; then
 	fi
 elif $remove; then
 	if index_is_valid; then
-		# TODO 1585661328: backup whole data.
-		bak_date=$(date +%s)
-		printf "\n//\\\\\\\\ $bak_date \\\\\\\\\n" >> $file_bak
-		jq . $file_data | tee -a $file_bak &>/dev/null;
-		printf "\n///// $bak_date ///\n" >> $file_bak
+		backup_the_data
 		jq "del(.[$index])" $file_data > $file_tmp_new
 		cat $file_tmp_new > $file_data;
 		echo item $index deleted.
@@ -210,7 +214,7 @@ elif index_is_valid; then
 	get_todo_item -i $index
 elif $push; then
 	# TODO 1585487086: Push to github.
-	echo pushing
+	echo pushing...
 else
 	current_item
 fi
