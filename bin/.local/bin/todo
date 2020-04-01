@@ -63,7 +63,7 @@ list=false
 only=false
 push=false
 remove=false
-status=todo
+status_=todo
 colored=true
 update=false
 show_time=false
@@ -76,13 +76,13 @@ while getopts :a:i:plocCnturdwh args; do
 		(p) push=true;;
 		(r) remove=true;;
 		(u) update=true;;
-		(w) status="winp";;
+		(w) status_="winp";;
 		(C) colored=false;;
-		(d) status="done";;
+		(d) status_="done";;
 		(i) index=$OPTARG;;
 		(a) append=$OPTARG;;
 		(t) show_time=true;;
-		(c) status="cancel";;
+		(c) status_="canceled";;
 		(n) show_numbers=true;;
 		(h) usage; exit 0;;
 	esac
@@ -154,25 +154,31 @@ get_todo_item() {
 			(i) id_local=$(($total_count - $OPTARG - 1)); counter=$OPTARG;;
 		esac
 	done
-	jq -r "reverse|.[$id_local]|.type,.text,.time.created.value,.time.finished.value" $file_data|
-		show_todo_items $counter
+	jq -r \
+"reverse|.[$id_local]|.type,.text,.time.created.value,.time.finished.value"\
+		$file_data | show_todo_items $counter
 }
 
 # }}}
-
+# Actions {{{1
+# Append {{{2
 if ! [[ $append = "" ]]; then
 	backup_the_data
 	index_local=$(jq '. | length' $file_data)
-	jq ". += $(printf "$json_template" "$status" "$append" `date +%s`)" \
+	jq ". += $(printf "$json_template" "$status_" "$append" `date +%s`)" \
 		$file_data > $file_tmp_bak;
 	cat $file_tmp_bak > $file_data;
 	get_todo_item -i $index_local
+# }}}
+# List {{{2
 elif $list; then
 	if index_is_valid; then
 		get_todo_item -i $index
 	else
 		get_todo_item -l
 	fi
+# }}}
+# Update Item {{{2
 elif $update; then
 	if index_is_valid; then
 		jq ".[$index]" $file_data | tee $file_tmp_bak $file_tmp_new &>/dev/null;
@@ -189,7 +195,9 @@ elif $update; then
 	else # list todo items to show indexes and texts
 		get_todo_item -l
 	fi
-elif [[ $status = "winp" ]]; then
+# }}}
+# Update Status {{{2
+elif [[ $status_ = "winp" ]]; then
 	if index_is_valid; then
 		backup_the_data
 		jq '(.[].type|select(.=="winp"))="todo"' $file_data > $file_tmp_bak
@@ -200,7 +208,7 @@ elif [[ $status = "winp" ]]; then
 	else
 		get_todo_item -l
 	fi
-elif [[ $status = "done" ]]; then
+elif [[ $status_ = "done" ]]; then
 	if index_is_valid; then
 		backup_the_data
 		jq ".[$index].type = \"done\"" $file_data > $file_tmp_bak
@@ -210,7 +218,7 @@ elif [[ $status = "done" ]]; then
 	else
 		get_todo_item -l
 	fi
-elif [[ $status = "cancel" ]]; then
+elif [[ $status_ = "canceled" ]]; then
 	if index_is_valid; then
 		backup_the_data
 		jq ".[$index].type = \"canceled\"" $file_data > $file_tmp_bak
@@ -220,6 +228,8 @@ elif [[ $status = "cancel" ]]; then
 	else
 		get_todo_item -l
 	fi
+# }}}
+# Remove {{{2
 elif $remove; then
 	if index_is_valid; then
 		backup_the_data
@@ -230,11 +240,17 @@ elif $remove; then
 	else # list todo items to show indexes and texts
 		get_todo_item -l
 	fi
+# }}}
+# Show Index {{{2
 elif index_is_valid; then
 	get_todo_item -i $index
+# }}}
+# Push to GitHub {{{2
 elif $push; then
 	# TODO 1585487086: Push to github.
 	echo pushing...
 else
 	current_item
 fi
+# }}}
+# }}}
