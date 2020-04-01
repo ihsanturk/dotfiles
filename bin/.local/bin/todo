@@ -69,7 +69,7 @@ update=false
 show_time=false
 show_numbers=false
 unset append
-while getopts :a:i:ploCnturdwh args; do
+while getopts :a:i:plocCnturdwh args; do
 	case $args in
 		(l) list=true;;
 		(o) only=true;;
@@ -81,6 +81,7 @@ while getopts :a:i:ploCnturdwh args; do
 		(i) index=$OPTARG;;
 		(a) append=$OPTARG;;
 		(t) show_time=true;;
+		(c) status="cancel";;
 		(n) show_numbers=true;;
 		(w) status="winp";;
 		(h) usage; exit 0;;
@@ -98,11 +99,14 @@ backup_the_data() {
 }
 
 index_is_valid() { [ $index -gt -1 ] && true || false; }
-type_color() { case $1 in todo)echo 1;;done)echo 6;;winp)echo 3;;esac }
-todo_bg_color(){ case $1 in todo)echo -1;;done)echo -1;;winp)echo 236;;esac }
-todo_fg_color(){ case $1 in todo)echo 7;;done)echo 6;;winp)echo 3;;esac }
+type_color() {
+	case $1 in todo)echo 1;;done)echo 6;;winp)echo 3;;canceled)echo dim;;esac }
+todo_bg_color(){
+case $1 in todo)echo -1;;done)echo -1;;winp)echo 236;;canceled)echo -1;;esac }
+todo_fg_color(){
+	case $1 in todo)echo 7;;done)echo 6;;winp)echo 3;;canceled)echo dim;;esac }
 
-show_todo_item() {
+show_todo_items() {
 	counter_local=$1
 	while read type_; do read text; read created; read finished;
 		[[ $text = "null" ]] ||
@@ -120,10 +124,10 @@ show_todo_item() {
 			tput sgr0;
 			$only ||
 				( $show_time && (
-					[[ $type_ == "done" ]] &&
-						time_value=$finished ||
-						time_value=$created
-					printf " $($colored && tput setaf 11)$(echo $time_value|fromnow)";
+						if [[ $type_ == "done" ]] || [[ $type_ == "canceled" ]]; then
+							time_value=$finished; else time_value=$created; fi;
+						$colored && tput setaf 11
+						printf " $(echo $time_value|fromnow)";
 					)
 				)
 			echo # new line
@@ -195,6 +199,16 @@ elif [[ $status = "winp" ]]; then
 elif [[ $status = "done" ]]; then
 	if index_is_valid; then
 		jq ".[$index].type = \"done\"" $file_data > $file_tmp_bak
+		jq ".[$index].time.finished.value = \"`date +%s`\"" $file_tmp_bak > $file_tmp_new
+		cat $file_tmp_new > $file_data;
+		get_todo_item -i $index
+	else
+		get_todo_item -l
+	fi
+elif [[ $status = "cancel" ]]; then
+	if index_is_valid; then
+		backup_the_data
+		jq ".[$index].type = \"canceled\"" $file_data > $file_tmp_bak
 		jq ".[$index].time.finished.value = \"`date +%s`\"" $file_tmp_bak > $file_tmp_new
 		cat $file_tmp_new > $file_data;
 		get_todo_item -i $index
