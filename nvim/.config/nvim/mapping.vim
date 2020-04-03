@@ -40,7 +40,7 @@ nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
 " }}}
-" Section Navigation {{{1
+" Section: Navigation {{{1
 " Section: Tab navigation {{{2
 
 nn `` `
@@ -56,6 +56,32 @@ nn `9 9gt
 nn `c :tabe<cr>
 nn `n gt
 nn `p gT
+tno `` `
+tno `1 <esc>1gt
+tno `2 <esc>2gt
+tno `3 <esc>3gt
+tno `4 <esc>4gt
+tno `5 <esc>5gt
+tno `6 <esc>6gt
+tno `7 <esc>7gt
+tno `8 <esc>8gt
+tno `9 <esc>9gt
+tno `c <esc>:tabe<cr>
+tno `n <esc>gt
+tno `p <esc>gT
+tma `` `
+tma `1 <esc>1gt
+tma `2 <esc>2gt
+tma `3 <esc>3gt
+tma `4 <esc>4gt
+tma `5 <esc>5gt
+tma `6 <esc>6gt
+tma `7 <esc>7gt
+tma `8 <esc>8gt
+tma `9 <esc>9gt
+tma `c <esc>:tabe<cr>
+tma `n <esc>gt
+tma `p <esc>gT
 
 " }}}
 " Section: Pane/window navigation {{{2
@@ -64,9 +90,16 @@ nn `h <C-w>h
 nn `j <C-w>j
 nn `k <C-w>k
 nn `l <C-w>l
+tma `h <esc><C-w>h
+tma `j <esc><C-w>j
+tma `k <esc><C-w>k
+tma `l <esc><C-w>l
 
 nn `b <C-w>s:enew<cr>
 nn `v <C-w>v:enew<cr>
+tma `b <esc><C-w>s:enew<cr>
+tma `v <esc><C-w>v:enew<cr>
+
 " }}}
 " }}}
 " Section: Scroll with pivot {{{1
