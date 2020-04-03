@@ -8,6 +8,7 @@
 " Section: Standart mappings {{{1
 
 nm * *<c-o>
+nn <M-d> 0D
 nn <Space> za
 vn <Space> za
 nn <C-h> 2zh2h
