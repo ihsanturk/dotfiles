@@ -7,6 +7,7 @@
 
 cal plug#begin()
 
+Plug 'mhinz/vim-rfc'
 Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'mkitt/tabline.vim'
@@ -16,9 +17,9 @@ Plug 'wellle/targets.vim'
 Plug 'chrisbra/unicode.vim'
 Plug 'ihsanturk/vim-tureng'
 Plug 'tpope/vim-commentary'
-Plug 'vim-airline/vim-airline'
 Plug 'ihsanturk/vim-emacs-like'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'joeytwiddle/sexy_scroller.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Plugin: vim-gitgutter {{{1
