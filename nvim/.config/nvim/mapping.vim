@@ -35,9 +35,9 @@ nn gsr mx:'{+1,'}-1!sort -R<cr>`x
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
-nn <leader>c :topleft 45vs :enew \|:setl nornu nonu<cr><C-w>w
+nn <leader>c :topleft 44vs :enew \|:setl nornu nonu<cr><C-w>w
 nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
-nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
+nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
 " }}}
 " Section Navigation {{{1
