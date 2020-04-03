@@ -20,8 +20,6 @@ set -o emacs
 unset LSCOLORS
 export CLICOLOR=1
 export KEYTIMEOUT=1
-export EDITOR='nvim'
-export VISUAL='nvim'
 export MYSQL_PWD=root
 export CLICOLOR_FORCE=1
 export GIN_MODE=release
@@ -29,6 +27,8 @@ export LANG=en_GB.UTF-8
 export GOPATH="$HOME/go"
 export LC_ALL=en_GB.UTF-8
 export PATH="$GOPATH/bin:$PATH"
+export EDITOR='nvr --remote-wait'
+export VISUAL='nvr --remote-wait'
 export FZF_ALT_C_OPTS="--height 5%"
 export PATH="$HOME/.local/bin:$PATH"
 export ZPLUG_HOME=/usr/local/opt/zplug
@@ -36,13 +36,16 @@ export PATH="/usr/local/opt/m4/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export SSLKEYLOGFILE="$HOME/SSLKeyLogFile"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openblas/lib"
+export NVIM_LISTENADDRESS=/tmp/nvimsocket nvim
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export CPPFLAGS="-I/usr/local/opt/openblas/include"
 export PATH="/usr/local/opt/protobuf@3.7/bin:$PATH"
+export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 export FZF_CTRL_R_OPTS="--height 0% --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
