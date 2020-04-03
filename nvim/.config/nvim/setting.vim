@@ -17,7 +17,7 @@ se spr
 se tgc
 se wic
 se list
-se ls=2
+se ls=0
 se noea
 se so=1
 se wmnu
@@ -44,6 +44,17 @@ au FileType rust,python se noet ts=3 sts=3 sw=3
 au FileType sql se makeprg=cat\ %\ \\\|\ mysql\ -uroot
 se lcs=tab:⁝\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 au FileType vimwiki,vim se tw=79 " Wrap automatically if text beyonds the limit
+
+" }}}
+" Section: Make dir if not exists {{{1
+
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre *
+    \ if !isdirectory(expand("<afile>:p:h")) |
+        \ call mkdir(expand("<afile>:p:h"), "p") |
+    \ endif
+augroup END
 
 " }}}
 " Section: SQL Query {{{1
@@ -133,7 +144,7 @@ scripte utf-8
 " Section: Appearance {{{1
 
 color gruvbox
-hi ColorColumn guibg=#302826
+hi ColorColumn guibg=#252525
 hi CursorLineNr guibg=#282828
 hi Visual ctermbg=grey gui=none guibg=#333333
 hi TabLineSel ctermfg=142 ctermbg=237 guifg=#FABD2F guibg=#1b2021
