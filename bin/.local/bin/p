@@ -2,4 +2,4 @@
 #
 # Copy the absolute file path to clipboard.
 #
-echo `pwd`/$1 | pbcopy
+echo "$(dirname $1)/$(basename $1)" | pbcopy
