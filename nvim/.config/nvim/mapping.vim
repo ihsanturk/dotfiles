@@ -70,14 +70,6 @@ endf
 " }}}
 " Section: Easier text-objects on numbers {{{1
 
-vn i2  i"
-vn a2  a"
-nn ci2 ci"
-nn ca2 ca"
-nn di2 di"
-nn da2 da"
-nn yi2 yi"
-nn ya2 ya"
 vn i9  i(
 vn i0  i)
 vn a9  a(
