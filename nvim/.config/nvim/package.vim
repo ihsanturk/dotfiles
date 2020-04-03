@@ -19,7 +19,7 @@ Plug 'ihsanturk/vim-tureng'
 Plug 'tpope/vim-commentary'
 Plug 'ihsanturk/vim-emacs-like'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'joeytwiddle/sexy_scroller.vim'
+Plug 'yuttie/comfortable-motion.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Plugin: vim-gitgutter {{{1
