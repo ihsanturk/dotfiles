@@ -22,6 +22,20 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+" Plugin: animate.vim {{{1
+
+Plug 'camspiers/animate.vim'
+
+nn <silent> <Up>    :call animate#window_delta_height(-10)<CR>
+nn <silent> <Down>  :call animate#window_delta_height(10)<CR>
+nn <silent> <Left>  :call animate#window_delta_width(-10)<CR>
+nn <silent> <Right> :call animate#window_delta_width(10)<CR>
+
+let g:fzf_layout = {
+			\ 'window': 'new | wincmd J | resize 1 | call animate#window_percent_height(0.3)'
+\ }
+
+" }}}
 " Plugin: vim-gitgutter {{{1
 
 Plug 'airblade/vim-gitgutter'
