@@ -40,6 +40,35 @@ nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'normal a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
 " }}}
+" Section Navigation {{{1
+" Section: Tab navigation {{{2
+
+nn `` `
+nn `1 1gt
+nn `2 2gt
+nn `3 3gt
+nn `4 4gt
+nn `5 5gt
+nn `6 6gt
+nn `7 7gt
+nn `8 8gt
+nn `9 9gt
+nn `c :tabe<cr>
+nn `n gt
+nn `p gT
+
+" }}}
+" Section: Pane/window navigation {{{2
+
+nn `h <C-w>h
+nn `j <C-w>j
+nn `k <C-w>k
+nn `l <C-w>l
+
+nn `b <C-w>s:enew<cr>
+nn `v <C-w>v:enew<cr>
+" }}}
+" }}}
 " Section: Scroll with pivot {{{1
 
 nm <C-j> <C-e>j
