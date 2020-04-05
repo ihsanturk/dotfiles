@@ -37,7 +37,7 @@ nn gsl mx:'{+1,'}-1!sortlength<cr>`x
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nn <leader>c :topleft 44vs :enew \|:setl nornu nonu<cr><C-w>w
-nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
+nm <M-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
 " }}}
@@ -58,31 +58,31 @@ nn `c :tabe<cr>
 nn `n gt
 nn `p gT
 tno `` `
-tno `1 <esc>1gt
-tno `2 <esc>2gt
-tno `3 <esc>3gt
-tno `4 <esc>4gt
-tno `5 <esc>5gt
-tno `6 <esc>6gt
-tno `7 <esc>7gt
-tno `8 <esc>8gt
-tno `9 <esc>9gt
-tno `c <esc>:tabe<cr>
-tno `n <esc>gt
-tno `p <esc>gT
+tno `1 1gt
+tno `2 2gt
+tno `3 3gt
+tno `4 4gt
+tno `5 5gt
+tno `6 6gt
+tno `7 7gt
+tno `8 8gt
+tno `9 9gt
+tno `c :tabe<cr>
+tno `n gt
+tno `p gT
 tma `` `
-tma `1 <esc>1gt
-tma `2 <esc>2gt
-tma `3 <esc>3gt
-tma `4 <esc>4gt
-tma `5 <esc>5gt
-tma `6 <esc>6gt
-tma `7 <esc>7gt
-tma `8 <esc>8gt
-tma `9 <esc>9gt
-tma `c <esc>:tabe<cr>
-tma `n <esc>gt
-tma `p <esc>gT
+tma `1 <C-\><C-N>1gt
+tma `2 <C-\><C-N>2gt
+tma `3 <C-\><C-N>3gt
+tma `4 <C-\><C-N>4gt
+tma `5 <C-\><C-N>5gt
+tma `6 <C-\><C-N>6gt
+tma `7 <C-\><C-N>7gt
+tma `8 <C-\><C-N>8gt
+tma `9 <C-\><C-N>9gt
+tma `c <C-\><C-N>:tabe<cr>
+tma `n <C-\><C-N>gt
+tma `p <C-\><C-N>gT
 
 " }}}
 " Section: Pane/window navigation {{{2
@@ -91,15 +91,15 @@ nn `h <C-w>h
 nn `j <C-w>j
 nn `k <C-w>k
 nn `l <C-w>l
-tma `h <esc><C-w>h
-tma `j <esc><C-w>j
-tma `k <esc><C-w>k
-tma `l <esc><C-w>l
+tma `h <C-\><C-N><C-w>h
+tma `j <C-\><C-N><C-w>j
+tma `k <C-\><C-N><C-w>k
+tma `l <C-\><C-N><C-w>l
 
 nn `b <C-w>s:enew<cr>
 nn `v <C-w>v:enew<cr>
-tma `b <esc><C-w>s:enew<cr>
-tma `v <esc><C-w>v:enew<cr>
+tma `b <C-\><C-N><C-w>s<C-\><C-N>:enew<cr>
+tma `v <C-\><C-N><C-w>v<C-\><C-N>:enew<cr>
 
 " }}}
 " }}}
@@ -170,10 +170,12 @@ au FileType python nm <return> mxyap<C-w>wpi<cr><esc><C-w>w`x
 au FileType python vn <return> y<C-w>wpi<cr><esc><C-w>w
 
 " }}}
+
 " FORSAKEN {{{1
 
 " nm <esc><esc> :noh
 " nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr> "Using a plugin for that see: packages
+" nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
 
 " }}}
 

@@ -10,6 +10,7 @@
 se ic
 se nu
 se sb
+se awa
 se lbr
 se rnu
 se scs
