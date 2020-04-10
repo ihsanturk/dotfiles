@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# =========================================================================== #
+# File:        moves                                                          #
+# Description: log of life                                                    #
+# Author:      ihsan <ihsanl at pm dot me>                                    #
+# Created At:  2019                                                           #
+# License:     MIT License                                                    #
+# =========================================================================== #
+
 # List move column in $db with fzf.
 
 # TODO: Add -w option
@@ -8,8 +16,4 @@
 #    Pick the word that other sentences not contain or minimum includes count.
 
 db=${HOME}/Dropbox/Data/moves.db;
-which fzf &>/dev/null ||
-	echo "`tput setaf 1; tput bold`FZF not installed.`tput setaf sgr02`" ||
-	exit 2;
-[ -f $db ] || exit 0;
-sqlite3 $db 'select date,move from moves' | fzf
+[ -f $db ] && sqlite3 $db 'select date,move from moves'
