@@ -8,7 +8,6 @@
 cal plug#begin()
 
 Plug 'mhinz/vim-rfc'
-Plug 'vifm/vifm.vim'
 Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'mkitt/tabline.vim'
