@@ -1,61 +1,26 @@
-#
-# ~/.zshrc
-#
+# =========================================================================== #
+# File:        .zshrc                                                         #
+# Author:      ihsan <ihsanl at pm dot me>                                    #
+# Updated At:  1586553056                                                     #
+# License:     MIT License                                                    #
+# =========================================================================== #
 
-export PS1="`tput bold;tput setaf 2`➜`tput setaf 3`  %1~`tput sgr0` "
-export PROMPT="`tput bold;tput setaf 2`➜`tput setaf 3`  %1~`tput sgr0` "
-LESSHISTFILE=-
-HISTSIZE=9000000
-SAVEHIST=9000000
-HISTFILE=~/.zsh_history
-
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
-fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
+fpath=(~/.zsh/completions $fpath)
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
 
 setopt hist_ignore_dups
 setopt auto_menu
-
 set -o emacs
 unset LSCOLORS
-export CLICOLOR=1
-export KEYTIMEOUT=1
-export MYSQL_PWD=root
-export CLICOLOR_FORCE=1
-export GIN_MODE=release
-export LANG=en_GB.UTF-8
-export GOPATH="$HOME/go"
-export LC_ALL=en_GB.UTF-8
-export PATH="$GOPATH/bin:$PATH"
-export EDITOR='nvr --remote-wait'
-export VISUAL='nvr --remote-wait'
-export FZF_ALT_C_OPTS="--height 5%"
-export PATH="$HOME/.local/bin:$PATH"
-export ZPLUG_HOME=/usr/local/opt/zplug
-export PATH="/usr/local/opt/m4/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export SSLKEYLOGFILE="$HOME/SSLKeyLogFile"
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openblas/lib"
-export NVIM_LISTENADDRESS=/tmp/nvimsocket nvim
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
-export PATH="$HOME/Library/Python/3.7/bin:$PATH"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openblas/include"
-export PATH="/usr/local/opt/protobuf@3.7/bin:$PATH"
-export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-export FZF_CTRL_R_OPTS="--height 0% --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
-source $HOME/.func
-source $HOME/.alias
-source $HOME/.fzf.zsh
-source $HOME/.profile
-source $HOME/.abbrev.zsh
-source $HOME/.secret.credentials
-source $HOME/.zinit/bin/zinit.zsh
+. $HOME/.func
+. $HOME/.alias
+. $HOME/.fzf.zsh
+. $HOME/.profile
+. $HOME/.abbrev.zsh
+. $HOME/.secret.credentials
+. $HOME/.zinit/bin/zinit.zsh
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
