@@ -12,6 +12,9 @@ stow nvim/
 
 ## Appearance
 
+### neovim @ *2020 Apr 11, 4:20*
+![image](./img/neovim-look-2020-apr-11-4-20.png "Neovim Appearance")
+
 ### neovim @ *2020 Mar 8, 17:35*
 ![image](./img/vim_look.png "Neovim Appearance")
 
