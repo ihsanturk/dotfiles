@@ -21,6 +21,7 @@ alias vs="nvim -S $HOME/Session.vim"
 alias t='tmux attach &>/dev/null || tmux'
 alias mp3='youtube-dl -x --audio-format mp3'
 alias ll='ls -lh | awk "{ print \$NF }" | sed 1d'
+alias find-executables='find . -perm +111 -type f'
 alias note="$EDITOR ~/Dropbox/Document/Wiki/note/index.wiki"
 alias captiveloop='until captive -i | grep -m 1 "Success"; do : ; done'
 alias ip="ifconfig|grep -o 'inet \S*'|sed '/127\.0\.0/d'|grep -o '[0-9\.]\+'"
@@ -30,7 +31,7 @@ alias gti='git'
 alias :E="$EDITOR"; alias :e="$EDITOR";
 alias :Q='exit'; alias :q='exit'; alias xeit=exit
 alias :w="echo you such a vimmer"; alias :W="echo you such a vimmer"
-alias :wq='exit'; alias :Wq='exit' alias :wQ='exit'; alias :WQ='exit'
+alias :wq='exit'; alias :Wq='exit'; alias :wQ='exit'; alias :WQ='exit'
 alias exi='exit'; alias eixt='exit'; alias exti='exit'; alias ixet='exit'
 
 # Brew 
