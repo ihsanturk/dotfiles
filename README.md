@@ -12,11 +12,9 @@ stow nvim/
 
 ## Appearance
 
-### neovim
+### neovim @ *2020 Mar 8, 17:35*
 ![image](./img/vim_look.png "Neovim Appearance")
-<p style="text-align: center; margin: -35px 0px 0px 0px;">
-	<em>2020 Mar 8, 17:35</em>
-</p>
+
 
 ## Environment
 <table style="margin: auto; width: 50%; display: inline-table;">
