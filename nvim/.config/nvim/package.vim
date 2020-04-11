@@ -20,6 +20,7 @@ Plug 'tpope/vim-commentary'
 Plug 'ihsanturk/vim-emacs-like'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Plugin: vim-gitgutter {{{1
 
