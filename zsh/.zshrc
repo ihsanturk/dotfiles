@@ -6,7 +6,10 @@
 # =========================================================================== #
 
 set -o emacs
+setopt auto_menu
 setopt hist_ignore_dups
+setopt hist_ignore_space
+zstyle :prompt:pure:git:stash show yes
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
 
 . $HOME/.func
@@ -17,7 +20,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
 . $HOME/.secret.credentials
 . $HOME/.zinit/bin/zinit.zsh
 
-### Added by Zinit's installer {{{1
+# Added by Zinit's installer {{{1
 
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
 	print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
@@ -38,26 +41,32 @@ zinit ice wait atinit"zpcompinit" lucid
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light https://gitlab.com/code-stats/code-stats-zsh/-/raw/master/codestats.plugin.zsh
-zinit ice wait atload"unalias grv" lucid
-zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit ice wait lucid
-zinit snippet OMZ::lib/git.zsh
-zinit ice wait lucid
-zinit snippet OMZ::lib/spectrum.zsh
-zinit ice wait lucid
-zinit snippet OMZ::lib/theme-and-appearance.zsh
-zinit ice wait'!' lucid
-zinit snippet OMZ::themes/robbyrussell.zsh-theme
-zinit wait lucid atload"zicompinit; zicdreplay" blockf for \
-	zsh-users/zsh-completions
+zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
 zinit light https://github.com/agkozak/zsh-z/blob/master/zsh-z.plugin.zsh
-zinit ice wait lucid
-zinit snippet OMZ::lib/completion.zsh
-
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light dfurnes/purer
 
 # }}}
+
 # FORSAKEN {{{1
 
-# setopt auto_menu
+# OhMyZsh {{{2
+
+# zinit ice wait lucid
+# zinit snippet OMZ::lib/git.zsh
+# zinit ice wait lucid
+# zinit snippet OMZ::lib/spectrum.zsh
+# zinit ice wait lucid
+# zinit snippet OMZ::lib/theme-and-appearance.zsh
+# zinit ice wait'!' lucid
+# zinit ice wait atload"unalias grv" lucid
+# zinit snippet OMZ::plugins/git/git.plugin.zsh
+# zinit snippet OMZ::themes/robbyrussell.zsh-theme
+# zinit ice wait lucid
+# zinit snippet OMZ::lib/completion.zsh
 
 # }}}
+
+# }}}
+#
+# : vim: set fdm=marker :
