@@ -24,6 +24,7 @@ se so=1
 se wmnu
 se nocul
 se cole=2
+se fo+=ro
 se nowrap
 se ttm=10
 syntax on
@@ -43,6 +44,7 @@ se shell=/usr/local/bin/zsh
 se backspace=indent,eol,start
 au FileType rust,python se noet ts=3 sts=3 sw=3
 au FileType sql se makeprg=cat\ %\ \\\|\ mysql\ -uroot
+au FileType markdown se com-=fb:- " Automatically append - in new line.
 se lcs=tab:⁝\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
 au FileType vimwiki,vim se tw=79 " Wrap automatically if text beyonds the limit
 
