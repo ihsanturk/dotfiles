@@ -18,6 +18,7 @@ export GIN_MODE=release
 export LANG=en_GB.UTF-8
 export GOPATH="$HOME/go"
 export LC_ALL=en_GB.UTF-8
+export MOZ_ENABLE_WAYLAND=1
 export EDITOR='nvr --remote-wait'
 export VISUAL='nvr --remote-wait'
 export FZF_ALT_C_OPTS="--height 5%"
@@ -45,8 +46,10 @@ export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 export LESSHISTFILE=-
-export HISTSIZE=9000000
+export HISTSIZE=
 export SAVEHIST=9000000
+export HISTFILESIZE=
+export LESSHISTFILE=-
 export HISTFILE=~/.zsh_history
 
 # Nodejs
