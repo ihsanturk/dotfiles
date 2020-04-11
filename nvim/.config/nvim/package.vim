@@ -8,6 +8,7 @@
 cal plug#begin()
 
 Plug 'mhinz/vim-rfc'
+Plug 'keith/swift.vim'
 Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'mkitt/tabline.vim'
@@ -49,13 +50,6 @@ nm <M-k> :BD<cr>
 Plug 'https://gitlab.com/code-stats/code-stats-vim.git', { 'tag': 'v0.6.0' }
 
 let g:codestats_api_key = $CODESTATS_API_KEY
-
-" }}}
-" Plugin: vim-markdown {{{1
-
-Plug 'plasticboy/vim-markdown'
-
-let g:vim_markdown_folding_disabled = 1
 
 " }}}
 " Plugin: deoplete{-tabnine} {{{1
@@ -147,20 +141,6 @@ cal plug#end()
 " FORSAKEN {{{1
 
 " Plug 'yuttie/comfortable-motion.vim'
-" Plugin: animate.vim {{{2
-
-" Plug 'camspiers/animate.vim'
-
-" nn <silent> <Up>    :call animate#window_delta_height(-10)<CR>
-" nn <silent> <Down>  :call animate#window_delta_height(10)<CR>
-" nn <silent> <Left>  :call animate#window_delta_width(-10)<CR>
-" nn <silent> <Right> :call animate#window_delta_width(10)<CR>
-
-" let g:fzf_layout = {
-" 			\ 'window': 'new | wincmd J | resize 1 | call animate#window_percent_height(0.3)'
-" \ }
-
-" }}}
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'chriskempson/base16-vim'
 " Plug 'vim-airline/vim-airline'
@@ -182,7 +162,29 @@ cal plug#end()
 " Plug 'markonm/traces.vim' "Visual Ex-mode visual line issue
 " Plug 'krisajenkins/vim-pipe'
 " Plug 'neovim/nvim-lsp'
-" Plug 'keith/swift.vim'
+
+" Plugin: vim-markdown {{{2
+
+" Plug 'plasticboy/vim-markdown'
+" 
+" let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_auto_insert_bullets = 1
+
+" }}}
+" Plugin: animate.vim {{{2
+
+" Plug 'camspiers/animate.vim'
+
+" nn <silent> <Up>    :call animate#window_delta_height(-10)<CR>
+" nn <silent> <Down>  :call animate#window_delta_height(10)<CR>
+" nn <silent> <Left>  :call animate#window_delta_width(-10)<CR>
+" nn <silent> <Right> :call animate#window_delta_width(10)<CR>
+
+" let g:fzf_layout = {
+" 			\ 'window': 'new | wincmd J | resize 1 | call animate#window_percent_height(0.3)'
+" \ }
+
+" }}}
 " Section: vim-go {{{2
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Not using so much
 " au FileType go nm <leader>g :GoDef<cr>
@@ -190,8 +192,9 @@ cal plug#end()
 " au FileType go nm <leader>t :GoTest<cr>
 " au FileType go nm <leader>b :GoBuild<cr>
 " au FileType go nm <leader>i :GoInstall<cr>
-" }}}
 
 " }}}
 
-" vim: set foldmethod=marker :
+" }}}
+
+" vim: set fdm=marker :
