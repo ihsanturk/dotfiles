@@ -78,7 +78,7 @@ endif
 
 aug custom_term
 	au!
-	au WinEnter,TermOpen term://* start
+	au BufEnter,TermOpen term://* start
 	au TermEnter * setl nonu nornu
 	au TermClose * :q
 aug END
