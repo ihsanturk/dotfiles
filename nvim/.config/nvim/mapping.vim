@@ -166,6 +166,7 @@ cnorea cdc cd %:p:h<cr>:
 " Section: FoxDot {{{1
 
 " Open a terminal buffer and run foxdot command with pipe option
+
 au FileType python nm <return> mxyap<C-w>wpi<cr><esc><C-w>w`x
 au FileType python vn <return> y<C-w>wpi<cr><esc><C-w>w
 
