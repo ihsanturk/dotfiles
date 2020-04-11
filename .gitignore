@@ -1,3 +1,4 @@
+.DS_Store
 bin/.local/.DS_Store
 bin/.local/bin/brute/
 bin/.local/bin/ksu_login.py
