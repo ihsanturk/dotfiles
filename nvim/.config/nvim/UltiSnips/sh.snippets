@@ -1,33 +1,33 @@
-snippet if
+snippet if  "" A
 if ${1:condition}; then
 	${0:body}
 fi
 endsnippet
 
-snippet elif
+snippet elif "" A
 elif ${1:condition}; then
 	${0:body}
 endsnippet
 
-snippet func
+snippet func "" A
 ${1:function_name}() {
 	${0:body}
 }
 endsnippet
 
-snippet case
+snippet case "" A
 case $${1:var} in
 	(${2:pattern}) ${0:echo action};;
 esac
 endsnippet
 
-snippet while
+snippet while "" A
 while ${1:condition}; do
 	${0:body}
 done
 endsnippet
 
-snippet args
+snippet args "" A
 while getopts :${1:letters} ${4:args}; do
 	case $4 in
 		(a) ${5:append=true};;
@@ -39,7 +39,7 @@ done
 $0
 endsnippet
 
-snippet usage
+snippet usage "" A
 usage_message='[ -${1:io} ]'
 usage() { >&2 echo "usage: \`basename \$0\` $usage_message"; }
 $0
