@@ -29,7 +29,7 @@ defaults write com.apple.dock magnification -bool false
 defaults write com.apple.dock mineffect -string "genie"
 
 # Minimize windows into application icon
-defaults write com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock minimize-to-application -bool false
 
 # Automatically hide and show the Dock:
 defaults write com.apple.dock autohide -bool true
@@ -97,8 +97,6 @@ defaults write com.apple.finder ShowPathbar -bool true
 # Completely Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
-# }}}
-
 # Kill affected apps
 for app in "Dock" "Finder"; do
   killall "${app}" > /dev/null 2>&1
@@ -107,3 +105,5 @@ done
 # Done
 echo "Done. \
 	Note that some of these changes require a logout/restart to take effect."
+
+# }}}
