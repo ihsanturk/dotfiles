@@ -55,7 +55,7 @@ nn `6 6gt
 nn `7 7gt
 nn `8 8gt
 nn `9 9gt
-nn `c :tabe<cr>
+nn `c :tabe +ter<cr>
 nn `n gt
 nn `p gT
 tno `` `
@@ -68,7 +68,7 @@ tno `6 6gt
 tno `7 7gt
 tno `8 8gt
 tno `9 9gt
-tno `c :tabe<cr>
+tno `c :tabe +ter<cr>
 tno `n gt
 tno `p gT
 tma `` `
@@ -81,7 +81,7 @@ tma `6 <C-\><C-N>6gt
 tma `7 <C-\><C-N>7gt
 tma `8 <C-\><C-N>8gt
 tma `9 <C-\><C-N>9gt
-tma `c <C-\><C-N>:tabe<cr>
+tma `c <C-\><C-N>:tabe +ter<cr>
 tma `n <C-\><C-N>gt
 tma `p <C-\><C-N>gT
 
@@ -97,10 +97,10 @@ tma `j <C-\><C-N><C-w>j
 tma `k <C-\><C-N><C-w>k
 tma `l <C-\><C-N><C-w>l
 
-nn `b <C-w>s:enew<cr>
-nn `v <C-w>v:enew<cr>
-tma `b <C-\><C-N><C-w>s<C-\><C-N>:enew<cr>
-tma `v <C-\><C-N><C-w>v<C-\><C-N>:enew<cr>
+nn `b :sp +ter<cr>
+nn `v :vs +ter<cr>
+tma `b <C-\><C-N>:sp +ter<cr>
+tma `v <C-\><C-N>:vs +ter<cr>
 
 " }}}
 " }}}
