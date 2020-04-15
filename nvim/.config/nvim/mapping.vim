@@ -42,6 +42,12 @@ nm <M-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
 " }}}
+" Section: RFC Docs {{{1
+
+au Filetype rfc nn <space> j/<cr>zt
+au Filetype rfc nn <c-space> k?<cr>zt
+
+" }}}"
 " Section: Navigation {{{1
 " Section: Tab navigation {{{2
 
