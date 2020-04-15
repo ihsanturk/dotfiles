@@ -140,29 +140,29 @@ cal plug#end()
 
 " FORSAKEN {{{1
 
-" Plug 'yuttie/comfortable-motion.vim'
-" Plug 'JamshedVesuna/vim-markdown-preview'
-" Plug 'chriskempson/base16-vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'tpope/vim-obsession'
-" Plug 'scrooloose/nerdtree'
-" nm <M-3> :NERDTreeToggle<cr><C-w>=
-" let NERDTreeMinimalView = 1
-" let NERDTreeStatusline = ' NerdTree'
-" let g:NERDTreeMapActivateNode = '<space>'
-" Plug 'itchyny/calendar.vim'
-" Plug 'liuchengxu/vim-clap'
-" Plug 'tpope/vim-surround'
-" Plug 'makerj/vim-pdf'
-" Plug 'dbeniamine/cheat.sh-vim'
-" Plug 'HendrikPetertje/vimify'
-" let g:vimwiki_list_ignore_newline=0
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'markonm/traces.vim' "Visual Ex-mode visual line issue
-" Plug 'krisajenkins/vim-pipe'
-" Plug 'neovim/nvim-lsp'
+" Plugin: vim-searchhi {{{2
 
+" Plug 'qxxxb/vim-searchhi'
+
+" nm # <Plug>(searchhi-#)
+" nm * <Plug>(searchhi-*)
+" nm N <Plug>(searchhi-N)
+" nm n <Plug>(searchhi-n)
+" nm g# <Plug>(searchhi-g#)
+" nm g* <Plug>(searchhi-g*)
+" nm gD <Plug>(searchhi-gD)
+" nm gd <Plug>(searchhi-gd)
+" vm # <Plug>(searchhi-v-#)
+" vm * <Plug>(searchhi-v-*)
+" vm N <Plug>(searchhi-v-N)
+" vm n <Plug>(searchhi-v-n)
+" vm g# <Plug>(searchhi-v-g#)
+" vm g* <Plug>(searchhi-v-g*)
+" vm gD <Plug>(searchhi-v-gD)
+" vm gd <Plug>(searchhi-v-gd)
+" nm <C-c> mx<Plug>(searchhi-clear-all)<cr>`x
+
+" " }}}
 " Plugin: vim-markdown {{{2
 
 " Plug 'plasticboy/vim-markdown'
@@ -194,6 +194,29 @@ cal plug#end()
 " au FileType go nm <leader>i :GoInstall<cr>
 
 " }}}
+
+" Plug 'yuttie/comfortable-motion.vim'
+" Plug 'JamshedVesuna/vim-markdown-preview'
+" Plug 'chriskempson/base16-vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'tpope/vim-obsession'
+" Plug 'scrooloose/nerdtree'
+" nm <M-3> :NERDTreeToggle<cr><C-w>=
+" let NERDTreeMinimalView = 1
+" let NERDTreeStatusline = ' NerdTree'
+" let g:NERDTreeMapActivateNode = '<space>'
+" Plug 'itchyny/calendar.vim'
+" Plug 'liuchengxu/vim-clap'
+" Plug 'tpope/vim-surround'
+" Plug 'makerj/vim-pdf'
+" Plug 'dbeniamine/cheat.sh-vim'
+" Plug 'HendrikPetertje/vimify'
+" let g:vimwiki_list_ignore_newline=0
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'markonm/traces.vim' "Visual Ex-mode visual line issue
+" Plug 'krisajenkins/vim-pipe'
+" Plug 'neovim/nvim-lsp'
 
 " }}}
 
