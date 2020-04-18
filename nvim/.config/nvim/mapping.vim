@@ -19,8 +19,8 @@ nm <M-n> :bn<cr>
 nm <M-p> :bp<cr>
 nn <M-n> :bn<cr>
 nm <M-S-o> <C-w>p
-nn <M-Space> zMzo
 nn <C-c> :noh<cr>
+nn <M-Space> zMzo
 nn <M-c> :make<cr>
 nn <leader>z zMzvzz
 im <M-o> <esc><C-w>w
