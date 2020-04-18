@@ -13,26 +13,70 @@ Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'mkitt/tabline.vim'
 Plug 'etdev/vim-hexcolor'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'wellle/targets.vim'
+Plug 'tpope/vim-obsession'
 Plug 'chrisbra/unicode.vim'
 Plug 'ihsanturk/vim-tureng'
 Plug 'tpope/vim-commentary'
+Plug 'freitass/todo.txt-vim'
 Plug 'ihsanturk/vim-emacs-like'
+Plug 'jbmorgado/vim-pine-script'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+" Plugin: rust-doc.vim {{{1
+
+Plug 'rhysd/rust-doc.vim'
+
+let g:rust_doc#define_map_K = 0
+aug vimrc-rust
+	au!
+	au FileType rust nn <buffer><silent>K :<c-u>DeniteCursorWord rust/doc<cr>
+aug END
+
+" }}}
+" Plugin: denite.nvim {{{1
+
+if has('nvim')
+	Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+	Plug 'Shougo/denite.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" Define mappings
+au FileType denite call s:denite_my_settings()
+func! s:denite_my_settings() abort
+	nn <silent><buffer><expr> <cr>
+	\ denite#do_map('do_action')
+	nn <silent><buffer><expr> d
+	\ denite#do_map('do_action', 'delete')
+	nn <silent><buffer><expr> p
+	\ denite#do_map('do_action', 'preview')
+	nn <silent><buffer><expr> q
+	\ denite#do_map('quit')
+	nn <silent><buffer><expr> i
+	\ denite#do_map('open_filter_buffer')
+	nn <silent><buffer><expr> <Space>
+	\ denite#do_map('toggle_select').'j'
+endfunction
+
+nm <m-b> :Denite buffer<cr>
+
+" }}}
 " Plugin: vim-gitgutter {{{1
 
 Plug 'airblade/vim-gitgutter'
 
-nn <leader>gd :GitGutterBufferToggle<cr>
-se signcolumn=yes
-highlight link GitGutterChangeLine DiffText
-let g:gitgutter_override_sign_column_highlight = 1
-let g:gitgutter_highlight_lines = 0
+se scl=yes
 let g:gitgutter_async = 1
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_override_sign_column_highlight = 1
+highlight link GitGutterChangeLine DiffText
 
 " }}}
 " Plugin: vim-bufkill {{{1
@@ -42,7 +86,100 @@ Plug 'qpkorr/vim-bufkill'
 " Close buffer but don't close window
 cnorea bd BD
 cnorea Bd BD
-nm <M-k> :BD<cr>
+nm <m-k> :BD<cr>
+
+" }}}
+" Plugin: code-stats-vim {{{1
+
+Plug 'https://gitlab.com/code-stats/code-stats-vim.git', { 'tag': 'v0.6.0' }
+" ============================================================================
+" File:        package.vim
+" Description: vim plugins with their options and settings
+" Author:      ihsan <ihsanl at pm dot me>
+" License:     MIT license
+" ============================================================================
+
+cal plug#begin()
+
+Plug 'mhinz/vim-rfc'
+Plug 'keith/swift.vim'
+Plug 'sirver/ultisnips'
+Plug 'godlygeek/tabular'
+Plug 'mkitt/tabline.vim'
+Plug 'etdev/vim-hexcolor'
+Plug 'rust-lang/rust.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'wellle/targets.vim'
+Plug 'chrisbra/unicode.vim'
+Plug 'ihsanturk/vim-tureng'
+Plug 'tpope/vim-commentary'
+Plug 'freitass/todo.txt-vim'
+Plug 'ihsanturk/vim-emacs-like'
+Plug 'jbmorgado/vim-pine-script'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
+" Plugin: rust-doc.vim {{{1
+
+Plug 'rhysd/rust-doc.vim'
+
+let g:rust_doc#define_map_K = 0
+aug vimrc-rust
+	au!
+	au FileType rust nn <buffer><silent>K :<c-u>DeniteCursorWord rust/doc<cr>
+aug END
+
+" }}}
+" Plugin: denite.nvim {{{1
+
+if has('nvim')
+	Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+	Plug 'Shougo/denite.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" Define mappings
+au FileType denite call s:denite_my_settings()
+func! s:denite_my_settings() abort
+	nn <silent><buffer><expr> <cr>
+	\ denite#do_map('do_action')
+	nn <silent><buffer><expr> d
+	\ denite#do_map('do_action', 'delete')
+	nn <silent><buffer><expr> p
+	\ denite#do_map('do_action', 'preview')
+	nn <silent><buffer><expr> q
+	\ denite#do_map('quit')
+	nn <silent><buffer><expr> i
+	\ denite#do_map('open_filter_buffer')
+	nn <silent><buffer><expr> <Space>
+	\ denite#do_map('toggle_select').'j'
+endfunction
+
+nm <m-b> :Denite buffer<cr>
+
+" }}}
+" Plugin: vim-gitgutter {{{1
+
+Plug 'airblade/vim-gitgutter'
+
+se scl=yes
+let g:gitgutter_async = 1
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_override_sign_column_highlight = 1
+highlight link GitGutterChangeLine DiffText
+
+" }}}
+" Plugin: vim-bufkill {{{1
+
+Plug 'qpkorr/vim-bufkill'
+
+" Close buffer but don't close window
+cnorea bd BD
+cnorea Bd BD
+nm <m-k> :BD<cr>
 
 " }}}
 " Plugin: code-stats-vim {{{1
@@ -65,12 +202,12 @@ let g:deoplete#enable_at_startup = 1
 
 Plug 'junegunn/fzf.vim'
 
-nm <M-f> :Files<CR>
-nm <M-s> :BLines<CR>
-nm <M-b> :Buffers<CR>
-nm <M-r> :History<CR>
-nm <M-x> :Commands<CR>
-nm <M-h> :Helptags!<CR>
+nm <m-f> :Files<cr>
+nm <m-s> :BLines<cr>
+nm <m-r> :History<cr>
+nm <m-x> :Commands<cr>
+nm <m-h> :Helptags!<cr>
+tma <m-r> <c-\><c-n>:History<cr>
 let g:fzf_commands_expect = 'alt-enter'
 set rtp+=/usr/local/opt/fzf " If fzf installed using Homebrew
 
@@ -79,7 +216,7 @@ set rtp+=/usr/local/opt/fzf " If fzf installed using Homebrew
 
 Plug 'junegunn/goyo.vim'
 
-nm <M-g> :Goyo<CR>
+nm <m-g> :Goyo<cr>
 let g:goyo_height = '100%'
 
 " }}}
@@ -89,29 +226,6 @@ Plug 'junegunn/vim-easy-align'
 
 xm ga <Plug>(LiveEasyAlign)
 nm ga <Plug>(LiveEasyAlign)
-
-" }}}
-" Plugin: vim-searchhi {{{1
-
-Plug 'qxxxb/vim-searchhi'
-
-nm # <Plug>(searchhi-#)
-nm * <Plug>(searchhi-*)
-nm N <Plug>(searchhi-N)
-nm n <Plug>(searchhi-n)
-nm g# <Plug>(searchhi-g#)
-nm g* <Plug>(searchhi-g*)
-nm gD <Plug>(searchhi-gD)
-nm gd <Plug>(searchhi-gd)
-vm # <Plug>(searchhi-v-#)
-vm * <Plug>(searchhi-v-*)
-vm N <Plug>(searchhi-v-N)
-vm n <Plug>(searchhi-v-n)
-vm g# <Plug>(searchhi-v-g#)
-vm g* <Plug>(searchhi-v-g*)
-vm gD <Plug>(searchhi-v-gD)
-vm gd <Plug>(searchhi-v-gd)
-nm <C-c> mx<Plug>(searchhi-clear-all)<cr>`x
 
 " }}}
 " Plugin: vimwiki {{{1
@@ -161,7 +275,7 @@ cal plug#end()
 " vm g* <Plug>(searchhi-v-g*)
 " vm gD <Plug>(searchhi-v-gD)
 " vm gd <Plug>(searchhi-v-gd)
-" nm <C-c> mx<Plug>(searchhi-clear-all)<cr>`x
+" nm <c-c> mx<Plug>(searchhi-clear-all)<cr>`x
 
 " " }}}
 " Plugin: vim-markdown {{{2
@@ -176,10 +290,10 @@ cal plug#end()
 
 " Plug 'camspiers/animate.vim'
 
-" nn <silent> <Up>    :call animate#window_delta_height(-10)<CR>
-" nn <silent> <Down>  :call animate#window_delta_height(10)<CR>
-" nn <silent> <Left>  :call animate#window_delta_width(-10)<CR>
-" nn <silent> <Right> :call animate#window_delta_width(10)<CR>
+" nn <silent> <Up>    :call animate#window_delta_height(-10)<cr>
+" nn <silent> <Down>  :call animate#window_delta_height(10)<cr>
+" nn <silent> <Left>  :call animate#window_delta_width(-10)<cr>
+" nn <silent> <Right> :call animate#window_delta_width(10)<cr>
 
 " let g:fzf_layout = {
 " 			\ 'window': 'new | wincmd J | resize 1 | call animate#window_percent_height(0.3)'
@@ -201,9 +315,8 @@ cal plug#end()
 " Plug 'chriskempson/base16-vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-" Plug 'tpope/vim-obsession'
 " Plug 'scrooloose/nerdtree'
-" nm <M-3> :NERDTreeToggle<cr><C-w>=
+" nm <m-3> :NERDTreeToggle<cr><c-w>=
 " let NERDTreeMinimalView = 1
 " let NERDTreeStatusline = ' NerdTree'
 " let g:NERDTreeMapActivateNode = '<space>'
