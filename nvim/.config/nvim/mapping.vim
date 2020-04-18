@@ -44,8 +44,8 @@ nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 " }}}
 " Section: RFC Docs {{{1
 
-au Filetype rfc nn <space> j/<cr>zt
-au Filetype rfc nn <c-space> k?<cr>zt
+au Filetype rfc nn <buffer> <space> :;//norm! zt<cr>
+au Filetype rfc nn <buffer> <c-space> :;?/norm! zt<cr>
 
 " }}}"
 " Section: Navigation {{{1
@@ -174,8 +174,8 @@ cnorea cdc cd %:p:h<cr>:
 
 " Open a terminal buffer and run foxdot command with pipe option
 
-au FileType python nm <return> mxyap<C-w>wpi<cr><esc><C-w>w`x
-au FileType python vn <return> y<C-w>wpi<cr><esc><C-w>w
+au FileType python nm <buffer> <return> mxyap<C-w>wpi<cr><esc><C-w>w`x
+au FileType python vn <buffer> <return> y<C-w>wpi<cr><esc><C-w>w
 
 " }}}
 
