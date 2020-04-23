@@ -1,0 +1,2 @@
+#!/bin/sh
+[ -f $(basename $1) ] || curl -so $(basename $1) $1 && mupdf-gl $(basename $1)
