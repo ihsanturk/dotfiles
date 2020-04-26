@@ -6,5 +6,5 @@ echo 1 | timeago en &>/dev/null ||
 timestamp() { date +%s; }
 
 input_file=$1
-[ -f $input_file ] &&
+[ -e $input_file ] &&
 	{ echo $(( $(timestamp) - $(date -r $input_file +%s) )) | timeago en; }

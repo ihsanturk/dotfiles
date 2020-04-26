@@ -1,3 +1,0 @@
-#!/bin/sh
-df | grep sdb2 >/dev/null ||
-  sudo mount -o force,rw /dev/sdb2 /mnt/d
