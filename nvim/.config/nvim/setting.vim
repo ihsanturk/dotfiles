@@ -146,13 +146,10 @@ scripte utf-8
 " }}}
 " Section: Appearance {{{1
 
+se bg=dark
 color gruvbox
-hi ColorColumn guibg=#252525
-hi CursorLineNr guibg=#282828
-hi Visual ctermbg=grey gui=none guibg=#333333
-hi TabLineSel ctermfg=142 ctermbg=237 guifg=#FABD2F guibg=#1b2021
-hi TabLine ctermfg=243 ctermbg=237 gui=none guifg=#7c6f64 guibg=#3c3836
-" terminal buffer red should be: #F34833
+hi ErrorMsg ctermfg=Red ctermbg=237
+hi Visual gui=none cterm=none
 
 "}}}
 
