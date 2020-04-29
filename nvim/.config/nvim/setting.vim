@@ -180,6 +180,26 @@ hi Visual gui=none cterm=none
 " se background=dark " Default is already dark
 " au FileType netrw setl bufhidden=delete " Netrw shouldn't be a buffer
 "
+" Dark Modifications {{{2
+
+" hi ColorColumn guibg=#252525
+" hi CursorLineNr guibg=#282828
+" hi Visual ctermbg=grey gui=none guibg=#333333
+" hi TabLineSel ctermfg=142 ctermbg=237 guifg=#FABD2F guibg=#1b2021
+" hi TabLine ctermfg=243 ctermbg=237 gui=none guifg=#7c6f64 guibg=#3c3836
+" " terminal buffer red should be: #F34833
+
+" }}}
+" Section: Template {{{2
+
+" if has("autocmd")
+" 	aug templates
+		" au BufNewFile *.c    0r ~/.vim/template/skeleton.c
+		" au BufNewFile *.wiki 0r ~/.vim/template/skeleton.wiki
+	" aug END
+" endif
+
+" }}}
 " }}}
 
-" vim: set foldmethod=marker :
+" vim: set fdm=marker :
