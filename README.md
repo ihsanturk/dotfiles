@@ -1,12 +1,14 @@
 <h3 align=center>ihsan's dotfiles</h3>
 
-![image](./img/neovim-look-2020-apr-11-4-20.png "Neovim Appearance")
-<p align=center
-	style="margin-top:-30px;">neovim @ <em>2020 Apr 11, 4:20 pm</em>
-</p>
+<img
+	valign=center
+	align=right
+	alt="Neovim Appearance"
+	src="./img/neovim-look-2020-apr-11-4-20.png"
+	width="65%" />
 
-<table align=left width="400px" float="left">
-
+<div style="width: 34%">
+<table >
 <tr><td>OS</td>
 <td><a href="https://www.apple.com/macos/catalina/">macOS Catalina</a></td>
 </tr>
@@ -34,10 +36,9 @@ href="https://github.com/zdharma/zinit">zinit</a> plugin manager</td>
 <td> <a href="https://www.apple.com/safari/">safari</a>
 with <a href="https://github.com/flippidippi/sVim">sVim</a> extension</td>
 </tr>
-
 </table>
+</div>
 
-<p align=right>
 <h3>$ make ...</h3>
 <ul>
 <li>vim</li>
@@ -49,4 +50,3 @@ with <a href="https://github.com/flippidippi/sVim">sVim</a> extension</td>
 <li>vimplug <em>for nvim</em></li>
 <li>shell_helpers <small>(aliases, functions, abbreviations...)</small></li>
 </ul>
-</p>
