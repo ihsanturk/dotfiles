@@ -7,38 +7,39 @@
 
 " Section: Standart mappings {{{1
 
+nm j gj
+nm k gk
 nm * *<c-o>
-nn <M-d> 0D
-nn <Space> za
-vn <Space> za
-nn <C-h> 2zh2h
-nn <C-l> 2zl2l
-nm <M-o> <C-w>w
-nn <C-Space> zM
-nm <M-n> :bn<cr>
-nm <M-p> :bp<cr>
-nn <M-n> :bn<cr>
-nm <M-S-o> <C-w>p
-nn <C-c> :noh<cr>
-nn <M-Space> zMzo
-nn <M-c> :make<cr>
+nn <m-d> 0D
+nn <space> za
+vn <space> za
+nn <c-h> 2zh2h
+nn <c-l> 2zl2l
+nm <m-o> <c-w>w
+nn <c-space> zM
+nm <m-n> :bn<cr>
+nm <m-p> :bp<cr>
+nn <m-n> :bn<cr>
+nm <m-S-o> <c-w>p
+nn <c-c> :noh<cr>
+nn <m-space> zMzo
+nn <m-c> :make<cr>
 nn <leader>z zMzvzz
-im <M-o> <esc><C-w>w
+im <m-o> <esc><c-w>w
 nn gf :e <cfile><cr>
-tno <Esc> <C-\><C-n>
-nm <leader>b :r!brain 
-tma <M-o> <C-\><C-n><C-w>w
+tno <Esc> <c-\><c-n>
+nm <m-1> :set cuc!<cr>
+tma <m-o> <c-\><c-n><c-w>w
 nn <leader>e :se cole=0<cr>
 nn <leader>v :se cole=3<cr>
-vn gs :!sortlength<cr><C-l>
-tma <M-S-o> <C-\><C-n><C-w>p
-nm <M-1> :set cursorcolumn!<cr>
+vn gs :!sortlength<cr><c-l>
+tma <m-S-o> <c-\><c-n><c-w>p
 nn gsr mx:'{+1,'}-1!sort -R<cr>`x
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
-nn <leader>c :topleft 44vs :enew \|:setl nornu nonu<cr><C-w>w
-nm <M-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
+nn <leader>c :topleft 44vs :enew \|:setl nornu nonu<cr><c-w>w
+nm <m-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
 " }}}
@@ -83,42 +84,42 @@ tno `c :tabe +ter<cr>
 tno `n gt
 tno `p gT
 tma `` `
-tma `1 <C-\><C-N>1gt
-tma `2 <C-\><C-N>2gt
-tma `3 <C-\><C-N>3gt
-tma `4 <C-\><C-N>4gt
-tma `5 <C-\><C-N>5gt
-tma `6 <C-\><C-N>6gt
-tma `7 <C-\><C-N>7gt
-tma `8 <C-\><C-N>8gt
-tma `9 <C-\><C-N>9gt
-tma `c <C-\><C-N>:tabe +ter<cr>
-tma `n <C-\><C-N>gt
-tma `p <C-\><C-N>gT
+tma `1 <c-\><c-n>1gt
+tma `2 <c-\><c-n>2gt
+tma `3 <c-\><c-n>3gt
+tma `4 <c-\><c-n>4gt
+tma `5 <c-\><c-n>5gt
+tma `6 <c-\><c-n>6gt
+tma `7 <c-\><c-n>7gt
+tma `8 <c-\><c-n>8gt
+tma `9 <c-\><c-n>9gt
+tma `c <c-\><c-n>:tabe +ter<cr>
+tma `n <c-\><c-n>gt
+tma `p <c-\><c-n>gT
 
 " }}}
 " Section: Pane/window navigation {{{2
 
-nn `h <C-w>h
-nn `j <C-w>j
-nn `k <C-w>k
-nn `l <C-w>l
-tma `h <C-\><C-N><C-w>h
-tma `j <C-\><C-N><C-w>j
-tma `k <C-\><C-N><C-w>k
-tma `l <C-\><C-N><C-w>l
+nn `h <c-w>h
+nn `j <c-w>j
+nn `k <c-w>k
+nn `l <c-w>l
+tma `h <c-\><c-n><c-w>h
+tma `j <c-\><c-n><c-w>j
+tma `k <c-\><c-n><c-w>k
+tma `l <c-\><c-n><c-w>l
 
 nn `b :sp +ter<cr>
 nn `v :vs +ter<cr>
-tma `b <C-\><C-N>:sp +ter<cr>
-tma `v <C-\><C-N>:vs +ter<cr>
+tma `b <c-\><c-n>:sp +ter<cr>
+tma `v <c-\><c-n>:vs +ter<cr>
 
 " }}}
 " }}}
 " Section: Scroll with pivot {{{1
 
-nm <C-j> <C-e>j
-nm <C-k> <C-y>k
+nm <c-j> <c-e>j
+nm <c-k> <c-y>k
 
 " }}}
 " Section: Auto Highlight {{{1
@@ -179,16 +180,17 @@ cnorea cdc cd %:p:h<cr>:
 
 " Open a terminal buffer and run foxdot command with pipe option
 
-au FileType python nm <buffer> <return> mxyap<C-w>wpi<cr><esc><C-w>w`x
-au FileType python vn <buffer> <return> y<C-w>wpi<cr><esc><C-w>w
+au FileType python nm <buffer> <return> mxyap<c-w>wpi<cr><esc><c-w>w`x
+au FileType python vn <buffer> <return> y<c-w>wpi<cr><esc><c-w>w
 
 " }}}
 
 " FORSAKEN {{{1
 
 " nm <esc><esc> :noh
-" nm <M-k> :bp<bar>sp<bar>bn<bar>bd<cr> "Using a plugin for that see: packages
-" nm <M-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
+" nm <leader>b :r!brain 
+" nm <m-k> :bp<bar>sp<bar>bn<bar>bd<cr> "Using a plugin for that see: packages
+" nm <m-t> :let $DIR=expand('%:p:h')<cr>:bo 13sp +ter<cr>cd $DIR;tput clear<cr>
 
 " }}}
 
