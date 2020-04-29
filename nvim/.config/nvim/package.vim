@@ -152,7 +152,7 @@ autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
 Plug 'morhetz/gruvbox'
 
 let g:gruvbox_italic = 1
-let g:gruvbox_termcolors=256
+let g:gruvbox_termcolors=16
 let g:gruvbox_contrast_dark = 'medium'
 
 " }}}
