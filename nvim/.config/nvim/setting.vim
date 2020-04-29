@@ -14,6 +14,7 @@ se ic
 se nu
 se sb
 se awa
+se bri
 se lbr
 se rnu
 se scs
@@ -23,33 +24,50 @@ se wic
 se list
 se ls=0
 se noea
+se noru
 se so=1
 se wmnu
+se wrap
 se nocul
+se nosmd
+se noswf
 se cole=2
-se fo+=ro
-se nowrap
 se ttm=10
 syntax on
 se cocu=nc
 se mouse=a
 se sbr=↪
-se t_Co=256
+se sd='1000
+se mmp=20000
+" se t_Co=256
 se fdm=marker
-se noswapfile
 se icm=nosplit
 setg fenc=utf-8
-set viminfo='1000
+se bs=indent,eol,start
 se noet ts=3 sts=3 sw=3
-set maxmempattern=20000
+se sh=/usr/local/bin/zsh
 filetype plugin indent on
-se shell=/usr/local/bin/zsh
-se backspace=indent,eol,start
+let did_install_syntax_menu = 1
+au FileType vimwiki,vim se tw=79
+let did_install_default_menus = 1
 au FileType rust,python se noet ts=3 sts=3 sw=3
-au FileType sql se makeprg=cat\ %\ \\\|\ mysql\ -uroot
-au FileType markdown se com-=fb:- " Automatically append - in new line.
-se lcs=tab:⁝\ ,eol:\ ,extends:❯,precedes:❮ " Forsaken chars: ▸¬
-au FileType vimwiki,vim se tw=79 " Wrap automatically if text beyonds the limit
+se lcs=tab:⁝\ ,eol:\ ,extends:❯,precedes:❮
+au FileType sql se mp=cat\ %\ \\\|\ mysql\ -uroot
+
+" }}}
+" Section: Shell Mode {{{1
+
+au FileType sh,zsh setl com-=n:#
+au FileType sh,zsh setl fo-=o
+
+" }}}
+" Section: Markdown Mode {{{1
+
+au FileType markdown setl com-=n:#
+au FileType markdown setl com-=fb:-
+au FileType markdown setl com+=n:- " Auto append - in new line.
+au FileType markdown setl fo+=ro
+au FileType markdown setl tw=79
 
 " }}}
 " Section: Make dir if not exists {{{1
