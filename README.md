@@ -3,6 +3,23 @@
 ### neovim @ *2020 Apr 11, 4:20*
 ![image](./img/neovim-look-2020-apr-11-4-20.png "Neovim Appearance")
 
+<div align=right width=50%;>
+
+<h3 align=left>$ make ...</h3>
+
+<ul align=left>
+<li>vim</li>
+<li>zsh</li>
+<li>nvim</li>
+<li>tmux</li>
+<li>emacs</li>
+<li>alacritty</li>
+<li>vimplug <em>for nvim</em></li>
+<li>shell_helpers (aliases, functions, abbreviations...)</li>
+</ul>
+
+</div>
+
 <table align=left style="margin-bottom: 100px; width: 50%;">
 
 <tr>
@@ -40,21 +57,3 @@ with <a href="https://github.com/flippidippi/sVim">sVim</a> extension</td>
 </tr>
 
 </table>
-
-<div align=right width=50%;>
-<h3 align=left>$ make ...</h3>
-
-<ul align=left>
-
-<li>vim</li>
-<li>zsh</li>
-<li>nvim</li>
-<li>tmux</li>
-<li>emacs</li>
-<li>alacritty</li>
-<li>vimplug <em>for nvim</em></li>
-<li>shell_helpers (aliases, functions, abbreviations...)</li>
-
-</ul>
-
-</div>
