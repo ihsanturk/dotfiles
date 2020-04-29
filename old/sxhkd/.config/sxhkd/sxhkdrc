@@ -1,0 +1,30 @@
+# Volume
+# Increase Volume
+XF86AudioRaiseVolume
+  volume 2%+
+
+# Decrease Volume
+XF86AudioLowerVolume
+  volume 2%-
+
+# Mute/Unmute Volume
+XF86AudioMute
+  volume toggle
+
+
+# Backlight
+# Increase Backlight
+Pause
+  brightness +10
+
+# Decrease Backlight
+Scroll_Lock
+  brightness -10
+
+# Increase Backlight
+XF86MonBrightnessUp
+  brightness +10
+
+# Decrease Backlight
+XF86MonBrightnessDown
+  brightness -10
