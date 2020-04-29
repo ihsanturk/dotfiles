@@ -20,103 +20,11 @@ Plug 'tpope/vim-obsession'
 Plug 'chrisbra/unicode.vim'
 Plug 'ihsanturk/vim-tureng'
 Plug 'tpope/vim-commentary'
-Plug 'freitass/todo.txt-vim'
+Plug 'liuchengxu/graphviz.vim'
 Plug 'ihsanturk/vim-emacs-like'
 Plug 'jbmorgado/vim-pine-script'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-
-" Plugin: rust-doc.vim {{{1
-
-Plug 'rhysd/rust-doc.vim'
-
-let g:rust_doc#define_map_K = 0
-aug vimrc-rust
-	au!
-	au FileType rust nn <buffer><silent>K :<c-u>DeniteCursorWord rust/doc<cr>
-aug END
-
-" }}}
-" Plugin: denite.nvim {{{1
-
-if has('nvim')
-	Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-	Plug 'Shougo/denite.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" Define mappings
-au FileType denite call s:denite_my_settings()
-func! s:denite_my_settings() abort
-	nn <silent><buffer><expr> <cr>
-	\ denite#do_map('do_action')
-	nn <silent><buffer><expr> d
-	\ denite#do_map('do_action', 'delete')
-	nn <silent><buffer><expr> p
-	\ denite#do_map('do_action', 'preview')
-	nn <silent><buffer><expr> q
-	\ denite#do_map('quit')
-	nn <silent><buffer><expr> i
-	\ denite#do_map('open_filter_buffer')
-	nn <silent><buffer><expr> <Space>
-	\ denite#do_map('toggle_select').'j'
-endfunction
-
-nm <m-b> :Denite buffer<cr>
-
-" }}}
-" Plugin: vim-gitgutter {{{1
-
-Plug 'airblade/vim-gitgutter'
-
-se scl=yes
-let g:gitgutter_async = 1
-let g:gitgutter_highlight_lines = 0
-let g:gitgutter_override_sign_column_highlight = 1
-highlight link GitGutterChangeLine DiffText
-
-" }}}
-" Plugin: vim-bufkill {{{1
-
-Plug 'qpkorr/vim-bufkill'
-
-" Close buffer but don't close window
-cnorea bd BD
-cnorea Bd BD
-nm <m-k> :BD<cr>
-
-" }}}
-" Plugin: code-stats-vim {{{1
-
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git', { 'tag': 'v0.6.0' }
-" ============================================================================
-" File:        package.vim
-" Description: vim plugins with their options and settings
-" Author:      ihsan <ihsanl at pm dot me>
-" License:     MIT license
-" ============================================================================
-
-cal plug#begin()
-
-Plug 'mhinz/vim-rfc'
-Plug 'keith/swift.vim'
-Plug 'sirver/ultisnips'
-Plug 'godlygeek/tabular'
-Plug 'mkitt/tabline.vim'
-Plug 'etdev/vim-hexcolor'
-Plug 'rust-lang/rust.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'wellle/targets.vim'
-Plug 'chrisbra/unicode.vim'
-Plug 'ihsanturk/vim-tureng'
-Plug 'tpope/vim-commentary'
-Plug 'freitass/todo.txt-vim'
-Plug 'ihsanturk/vim-emacs-like'
-Plug 'jbmorgado/vim-pine-script'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
@@ -192,7 +100,6 @@ let g:codestats_api_key = $CODESTATS_API_KEY
 " Plugin: deoplete{-tabnine} {{{1
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 let g:deoplete#enable_at_startup = 1
 
@@ -309,6 +216,7 @@ cal plug#end()
 
 " }}}
 
+" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 " Plug 'yuttie/comfortable-motion.vim'
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'chriskempson/base16-vim'
