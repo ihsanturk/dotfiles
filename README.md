@@ -7,8 +7,7 @@
 	src="./img/neovim-look-2020-apr-11-4-20.png"
 	width="65%" />
 
-<div style="width: 34%">
-<table >
+<table style="width: 30%">
 <tr><td>OS</td>
 <td><a href="https://www.apple.com/macos/catalina/">macOS Catalina</a></td>
 </tr>
@@ -37,7 +36,6 @@ href="https://github.com/zdharma/zinit">zinit</a> plugin manager</td>
 with <a href="https://github.com/flippidippi/sVim">sVim</a> extension</td>
 </tr>
 </table>
-</div>
 
 <h3>$ make ...</h3>
 <ul>
