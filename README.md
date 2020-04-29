@@ -5,9 +5,9 @@
 	align=right
 	alt="Neovim Appearance"
 	src="./img/neovim-look-2020-apr-11-4-20.png"
-	width="50%" />
+	width="55%" />
 
-<table width=230>
+<table width=35%>
 <tr><td>OS</td>
 <td><a href="https://www.apple.com/macos/catalina/">macOS Catalina</a></td>
 </tr>
