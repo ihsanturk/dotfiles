@@ -92,8 +92,8 @@ au BufWritePost ~/.query.sql
 aug custom_term
 	au!
 	au BufEnter,TermOpen term://* start
-	au TermEnter * setl nonu nornu
-	au TermClose * :q
+	au TermEnter * setl nonu nornu nomod
+	au TermClose * :bd!
 aug END
 
 fun! TermTest(cmd)
