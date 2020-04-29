@@ -87,16 +87,6 @@ au BufWritePost ~/.query.sql
 			\ :silent!cat ~/.query.sql|mysql -turoot > ~/.query_result.txt
 
 " }}}
-" Section: Template {{{1
-
-if has("autocmd")
-	aug templates
-		au BufNewFile *.c    0r ~/.vim/template/skeleton.c
-		au BufNewFile *.wiki 0r ~/.vim/template/skeleton.wiki
-	aug END
-endif
-
-" }}}
 " Section: Terminal Buffer Improvements {{{1
 
 aug custom_term
