@@ -7,7 +7,7 @@
 	src="./img/neovim-look-2020-apr-11-4-20.png"
 	width="55%" />
 
-<table width=35%>
+<table style="width: 35% !important">
 <tr><td>OS</td>
 <td><a href="https://www.apple.com/macos/catalina/">macOS Catalina</a></td>
 </tr>
