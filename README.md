@@ -5,7 +5,7 @@
 	align=right
 	alt="Neovim Appearance"
 	src="./img/neovim-look-2020-apr-11-4-20.png"
-	width="65%" />
+	width="50%" />
 
 <table style="width: 30%">
 <tr><td>OS</td>
