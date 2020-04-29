@@ -39,19 +39,22 @@ href="https://github.com/zdharma/zinit">zinit</a> plugin manager</td>
 with <a href="https://github.com/flippidippi/sVim">sVim</a> extension</td>
 </tr>
 
-<tr>
-<td>Editor</td>
-<td><a href="https://neovim.io/">nvim</a></td>
-</tr>
-
 </table>
 
-### $ make ...
-- vim
-- zsh
-- nvim
-- tmux
-- emacs
-- alacritty
-- vimplug *for nvim*
-- shell_helpers (aliases, functions, abbreviations...)
+<div align=right width=50%;>
+<h3 align=left>$ make ...</h3>
+
+<ul align=left>
+
+<li>vim</li>
+<li>zsh</li>
+<li>nvim</li>
+<li>tmux</li>
+<li>emacs</li>
+<li>alacritty</li>
+<li>vimplug <em>for nvim</em></li>
+<li>shell_helpers (aliases, functions, abbreviations...)</li>
+
+</ul>
+
+</div>
