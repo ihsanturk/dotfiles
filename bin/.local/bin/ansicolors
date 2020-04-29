@@ -1,3 +1,0 @@
-#!/bin/bash
-
-for i in {0..260}; do tput setaf $i; echo $i hello; done

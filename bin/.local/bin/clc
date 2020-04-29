@@ -1,8 +1,0 @@
-#!/bin/sh
-
-q=$(dmenu)
-a=$(echo $q | bc -l)
-
-if ! [ "$q" = "" ]; then 
-  dunstify -a "Calculation" "$a";
-fi

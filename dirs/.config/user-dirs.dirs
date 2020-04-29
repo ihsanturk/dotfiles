@@ -1,4 +1,0 @@
-XDG_DESKTOP_DIR="$HOME/Desktop"
-XDG_DOWNLOAD_DIR="$HOME/Download"
-XDG_DOCUMENTS_DIR="$HOME/Dropbox/Document"
-XDG_PICTURES_DIR="$HOME/Dropbox/Picture"

@@ -1,2 +1,0 @@
-#!/bin/sh
-man $1 | grep -E '^\s*-\w.*$' -o | sed 's/^\s*//' | dmenu -l 20 -i
