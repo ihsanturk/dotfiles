@@ -7,6 +7,9 @@
 
 " Section: Standart settings {{{1
 
+" To see what is the option doing press:
+"    'K (Shift-k) on that word' or ':h ic'
+
 se ic
 se nu
 se sb
