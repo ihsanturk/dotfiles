@@ -6,7 +6,10 @@
 # =============================================================================
 
 set -o emacs
+setopt hist_ignore_dups
 setopt hist_ignore_space
+setopt appendhistory
+setopt share_history
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
 
 . $HOME/.func
@@ -54,7 +57,6 @@ zinit snippet OMZ::themes/robbyrussell.zsh-theme
 
 # setopt promptsubst
 # setopt MENU_COMPLETE
-# setopt hist_ignore_dups
 # zinit light dfurnes/purer
 # zstyle :prompt:pure:git:stash show yes
 # zinit ice pick"async.zsh" src"pure.zsh"
