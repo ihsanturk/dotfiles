@@ -26,7 +26,6 @@ alias grep="grep --color=auto"
 alias vs="nvim -S $HOME/Session.vim"
 alias t='tmux attach &>/dev/null || tmux'
 alias mp3='youtube-dl -x --audio-format mp3'
-alias tureng='tureng-api &>/dev/null &!; tureng'
 alias ll='ls -lh | awk "{ print \$NF }" | sed 1d'
 alias find-executables='find . -perm +111 -type f'
 alias note="$EDITOR ~/Dropbox/Document/Wiki/note/index.wiki"
