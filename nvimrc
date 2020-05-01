@@ -42,36 +42,6 @@ aug vimrc-rust
 aug END
 
 " }}}
-" Plugin: denite.nvim {{{2
-
-if has('nvim')
-	Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-	Plug 'Shougo/denite.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" Define mappings
-au FileType denite call s:denite_my_settings()
-func! s:denite_my_settings() abort
-	nn <silent><buffer><expr> <cr>
-	\ denite#do_map('do_action')
-	nn <silent><buffer><expr> d
-	\ denite#do_map('do_action', 'delete')
-	nn <silent><buffer><expr> p
-	\ denite#do_map('do_action', 'preview')
-	nn <silent><buffer><expr> q
-	\ denite#do_map('quit')
-	nn <silent><buffer><expr> i
-	\ denite#do_map('open_filter_buffer')
-	nn <silent><buffer><expr> <Space>
-	\ denite#do_map('toggle_select').'j'
-endfunction
-
-nm <m-b> :Denite buffer<cr>
-
-" }}}
 " Plugin: vim-gitgutter {{{2
 
 Plug 'airblade/vim-gitgutter'
@@ -95,7 +65,8 @@ nm <m-k> :BD<cr>
 " }}}
 " Plugin: code-stats-vim {{{2
 
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git', { 'tag': 'v0.6.0' }
+Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
+", { 'tag': 'v0.6.0' }
 
 let g:codestats_api_key = $CODESTATS_API_KEY
 
@@ -115,6 +86,7 @@ Plug 'junegunn/fzf.vim'
 nm <m-f> :Files<cr>
 nm <m-s> :BLines<cr>
 nm <m-r> :History<cr>
+nm <m-b> :Buffers<cr>
 nm <m-x> :Commands<cr>
 nm <m-h> :Helptags!<cr>
 tma <m-r> <c-\><c-n>:History<cr>
@@ -360,7 +332,7 @@ se spr
 se tgc
 se wic
 se list
-se ls=0
+se ls=2
 se noea
 se noru
 se so=1
@@ -452,7 +424,9 @@ let g:netrw_dirhistmax = 0
 " }}}
 " Section: Set scripts to be executable from the shell {{{2
 
-au FileType sh if getline(1) =~ "^#!.*/bin/" | sil !chmod +x <afile> | en
+if getline(1) =~ "^#!.*/bin/"
+	sil call system('chmod +x ' . shellescape(fname))
+en
 
 " }}}
 " Section: Assumes set ignorecase smartcase {{{2
@@ -579,6 +553,41 @@ endfunc
 ino <Backspace> <C-R>=SmartBackspace()<cr>
 
 " }}}
+
+" }}}
+
+" F O R S A K E N {{{1
+
+" " Plugin: denite.nvim {{{2
+
+" if has('nvim')
+" 	Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+" 	Plug 'Shougo/denite.nvim'
+" 	Plug 'roxma/nvim-yarp'
+" 	Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+
+" " Define mappings
+" au FileType denite call s:denite_my_settings()
+" func! s:denite_my_settings() abort
+" 	nn <silent><buffer><expr> <cr>
+" 	\ denite#do_map('do_action')
+" 	nn <silent><buffer><expr> d
+" 	\ denite#do_map('do_action', 'delete')
+" 	nn <silent><buffer><expr> p
+" 	\ denite#do_map('do_action', 'preview')
+" 	nn <silent><buffer><expr> q
+" 	\ denite#do_map('quit')
+" 	nn <silent><buffer><expr> i
+" 	\ denite#do_map('open_filter_buffer')
+" 	nn <silent><buffer><expr> <Space>
+" 	\ denite#do_map('toggle_select').'j'
+" endfunction
+
+" nm <m-b> :Denite buffer<cr>
+
+" " }}}
 
 " }}}
 
