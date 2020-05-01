@@ -499,7 +499,7 @@ hi ErrorMsg ctermfg=Red ctermbg=237
 hi Visual gui=none cterm=none
 
 " Statusline {{{3
-hi User1 ctermfg=65 ctermbg=237 cterm=none guifg=#689D6A guibg=#3A3A3A gui=none
+hi User1 ctermfg=11 ctermbg=237 cterm=none guifg=#FABD2F guibg=#3A3A3A gui=none
 hi User2 ctermfg=3  ctermbg=238 cterm=none guifg=#D49721 guibg=#444444 gui=none
 hi User3 ctermfg=9  ctermbg=236 cterm=bold guifg=#F84833 guibg=#303030 gui=none
 hi User4 ctermfg=6  ctermbg=237 cterm=bold guifg=#689D6A guibg=#3A3A3A gui=bold
