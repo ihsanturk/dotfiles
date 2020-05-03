@@ -5,6 +5,7 @@ typeset -A abbreviations
 abbreviations=(
 	"turneg"	"tureng"
 	"tuerng"	"tureng"
+	":E"	":e"
 )
 
 magic-abbrev-expand() {
