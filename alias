@@ -38,7 +38,7 @@ alias les='les'
 alias c..='cd ..'
 alias :E="$EDITOR";
 alias :e="$EDITOR";
-alias tre='tree'; alias ter='tree' alias=rtee='tree'
+alias tre='tree'; alias ter='tree'; alias=rtee='tree'
 alias :Q='exit'; alias :q='exit'; alias xeit=exit; alias q='exit';
 alias :w="echo you such a vimmer"; alias :W="echo you such a vimmer";
 alias :wq='exit'; alias :Wq='exit'; alias :wQ='exit'; alias :WQ='exit';
