@@ -1,5 +1,8 @@
 include config.mk
 
+ultisnips:
+	ln -fs ${PWD}/ulti-snippets/ ${_ULTI_SNIPS}/ultisnips
+
 vimplug:
 	[ -f ${_VIMPLUG} ] || curl -sfLo ${_VIMPLUG} --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
