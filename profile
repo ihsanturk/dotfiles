@@ -24,6 +24,7 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$VULKAN_SDK/bin$:$PATH
+export PATH=/usr/local/opt/bc/bin:$PATH
 export PATH=/usr/local/opt/m4/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
