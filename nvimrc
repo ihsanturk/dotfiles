@@ -490,7 +490,7 @@ set statusline+=%1*\ %{TotalBufferNumber()}b "1 BufferNumber
 set statusline+=\ %0*\ %f "0 FilePath
 set statusline+=\ %3*%m%r%w%0*%= "3 ReadOnly?
 set statusline+=\ %4*\ %y "4 FileType
-set statusline+=\ %6*\ %P\  "6 Top/bot.
+set statusline+=\ %6*%{strftime('%-d\ %b\ %-H:%M')}\  "6 Time
 hi StatusLine gui=bold guifg=#689D6A guibg=#303030 ctermfg=14 ctermbg=234 cterm=bold
 hi StatusLineNC gui=none guifg=#585858 guibg=#303030 ctermfg=240 ctermbg=236
 hi StatusLineTerm ctermfg=233 ctermbg=14
