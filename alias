@@ -34,8 +34,11 @@ alias ip="ifconfig|grep -o 'inet \S*'|sed '/127\.0\.0/d'|grep -o '[0-9\.]\+'"
 
 # Typo
 alias gti='git'
+alias les='les'
+alias tre='tree'
 alias c..='cd ..'
 alias :e="$EDITOR";
+alias :E="$EDITOR";
 alias :Q='exit'; alias :q='exit'; alias xeit=exit; alias q='exit';
 alias :w="echo you such a vimmer"; alias :W="echo you such a vimmer";
 alias :wq='exit'; alias :Wq='exit'; alias :wQ='exit'; alias :WQ='exit';
