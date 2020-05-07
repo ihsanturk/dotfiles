@@ -426,8 +426,8 @@ let g:netrw_dirhistmax = 0
 " Section: Set scripts to be executable from the shell {{{2
 
 if getline(1) =~ "^#!.*/bin/"
-	sil call system('chmod +x ' . shellescape(fname))
-en
+	call system('chmod +x ' . shellescape(expand("%:p")))
+endif
 
 " }}}
 " Section: Assumes set ignorecase smartcase {{{2
