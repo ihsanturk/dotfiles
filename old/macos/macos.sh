@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # original by zzzeyez, @danteissaias's version
 
+# Screenshots goes here
+mkdir -p ~/Documents/technical-screenshots
+defaults write com.apple.screencapture location ~/Documents/technical-scre enshots
+
 # Stop System Preferences from overriding stuff
 osascript -e 'tell application "System Preferences" to quit'
 
