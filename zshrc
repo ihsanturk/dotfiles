@@ -45,7 +45,7 @@ zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light https://gitlab.com/code-stats/code-stats-zsh/-/raw/master/codestats.plugin.zsh
 zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
-zinit load agkozak/zsh-z
+zinit load rupa/z
 zinit light https://raw.githubusercontent.com/denisidoro/navi/master/shell/navi.plugin.zsh
 
 # OhMyZsh {{{2
