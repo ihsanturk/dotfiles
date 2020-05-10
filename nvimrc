@@ -27,13 +27,19 @@ Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/graphviz.vim'
 Plug 'ihsanturk/vim-emacs-like'
 Plug 'jbmorgado/vim-pine-script'
-Plug 'neovimhaskell/haskell-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'benjamineskola/vim-applescript'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+" Plugin: haskell.vim {{{2
+
+Plug 'neovimhaskell/haskell-vim'
+
+au FileType haskell setl et
+
+" }}}
 " Plugin: rust-doc.vim {{{2
 
 Plug 'rhysd/rust-doc.vim'
