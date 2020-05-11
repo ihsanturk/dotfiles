@@ -3,9 +3,14 @@ setopt extended_glob
 typeset -A abbreviations
 
 abbreviations=(
-	"turneg"	"tureng"
-	"tuerng"	"tureng"
-	":E"	":e"
+	'turneg'	'tureng'
+	'tuerng'	'tureng'
+	'whihc'	'which'
+	'whcih'	'which'
+	'wchih'	'which'
+	'whic'	'which'
+	'whci'	'which'
+	'wchi'	'which'
 )
 
 magic-abbrev-expand() {

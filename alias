@@ -1,12 +1,12 @@
 #!/bin/sh
 
 alias l='ls'
-alias v='nvim'
 alias tn='tmux'
 alias ..='cd ..'
 alias la='ls -a'
 alias mv='mv -n'
 alias rm='trash'
+alias note="move"
 alias ga='git add'
 alias pup='pup -p'
 alias gd='git diff'
@@ -23,18 +23,18 @@ alias cpwd='pwd | pbcopy'
 alias timestamp="date +%s"
 alias watch='watch -cn0.1'
 alias grep="grep --color=auto"
+alias tmp="$EDITOR $(mkptemp)"
 alias vs="nvim -S $HOME/Session.vim"
 alias t='tmux attach &>/dev/null || tmux'
 alias mp3='youtube-dl -x --audio-format mp3'
 alias ll='ls -lh | awk "{ print \$NF }" | sed 1d'
 alias find-executables='find . -perm +111 -type f'
-alias note="$EDITOR ~/Dropbox/Document/Wiki/note/index.wiki"
 alias captiveloop='until captive -i | grep -m 1 "Success"; do : ; done'
 alias ip="ifconfig|grep -o 'inet \S*'|sed '/127\.0\.0/d'|grep -o '[0-9\.]\+'"
 
 # Typo
 alias gti='git'
-alias les='les'
+alias les='less'
 alias c..='cd ..'
 alias :E="$EDITOR";
 alias :e="$EDITOR";
@@ -43,6 +43,7 @@ alias :Q='exit'; alias :q='exit'; alias xeit=exit; alias q='exit';
 alias :w="echo you such a vimmer"; alias :W="echo you such a vimmer";
 alias :wq='exit'; alias :Wq='exit'; alias :wQ='exit'; alias :WQ='exit';
 alias exi='exit'; alias eixt='exit'; alias exti='exit'; alias ixet='exit';
+alias eitx='exit';
 
 # Brew 
 alias ps='brew search'
