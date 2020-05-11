@@ -1,5 +1,9 @@
 #!/bin/sh
 
+tmp() { #1:extension
+	nvr --remote-wait "$(mktemp).$1";
+}
+
 notefromyoutube() { #1:title-one-hunk #2:youtube_link
 	videoid=$(echo "$2" | grep -o 'v=[^\&]*' | cut -c3-)
 	cd "${HOME}/Dropbox/document/blog/ihsanturk.dev/" || {
