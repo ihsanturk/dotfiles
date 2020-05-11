@@ -10,7 +10,7 @@ notefromyoutube() { #1:title-one-hunk #2:youtube_link
 		echo >&2 "$(basename "$0"): No such directory."; return 1;
 	}
 	hugo new "posts/$1.md" && {
-		printf "Notes from this [YouTube video](%s).\n\n[![video](http://img.youtube.com/vi/%s/0.jpg)](%s)" "$2" "$videoid" "$2">> "${HOME}/Dropbox/document/blog/ihsanturk.dev/content/posts/$1.md"
+		printf "Notes from [this YouTube video](%s).\n\n[![video](http://img.youtube.com/vi/%s/0.jpg)](%s)" "$2" "$videoid" "$2">> "${HOME}/Dropbox/document/blog/ihsanturk.dev/content/posts/$1.md"
 		nvr --remote-wait "${HOME}/Dropbox/document/blog/ihsanturk.dev/content/posts/$1.md"
 	}
 }
