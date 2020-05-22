@@ -6,6 +6,8 @@
 " License:     MIT License
 " =============================================================================
 
+let VIMRC = "${HOME}/.config/nvim/init.vim"
+
 " plugins {{{1
 
 cal plug#begin()
@@ -33,6 +35,18 @@ Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+" Plugin: vim-ledger {{{2
+
+Plug 'ledger/vim-ledger'
+
+let g:ledger_maxwidth = 79
+
+aug ledgerf
+	au! BufWritePost *.ledger	:'{,'}LedgerAlign
+	au! FileType ledger	setl ts=8 noet
+aug END
+
+" }}}
 " Plugin: haskell.vim {{{2
 
 Plug 'neovimhaskell/haskell-vim'
@@ -187,14 +201,14 @@ nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 au FileType help nn <buffer> <m-k> :q<cr>
 
 " }}}
-" Section: RFC Docs {{{2
+" RFC Docs {{{2
 
 au Filetype rfc nn <buffer> <space> :;//norm! zt<cr>
 au Filetype rfc nn <buffer> <c-space> :;?/norm! zt<cr>
 
 " }}}"
-" Section: Navigation {{{2
-" Section: Tab navigation {{{3
+" Navigation {{{2
+" Tab navigation {{{3
 
 nn `` `
 nn `1 1gt
@@ -237,7 +251,7 @@ tma `n <c-\><c-n>gt
 tma `p <c-\><c-n>gT
 
 " }}}
-" Section: Pane/window navigation {{{3
+" Pane/window navigation {{{3
 
 nn `h <c-w>h
 nn `j <c-w>j
@@ -255,13 +269,13 @@ tma `v <c-\><c-n>:vs +ter<cr>
 
 " }}}
 " }}}
-" Section: Scroll with pivot {{{2
+" Scroll with pivot {{{2
 
 nm <c-j> <c-e>j
 nm <c-k> <c-y>k
 
 " }}}
-" Section: Auto Highlight {{{2
+" Auto Highlight {{{2
 
 nm <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<cr>
 func! AutoHighlightToggle()
@@ -283,7 +297,7 @@ func! AutoHighlightToggle()
 endf
 
 " }}}
-" Section: Easier text-objects on numbers {{{2
+" Easier text-objects on numbers {{{2
 
 vn i9  i(
 vn i0  i)
@@ -299,7 +313,7 @@ nn da9 da(
 nn da0 da)
 
 " }}}
-" Section: Ex/Mommand Mode {{{2
+" Ex/Mommand Mode {{{2
 
 cnorea Q   q
 cnorea H   h
@@ -315,7 +329,7 @@ cnorea man Man
 cnorea cdc cd %:p:h<cr>:
 
 " }}}
-" Section: FoxDot {{{2
+" FoxDot {{{2
 
 " Open a terminal buffer and run foxdot command with pipe option
 
@@ -373,13 +387,13 @@ au FileType rust,python se noet ts=3 sts=3 sw=3
 se lcs=tab:⁝\ ,eol:\ ,extends:❯,precedes:❮
 au FileType sql se mp=cat\ %\ \\\|\ mysql\ -uroot
 
-" Section: Shell Mode {{{2
+" Shell Mode {{{2
 
 au FileType sh,zsh setl com-=n:#
 au FileType sh,zsh setl fo-=o
 
 " }}}
-" Section: Markdown Mode {{{2
+" Markdown Mode {{{2
 
 au FileType markdown setl com-=n:#
 au FileType markdown setl com-=fb:-
@@ -388,7 +402,7 @@ au FileType markdown setl fo+=ro
 au FileType markdown setl tw=79
 
 " }}}
-" Section: Make dir if not exists {{{2
+" Make dir if not exists {{{2
 
 augroup Mkdir
   autocmd!
@@ -399,13 +413,13 @@ augroup Mkdir
 augroup END
 
 " }}}
-" Section: SQL Query {{{2
+" SQL Query {{{2
 
 au BufWritePost ~/.query.sql 
 			\ :silent!cat ~/.query.sql|mysql -turoot > ~/.query_result.txt
 
 " }}}
-" Section: Terminal Buffer Improvements {{{2
+" Terminal Buffer Improvements {{{2
 
 aug custom_term
 	au!
@@ -424,7 +438,7 @@ fun! s:OnExit(job_id, code, event) dict
 endf
 
 " }}}
-" Section: Variables {{{2
+" Variables {{{2
 
 let mapleader = '\'
 let g:netrw_liststyle=3
@@ -432,14 +446,14 @@ let g:is_posix = 1 "shell
 let g:netrw_dirhistmax = 0
 
 " }}}
-" Section: Set scripts to be executable from the shell {{{2
+" Set scripts to be executable from the shell {{{2
 
 if getline(1) =~ "^#!.*/bin/"
 	call system('chmod +x ' . shellescape(expand("%:p")))
 endif
 
 " }}}
-" Section: Assumes set ignorecase smartcase {{{2
+" Assumes set ignorecase smartcase {{{2
 
 aug dynamic_smartcase
 	au!
@@ -448,13 +462,13 @@ aug dynamic_smartcase
 aug END
 
 " }}}
-" Section: Jump/remember to the last position {{{2
+" Jump/remember to the last position {{{2
 
 au BufReadPost * if line("'\"") > 1 && 
 			\ line("'\"") <= line("$") | exe "normal! g'\"zz" | end
 
 " }}}
-" Section: 80 column rule {{{2
+" 80 column rule {{{2
 
 if exists('+colorcolumn')
 	se cc=80
@@ -463,7 +477,7 @@ else
 end
 
 " }}}
-" Section: Persistent undo {{{2
+" Persistent undo {{{2
 
 if has('persistent_undo')
 	se udf
@@ -475,7 +489,7 @@ end
 scripte utf-8
 
 " }}}
-" Section: Appearance {{{2
+" Appearance {{{2
 
 se bg=dark
 color gruvbox
@@ -512,7 +526,7 @@ hi StatusLineTermNC ctermfg=240 ctermbg=236 term=none
 " }}}
 " snippets {{{1
 
-" Section: Expand quotes/parantheses automatically {{{2
+" Expand quotes/parantheses automatically {{{2
 
 ino <expr> ` getline(".")[col(".")-1]=="`" ? "`" : "``<Left>"
 au FileType html,markdown ino < <><Left>
@@ -520,7 +534,7 @@ ino { {}<Left>
 ino ( ()<Left>
 ino [ []<Left>
 
-" Section: Do not expand if already did {{{3
+" Do not expand if already did {{{3
 
 ino <expr> <cr> getline(".")[col(".")-2:col(".")-1]=="{}" ?
 			\ "<cr><esc>O" : "<cr>"
@@ -531,7 +545,7 @@ ino <expr> ] getline(".")[col(".")-2:col(".")-1]=="[]" ? "<Right>" : "]"
 
 " }}}
 " }}}
-" Section: Smart Space Key {{{2
+" Smart Space Key {{{2
 
 func! SmartSpace()
 	let l:aroundchars = getline(".")[col(".")-2:col(".")-1]
@@ -550,7 +564,7 @@ endf
 ino <Space> <C-R>=SmartSpace()<cr>
 
 " }}}
-" Section: Smart Backspace Key {{{2
+" Smart Backspace Key {{{2
 
 func! SmartBackspace()
 	let l:aroundchars = getline(".")[col(".")-2:col(".")-1]
