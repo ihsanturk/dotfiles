@@ -166,7 +166,6 @@ cal plug#end()
 nm j gj
 nm k gk
 nm * *<c-o>
-nn <m-d> 0D
 nn <space> za
 vn <space> za
 nn <c-h> 2zh2h
@@ -193,6 +192,7 @@ tma <m-S-o> <c-\><c-n><c-w>p
 nn gsr mx:'{+1,'}-1!sort -R<cr>`x
 nn <leader>c :exec "e " . VIMRC<cr>
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
+vn // y/\V<C-R>=escape(@",'/\')<CR><CR>
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <m-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
