@@ -21,6 +21,7 @@ Plug 'dense-analysis/ale'
 Plug 'etdev/vim-hexcolor'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-obsession'
 Plug 'chrisbra/unicode.vim'
@@ -33,6 +34,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'benjamineskola/vim-applescript'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'file:///Users/ihsan/.config/nvim/plugged/vim-neuron'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Plugin: vim-ledger {{{2
