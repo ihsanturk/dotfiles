@@ -191,10 +191,10 @@ nn <leader>v :se cole=3<cr>
 vn gs :!sortlength<cr><c-l>
 tma <m-S-o> <c-\><c-n><c-w>p
 nn gsr mx:'{+1,'}-1!sort -R<cr>`x
+nn <leader>c :exec "e " . VIMRC<cr>
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
-nn <leader>c :topleft 44vs :enew \|:setl nornu nonu<cr><c-w>w
 nm <m-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
