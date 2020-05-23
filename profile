@@ -28,11 +28,12 @@ export FZF_ALT_C_OPTS="--height 5%"
 export ZPLUG_HOME=/usr/local/opt/zplug
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export SSLKEYLOGFILE="$HOME/SSLKeyLogFile"
+export RUST_WRAPPER=/usr/local/bin/sccache
 export LDFLAGS="-L/usr/local/opt/openblas/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 export CPPFLAGS="-I/usr/local/opt/openblas/include"
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export FZF_CTRL_R_OPTS="--height 0% --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
+export FZF_CTRL_R_OPTS="--height 10% --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
