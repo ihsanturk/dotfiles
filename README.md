@@ -38,6 +38,7 @@ with <a href="https://github.com/flippidippi/sVim">sVim</a> extension</td>
 <h3>$ make ...</h3>
 <ul>
 <li>vim</li>
+<li>bat</li>
 <li>zsh</li>
 <li>nvim</li>
 <li>tmux</li>

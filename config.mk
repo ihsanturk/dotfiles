@@ -3,6 +3,7 @@ _ZSH = ${HOME}/.zshrc
 _SHELL_HELPERS = ${HOME}
 _EMACS = ${HOME}/.emacs.d
 _TMUX = ${HOME}/.tmux.conf
+_BAT = ${HOME}/.config/bat/config
 _ULTI_SNIPS = ${HOME}/.config/nvim
 _NVIM = ${HOME}/.config/nvim/init.vim
 _VIMPLUG = ${HOME}/.config/nvim/autoload/plug.vim

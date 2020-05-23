@@ -1,5 +1,9 @@
 include config.mk
 
+bat:
+	mkdir -p $(shell dirname ${_BAT})
+	ln -fs ${PWD}/batrc ${_BAT}
+
 ultisnips:
 	ln -fs ${PWD}/ulti-snippets/ ${_ULTI_SNIPS}/ultisnips
 
