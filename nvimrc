@@ -41,11 +41,12 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 Plug 'ledger/vim-ledger'
 
-let g:ledger_maxwidth = 79
+let g:ledger_maxwidth = 80
 
 aug ledgerf
-	au! BufWritePost *.ledger	:'{,'}LedgerAlign
-	au! FileType ledger	setl ts=8 noet
+	au!
+	au FileType ledger	nm <LocalLeader>a :LedgerAlign<cr>
+	au FileType ledger	setl ts=8 noet
 aug END
 
 " }}}
