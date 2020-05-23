@@ -35,7 +35,8 @@ autoload -Uz _zinit
 ### End of Zinit installer's chunk }}}
 # Aded by ghcup installer {{{1
 
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] &&
+	source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
 # }}}
 # Plugins {{{1
@@ -45,7 +46,7 @@ zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light https://gitlab.com/code-stats/code-stats-zsh/-/raw/master/codestats.plugin.zsh
 zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
-zinit load rupa/z
+zinit light rupa/z
 zinit light https://raw.githubusercontent.com/denisidoro/navi/master/shell/navi.plugin.zsh
 
 # OhMyZsh {{{2
