@@ -412,6 +412,7 @@ au FileType sh,zsh setl fo-=o
 " }}}
 " Markdown Mode {{{2
 
+au FileType markdown setl spell
 au FileType markdown setl com-=n:#
 au FileType markdown setl com-=fb:-
 au FileType markdown setl com+=n:- " Auto append - in new line.
