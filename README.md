@@ -59,3 +59,7 @@ href="https://github.com/zdharma/zinit">zinit</a> plugin manager</td>
 ### TODO
 - [ ] I switched to doom emacs. Add doom custom configuration files to this
 repo. (Added @1590236484)
+
+### Donate
+Ethereum:	0xf32A82328fF44009E7419A15E22aCE1A3553aD56
+Monero:	monero:44aad9gh5Eg5nHBSZmCJqc4C1JwbioLvU7EpVqDz81rwaQ6UimyQm79PFFwfLETJVzjQZUMh4BCL5XrM8EuDYh14Bn63WnS
