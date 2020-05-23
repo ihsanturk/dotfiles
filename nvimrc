@@ -199,7 +199,21 @@ nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <m-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
-" Section: Help {{{2
+" Create empty buffer for center purpose {{{2
+" FIXME: After toggleing a few times, function is not working properly.
+func CenterHelperToggle()
+	if bufexists(":e /private/tmp/center_helper")
+		:bd! ":e /private/tmp/center_helper"
+	else
+		:topleft 44vs :e /private/tmp/center_helper
+	en
+endf
+
+" |:setl nornu nonu
+nn <leader>l :call CenterHelperToggle()<cr>
+
+" }}}
+" Help {{{2
 
 au FileType help nn <buffer> <m-k> :q<cr>
 
