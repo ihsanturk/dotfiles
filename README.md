@@ -3,7 +3,7 @@
 <img
 	valign=center
 	alt="Neovim Appearance"
-	src="./img/neovim-look-2020-apr-11-4-20.png" />
+	src="./img/neovim-look-2020-may-23-3-58-makeup.png"/>
 
 <table>
 <tr><td>OS</td>
@@ -22,16 +22,24 @@ href="https://github.com/zdharma/zinit">zinit</a> plugin manager</td>
 </tr>
 
 <tr><td>Terminal</td>
-<td><a href="https://github.com/alacritty/alacritty">alacritty<a/></td>
+<td><a href="https://github.com/alacritty/alacritty">alacritty</a>
+</td>
 </tr>
 
 <tr><td>Editor</td>
 <td><a href="https://neovim.io/">nvim</a></td>
 </tr>
 
+<tr><td>Vim Plug-in Manager</td>
+<td><a href="https://github.com/junegunn/vim-plug">vim-plug</a></td>
+</tr>
+
+<tr><td>Colors</td>
+<td><a href="https://github.com/morhetz/gruvbox">gruvbox</a></td>
+</tr>
+
 <tr><td>Browser</td>
-<td> <a href="https://www.apple.com/safari/">safari</a>
-with <a href="https://github.com/flippidippi/sVim">sVim</a> extension</td>
+<td> <a href="https://www.apple.com/safari/">safari</a> (default)
 </tr>
 </table>
 
@@ -44,6 +52,10 @@ with <a href="https://github.com/flippidippi/sVim">sVim</a> extension</td>
 <li>tmux</li>
 <li>emacs</li>
 <li>alacritty</li>
-<li>vimplug <em>for nvim</em></li>
-<li>shell_helpers <small>(aliases, functions, abbreviations...)</small></li>
+<li>vimplug <small><em>(for nvim)</em></small></li>
+<li>shell_helpers <small><em>(aliases, functions, abbreviations...)</em></small></li>
 </ul>
+
+### TODO
+- [ ] I switched to doom emacs. Add doom custom configuration files to this
+repo. (Added @1590236484)
