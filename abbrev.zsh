@@ -5,6 +5,7 @@ typeset -A abbreviations
 abbreviations=(
 	'turneg'	'tureng'
 	'tuerng'	'tureng'
+	'whichi'	'which'
 	'whihc'	'which'
 	'whcih'	'which'
 	'wchih'	'which'
