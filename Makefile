@@ -1,5 +1,8 @@
 include config.mk
 
+kakoune:
+	mkdir -p $(shell dirname ${_KAKOUNE})
+	ln -fs ${PWD}/kakrc ${_KAKOUNE}
 bat:
 	mkdir -p $(shell dirname ${_BAT})
 	ln -fs ${PWD}/batrc ${_BAT}

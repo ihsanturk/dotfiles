@@ -5,6 +5,7 @@ _EMACS = ${HOME}/.emacs.d
 _TMUX = ${HOME}/.tmux.conf
 _BAT = ${HOME}/.config/bat/config
 _ULTI_SNIPS = ${HOME}/.config/nvim
+_KAKOUNE = ${HOME}/.config/kak/kakrc
 _NVIM = ${HOME}/.config/nvim/init.vim
 _VIMPLUG = ${HOME}/.config/nvim/autoload/plug.vim
 _ALACRITTY = ${HOME}/.config/alacritty/alacritty.yml
