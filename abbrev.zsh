@@ -12,6 +12,7 @@ abbreviations=(
 	'whic'	'which'
 	'whci'	'which'
 	'wchi'	'which'
+	'whchi'	'which'
 )
 
 magic-abbrev-expand() {
