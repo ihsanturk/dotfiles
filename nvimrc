@@ -13,6 +13,7 @@ let VIMRC = "${HOME}/.config/nvim/init.vim"
 cal plug#begin()
 
 Plug 'mhinz/vim-rfc'
+Plug 'lingceng/z.vim'
 Plug 'keith/swift.vim'
 Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
@@ -39,6 +40,7 @@ Plug 'file:///Users/ihsan/.config/nvim/plugged/vim-neuron'
 
 Plug 'JamshedVesuna/vim-markdown-preview'
 
+" let do not open automatically.
 let vim_markdown_preview_github=1
 let vim_markdown_preview_toggle=2
 

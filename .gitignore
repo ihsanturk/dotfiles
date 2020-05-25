@@ -1,3 +1,4 @@
+emacs-config/init.el
 .DS_Store
 bin/.local/.DS_Store
 bin/.local/bin/brute/
