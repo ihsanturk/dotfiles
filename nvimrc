@@ -36,15 +36,6 @@ Plug 'benjamineskola/vim-applescript'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 Plug 'file:///Users/ihsan/.config/nvim/plugged/vim-neuron'
 
-" Plugin: vim-markdown-preview {{{2
-
-Plug 'JamshedVesuna/vim-markdown-preview'
-
-" let do not open automatically.
-let vim_markdown_preview_github=1
-let vim_markdown_preview_toggle=2
-
-" }}}
 " Plugin: vim-ledger {{{2
 
 Plug 'ledger/vim-ledger'
@@ -613,6 +604,15 @@ ino <Backspace> <C-R>=SmartBackspace()<cr>
 
 " F O R S A K E N {{{1
 
+" " Plugin: vim-markdown-preview {{{2
+
+" Plug 'JamshedVesuna/vim-markdown-preview'
+
+" " let do not open automatically.
+" let vim_markdown_preview_github=1
+" let vim_markdown_preview_toggle=2
+
+" " }}}
 " " Plugin: denite.nvim {{{2
 
 " if has('nvim')
