@@ -26,6 +26,7 @@ Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-obsession'
 Plug 'chrisbra/unicode.vim'
+Plug 'ihsanturk/neuron.vim'
 Plug 'ihsanturk/vim-tureng'
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/graphviz.vim'
@@ -34,7 +35,7 @@ Plug 'jbmorgado/vim-pine-script'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'benjamineskola/vim-applescript'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
-Plug 'file:///Users/ihsan/.config/nvim/plugged/vim-neuron'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Plugin: vim-ledger {{{2
 
@@ -189,6 +190,7 @@ nn <leader>e :se cole=0<cr>
 nn <leader>v :se cole=3<cr>
 vn gs :!sortlength<cr><c-l>
 tma <m-S-o> <c-\><c-n><c-w>p
+nm <LocalLeader>% :source %<cr>
 nn gsr mx:'{+1,'}-1!sort -R<cr>`x
 nn <leader>c :exec "e " . VIMRC<cr>
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
@@ -381,26 +383,26 @@ se wrap
 se nocul
 se nosmd
 se noswf
+se sbr=↪
 se cole=2
 se ttm=10
 syntax on
 se cocu=nc
 se mouse=a
-se sbr=↪
 se sd='1000
 se mmp=20000
 se fdm=marker
 se icm=nosplit
 setg fenc=utf-8
 se bs=indent,eol,start
-se noet ts=3 sts=3 sw=3
 se sh=/usr/local/bin/zsh
 filetype plugin indent on
+se noet ci pi sts=0 sw=3 ts=3 
 let did_install_syntax_menu = 1
 au FileType vimwiki,vim se tw=79
 let did_install_default_menus = 1
-au FileType rust,python se noet ts=3 sts=3 sw=3
 se lcs=tab:⁝\ ,eol:\ ,extends:❯,precedes:❮
+au FileType rust,python se noet ts=3 sts=3 sw=3
 au FileType sql se mp=cat\ %\ \\\|\ mysql\ -uroot
 
 " Shell Mode {{{2
@@ -604,15 +606,6 @@ ino <Backspace> <C-R>=SmartBackspace()<cr>
 
 " F O R S A K E N {{{1
 
-" " Plugin: vim-markdown-preview {{{2
-
-" Plug 'JamshedVesuna/vim-markdown-preview'
-
-" " let do not open automatically.
-" let vim_markdown_preview_github=1
-" let vim_markdown_preview_toggle=2
-
-" " }}}
 " " Plugin: denite.nvim {{{2
 
 " if has('nvim')
