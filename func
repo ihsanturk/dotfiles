@@ -1,5 +1,10 @@
 #!/bin/sh
 
+tmp() { # {{{1
+	$EDITOR "$(mkptemp).$1"
+}
+
+# }}}
 rg() { # use ripgrep with fzf {{{1
 	RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case"
 	INITIAL_QUERY="$1"
