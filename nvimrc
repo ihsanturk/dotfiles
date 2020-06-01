@@ -15,18 +15,20 @@ cal plug#begin()
 Plug 'mhinz/vim-rfc'
 Plug 'lingceng/z.vim'
 Plug 'keith/swift.vim'
+Plug 'cespare/vim-toml'
 Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'mkitt/tabline.vim'
+Plug 'tpope/vim-abolish'
 Plug 'dense-analysis/ale'
 Plug 'etdev/vim-hexcolor'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+Plug 'jparise/vim-graphql'
 Plug 'tpope/vim-obsession'
 Plug 'chrisbra/unicode.vim'
-Plug 'ihsanturk/neuron.vim'
 Plug 'ihsanturk/vim-tureng'
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/graphviz.vim'
@@ -37,6 +39,16 @@ Plug 'benjamineskola/vim-applescript'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+" Plugin: neuron.vim {{{2
+
+let g:zkdir = $HOME.'/Dropbox/zettelkasten/'
+let g:style_virtual_title = 'Comment'
+let g:replace_links_with_virtual_title = 1
+let g:hide_links = 1
+
+Plug 'ihsanturk/neuron.vim'
+
+" }}}
 " Plugin: vim-ledger {{{2
 
 Plug 'ledger/vim-ledger'
@@ -184,6 +196,7 @@ nn <leader>z zMzvzz
 im <m-o> <esc><c-w>w
 nn gf :e <cfile><cr>
 tno <Esc> <c-\><c-n>
+nm <m-.> :cd %:p:h<cr>
 nm <m-1> :set cuc!<cr>
 tma <m-o> <c-\><c-n><c-w>w
 nn <leader>e :se cole=0<cr>
@@ -347,14 +360,6 @@ cnorea man Man
 cnorea cdc cd %:p:h<cr>:
 
 " }}}
-" FoxDot {{{2
-
-" Open a terminal buffer and run foxdot command with pipe option
-
-au FileType python nm <buffer> <return> mxyap<c-w>wpi<cr><esc><c-w>w`x
-au FileType python vn <buffer> <return> y<c-w>wpi<cr><esc><c-w>w
-
-" }}}
 
 " }}}
 " settings {{{1
@@ -367,6 +372,7 @@ se nu
 se sb
 se awa
 se bri
+se cul
 se lbr
 se rnu
 se scs
@@ -380,7 +386,6 @@ se noru
 se so=1
 se wmnu
 se wrap
-se nocul
 se nosmd
 se noswf
 se sbr=↪
@@ -634,6 +639,14 @@ ino <Backspace> <C-R>=SmartBackspace()<cr>
 " endfunction
 
 " nm <m-b> :Denite buffer<cr>
+
+" " }}}
+" " FoxDot {{{2
+
+" " Open a terminal buffer and run foxdot command with pipe option
+
+" au FileType python nm <buffer> <return> mxyap<c-w>wpi<cr><esc><c-w>w`x
+" au FileType python vn <buffer> <return> y<c-w>wpi<cr><esc><c-w>w
 
 " " }}}
 
