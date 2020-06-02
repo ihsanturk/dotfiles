@@ -5,6 +5,8 @@
 # License:     MIT License
 # =============================================================================
 
+tic ~/Code/github.com/mawww/kakoune/contrib/tmux-256color.terminfo
+
 set -o emacs
 setopt hist_ignore_dups
 setopt hist_ignore_space
