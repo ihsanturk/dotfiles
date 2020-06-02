@@ -39,6 +39,13 @@ Plug 'benjamineskola/vim-applescript'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+" Plugin: vim-wheel {{{2
+Plug 'reedes/vim-wheel'
+
+let g:wheel#map#up   = '<c-k>'
+let g:wheel#map#down = '<c-j>'
+
+" }}}
 " Plugin: neuron.vim {{{2
 
 let g:zkdir = $HOME.'/Dropbox/zettelkasten/'
@@ -300,12 +307,6 @@ tma `b <c-\><c-n>:sp +ter<cr>
 tma `v <c-\><c-n>:vs +ter<cr>
 
 " }}}
-" }}}
-" Scroll with pivot {{{2
-
-nm <c-j> <c-e>j
-nm <c-k> <c-y>k
-
 " }}}
 " Auto Highlight {{{2
 
