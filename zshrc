@@ -49,14 +49,7 @@ zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-complet
 zinit light rupa/z
 zinit light https://raw.githubusercontent.com/denisidoro/navi/master/shell/navi.plugin.zsh
 
-# OhMyZsh {{{2
-
-zinit snippet OMZ::lib/git.zsh
-zinit snippet OMZ::lib/completion.zsh
-zinit snippet OMZ::lib/theme-and-appearance.zsh
-zinit snippet OMZ::themes/robbyrussell.zsh-theme
-
-# }}}
+eval "$(starship init zsh)"
 
 # }}}
 # FORSAKEN {{{1
