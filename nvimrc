@@ -110,8 +110,6 @@ highlight link GitGutterChangeLine DiffText
 Plug 'qpkorr/vim-bufkill'
 
 " Close buffer but don't close window
-cnorea bd BD
-cnorea Bd BD
 nm <m-k> :BD<cr>
 
 " }}}
