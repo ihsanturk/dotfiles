@@ -207,6 +207,7 @@ nm <LocalLeader>% :source %<cr>
 nn gsr mx:'{+1,'}-1!sort -R<cr>`x
 nn <leader>c :exec "e " . VIMRC<cr>
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
+nn <leader>C :exec "tabe " . VIMRC<cr>
 vn // y/\V<C-R>=escape(@",'/\')<CR><CR>
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
