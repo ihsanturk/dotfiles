@@ -10,7 +10,14 @@ let VIMRC = "${HOME}/.config/nvim/init.vim"
 
 " plugins {{{1
 
-cal plug#begin()
+" Auto install vim-plug
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
+cal plug#begin('~/.config/nvim/plugged')
 
 Plug 'mhinz/vim-rfc'
 Plug 'lingceng/z.vim'
@@ -396,10 +403,8 @@ se ttm=10
 syntax on
 se cocu=nc
 se mouse=a
-se sd='1000
 se mmp=20000
 se fdm=marker
-se icm=nosplit
 setg fenc=utf-8
 se bs=indent,eol,start
 se sh=/usr/local/bin/zsh
@@ -408,6 +413,7 @@ se noet ci pi sts=0 sw=3 ts=3
 let did_install_syntax_menu = 1
 au FileType vimwiki,vim se tw=79
 let did_install_default_menus = 1
+if has('nvim') | se icm=nosplit sd='1000 | endif
 se lcs=tab:⁝\ ,eol:\ ,extends:❯,precedes:❮
 au FileType rust,python se noet ts=3 sts=3 sw=3
 au FileType sql se mp=cat\ %\ \\\|\ mysql\ -uroot
@@ -447,12 +453,14 @@ au BufWritePost ~/.query.sql
 " }}}
 " Terminal Buffer Improvements {{{2
 
-aug custom_term
-	au!
-	au BufEnter,TermOpen term://* start
-	au TermEnter * setl nonu nornu nomod
-	au TermClose * :bd!
-aug END
+if has('nvim')
+	aug custom_term
+		au!
+		au BufEnter,TermOpen term://* start
+		au TermEnter * setl nonu nornu nomod
+		au TermClose * :bd!
+	aug END
+endif
 
 fun! TermTest(cmd)
 	cal termopen(a:cmd, {'on_exit': 's:OnExit'})
