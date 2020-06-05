@@ -380,7 +380,7 @@ se nu
 se sb
 se awa
 se bri
-se cul
+se nocul
 se lbr
 se rnu
 se scs
