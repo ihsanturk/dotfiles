@@ -358,7 +358,6 @@ nn da0 da)
 cnorea Q   q
 cnorea H   h
 cnorea W   w
-cnorea E   e
 cnorea Q!  q!
 cnorea Qa  qa
 cnorea qw  wq
@@ -413,9 +412,9 @@ se noet ci pi sts=0 sw=3 ts=3
 let did_install_syntax_menu = 1
 au FileType vimwiki,vim se tw=79
 let did_install_default_menus = 1
-if has('nvim') | se icm=nosplit sd='1000 | endif
 se lcs=tab:⁝\ ,eol:\ ,extends:❯,precedes:❮
 au FileType rust,python se noet ts=3 sts=3 sw=3
+if has('nvim') | se icm=nosplit sd='1000 | endif
 au FileType sql se mp=cat\ %\ \\\|\ mysql\ -uroot
 
 " Shell Mode {{{2
@@ -426,7 +425,7 @@ au FileType sh,zsh setl fo-=o
 " }}}
 " Markdown Mode {{{2
 
-au FileType markdown setl spell
+" au FileType markdown setl spell
 au FileType markdown setl com-=n:#
 au FileType markdown setl com-=fb:-
 au FileType markdown setl com+=n:- " Auto append - in new line.
