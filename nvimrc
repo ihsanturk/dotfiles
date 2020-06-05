@@ -7,6 +7,7 @@
 " =============================================================================
 
 let VIMRC = "${HOME}/.config/nvim/init.vim"
+let OPEN_COMMAND = "open"
 
 " plugins {{{1
 
@@ -41,11 +42,18 @@ Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/graphviz.vim'
 Plug 'ihsanturk/vim-emacs-like'
 Plug 'jbmorgado/vim-pine-script'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'benjamineskola/vim-applescript'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+" Netrw {{{2
+
+let g:netrw_banner = 0
+let g:netrw_winsize = 20
+nm <m-2> :Lexplore<cr>
+
+" }}}
 " Plugin: vim-wheel {{{2
 Plug 'reedes/vim-wheel'
 
@@ -221,6 +229,7 @@ nn <leader>c :exec "e " . VIMRC<cr>
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
 nn <leader>C :exec "tabe " . VIMRC<cr>
 vn // y/\V<C-R>=escape(@",'/\')<CR><CR>
+nm <leader>o :silent exe '!'.OPEN_COMMAND.' .'<cr>
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <m-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
