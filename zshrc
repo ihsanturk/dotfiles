@@ -62,6 +62,14 @@ eval "$(starship init zsh)"
 # zstyle :prompt:pure:git:stash show yes
 # zinit ice pick"async.zsh" src"pure.zsh"
 
+# # OhMyZsh {{{2
+
+# zinit snippet OMZ::lib/git.zsh
+# zinit snippet OMZ::lib/completion.zsh
+# zinit snippet OMZ::lib/theme-and-appearance.zsh
+# zinit snippet OMZ::themes/robbyrussell.zsh-theme
+
+# # }}}
 # OhMyZsh {{{2
 
 # zinit snippet OMZ::lib/spectrum.zsh
