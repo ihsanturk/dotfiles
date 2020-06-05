@@ -21,6 +21,7 @@ export GIN_MODE=release
 export LANG=en_GB.UTF-8
 export GOPATH="$HOME/go"
 export LC_ALL=en_GB.UTF-8
+export TERM=xterm-256color
 export MOZ_ENABLE_WAYLAND=1
 export EDITOR='nvr --remote-wait'
 export VISUAL='nvr --remote-wait'
@@ -32,7 +33,7 @@ export SSLKEYLOGFILE="$HOME/SSLKeyLogFile"
 export LDFLAGS="-L/usr/local/opt/openblas/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 export CPPFLAGS="-I/usr/local/opt/openblas/include"
-export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
+export FZF_DEFAULT_OPTS='--ansi --height 50% --layout=reverse --border'
 export FZF_CTRL_R_OPTS="--height 10% --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
 export PATH=$GOPATH/bin:$PATH
@@ -43,6 +44,7 @@ export PATH=/usr/local/opt/bc/bin:$PATH
 export PATH=/usr/local/opt/m4/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=${HOME}/.nix-profile/bin/:$PATH
 export PATH=/usr/local/opt/sqlite/bin:$PATH
 export PATH=$HOME/.local/helper-scripts:$PATH
 export PATH=$HOME/Library/Python/3.7/bin:$PATH
