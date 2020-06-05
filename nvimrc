@@ -205,6 +205,8 @@ nn <leader>z zMzvzz
 im <m-o> <esc><c-w>w
 nn gf :e <cfile><cr>
 tno <Esc> <c-\><c-n>
+vn <leader>g :!gt<cr>
+nm <leader>g :.!gt<cr>
 nm <m-.> :cd %:p:h<cr>
 nm <m-1> :set cuc!<cr>
 tma <m-o> <c-\><c-n><c-w>w
@@ -218,8 +220,10 @@ nn <leader>c :exec "e " . VIMRC<cr>
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
 nn <leader>C :exec "tabe " . VIMRC<cr>
 vn // y/\V<C-R>=escape(@",'/\')<CR><CR>
+vn <leader>w :!xargs wikipedia 2>/dev/null<cr>
 nm <leader>o :silent exe '!'.OPEN_COMMAND.' .'<cr>
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
+nm <leader>w :exe '!wikipedia '.expand('<cword>')<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <m-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
