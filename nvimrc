@@ -39,14 +39,30 @@ Plug 'tpope/vim-obsession'
 Plug 'chrisbra/unicode.vim'
 Plug 'ihsanturk/vim-tureng'
 Plug 'tpope/vim-commentary'
+Plug 'simnalamburt/vim-mundo'
 Plug 'liuchengxu/graphviz.vim'
+Plug 'plasticboy/vim-markdown'
 Plug 'ihsanturk/vim-emacs-like'
 Plug 'jbmorgado/vim-pine-script'
 Plug 'benjamineskola/vim-applescript'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
+
+" Plugin: coc {{{2
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+
+" }}}
+" Plugin markdown-preview.nvim {{{2
+
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+let g:mkdp_auto_close = 0
+
+" }}}
 " Netrw {{{2
 
 let g:netrw_banner = 0
