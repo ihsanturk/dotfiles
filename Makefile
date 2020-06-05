@@ -31,6 +31,7 @@ shell_helpers:
 	mkdir -p ${_SHELL_HELPERS}
 	ln -fs ${PWD}/func ${_SHELL_HELPERS}/.func
 	ln -fs ${PWD}/alias ${_SHELL_HELPERS}/.alias
+	ln -fs ${PWD}/zshenv ${_SHELL_HELPERS}/.zshenv
 	ln -fs ${PWD}/profile ${_SHELL_HELPERS}/.profile
 	ln -fs ${PWD}/abbrev.zsh ${_SHELL_HELPERS}/.abbrev.zsh
 
