@@ -169,17 +169,6 @@ xm ga <Plug>(LiveEasyAlign)
 nm ga <Plug>(LiveEasyAlign)
 
 " }}}
-" Plugin: vimwiki {{{2
-
-Plug 'vimwiki/vimwiki'
-
-let g:vimwiki_auto_chdir = 1
-let g:vimwiki_list = [{'path': '~/Dropbox/Document/Wiki/',
-	\ 'path_html': '~/Dropbox/Document/Blog/ihsanturk.dev/public/'}]
-autocmd FileType vimwiki nm <leader>e :set cole=0<cr>
-autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
-
-" }}}
 " Plugin: gruvbox {{{2
 " Appearance
 
@@ -628,6 +617,17 @@ ino <Backspace> <C-R>=SmartBackspace()<cr>
 
 " F O R S A K E N {{{1
 
+" " Plugin: vimwiki {{{2
+
+" Plug 'vimwiki/vimwiki'
+
+" let g:vimwiki_auto_chdir = 1
+" let g:vimwiki_list = [{'path': '~/Dropbox/Document/Wiki/',
+" 	\ 'path_html': '~/Dropbox/Document/Blog/ihsanturk.dev/public/'}]
+" autocmd FileType vimwiki nm <leader>e :set cole=0<cr>
+" autocmd FileType vimwiki nm <leader>v :set cole=2<cr>
+
+" " }}}
 " " Plugin: denite.nvim {{{2
 
 " if has('nvim')
