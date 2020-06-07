@@ -143,7 +143,9 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
+
+nm <m-d> :call deoplete#toggle()<cr>
 
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
