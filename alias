@@ -1,14 +1,14 @@
 #!/bin/sh
 
 alias l='ls'
-alias tn='tmux'
+alias g='git'
+alias t='tweet'
 alias ..='cd ..'
 alias la='ls -a'
 alias mv='mv -n'
 alias rm='trash'
 alias E="$EDITOR"
 alias e="$EDITOR"
-alias note="move"
 alias ga='git add'
 alias pup='pup -p'
 alias gd='git diff'
@@ -16,16 +16,16 @@ alias glo='git log'
 alias tac='tail -r'
 alias ...='cd ../..'
 alias gcl='git clone'
-alias gss='git status'
 alias tp='todaysplan'
 alias ec='emacsclient'
 alias gp='git push -u'
+alias gss='git status'
 alias gc='git commit -v'
+alias clear='clear; echo'
 alias cpwd='pwd | pbcopy'
 alias timestamp="date +%s"
 alias watch='watch -cn0.1'
 alias grep="grep --color=auto"
-alias t='tmux attach &>/dev/null || tmux'
 alias mp3='youtube-dl -x --audio-format mp3'
 alias ll='ls -lh | awk "{ print \$NF }" | sed 1d'
 alias find-executables='find . -perm +111 -type f'
@@ -36,12 +36,12 @@ alias ip="ifconfig|grep -o 'inet \S*'|sed '/127\.0\.0/d'|grep -o '[0-9\.]\+'"
 alias gti='git'
 alias les='less'
 alias c..='cd ..'
+alias eitx='exit'; alias iext='exit';
 alias tre='tree'; alias ter='tree'; alias rtee='tree'
 alias :Q='exit'; alias :q='exit'; alias xeit=exit; alias q='exit';
 alias :w="echo you such a vimmer"; alias :W="echo you such a vimmer";
 alias :wq='exit'; alias :Wq='exit'; alias :wQ='exit'; alias :WQ='exit';
 alias exi='exit'; alias eixt='exit'; alias exti='exit'; alias ixet='exit';
-alias eitx='exit';
 
 # Brew 
 alias ps='brew search'
