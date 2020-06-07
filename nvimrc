@@ -20,13 +20,8 @@ let g:plug_window = 'enew'
 
 cal plug#begin('~/.config/nvim/plugged')
 
-Plug 'mhinz/vim-rfc'
-Plug 'lingceng/z.vim'
-Plug 'keith/swift.vim'
 Plug 'cespare/vim-toml'
-Plug 'sirver/ultisnips'
 Plug 'godlygeek/tabular'
-Plug 'mkitt/tabline.vim'
 Plug 'tpope/vim-abolish'
 Plug 'dense-analysis/ale'
 Plug 'etdev/vim-hexcolor'
@@ -34,28 +29,16 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
-Plug 'jparise/vim-graphql'
-Plug 'tpope/vim-obsession'
-Plug 'chrisbra/unicode.vim'
 Plug 'ihsanturk/vim-tureng'
 Plug 'tpope/vim-commentary'
-Plug 'simnalamburt/vim-mundo'
-Plug 'liuchengxu/graphviz.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'ihsanturk/vim-emacs-like'
-Plug 'jbmorgado/vim-pine-script'
 Plug 'benjamineskola/vim-applescript'
+Plug 'mhinz/vim-rfc', { 'on': 'RFC' }
+if has('nvim') | Plug 'sirver/ultisnips' | end
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 
-" Plugin: coc {{{2
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-
-" }}}
 " Plugin markdown-preview.nvim {{{2
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
@@ -145,12 +128,18 @@ Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 let g:codestats_api_key = $CODESTATS_API_KEY
 
 " }}}
-" Plugin: deoplete{-tabnine} {{{2
+" Plugin: deoplete{,-tabnine} {{{2
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 let g:deoplete#enable_at_startup = 1
+
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 " }}}
 " Plugin: fzf.vim {{{2
@@ -194,6 +183,19 @@ let g:gruvbox_italic = 1
 let g:gruvbox_termcolors=16
 let g:gruvbox_contrast_dark = 'medium'
 
+" }}}
+
+" Not Often Plugins {{{2
+"
+" Plug 'chrisbra/unicode.vim'
+" Plug 'jbmorgado/vim-pine-script'
+" Plug 'jparise/vim-graphql'
+" Plug 'keith/swift.vim'
+" Plug 'lingceng/z.vim'
+" Plug 'liuchengxu/graphviz.vim'
+" Plug 'simnalamburt/vim-mundo'
+" Plug 'tpope/vim-obsession'
+"
 " }}}
 
 cal plug#end()
