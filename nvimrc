@@ -112,7 +112,6 @@ aug END
 
 Plug 'airblade/vim-gitgutter'
 
-se scl=yes
 let g:gitgutter_async = 1
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_override_sign_column_highlight = 1
@@ -255,6 +254,19 @@ nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <m-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
+" Toggle SignColum {{{2
+
+nm <m-4> :call ToggleSignColumn()<cr>
+
+func! ToggleSignColumn()
+	if &scl == 'yes'
+		se scl=no
+	else
+		se scl=yes
+	end
+endf
+
+" }}}
 " Toggle Numbers {{{2
 
 nm <m-3> :se rnu! nu!<cr>
