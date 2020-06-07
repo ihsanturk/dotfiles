@@ -436,6 +436,7 @@ se mouse=a
 se mmp=20000
 se fdm=marker
 setg fenc=utf-8
+call Set80ColRule()
 se bs=indent,eol,start
 se sh=/usr/local/bin/zsh
 filetype plugin indent on
@@ -534,11 +535,23 @@ au BufReadPost * if line("'\"") > 1 &&
 " }}}
 " 80 column rule {{{2
 
-if exists('+colorcolumn')
-	se cc=80
-else
-	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-end
+nm <m-8> :call Toggle80ColRule()<cr>
+
+func! Toggle80ColRule()
+	if &cc == 80
+		se cc=0
+	else
+		call Set80ColRule()
+	end
+endf
+
+func! Set80ColRule()
+	if exists('+colorcolumn')
+		se cc=80
+	else
+		au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+	end
+endf
 
 " }}}
 " Persistent undo {{{2
