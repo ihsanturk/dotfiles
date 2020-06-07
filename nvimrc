@@ -26,7 +26,6 @@ Plug 'tpope/vim-abolish'
 Plug 'dense-analysis/ale'
 Plug 'etdev/vim-hexcolor'
 Plug 'rust-lang/rust.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'ihsanturk/vim-tureng'
@@ -39,6 +38,13 @@ if has('nvim') | Plug 'sirver/ultisnips' | end
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim.git'
 
+" Plugin vim-fugitive {{{2
+
+Plug 'tpope/vim-fugitive'
+
+command! -bang -nargs=* Gcommit Git<bang> commit <args> | only
+
+" }}}
 " Plugin markdown-preview.nvim {{{2
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
