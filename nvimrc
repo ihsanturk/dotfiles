@@ -6,7 +6,6 @@
 " License:     MIT License
 " =============================================================================
 
-let VIMRC = "${HOME}/.config/nvim/init.vim"
 let OPEN_COMMAND = "open"
 
 " plugins {{{1
