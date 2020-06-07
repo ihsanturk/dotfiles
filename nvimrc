@@ -243,9 +243,9 @@ vn <leader>s :!sozlukgovtr<cr>
 nm <LocalLeader>% :source %<cr>
 nn gsr mx:'{+1,'}-1!sort -R<cr>`x
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
-nn <leader>c :exec "e " . MYVIMRC<cr>
+nn <leader>c :exec "e " . $MYVIMRC<cr>
 vn // y/\V<C-R>=escape(@",'/\')<CR><CR>
-nn <leader>C :exec "tabe " . MYVIMRC<cr>
+nn <leader>C :exec "tabe " . $MYVIMRC<cr>
 vn <leader>w :!xargs wikipedia 2>/dev/null<cr>
 nm <leader>o :silent exe '!'.OPEN_COMMAND.' .'<cr>
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
