@@ -1,5 +1,30 @@
 #!/bin/sh
 
+plan() { #{{{1
+	plans="${HOME}/Dropbox/life/plans"
+	while read -r line; do
+		id=$(($(tail -1 "$plans" | cut -f1) + 1))
+		echo "$id	$(date +%s)	$line" >> "$plans"
+		tail -n1 "$plans"
+	done
+}
+
+#}}}
+safari_history() { #{{{1
+  local cols sep
+  cols=$(( COLUMNS / 3 ))
+  sep='{::}'
+
+  cp -f ~/Library/Safari/History.db /tmp/h
+
+  sqlite3 -separator $sep /tmp/h \
+    "select substr(id, 1, $cols), url
+     from history_items order by visit_count_score desc" |
+  awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}'  |
+  fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open
+}
+
+# }}}
 tmp() { # {{{1
 	$EDITOR "$(mkptemp).$1"
 }
