@@ -232,16 +232,18 @@ nn <leader>e :se cole=0<cr>
 nn <leader>v :se cole=3<cr>
 vn gs :!sortlength<cr><c-l>
 tma <m-S-o> <c-\><c-n><c-w>p
+vn <leader>s :!sozlukgovtr<cr>
 nm <LocalLeader>% :source %<cr>
 nn gsr mx:'{+1,'}-1!sort -R<cr>`x
-nn <leader>c :exec "e " . VIMRC<cr>
+nn <leader>c :exec "e " . MYVIMRC<cr>
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
-nn <leader>C :exec "tabe " . VIMRC<cr>
+nn <leader>C :exec "tabe " . MYVIMRC<cr>
 vn // y/\V<C-R>=escape(@",'/\')<CR><CR>
 vn <leader>w :!xargs wikipedia 2>/dev/null<cr>
 nm <leader>o :silent exe '!'.OPEN_COMMAND.' .'<cr>
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
 nm <leader>w :exe '!wikipedia '.expand('<cword>')<cr>
+nn <leader>s :exe '!sozlukgovtr '.expand('<cword>')<cr>
 nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <m-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
