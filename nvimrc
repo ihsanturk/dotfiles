@@ -50,6 +50,7 @@ command! -bang -nargs=* Gcommit Git<bang> commit <args> | only
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 let g:mkdp_auto_close = 0
+let g:vim_markdown_folding_disabled = 1
 
 " }}}
 " Netrw {{{2
@@ -280,47 +281,50 @@ au Filetype rfc nn <buffer> <c-space> :;?/norm! zt<cr>
 
 " }}}"
 " Navigation {{{2
-" Tab navigation {{{3
 
-nn `` `
-nn `1 1gt
-nn `2 2gt
-nn `3 3gt
-nn `4 4gt
-nn `5 5gt
-nn `6 6gt
-nn `7 7gt
-nn `8 8gt
-nn `9 9gt
-nn `c :tabe +ter<cr>
-nn `n gt
-nn `p gT
+" Buffer navigation {{{3
+
+nn  `` `
 tno `` `
-tno `1 1gt
-tno `2 2gt
-tno `3 3gt
-tno `4 4gt
-tno `5 5gt
-tno `6 6gt
-tno `7 7gt
-tno `8 8gt
-tno `9 9gt
-tno `c :tabe +ter<cr>
-tno `n gt
-tno `p gT
 tma `` `
-tma `1 <c-\><c-n>1gt
-tma `2 <c-\><c-n>2gt
-tma `3 <c-\><c-n>3gt
-tma `4 <c-\><c-n>4gt
-tma `5 <c-\><c-n>5gt
-tma `6 <c-\><c-n>6gt
-tma `7 <c-\><c-n>7gt
-tma `8 <c-\><c-n>8gt
-tma `9 <c-\><c-n>9gt
-tma `c <c-\><c-n>:tabe +ter<cr>
-tma `n <c-\><c-n>gt
-tma `p <c-\><c-n>gT
+nn  `1 :1b<cr>
+nn  `2 :2b<cr>
+nn  `3 :3b<cr>
+nn  `4 :4b<cr>
+nn  `5 :5b<cr>
+nn  `6 :6b<cr>
+nn  `7 :7b<cr>
+nn  `8 :8b<cr>
+nn  `9 :9b<cr>
+nn  `n :bp<cr>
+nn  `p :bn<cr>
+tno `1 :1b<cr>
+tno `2 :2b<cr>
+tno `3 :3b<cr>
+tno `4 :4b<cr>
+tno `5 :5b<cr>
+tno `6 :6b<cr>
+tno `7 :7b<cr>
+tno `8 :8b<cr>
+tno `9 :9b<cr>
+tma `1 <c-\><c-n>:1b<cr>
+tma `2 <c-\><c-n>:2b<cr>
+tma `3 <c-\><c-n>:3b<cr>
+tma `4 <c-\><c-n>:4b<cr>
+tma `5 <c-\><c-n>:5b<cr>
+tma `6 <c-\><c-n>:6b<cr>
+tma `7 <c-\><c-n>:7b<cr>
+tma `8 <c-\><c-n>:8b<cr>
+tma `9 <c-\><c-n>:9b<cr>
+nn  `c :bo 13sp +ter<cr>
+tno `c :bo 13sp +ter<cr>
+tma `c <c-\><c-n>:bo 13sp +ter<cr>
+nn <Tab> :bn<cr>
+tno `n :bn<cr>
+tma `n <c-\><c-n>:bn<cr>
+nn <S-Tab> :bp<cr>
+tno <S-Tab> :bp<cr>
+tma <S-Tab> <c-\><c-n>:bp<cr>
 
 " }}}
 " Pane/window navigation {{{3
@@ -340,6 +344,7 @@ tma `b <c-\><c-n>:sp +ter<cr>
 tma `v <c-\><c-n>:vs +ter<cr>
 
 " }}}
+
 " }}}
 " Auto Highlight {{{2
 
