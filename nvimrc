@@ -242,10 +242,10 @@ tma <m-S-o> <c-\><c-n><c-w>p
 vn <leader>s :!sozlukgovtr<cr>
 nm <LocalLeader>% :source %<cr>
 nn gsr mx:'{+1,'}-1!sort -R<cr>`x
-nn <leader>c :exec "e " . MYVIMRC<cr>
 nn gsl mx:'{+1,'}-1!sortlength<cr>`x
-nn <leader>C :exec "tabe " . MYVIMRC<cr>
+nn <leader>c :exec "e " . MYVIMRC<cr>
 vn // y/\V<C-R>=escape(@",'/\')<CR><CR>
+nn <leader>C :exec "tabe " . MYVIMRC<cr>
 vn <leader>w :!xargs wikipedia 2>/dev/null<cr>
 nm <leader>o :silent exe '!'.OPEN_COMMAND.' .'<cr>
 nm <leader>r :so ~/.config/nvim/init.vim<cr>:noh<cr>
@@ -255,6 +255,24 @@ nm <leader>i :so ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
 nm <m-t> :let $DIR=expand('%:p:h')<cr>:ter<cr>cd $DIR;tput clear<cr>
 nn <leader>d :exe 'norm! a'.system("date '+%Y %b %d %X'\|tr -d '\n'")<cr><cr>
 
+" Toggle Numbers {{{2
+
+nm <m-3> :se rnu! nu!<cr>
+
+" }}}
+" Toggle Statusline {{{2
+
+nm <m-0> :call ToggleStatusLine()<cr>
+
+func! ToggleStatusLine()
+	if &ls == 2
+		se ls=0
+	else
+		se ls=2
+	end
+endf
+
+" }}}
 " Create empty buffer for center purpose {{{2
 " FIXME: After toggleing a few times, function is not working properly.
 func CenterHelperToggle()
@@ -411,7 +429,6 @@ se nu
 se sb
 se awa
 se bri
-se nocul
 se lbr
 se rnu
 se scs
@@ -425,6 +442,7 @@ se noru
 se so=1
 se wmnu
 se wrap
+se nocul
 se nosmd
 se noswf
 se sbr=↪
