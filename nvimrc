@@ -437,18 +437,15 @@ cnorea cdc cd %:p:h<cr>:
 "    'K (Shift-k) on that word' or ':h ic'
 
 se ic
-se nu
 se sb
 se awa
 se bri
 se lbr
-se rnu
 se scs
 se spr
 se tgc
 se wic
 se list
-se ls=2
 se noea
 se noru
 se so=1
@@ -466,7 +463,6 @@ se mouse=a
 se mmp=20000
 se fdm=marker
 setg fenc=utf-8
-call Set80ColRule()
 se bs=indent,eol,start
 se sh=/usr/local/bin/zsh
 filetype plugin indent on
@@ -598,10 +594,14 @@ scripte utf-8
 " }}}
 " Appearance {{{2
 
+" se nu
+" se rnu
+" se ls=2
 se bg=dark
 color gruvbox
-hi ErrorMsg ctermfg=Red ctermbg=237
+" call Set80ColRule()
 hi Visual gui=none cterm=none
+hi ErrorMsg ctermfg=Red ctermbg=237
 
 " Statusline {{{3
 hi User1 ctermfg=11 ctermbg=237 cterm=none guifg=#FABD2F guibg=#3A3A3A gui=none
