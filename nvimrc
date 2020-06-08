@@ -20,6 +20,7 @@ let g:plug_window = 'enew'
 
 cal plug#begin('~/.config/nvim/plugged')
 
+Plug 'LnL7/vim-nix'
 Plug 'cespare/vim-toml'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-abolish'
