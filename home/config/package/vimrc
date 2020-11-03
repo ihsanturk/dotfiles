@@ -1,0 +1,28 @@
+" sensible
+syntax on
+se is
+se ic
+se equalprg=gt
+se sh=fish
+
+" higlight
+nn <silent> <c-c> :noh<cr>
+se hls
+
+" typo
+ca W w
+ca Q q
+ca WQ wq
+ca Wq w
+ca E e
+
+" pivot scroll
+nn <silent> <c-j> <esc><c-e>j
+nn <silent> <c-k> <esc><c-y>k
+
+" indent
+set sw=3 ts=3
+
+" tab char
+se list
+se listchars=tab:\│\ ,trail:•,nbsp:+

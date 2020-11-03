@@ -1,0 +1,4 @@
+language: nix
+
+script:
+  - nix build -f ./tests/build-all.nix --no-link

@@ -17,3 +17,4 @@ nvim/.config/nvim/autoload
 nvim/.config/nvim/package
 nvim/.config/nvim/plugged
 nvim/.config/nvim/spell
+*private.nix
