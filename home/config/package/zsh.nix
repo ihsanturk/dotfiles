@@ -3,7 +3,7 @@ let
 
 	if_ = lib.optionalString;
 	zshEnabledThen = config.programs.zsh.enable;
-	shellAliases = import ../shell-aliases.nix pkgs;
+	shellAliases = import ../shell-aliases.nix config;
 
 in {
 

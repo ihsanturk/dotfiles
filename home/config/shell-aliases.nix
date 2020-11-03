@@ -1,7 +1,7 @@
-pkgs: {
+config: {
 
 	# nix
-	ns = "nix-shell --command fish";
+	ns = "nix-shell --command zsh"; # FIXME: make pure;
 
 	# git
 	g = "git";

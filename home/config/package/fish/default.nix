@@ -5,7 +5,7 @@ let
 	functions = import ./fish-functions.nix;
 	fishEnabledThen = config.programs.fish.enable;
 	codeStatsAPIKey = config.private.codeStatsAPIKey;
-	shellAliases = import ../../shell-aliases.nix pkgs;
+	shellAliases = import ../../shell-aliases.nix config;
 
 	# {
 	# 	conf = "$EDITOR (find ~/dot/ -type f | ${pkgs.fzf}/bin/fzf)";
