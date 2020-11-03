@@ -15,7 +15,7 @@ in rec {
 
 	home.username = "ihsan";
 	programs.home-manager.enable = true;
-	home.sessionVariables.EDITOR = "nvim";
+	home.sessionVariables.EDITOR = "nvim"; #FIXME:not working at with nix-darwin
 	home.homeDirectory = /. + ("/home/" + config.home.username);
 
 	nixpkgs.overlays = [
