@@ -49,3 +49,9 @@ cabbrev cpwd let @* = expand("%:p:h")
 " never use cd, instead use tcd
 cabbrev cd tcd
 
+" write and buffer delete/close/kill buffer
+cnorea wbd w\|:bd
+cnorea wd w\|:bd
+cnorea Wd w\|:bd
+cnorea WD w\|:bd
+
