@@ -9,6 +9,6 @@ aug fugitive
 	ca gd  Git diff
 	ca gp  Git push
 	ca gs  Git status
-	ca gc  Git commit
+	ca gc  tab Git commit
 
 aug end
