@@ -106,7 +106,7 @@
 			owner = "ihsanturk";
 			repo = "vim-grave-navigation";
 			rev = "master";
-			sha256 = "sha256-X7uFQcPHP44VWKldYhRGLpTOjkj8XDUwKq4yxvdeeZA=";
+			sha256 = "sha256-cAehKy2zF7tL0J1dHz5K9MGnS4v5T5MRqgeGSbiBzKo=";
 		};
 	};
 

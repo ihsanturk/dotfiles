@@ -55,7 +55,7 @@ in {
 
 		];
 
-		viAlias = true;
+		viAlias = false;
 		vimAlias = true;
 		extraConfig = (
 

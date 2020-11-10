@@ -14,7 +14,7 @@
 	environment.systemPackages = with pkgs; [
 
 		qemu
-		direnv
+		# direnv
 		# tdesktop # telegram
 
 	];
@@ -43,7 +43,7 @@
 	};
 
 	# services
-	services.lorri.enable = true;
+	# services.lorri.enable = true;
 
 	# defaults
 	system.defaults.dock.tilesize = 35;
