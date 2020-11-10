@@ -86,7 +86,7 @@
 			owner = "reedes";
 			repo = "vim-wheel";
 			rev = "master";
-			sha256 = "1r7jgr63asbpvnflmgdk89jsyf703z904xv8zs0qdv5p7g17xbl3";
+			sha256 = "sha256-DXOF0xWu2gN21O2Z/twC5qmFJUctT1iAYMUg93dscGQ=";
 		};
 	};
 
@@ -106,7 +106,7 @@
 			owner = "ihsanturk";
 			repo = "vim-grave-navigation";
 			rev = "master";
-			sha256 = "0whfgzxa52chm238liqq61yxxnih45g8ramv0sjj09h7ihc98fwa";
+			sha256 = "sha256-X7uFQcPHP44VWKldYhRGLpTOjkj8XDUwKq4yxvdeeZA=";
 		};
 	};
 
@@ -126,7 +126,7 @@
 			owner = "ihsanturk";
 			repo = "vim-ihsensible";
 			rev = "master";
-			sha256 = "00fgssh02c421n1nf0f70wi4wsibay5mr8i7m2k84bypz782fmk3";
+			sha256 = "sha256-HCyPLg2b2kFkGgnnSnRdYczUWXMnOfQ+Mi459lBvDEs=";
 		};
 	};
 
