@@ -8,7 +8,7 @@ in {
 
 	programs.neovim = {
 		enable = true;
-		plugins = [
+		plugins = with pkgs.vimPlugins; [
 
 			customPlugins.v-vim
 			customPlugins.twitvim
@@ -24,33 +24,34 @@ in {
 			customPlugins.vim-grave-navigation
 
 			# ui
-			pkgs.vimPlugins.nerdtree
-			pkgs.vimPlugins.vim-devicons
-			pkgs.vimPlugins.gruvbox-community
-			# pkgs.vimPlugins.nerdtree-git-plugin
+			nerdtree
+			vim-devicons
+			gruvbox-community
+			# nerdtree-git-plugin
 
-			pkgs.vimPlugins.fzf-vim
-			pkgs.vimPlugins.vim-nix
-			pkgs.vimPlugins.goyo-vim
-			pkgs.vimPlugins.delimitMate
-			pkgs.vimPlugins.targets-vim
-			pkgs.vimPlugins.vim-fugitive
-			pkgs.vimPlugins.vim-sayonara
-			pkgs.vimPlugins.vim-sensible
-			pkgs.vimPlugins.vim-surround
-			pkgs.vimPlugins.limelight-vim
-			pkgs.vimPlugins.vim-css-color
-			pkgs.vimPlugins.vim-gitgutter
-			pkgs.vimPlugins.vim-lastplace
-			pkgs.vimPlugins.vim-commentary
-			pkgs.vimPlugins.vim-nerdtree-syntax-highlight
+			fzf-vim
+			vim-nix
+			goyo-vim
+			delimitMate
+			targets-vim
+			vim-fugitive
+			vim-sayonara
+			vim-sensible
+			vim-surround
+			limelight-vim
+			vim-css-color
+			vim-gitgutter
+			vim-lastplace
+			vim-commentary
+			vim-cute-python
+			vim-nerdtree-syntax-highlight
 
 			# rare
-			# pkgs.vimPlugins.vim-ledger
-			# pkgs.vimPlugins.calendar-vim
+			# vim-ledger
+			# calendar-vim
 
 			# broken
-			# pkgs.vimPlugins.lsp_extensions-nvim
+			# lsp_extensions-nvim
 
 		];
 
