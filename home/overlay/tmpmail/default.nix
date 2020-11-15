@@ -4,7 +4,7 @@ stdenv.mkDerivation rec {
 	name = "tmpmail";
 	src = fetchurl {
 		url = "https://git.io/tmpmail";
-		sha256 = "1prqm099w8js4139xk5p1wm771zk0a06aq7bas1dhs8cbrj9z349";
+		sha256 = "sha256-iYyfZF4MadiCVutgZYAC84dzKg+3zJ5GIFoinhKoON8=";
 	};
 
 	phases = [ "installphase" "postFixup" ];
