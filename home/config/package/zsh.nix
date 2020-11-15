@@ -14,17 +14,18 @@ in {
 		enableAutosuggestions = true;
 		enableCompletion = true;
 		# TODO: change this
-		initExtra = ''
+		initExtra = "
 			export PATH=$HOME/Sync/bin:$PATH
 			export CODESTATS_API_KEY=${config.private.codeStatsAPIKey};
 			export GCALAPI=${config.private.googleCalendarApiKey};
 			export GCALSECRET=${config.private.googleCalendarSecret};
 			export GCALCLIENTID=${config.private.googleCalendarClientId};
-			# delete word by word
 			autoload -U select-word-style
-			autoload -Uz compinit && compinit
 			select-word-style bash
-		'';
+			zstyle ':completion:*' completer _complete
+			zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+			autoload -Uz compinit && compinit
+		";
 		plugins = [
 			{
 				name = "code-stats";
