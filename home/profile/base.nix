@@ -12,7 +12,6 @@
 		fd
 		jq
 		sd
-		bat
 		exa
 		gawk
 		jump
@@ -45,6 +44,7 @@
 
 	];
 
+	programs.bat.enable = true;
 	programs.fzf.enable = true;
 	programs.git.enable = true;
 	programs.vim.enable = true;
