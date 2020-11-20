@@ -13,6 +13,8 @@
 		jq
 		sd
 		exa
+		nnn
+		ddgr
 		gawk
 		jump
 		mosh
@@ -24,22 +26,17 @@
 		gnumake
 		ripgrep
 		tmpmail
-		# cachix
 		gnuchess
+		pinentry
 		recutils
-		# docopts
+		mitmproxy
 		moreutils
 		syncthing
 		trash-cli
 		neovim-remote
-		# neuron-notes
-		# bitwarden-cli
 		coreutils # tac
 		translate-shell
-		# nix-doc # NOTE: cannot be compiled
-		# asciidoctor # NOTE: ruby cannot be compiled
 		gitAndTools.delta # for: git diff # long compile time
-		# slack # using: https://slack.com/intl/en-gb/downloads/instructions/mac
 
 		# personal packages
 		# img2txt # requires docopts
@@ -52,6 +49,7 @@
 	programs.vim.enable = true;
 	programs.zsh.enable = true;
 	programs.tmux.enable = true;
+	programs.emacs.enable = true;
 	programs.neovim.enable = true;
 	programs.starship.enable = true;
 
@@ -63,11 +61,18 @@
 	# 	niv
 	# 	w3m
 	# 	tree
+	# 	cachix
 	# 	igraph
 	# 	ledger
+	# 	docopts
 	# 	exiftool
 	# 	git-crypt
+	# 	neuron-notes
+	# 	bitwarden-cli
 	# 	protonvpn-cli-ng
+	# 	nix-doc # NOTE: cannot be compiled
+	# 	asciidoctor # NOTE: ruby cannot be compiled
+	# 	slack # using: https://slack.com/intl/en-gb/downloads/instructions/mac
 	# ];
 
 }

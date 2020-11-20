@@ -15,11 +15,6 @@ in {
 		enableCompletion = true;
 		# TODO: change this
 		initExtra = "
-			export PATH=$HOME/Sync/bin:$PATH
-			export CODESTATS_API_KEY=${config.private.codeStatsAPIKey};
-			export GCALAPI=${config.private.googleCalendarApiKey};
-			export GCALSECRET=${config.private.googleCalendarSecret};
-			export GCALCLIENTID=${config.private.googleCalendarClientId};
 			autoload -U select-word-style
 			select-word-style bash
 			zstyle ':completion:*' completer _complete

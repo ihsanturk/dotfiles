@@ -97,6 +97,24 @@ in {
 			alt_send_esc = false;
 
 			key_bindings = [
+
+				# tmux (NOTE: requires c-g (\x07) as tmux prefix) use `xxd -psd`
+				{ key = "O";    mods = "Command"; chars = "\\x07\\x6f"; }
+				{ key = "T";    mods = "Command"; chars = "\\x07\\x63"; }
+				{ key = "K";    mods = "Command"; chars = "\\x07\\x18"; }
+				{ key = "S";    mods = "Command"; chars = "\\x07\\x22"; }
+				{ key = "D";    mods = "Command"; chars = "\\x07\\x25"; }
+				{ key = "Key0"; mods = "Command"; chars = "\\x07\\x30"; }
+				{ key = "Key1"; mods = "Command"; chars = "\\x07\\x31"; }
+				{ key = "Key2"; mods = "Command"; chars = "\\x07\\x32"; }
+				{ key = "Key3"; mods = "Command"; chars = "\\x07\\x33"; }
+				{ key = "Key4"; mods = "Command"; chars = "\\x07\\x34"; }
+				{ key = "Key5"; mods = "Command"; chars = "\\x07\\x35"; }
+				{ key = "Key6"; mods = "Command"; chars = "\\x07\\x36"; }
+				{ key = "Key7"; mods = "Command"; chars = "\\x07\\x37"; }
+				{ key = "Key8"; mods = "Command"; chars = "\\x07\\x38"; }
+				{ key = "Key9"; mods = "Command"; chars = "\\x07\\x39"; }
+
 				{ key = "Z"; mods = "Alt"; chars = "\\x1Bz"; }
 				{ key = "N"; mods = "Command"; action = "SpawnNewInstance"; }
 				{ key = "Period"; mods = "Alt"; chars = "\\x1B."; }

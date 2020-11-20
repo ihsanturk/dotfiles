@@ -18,8 +18,6 @@ in {
 		inherit functions;
 		shellInit = ''
 			set fish_greeting
-			set -gx PATH $HOME/Sync/bin $PATH
-			set -gx CODESTATS_API_KEY ${codeStatsAPIKey};
 			status --is-interactive; and source (jump shell fish | psub)
 		'';
 	};

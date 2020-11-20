@@ -15,8 +15,19 @@ in rec {
 
 	home.username = "ihsan";
 	programs.home-manager.enable = true;
-	home.sessionVariables.EDITOR = "nvim"; #FIXME:not working at with nix-darwin
-	home.homeDirectory = /. + ("/home/" + config.home.username);
+	# if isDarwin then
+	home.homeDirectory = /. + ("/Users/" + config.home.username);
+	# else
+		# home.homeDirectory = /. + ("/home/" + config.home.username);
+	home.sessionVariables = { #FIXME:not working at with nix-darwin
+		EDITOR = "nvim";
+		GPG_TTY = "$(tty)";
+		PATH = "$HOME/Sync/bin:$PATH";
+		CODESTATS_API_KEY = "${config.private.codeStatsAPIKey}";
+		GCALAPI = "${config.private.googleCalendarApiKey}";
+		GCALSECRET = "${config.private.googleCalendarSecret}";
+		GCALCLIENTID = "${config.private.googleCalendarClientId}";
+	};
 
 	nixpkgs.overlays = [
 		(import ./overlay)
