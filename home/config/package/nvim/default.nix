@@ -27,6 +27,7 @@ in {
 			nerdtree
 			vim-devicons
 			gruvbox-community
+			# vim-cute-python
 			# nerdtree-git-plugin
 
 			fzf-vim
@@ -43,7 +44,6 @@ in {
 			vim-gitgutter
 			vim-lastplace
 			vim-commentary
-			vim-cute-python
 			vim-nerdtree-syntax-highlight
 
 			# rare
