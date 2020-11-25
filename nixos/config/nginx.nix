@@ -20,7 +20,7 @@
 				text/xml;
 		'';
 
-		virtualHosts = import ../virtualhosts-private.nix;
+		virtualHosts = import ../virtualhosts-private.nix config;
 
 	};
 }
