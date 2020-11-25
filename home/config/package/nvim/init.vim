@@ -54,7 +54,3 @@ cnorea wbd w\|:bd
 cnorea wd w\|:bd
 cnorea Wd w\|:bd
 cnorea WD w\|:bd
-
-": term
-tno `: :
-tno : <c-\><c-n>:
