@@ -15,10 +15,9 @@ in rec {
 
 	home.username = "ihsan";
 	programs.home-manager.enable = true;
-	# if isDarwin then
-	home.homeDirectory = /. + ("/Users/" + config.home.username);
-	# else
-		# home.homeDirectory = /. + ("/home/" + config.home.username);
+	home.homeDirectory = if isDarwin then
+		/. + ("/Users/" + config.home.username)
+	else /. + ("/home/" + config.home.username);
 	home.sessionVariables = { #FIXME:not working at with nix-darwin
 		EDITOR = "nvim";
 		GPG_TTY = "$(tty)";
