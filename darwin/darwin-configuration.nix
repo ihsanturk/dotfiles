@@ -14,6 +14,7 @@
 	environment.systemPackages = with pkgs; [
 
 		qemu
+		docker
 		# direnv
 		# tdesktop # telegram
 
@@ -44,9 +45,10 @@
 
 	# services
 	# services.lorri.enable = true;
+	# services.emacs.enable = true;
 
 	# defaults
-	system.defaults.dock.tilesize = 35;
+	system.defaults.dock.tilesize = 33;
 	system.defaults.dock.show-recents = false;
 	system.defaults.finder.QuitMenuItem = true;
 	system.defaults.NSGlobalDomain.KeyRepeat = 1;
