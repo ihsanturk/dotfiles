@@ -3,11 +3,12 @@
 
 	nixpkgs.config.allowUnfree = true; # for slack;
 
+	# TODO: install using flakes
 	home.packages = with pkgs; [
-
-		# TODO: install using flakes
-		# trends
-		(let s = builtins.fetchTarball "https://github.com/ihsanturk/trends/archive/master.tar.gz"; in import s {})
+		
+		(let trends = builtins.fetchTarball
+		"https://github.com/ihsanturk/trends/archive/master.tar.gz"; in import
+		trends {})
 
 		fd
 		jq
@@ -22,6 +23,8 @@
 		tldr
 		gnupg
 		groff
+		vlang
+		ffmpeg
 		ranger
 		gnumake
 		ripgrep
@@ -33,6 +36,7 @@
 		moreutils
 		syncthing
 		trash-cli
+		neuron-notes
 		neovim-remote
 		coreutils # tac
 		translate-shell
@@ -67,7 +71,6 @@
 	# 	docopts
 	# 	exiftool
 	# 	git-crypt
-	# 	neuron-notes
 	# 	bitwarden-cli
 	# 	protonvpn-cli-ng
 	# 	nix-doc # NOTE: cannot be compiled
