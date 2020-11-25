@@ -2,8 +2,10 @@
 syntax on
 se is
 se ic
+se nu
+se rnu
+se sh=zsh
 se equalprg=gt
-se sh=fish
 
 " higlight
 nn <silent> <c-c> :noh<cr>
