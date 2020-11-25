@@ -54,3 +54,8 @@ cnorea wbd w\|:bd
 cnorea wd w\|:bd
 cnorea Wd w\|:bd
 cnorea WD w\|:bd
+
+" spaces to tabs
+cabbrev s2t %s/  /\t/g
+cabbrev s4t %s/    /\t/g
+cabbrev s8t %s/        /\t/g
