@@ -1,6 +1,14 @@
 { pkgs, ... }:
 {
 
+	vim-searchlight = pkgs.vimUtils.buildVimPluginFrom2Nix {
+		name = "vim-searchlight";
+		src = pkgs.fetchgit {
+			url = "https://github.com/PeterRincker/vim-searchlight";
+			sha256 = "sha256-yE01q29tI+nI2ebBAMQQIo74hsDkXzfhHkopS+BiIlk=";
+		};
+	};
+
 	info-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
 		name = "info-vim";
 		src = pkgs.fetchgit {

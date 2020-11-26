@@ -21,6 +21,7 @@ in {
 			customPlugins.code-stats-vim
 			customPlugins.vim-emacs-like
 			customPlugins.vim-ihsensible
+			customPlugins.vim-searchlight
 			customPlugins.vim-grave-navigation
 
 			# ui
