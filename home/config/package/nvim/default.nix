@@ -45,6 +45,7 @@ in {
 			vim-gitgutter
 			vim-lastplace
 			vim-commentary
+			vim-easy-align
 			vim-nerdtree-syntax-highlight
 
 			# rare
