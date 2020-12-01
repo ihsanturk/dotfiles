@@ -36,6 +36,7 @@
 		moreutils
 		syncthing
 		trash-cli
+		ripgrep-all
 		neuron-notes
 		neovim-remote
 		coreutils # tac
