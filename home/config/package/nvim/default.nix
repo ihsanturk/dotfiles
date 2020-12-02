@@ -71,11 +71,12 @@ in {
 			+ builtins.readFile ./plugin-config/nerdtree.vim
 			+ builtins.readFile ./plugin-config/limelight.vim
 			+ builtins.readFile ./plugin-config/vim-wheel.vim
+			+ builtins.readFile ./plugin-config/easy-align.vim
 			+ builtins.readFile ./plugin-config/delimitMate.vim
 			+ builtins.readFile ./plugin-config/vim-fugitive.vim
 			+ builtins.readFile ./plugin-config/vim-sayonara.vim
-			+ builtins.readFile ./plugin-config/vim-templates.vim
 			+ builtins.readFile ./plugin-config/code-stats-vim.vim
+			# + builtins.readFile ./plugin-config/vim-templates.vim
 
 		);
 
