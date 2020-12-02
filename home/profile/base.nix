@@ -36,11 +36,12 @@
 		moreutils
 		syncthing
 		trash-cli
-		ripgrep-all
 		neuron-notes
 		neovim-remote
 		coreutils # tac
 		translate-shell
+		# python38Packages.pdftotext # ripgrep-all
+		# quickjs # installed impurely /usr/local/bin/qjs
 		gitAndTools.delta # for: git diff # long compile time
 
 		# personal packages
