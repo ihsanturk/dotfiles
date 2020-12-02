@@ -4,6 +4,8 @@ se is
 se ic
 se nu
 se rnu
+se cc=80
+se nowrap
 se sh=zsh
 se equalprg=gt
 
