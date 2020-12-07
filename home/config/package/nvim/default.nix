@@ -11,13 +11,11 @@ in {
 		plugins = with pkgs.vimPlugins; [
 
 			customPlugins.v-vim
-			customPlugins.twitvim
 			customPlugins.info-vim
 			customPlugins.vim-wheel
 			customPlugins.neuron-vim
 			customPlugins.vim-tureng
 			customPlugins.tabline-vim
-			customPlugins.vim-templates
 			customPlugins.code-stats-vim
 			customPlugins.vim-emacs-like
 			customPlugins.vim-ihsensible
@@ -51,6 +49,8 @@ in {
 			# rare
 			# vim-ledger
 			# calendar-vim
+			# customPlugins.twitvim
+			# customPlugins.vim-templates
 
 			# broken
 			# lsp_extensions-nvim
@@ -67,7 +67,7 @@ in {
 			+ builtins.readFile ./plugin-config/neuron.vim
 			+ builtins.readFile ./plugin-config/gruvbox.vim
 			+ builtins.readFile ./plugin-config/vim-nix.vim
-			+ builtins.readFile ./plugin-config/calendar.vim
+			# + builtins.readFile ./plugin-config/calendar.vim
 			+ builtins.readFile ./plugin-config/nerdtree.vim
 			+ builtins.readFile ./plugin-config/limelight.vim
 			+ builtins.readFile ./plugin-config/vim-wheel.vim
