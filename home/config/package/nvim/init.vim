@@ -4,6 +4,7 @@ set tgc
 set ls=1
 set noet
 set ic scs
+set bg=dark
 set mouse=a
 set hlsearch
 color gruvbox
@@ -11,6 +12,7 @@ set incsearch
 set ts=3 sw=3
 set icm=nosplit
 set list lcs=tab:\┊\  
+set ve+=block " select beyond the end of the line
 au BufNewFile,BufRead *.nix set ts=3 sts=3 sw=3 tw=79 noet
 au BufNewFile,BufRead *.py  set ts=3 sts=3 sw=3 tw=79 noet
 au BufNewFile,BufRead *.vim set ts=3 sts=3 sw=3 tw=79 noet
@@ -38,10 +40,6 @@ if exists("*strftime")
 	ia	today	<c-r>=strftime("%Y %b %d")<cr>
 	ia	now	<c-r>=strftime('%Y %b %d %X')<cr>
 end
-
-" appearance
-color gruvbox
-hi ErrorMsg ctermfg=Red ctermbg=237
 
 " copy pwd
 cabbrev cpwd let @* = expand("%:p:h")
