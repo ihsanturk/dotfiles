@@ -10,35 +10,40 @@
 		"https://github.com/ihsanturk/trends/archive/master.tar.gz"; in import
 		trends {})
 
+		# unix
+		gawk
+		gnupg
+		groff
+		pandoc
+		svgbob
+		gnumake
+		gnuchess
+		recutils
+		coreutils # tac
+		# grap # https://www.lunabase.org/~faber/Vault/software/grap/
+
 		fd
 		jq
 		sd
 		exa
 		nnn
 		ddgr
-		gawk
 		jump
 		mosh
 		pass
 		tldr
-		gnupg
-		groff
-		vlang
 		ffmpeg
 		ranger
-		gnumake
+		# vlang
 		ripgrep
 		tmpmail
-		gnuchess
+		# tinycc
 		pinentry
-		recutils
 		mitmproxy
-		moreutils
 		syncthing
 		trash-cli
 		neuron-notes
 		neovim-remote
-		coreutils # tac
 		translate-shell
 		# python38Packages.pdftotext # ripgrep-all
 		# quickjs # installed impurely /usr/local/bin/qjs
@@ -73,6 +78,7 @@
 	# 	docopts
 	# 	exiftool
 	# 	git-crypt
+	# 	moreutils
 	# 	bitwarden-cli
 	# 	protonvpn-cli-ng
 	# 	nix-doc # NOTE: cannot be compiled
