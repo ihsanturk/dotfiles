@@ -10,9 +10,9 @@ config: {
 	glo = "git log";
 	gb = "git branch";
 	gcl = "git clone";
-	gs = "git status";
 	gp = "git push -u";
 	gc = "git commit -v";
+	gs = "git status -s";
 
 	# exa
 	l = "exa";
