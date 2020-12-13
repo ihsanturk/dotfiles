@@ -20,7 +20,7 @@ in {
 		(./hardware + ("/" + profile + ".nix"))
 		(./profile  + ("/" + profile + ".nix" ))
 
-	]
+	];
 
 	nixpkgs.overlays = import ./overlay;
 	system.stateVersion = "20.09";
