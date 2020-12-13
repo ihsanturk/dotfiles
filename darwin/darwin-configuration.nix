@@ -54,7 +54,7 @@
 	system.defaults.NSGlobalDomain.KeyRepeat = 1;
 	system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
 	system.defaults.NSGlobalDomain._HIHideMenuBar = false;
-	system.defaults.finder._FXShowPosixPathInTitle = true;
+	system.defaults.finder._FXShowPosixPathInTitle = false; # full path on finder
 
 	system.stateVersion = 4;
 

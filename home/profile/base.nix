@@ -32,9 +32,11 @@
 		mosh
 		pass
 		tldr
+		hlint
 		ffmpeg
 		ranger
 		# vlang
+		hledger
 		ripgrep
 		tmpmail
 		# tinycc
@@ -45,7 +47,7 @@
 		neuron-notes
 		neovim-remote
 		translate-shell
-		# python38Packages.pdftotext # ripgrep-all
+		poppler_utils # pdftotext # ripgrep-all
 		# quickjs # installed impurely /usr/local/bin/qjs
 		gitAndTools.delta # for: git diff # long compile time
 
@@ -60,7 +62,7 @@
 	programs.vim.enable = true;
 	programs.zsh.enable = true;
 	programs.tmux.enable = true;
-	programs.emacs.enable = true;
+	# programs.emacs.enable = true;
 	programs.neovim.enable = true;
 	programs.starship.enable = true;
 
