@@ -41,6 +41,7 @@ in rec {
 	imports = [
 		./module
 		./profile/base.nix
+		./profile/haskell-dev-env.nix
 		# ./profile/tmp.nix # beta softwares (dd if things broke)
 		# ./profile/impure.nix # beta softwares (dd if things broke)
 	]
