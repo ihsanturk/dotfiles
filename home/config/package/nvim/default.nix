@@ -28,10 +28,8 @@ in {
 			nerdtree
 			vim-devicons
 			gruvbox-community
-			# vim-cute-python
 			# nerdtree-git-plugin
 
-			ale
 			fzf-vim
 			vim-nix
 			goyo-vim
