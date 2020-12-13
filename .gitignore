@@ -18,3 +18,7 @@ nvim/.config/nvim/package
 nvim/.config/nvim/plugged
 nvim/.config/nvim/spell
 *private.nix
+nixos/dev/
+home/settings.nix
+nixos/hardware
+home/config/package/gpg.nix
