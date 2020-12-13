@@ -4,7 +4,7 @@
 
 		# python-language-server # not supported on darwin
 		python38Packages.flake8
-		python38Packages.pylint
+		# python38Packages.pylint
 
 	];
 
@@ -16,9 +16,9 @@
 
 		];
 
-		# extraConfig = (
-		# 	builtins.readFile ../config/package/nvim/ale.vim
-		# )
+		extraConfig = (
+			builtins.readFile ../config/package/nvim/plugin-config/ale.vim
+		);
 
 	};
 
