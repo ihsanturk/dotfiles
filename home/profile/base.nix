@@ -44,6 +44,7 @@
 		mitmproxy
 		syncthing
 		trash-cli
+		shellcheck
 		neuron-notes
 		neovim-remote
 		translate-shell
