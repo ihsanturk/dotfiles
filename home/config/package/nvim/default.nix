@@ -12,6 +12,7 @@ in {
 
 			customPlugins.v-vim
 			customPlugins.info-vim
+			customPlugins.ihlog-vim
 			customPlugins.vim-wheel
 			customPlugins.neuron-vim
 			customPlugins.vim-tureng
@@ -20,6 +21,7 @@ in {
 			customPlugins.vim-emacs-like
 			customPlugins.vim-ihsensible
 			customPlugins.vim-searchlight
+			customPlugins.vim-you-autocorrect
 			customPlugins.vim-grave-navigation
 
 			# ui
@@ -32,6 +34,7 @@ in {
 			fzf-vim
 			vim-nix
 			goyo-vim
+			vim-ledger
 			delimitMate
 			targets-vim
 			vim-fugitive

@@ -1,6 +1,30 @@
 { pkgs, ... }:
 {
 
+	ihlog-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+		name = "ihlog-vim";
+		src = ~/code/github.com/ihsanturk/ihlog; # pkgs.fetchgit {
+			# url = "https://github.com/ihsanturk/ihlog-vim";
+			# sha256 = "sha256-K5d/Gr2FWZS6N+ftSGY2B71UjfWSHmTvcsn5pEoj5wQ=";
+		# };
+	};
+
+	vim-you-autocorrect = pkgs.vimUtils.buildVimPluginFrom2Nix {
+		name = "vim-you-autocorrect";
+		src = pkgs.fetchgit {
+			url = "https://github.com/sedm0784/vim-you-autocorrect";
+			sha256 = "sha256-K5d/Gr2FWZS6N+ftSGY2B71UjfWSHmTvcsn5pEoj5wQ=";
+		};
+	};
+
+	php-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+		name = "php.vim";
+		src = pkgs.fetchgit {
+			url = "https://github.com/StanAngeloff/php.vim";
+			sha256 = "sha256-sxrenhhNvpfJNCOKlaLvSvLjUSKtseZpWbeULmOu2yY=";
+		};
+	};
+
 	vim-searchlight = pkgs.vimUtils.buildVimPluginFrom2Nix {
 		name = "vim-searchlight";
 		src = pkgs.fetchgit {
@@ -53,21 +77,22 @@
 		};
 	};
 
-	# fork of my plugin
-	# neuron-vim = pkgs.vimUtils.buildVimPluginFrom2Nix { name = "neuron.vim";
-	# 	src = pkgs.fetchgit { url = "https://github.com/fiatjaf/neuron.vim";
-	# 		sha256 = "0pnkz8vq0ky24yi9svvigcsi6b7dxbbfhw6agb4bwnfi1qqc1848";
-	# 	};};
-
+	# fiatjaf/neuron.vim (for of my plugin)
 	neuron-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
 		name = "neuron.vim";
-		src = ~/code/github.com/ihsanturk/neuron.vim;
-		# src = pkgs.fetchFromGitHub {
-		# 	owner = "ihsanturk";
-		# 	repo = "neuron.vim";
-		# 	rev = "master";
-		# 	sha256 = "0myadiy6y2p73lhdzk2w55whg4i5rs004jaw1m21cz0dk8k8ibn2";
-		# };
+		src = pkgs.fetchgit {
+			url = "https://github.com/fiatjaf/neuron.vim";
+			sha256 = "sha256-XgT2EhKSV9zlGhSWy7w9+qJzjxw1kNNfwphLQxTwAHQ=";
+
+		# src = ~/code/github.com/ihsanturk/neuron.vim;
+		# # src = pkgs.fetchFromGitHub {
+		# # 	owner = "ihsanturk";
+		# # 	repo = "neuron.vim";
+		# # 	rev = "master";
+		# # 	sha256 = "0myadiy6y2p73lhdzk2w55whg4i5rs004jaw1m21cz0dk8k8ibn2";
+		# # };
+		};
+
 	};
 
 	code-stats-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
@@ -134,7 +159,7 @@
 			owner = "ihsanturk";
 			repo = "vim-ihsensible";
 			rev = "master";
-			sha256 = "sha256-HCyPLg2b2kFkGgnnSnRdYczUWXMnOfQ+Mi459lBvDEs=";
+			sha256 = "sha256-BWPhEfyeW4nWMX1fGt8JXuF2a64WFnUJuEGaBp3JeT0=";
 		};
 	};
 
