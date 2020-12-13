@@ -104,6 +104,7 @@ in {
 				{ key = "K";    mods = "Command"; chars = "\\x07\\x18"; }
 				{ key = "S";    mods = "Command"; chars = "\\x07\\x22"; }
 				{ key = "D";    mods = "Command"; chars = "\\x07\\x25"; }
+				{ key = "L";    mods = "Command"; chars = "\\x07\\x6c"; }
 				# { key = "Key0"; mods = "Command"; chars = "\\x07\\x30"; }
 				{ key = "Key1"; mods = "Command"; chars = "\\x07\\x31"; }
 				{ key = "Key2"; mods = "Command"; chars = "\\x07\\x32"; }
