@@ -2,9 +2,9 @@
 {
 	home.packages = with pkgs; [
 
-		# python-language-server # not supported on darwin
+		mypy
 		python38Packages.flake8
-		# python38Packages.pylint
+		# python-language-server # not supported on darwin
 
 	];
 
