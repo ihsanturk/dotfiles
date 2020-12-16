@@ -22,9 +22,10 @@ in rec {
 		EDITOR = "nvim";
 		GPG_TTY = "$(tty)";
 		PATH = "$HOME/Sync/bin:$PATH";
-		CODESTATS_API_KEY = "${config.private.codeStatsAPIKey}";
 		GCALAPI = "${config.private.googleCalendarApiKey}";
 		GCALSECRET = "${config.private.googleCalendarSecret}";
+		CODESTATS_API_KEY = "${config.private.codeStatsAPIKey}";
+		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		GCALCLIENTID = "${config.private.googleCalendarClientId}";
 	};
 
