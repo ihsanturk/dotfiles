@@ -38,7 +38,7 @@ if exists("*strftime")
 	ia	timestamp	<c-r>=strftime('%s')<cr>
 	ia	ts	<c-r>=strftime('%s')<cr>
 	ia	today	<c-r>=strftime("%Y %b %d")<cr>
-	ia	now	<c-r>=strftime('%Y %b %d %X')<cr>
+	ia	now	<c-r>=strftime('%Y-%m-%d %X')<cr>
 end
 
 " copy pwd
