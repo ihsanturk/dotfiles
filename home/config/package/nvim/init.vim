@@ -44,7 +44,7 @@ end
 " copy pwd
 cabbrev cpwd let @* = expand("%:p:h")
 
-" never use cd, instead use tcd
+" cd -> tcd
 cabbrev cd tcd
 
 " write and buffer delete/close/kill buffer
@@ -52,6 +52,18 @@ cnorea wbd w\|:bd
 cnorea wd w\|:bd
 cnorea Wd w\|:bd
 cnorea WD w\|:bd
+
+" external commands
+func! CnoreaOnlyPattern(lhs, rhs, pattern)
+	exe 'cnoreabbrev <expr> '.a:lhs.
+		\ ' (getcmdtype() == ":" && getcmdline() =~ "'.a:pattern.
+		\ '")? "'.a:rhs.'" : "'.a:lhs.'"'
+endf
+
+call CnoreaOnlyPattern('mkdir', '!mkdir', '^mkdir$')
+call CnoreaOnlyPattern('rm', '!rm', '^rm$')
+call CnoreaOnlyPattern('t', '!tweet', '^t$')
+call CnoreaOnlyPattern('learn', 'tcd '.$DIR_LEARN.'/', '^learn$')
 
 " spaces to tabs
 cabbrev s2t %s/  /\t/g
