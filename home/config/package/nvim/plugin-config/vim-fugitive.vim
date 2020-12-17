@@ -1,7 +1,5 @@
 aug fugitive
 
-	ca g   Git
-	ca gi  Git
 	ca git Git
 	ca ga  Git add
 	ca gl  Git log
