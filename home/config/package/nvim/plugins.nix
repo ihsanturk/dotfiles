@@ -1,6 +1,15 @@
 { pkgs, ... }:
 {
 
+	ledger-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+		name = "ledger-vim";
+		src = pkgs.fetchgit {
+			url = "https://github.com/ziman/ledger-vim";
+			sha256 = "sha256-YbSkK/N8ahNXU6xleHOHzLvn9+YLJVWLyy8FBe/ydow=";
+		};
+	};
+
+
 	ihlog-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
 		name = "ihlog-vim";
 		src = ~/code/github.com/ihsanturk/ihlog; # pkgs.fetchgit {

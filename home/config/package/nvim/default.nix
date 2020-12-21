@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-
+	
 	# term = config.settings.terminal;
 	custom = import ./plugins.nix { inherit pkgs; };
 
@@ -18,6 +18,7 @@ in {
 			custom.ihlog-vim
 			custom.vim-wheel
 			custom.neuron-vim
+			custom.ledger-vim
 			custom.vim-tureng
 			custom.tabline-vim
 			custom.code-stats-vim
@@ -36,7 +37,6 @@ in {
 			fzf-vim
 			vim-nix
 			goyo-vim
-			vim-ledger
 			delimitMate
 			targets-vim
 			vim-fugitive
@@ -50,6 +50,7 @@ in {
 			vim-commentary
 			vim-easy-align
 			vim-nerdtree-syntax-highlight
+			# vim-ledger # fucking bad # does not support opfunc
 
 			# rare
 			# calendar-vim
@@ -66,7 +67,6 @@ in {
 			builtins.readFile ./init.vim
 			+ builtins.readFile ./plugin-config/fzf.vim
 			+ builtins.readFile ./plugin-config/goyo.vim
-			+ builtins.readFile ./plugin-config/ledger.vim
 			+ builtins.readFile ./plugin-config/neuron.vim
 			+ builtins.readFile ./plugin-config/gruvbox.vim
 			+ builtins.readFile ./plugin-config/vim-nix.vim
@@ -80,6 +80,7 @@ in {
 			+ builtins.readFile ./plugin-config/code-stats-vim.vim
 
 			# rare
+			# + builtins.readFile ./plugin-config/ledger.vim
 			# + builtins.readFile ./plugin-config/calendar.vim
 			# + builtins.readFile ./plugin-config/vim-templates.vim
 
