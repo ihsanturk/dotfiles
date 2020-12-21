@@ -36,7 +36,6 @@
 		ffmpeg
 		ranger
 		# vlang
-		hledger
 		ripgrep
 		tmpmail
 		# tinycc
@@ -49,6 +48,8 @@
 		neovim-remote
 		translate-shell
 		poppler_utils # pdftotext # ripgrep-all
+		ledger # delete one of ledger or hledger
+		hledger # delete one of ledger or hledger
 		# quickjs # installed impurely /usr/local/bin/qjs
 		gitAndTools.delta # for: git diff # long compile time
 
@@ -77,7 +78,6 @@
 	# 	tree
 	# 	cachix
 	# 	igraph
-	# 	ledger
 	# 	docopts
 	# 	exiftool
 	# 	git-crypt
