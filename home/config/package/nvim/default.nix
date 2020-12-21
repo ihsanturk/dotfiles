@@ -1,28 +1,31 @@
 { config, pkgs, lib, ... }:
 let
 
-	term = config.settings.terminal;
-	customPlugins = import ./plugins.nix { inherit pkgs; };
+	# term = config.settings.terminal;
+	custom = import ./plugins.nix { inherit pkgs; };
 
 in {
 
 	programs.neovim = {
+
 		enable = true;
+		viAlias = false;
+		vimAlias = true;
 		plugins = with pkgs.vimPlugins; [
 
-			customPlugins.v-vim
-			customPlugins.info-vim
-			customPlugins.ihlog-vim
-			customPlugins.vim-wheel
-			customPlugins.neuron-vim
-			customPlugins.vim-tureng
-			customPlugins.tabline-vim
-			customPlugins.code-stats-vim
-			customPlugins.vim-emacs-like
-			customPlugins.vim-ihsensible
-			customPlugins.vim-searchlight
-			customPlugins.vim-you-autocorrect
-			customPlugins.vim-grave-navigation
+			custom.v-vim
+			custom.info-vim
+			custom.ihlog-vim
+			custom.vim-wheel
+			custom.neuron-vim
+			custom.vim-tureng
+			custom.tabline-vim
+			custom.code-stats-vim
+			custom.vim-emacs-like
+			custom.vim-ihsensible
+			custom.vim-searchlight
+			custom.vim-you-autocorrect
+			custom.vim-grave-navigation
 
 			# ui
 			nerdtree
@@ -49,27 +52,24 @@ in {
 			vim-nerdtree-syntax-highlight
 
 			# rare
-			# vim-ledger
 			# calendar-vim
-			# customPlugins.twitvim
-			# customPlugins.vim-templates
+			# custom.twitvim
+			# custom.vim-templates
 
 			# broken
 			# lsp_extensions-nvim
 
 		];
 
-		viAlias = false;
-		vimAlias = true;
 		extraConfig = (
 
 			builtins.readFile ./init.vim
 			+ builtins.readFile ./plugin-config/fzf.vim
 			+ builtins.readFile ./plugin-config/goyo.vim
+			+ builtins.readFile ./plugin-config/ledger.vim
 			+ builtins.readFile ./plugin-config/neuron.vim
 			+ builtins.readFile ./plugin-config/gruvbox.vim
 			+ builtins.readFile ./plugin-config/vim-nix.vim
-			# + builtins.readFile ./plugin-config/calendar.vim
 			+ builtins.readFile ./plugin-config/nerdtree.vim
 			+ builtins.readFile ./plugin-config/limelight.vim
 			+ builtins.readFile ./plugin-config/vim-wheel.vim
@@ -78,6 +78,9 @@ in {
 			+ builtins.readFile ./plugin-config/vim-fugitive.vim
 			+ builtins.readFile ./plugin-config/vim-sayonara.vim
 			+ builtins.readFile ./plugin-config/code-stats-vim.vim
+
+			# rare
+			# + builtins.readFile ./plugin-config/calendar.vim
 			# + builtins.readFile ./plugin-config/vim-templates.vim
 
 		);
