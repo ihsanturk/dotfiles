@@ -1,2 +1,2 @@
-au FileType ledger nn <silent> <tab> :LedgerAlign<cr>
-au FileType ledger vnoremap <silent> <tab> :LedgerAlign<cr>
+au FileType ledger nm <silent> <tab> :set ep=ledger\ -f\ -\ print<cr>=
+au FileType ledger xn <silent> <tab> :<c-u>set ep=ledger\ -f\ -\ print<cr>gv=
