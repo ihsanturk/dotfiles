@@ -9,6 +9,7 @@
 		mpv
 		ffmpeg
 		qrencode
+		youtube-dl
 		imagemagick
 
 	];
