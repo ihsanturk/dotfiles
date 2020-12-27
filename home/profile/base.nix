@@ -61,7 +61,7 @@
 	programs.bat.enable = true;
 	programs.fzf.enable = true;
 	programs.git.enable = true;
-	programs.vim.enable = true;
+	# programs.vim.enable = true;
 	programs.zsh.enable = true;
 	programs.tmux.enable = true;
 	# programs.emacs.enable = true;
