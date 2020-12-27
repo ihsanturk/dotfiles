@@ -1,21 +1,33 @@
+syntax on
+set is
 set nu
+set hls
 set rnu
-set tgc
+se cc=80
 set ls=1
 set noet
+se nowrap
 set ic scs
-set bg=dark
 set mouse=a
-set hlsearch
-color gruvbox
-set incsearch
 set ts=3 sw=3
-set icm=nosplit
-set list lcs=tab:\┊\  
+" set bg=light
+if has('icm')
+	set icm=nosplit
+end
+se lcs=tab:\┊\ ,trail:•,nbsp:+
 set ve+=block " select beyond the end of the line
 au BufNewFile,BufRead *.nix set ts=3 sts=3 sw=3 tw=79 noet
 au BufNewFile,BufRead *.py  set ts=3 sts=3 sw=3 tw=79 noet
 au BufNewFile,BufRead *.vim set ts=3 sts=3 sw=3 tw=79 noet
+
+" appearance
+if $COLORTERM == 'truecolor'
+	set tgc
+else
+	set notgc
+end
+hi! link ColorColumn Visual
+nn <silent> <c-c> :noh<cr>
 
 " sort text-objects " TODO: pluginize-vip
 nm <silent> gss :set ep=sort<cr>=
@@ -41,11 +53,24 @@ if exists("*strftime")
 	ia	now	<c-r>=strftime('%Y-%m-%d %X')<cr>
 end
 
-" copy pwd
+" cpwd -> copy pwd
 cabbrev cpwd let @* = expand("%:p:h")
 
 " cd -> tcd
 cabbrev cd tcd
+
+" typo
+ca W w
+ca Q q
+ca WQ wq
+ca Wq w
+ca E e
+
+" pivot scroll
+if has('nvim') == 0 " apply just for vim
+	nn <silent> <c-j> <esc><c-e>j
+	nn <silent> <c-k> <esc><c-y>k
+end
 
 " write and buffer delete/close/kill buffer
 cnorea wbd w\|:bd
