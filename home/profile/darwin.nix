@@ -6,6 +6,7 @@
 		mpv
 		m-cli
 		ffmpeg
+		swiftbar  # NOTE: uninstall manually: "/Applications/SwiftBar.app"
 		qrencode
 		coreutils
 		imagemagick
@@ -14,11 +15,6 @@
 	];
 
 	programs.alacritty.enable = true;
-
-	programs.git = {
-		extraConfig = {
-			credential.helper = "osxkeychain";
-		};
-	};
+	programs.git.extraConfig.credential.helper = "osxkeychain";
 
 }
