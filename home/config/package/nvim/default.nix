@@ -10,7 +10,7 @@ in {
 
 		enable = true;
 		viAlias = false;
-		vimAlias = true;
+		vimAlias = false;
 		plugins = with pkgs.vimPlugins; [
 
 			custom.v-vim
@@ -67,6 +67,7 @@ in {
 			builtins.readFile ./init.vim
 			+ builtins.readFile ./plugin-config/fzf.vim
 			+ builtins.readFile ./plugin-config/goyo.vim
+			+ builtins.readFile ./plugin-config/ledger.vim
 			+ builtins.readFile ./plugin-config/neuron.vim
 			+ builtins.readFile ./plugin-config/gruvbox.vim
 			+ builtins.readFile ./plugin-config/vim-nix.vim
@@ -80,7 +81,6 @@ in {
 			+ builtins.readFile ./plugin-config/code-stats-vim.vim
 
 			# rare
-			# + builtins.readFile ./plugin-config/ledger.vim
 			# + builtins.readFile ./plugin-config/calendar.vim
 			# + builtins.readFile ./plugin-config/vim-templates.vim
 
