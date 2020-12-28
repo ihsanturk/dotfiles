@@ -13,29 +13,24 @@ in {
 		vimAlias = false;
 		plugins = with pkgs.vimPlugins; [
 
-			custom.v-vim
 			custom.info-vim
-			custom.ihlog-vim
 			custom.vim-wheel
-			custom.neuron-vim
 			custom.ledger-vim
-			custom.vim-tureng
+			custom.neuron-vim
 			custom.tabline-vim
-			custom.code-stats-vim
-			custom.vim-emacs-like
 			custom.vim-ihsensible
 			custom.vim-searchlight
-			custom.vim-you-autocorrect
 			custom.vim-grave-navigation
+			# custom.code-stats-vim  # slowwwww
 
 			# ui
-			nerdtree
 			vim-devicons
 			gruvbox-community
 			# nerdtree-git-plugin
 
 			fzf-vim
 			vim-nix
+			vim-rsi
 			goyo-vim
 			delimitMate
 			targets-vim
@@ -43,6 +38,7 @@ in {
 			vim-sayonara
 			vim-sensible
 			vim-surround
+			lightline-vim
 			limelight-vim
 			vim-css-color
 			vim-gitgutter
@@ -50,12 +46,17 @@ in {
 			vim-commentary
 			vim-easy-align
 			vim-nerdtree-syntax-highlight
-			# vim-ledger # fucking bad # does not support opfunc
+			# vim-ledger # does not follow the philosophy # does not support opfunc
 
 			# rare
+			# nerdtree
 			# calendar-vim
+			# custom.v-vim
 			# custom.twitvim
+			# custom.ihlog-vim
+			# custom.vim-tureng
 			# custom.vim-templates
+			# custom.vim-you-autocorrect
 
 			# broken
 			# lsp_extensions-nvim
@@ -72,13 +73,14 @@ in {
 			+ builtins.readFile ./plugin-config/gruvbox.vim
 			+ builtins.readFile ./plugin-config/vim-nix.vim
 			+ builtins.readFile ./plugin-config/nerdtree.vim
+			+ builtins.readFile ./plugin-config/lightline.vim
 			+ builtins.readFile ./plugin-config/limelight.vim
 			+ builtins.readFile ./plugin-config/vim-wheel.vim
 			+ builtins.readFile ./plugin-config/easy-align.vim
 			+ builtins.readFile ./plugin-config/delimitMate.vim
 			+ builtins.readFile ./plugin-config/vim-fugitive.vim
 			+ builtins.readFile ./plugin-config/vim-sayonara.vim
-			+ builtins.readFile ./plugin-config/code-stats-vim.vim
+			# + builtins.readFile ./plugin-config/code-stats-vim.vim
 
 			# rare
 			# + builtins.readFile ./plugin-config/calendar.vim
