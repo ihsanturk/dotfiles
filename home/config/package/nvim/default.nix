@@ -17,7 +17,6 @@ in {
 			custom.vim-wheel
 			custom.ledger-vim
 			custom.neuron-vim
-			custom.tabline-vim
 			custom.vim-ihsensible
 			custom.vim-searchlight
 			custom.vim-grave-navigation
@@ -57,6 +56,7 @@ in {
 			# custom.vim-tureng
 			# custom.vim-templates
 			# custom.vim-you-autocorrect
+			# custom.tabline-vim # using lightline's tabline
 
 			# broken
 			# lsp_extensions-nvim
