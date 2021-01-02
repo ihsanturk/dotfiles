@@ -20,17 +20,17 @@ in {
 			custom.vim-ihsensible
 			custom.vim-searchlight
 			custom.vim-grave-navigation
-			# custom.code-stats-vim  # slowwwww
+			# custom.code-stats-vim  # slowwwww...
 
 			# ui
-			vim-devicons
+			# vim-devicons
 			gruvbox-community
 			# nerdtree-git-plugin
+			# vim-nerdtree-syntax-highlight
 
 			fzf-vim
 			vim-nix
 			vim-rsi
-			goyo-vim
 			delimitMate
 			targets-vim
 			vim-fugitive
@@ -44,10 +44,10 @@ in {
 			vim-lastplace
 			vim-commentary
 			vim-easy-align
-			vim-nerdtree-syntax-highlight
-			# vim-ledger # does not follow the philosophy # does not support opfunc
+			# vim-ledger # unnecessarily too much functionality
 
 			# rare
+			# goyo-vim
 			# nerdtree
 			# calendar-vim
 			# custom.v-vim
@@ -67,12 +67,10 @@ in {
 
 			builtins.readFile ./init.vim
 			+ builtins.readFile ./plugin-config/fzf.vim
-			+ builtins.readFile ./plugin-config/goyo.vim
 			+ builtins.readFile ./plugin-config/ledger.vim
 			+ builtins.readFile ./plugin-config/neuron.vim
 			+ builtins.readFile ./plugin-config/gruvbox.vim
 			+ builtins.readFile ./plugin-config/vim-nix.vim
-			+ builtins.readFile ./plugin-config/nerdtree.vim
 			+ builtins.readFile ./plugin-config/lightline.vim
 			+ builtins.readFile ./plugin-config/limelight.vim
 			+ builtins.readFile ./plugin-config/vim-wheel.vim
@@ -80,11 +78,12 @@ in {
 			+ builtins.readFile ./plugin-config/delimitMate.vim
 			+ builtins.readFile ./plugin-config/vim-fugitive.vim
 			+ builtins.readFile ./plugin-config/vim-sayonara.vim
-			# + builtins.readFile ./plugin-config/code-stats-vim.vim
 
-			# rare
+			# + builtins.readFile ./plugin-config/goyo.vim
 			# + builtins.readFile ./plugin-config/calendar.vim
+			# + builtins.readFile ./plugin-config/nerdtree.vim
 			# + builtins.readFile ./plugin-config/vim-templates.vim
+			# + builtins.readFile ./plugin-config/code-stats-vim.vim
 
 		);
 
