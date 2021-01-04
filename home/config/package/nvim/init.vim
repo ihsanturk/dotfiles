@@ -91,9 +91,9 @@ call CnoreaOnlyPattern('t', '!tweet', '^t$')
 call CnoreaOnlyPattern('learn', 'tcd '.$DIR_LEARN.'/', '^learn$')
 
 " spaces to tabs
-cabbrev s2t %s/  /\t/g
-cabbrev s4t %s/    /\t/g
-cabbrev s8t %s/        /\t/g
+cabbrev s2t s/  /\t/g
+cabbrev s4t s/    /\t/g
+cabbrev s8t s/        /\t/g
 
 " word search
 nn g/ /\<\><left><left><c-r>/
