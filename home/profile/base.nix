@@ -35,6 +35,7 @@
 		hlint
 		ffmpeg
 		ranger
+		stdman
 		# vlang
 		ripgrep
 		tmpmail
@@ -61,11 +62,11 @@
 	programs.bat.enable = true;
 	programs.fzf.enable = true;
 	programs.git.enable = true;
-	# programs.vim.enable = true;
 	programs.zsh.enable = true;
 	programs.tmux.enable = true;
-	# programs.emacs.enable = true;
+	# programs.vim.enable = true;
 	programs.neovim.enable = true;
+	# programs.emacs.enable = true;
 	programs.starship.enable = true;
 
 	# # rare
