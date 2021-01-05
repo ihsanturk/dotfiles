@@ -48,6 +48,7 @@
 		neuron-notes
 		neovim-remote
 		translate-shell
+		ncdu # clear out your storage devices
 		poppler_utils # pdftotext # ripgrep-all
 		ledger # delete one of ledger or hledger
 		hledger # delete one of ledger or hledger
