@@ -7,7 +7,7 @@ config: {
 	g = "git";
 	ga = "git add";
 	gd = "git diff";
-	glo = "git log";
+	gl = "git log";
 	gb = "git branch";
 	gcl = "git clone";
 	gp = "git push -u";
