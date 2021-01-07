@@ -28,9 +28,11 @@ in {
 			# nerdtree-git-plugin
 			# vim-nerdtree-syntax-highlight
 
+			jq-vim
 			fzf-vim
 			vim-nix
 			vim-rsi
+			supertab
 			delimitMate
 			targets-vim
 			vim-fugitive
@@ -71,6 +73,7 @@ in {
 			+ builtins.readFile ./plugin-config/neuron.vim
 			+ builtins.readFile ./plugin-config/gruvbox.vim
 			+ builtins.readFile ./plugin-config/vim-nix.vim
+			+ builtins.readFile ./plugin-config/supertab.vim
 			+ builtins.readFile ./plugin-config/lightline.vim
 			+ builtins.readFile ./plugin-config/limelight.vim
 			+ builtins.readFile ./plugin-config/vim-wheel.vim
