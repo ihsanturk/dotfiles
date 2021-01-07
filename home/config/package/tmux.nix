@@ -6,6 +6,9 @@ let
 		rev = "60a36d6f7adddfb68d68349dce3081e7d5c4d4ab";
 	};
 
+	if_ = lib.optionalString;
+	tmuxEnabledThen = config.programs.tmux.enable;
+
 in {
 
 	programs.tmux = {
@@ -77,5 +80,9 @@ in {
 	};
 
 	home.file.".tmux/plugins/tpm".source = "${tpm}/";
+
+	programs.zsh.shellAliases = if_ tmuxEnabledThen {
+		ta = "tmux new-session -ADs main";
+	};
 
 }
