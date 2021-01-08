@@ -1,24 +1,25 @@
 syntax on
-set is
-set nu
-set hls
-set rnu
-se cc=80
-set ls=1
-set noet
-se nowrap
-set ic scs
+set nowrap
+set number
 set mouse=a
-set ts=3 sw=3
-" set bg=light
-if has('icm')
-	set icm=nosplit
-end
-se lcs=tab:\┊\ ,trail:•,nbsp:+
-set ve+=block " select beyond the end of the line
+set hlsearch
+set incsearch
+set noexpandtab
+set laststatus=1
+set colorcolumn=80
+set relativenumber
+set ignorecase smartcase
+set tabstop=3 shiftwidth=3
+set listchars=tab:\┊\ ,trail:•,nbsp:+
+set virtualedit+=block " select beyond end of the line
 au BufNewFile,BufRead *.nix set ts=3 sts=3 sw=3 tw=79 noet
 au BufNewFile,BufRead *.py  set ts=3 sts=3 sw=3 tw=79 noet
 au BufNewFile,BufRead *.vim set ts=3 sts=3 sw=3 tw=79 noet
+
+" live search change
+if has('inccommand')
+	set inccommand=nosplit
+end
 
 " completion
 set completeopt=menu,noselect,preview
