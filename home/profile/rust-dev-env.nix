@@ -2,8 +2,7 @@
 {
 	home.packages = with pkgs; [
 
-		ghc
-		hlint
+		clippy
 
 	];
 
@@ -11,7 +10,7 @@
 		plugins = with pkgs.vimPlugins; [
 
 			ale
-			hlint-refactor-vim
+			vim-toml
 
 		];
 	};

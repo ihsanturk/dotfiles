@@ -46,7 +46,8 @@ in rec {
 	imports = [
 		./module
 		./profile/base.nix
-		./profile/c-dev-env.nix
+		# ./profile/c-dev-env.nix
+		./profile/rust-dev-env.nix
 		./profile/python-dev-env.nix
 		./profile/haskell-dev-env.nix
 		# ./profile/tmp.nix # beta softwares (dd if things broke)
