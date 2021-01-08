@@ -13,7 +13,7 @@ set tabstop=3 shiftwidth=3
 set listchars=tab:\┊\ ,trail:•,nbsp:+
 set virtualedit+=block " select beyond end of the line
 
-au FileType nix,python,vim set ts=3 sts=3 sw=3 tw=79 noet
+au FileType nix,python,vim,rust set ts=3 sts=3 sw=3 tw=79 noet
 
 " live search change
 if has('inccommand')
