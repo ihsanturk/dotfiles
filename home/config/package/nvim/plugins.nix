@@ -1,6 +1,14 @@
 { pkgs, ... }:
 {
 
+	valgrind-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+		name = "valgrind-vim";
+		src = pkgs.fetchgit {
+			url = "https://github.com/alkino/valgrind.vim";
+			sha256 = "sha256-c/0SB/jnLw0TDv/F6kXYhh03ZcDQsmZHT43QAIrXZZA";
+		};
+	};
+
 	ledger-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
 		name = "ledger-vim";
 		src = pkgs.fetchgit {

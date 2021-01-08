@@ -4,7 +4,7 @@ let
 	if_ = lib.optionalString;
 	functions = import ./fish-functions.nix;
 	fishEnabledThen = config.programs.fish.enable;
-	codeStatsAPIKey = config.private.codeStatsAPIKey;
+	# codeStatsAPIKey = config.private.codeStatsAPIKey;
 	shellAliases = import ../../shell-aliases.nix config;
 
 	# {

@@ -45,6 +45,7 @@
 		syncthing
 		trash-cli
 		shellcheck
+		signal-cli
 		neuron-notes
 		neovim-remote
 		translate-shell

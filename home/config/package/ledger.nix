@@ -7,7 +7,7 @@ config.home.file.".ledgerrc".text = ''
 --date-format %Y-%m-%d
 --input-date-format %Y-%m-%d
 --price-db ${config.home.homeDirectory}/Sync/log/price.db
---file ${config.home.homeDirectory}/Sync/log/money.ledger
+--file ${config.home.homeDirectory}/Sync/log/money/main.ledger
 '';
 
 }

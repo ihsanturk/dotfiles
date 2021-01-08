@@ -42,7 +42,7 @@ in {
 					family = "FiraCode Nerd Font";
 					style = "Italic";
 				};
-				size = 14.5;
+				size = 14.55;
 				use_thin_strokes = true;
 			};
 
@@ -244,7 +244,6 @@ in {
 
 		};
 	};
-
 
 	programs.neovim.extraConfig = lib.optionalString config.programs.alacritty.enable "set termguicolors";
 
