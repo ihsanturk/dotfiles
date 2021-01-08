@@ -32,6 +32,7 @@ in {
 			fzf-vim
 			vim-nix
 			vim-rsi
+			vim-toml
 			# supertab
 			delimitMate
 			targets-vim
