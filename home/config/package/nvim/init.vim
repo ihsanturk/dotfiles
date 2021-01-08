@@ -20,6 +20,10 @@ au BufNewFile,BufRead *.nix set ts=3 sts=3 sw=3 tw=79 noet
 au BufNewFile,BufRead *.py  set ts=3 sts=3 sw=3 tw=79 noet
 au BufNewFile,BufRead *.vim set ts=3 sts=3 sw=3 tw=79 noet
 
+" completion
+set completeopt=menu,noselect,preview
+autocmd CompleteDone * pclose
+
 " appearance
 if $COLORTERM == 'truecolor'
 	set tgc
