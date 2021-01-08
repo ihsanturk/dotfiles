@@ -12,9 +12,8 @@ set ignorecase smartcase
 set tabstop=3 shiftwidth=3
 set listchars=tab:\┊\ ,trail:•,nbsp:+
 set virtualedit+=block " select beyond end of the line
-au BufNewFile,BufRead *.nix set ts=3 sts=3 sw=3 tw=79 noet
-au BufNewFile,BufRead *.py  set ts=3 sts=3 sw=3 tw=79 noet
-au BufNewFile,BufRead *.vim set ts=3 sts=3 sw=3 tw=79 noet
+
+au FileType nix,python,vim set ts=3 sts=3 sw=3 tw=79 noet
 
 " live search change
 if has('inccommand')
@@ -33,16 +32,6 @@ if $TERM =~ '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
 	set notermguicolors
 elseif $TERM =~ '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
 	set termguicolors
-elseif $TERM =~ '^\(xterm\)\(-.*\)\?$'
-	if $XTERM_VERSION != ''
-		set termguicolors
-	elseif $KONSOLE_PROFILE_NAME != ''
-		set termguicolors
-	elseif $VTE_VERSION != ''
-		set termguicolors
-	else
-		set notermguicolors
-	endif
 endif
 hi! link ColorColumn Visual
 nn <silent> <c-c> :noh<cr>
@@ -114,4 +103,4 @@ cabbrev s4t s/    /\t/g
 cabbrev s8t s/        /\t/g
 
 " word search
-nn g/ /\<\><left><left><c-r>/
+nn g/ /\<\><left><left><c-r>/<cr>
