@@ -15,5 +15,6 @@ bindkey '^W' x-bash-backward-kill-word
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
+typeset -U fpath
 autoload -Uz compinit && compinit
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
