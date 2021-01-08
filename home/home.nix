@@ -22,10 +22,14 @@ in rec {
 		EDITOR = "nvim";
 		GPG_TTY = "$(tty)";
 		PATH = "$HOME/Sync/bin:$PATH";
+		ftx_API_KEY = "${config.private.ftxApiKey}";
+		ftx_SEC_KEY = "${config.private.ftxSecKey}";
 		GCALAPI = "${config.private.googleCalendarApiKey}";
+		BINANCE_API_KEY = "${config.private.binanceApiKey}";
+		BINANCE_SEC_KEY = "${config.private.binanceSecKey}";
 		GCALSECRET = "${config.private.googleCalendarSecret}";
-		CODESTATS_API_KEY = "${config.private.codeStatsAPIKey}";
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
+		# CODESTATS_API_KEY = "${config.private.codeStatsAPIKey}";
 		GCALCLIENTID = "${config.private.googleCalendarClientId}";
 	};
 
@@ -42,6 +46,7 @@ in rec {
 	imports = [
 		./module
 		./profile/base.nix
+		./profile/c-dev-env.nix
 		./profile/python-dev-env.nix
 		./profile/haskell-dev-env.nix
 		# ./profile/tmp.nix # beta softwares (dd if things broke)
