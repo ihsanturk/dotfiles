@@ -43,6 +43,20 @@
 		];
 	};
 
+	# TODO: vip
+	# launchd.user.agents.binancesync = {
+	# 	command = "while true; date >> /tmp/x.log; sleep 10; done";
+	# 	serviceConfig.KeepAlive = true;
+	# };
+
+	# TODO: vip
+	# services.cron = {
+	# 	enable = true;
+	# 	systemCronJobs = [
+	# 		"*/1 * * * *      root    date >> /tmp/cron.log"
+	# 	];
+	# };
+
 	# services
 	# services.lorri.enable = true;
 	# services.emacs.enable = true;
