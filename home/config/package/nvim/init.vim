@@ -72,6 +72,10 @@ ca Q q
 ca WQ wq
 ca Wq w
 ca E e
+ca Vs vs
+ca VS vs
+ca Sp sp
+ca SP sp
 
 " pivot scroll
 if has('nvim') == 0 " apply just for vim
