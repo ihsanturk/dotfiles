@@ -3,6 +3,7 @@
 	home.packages = with pkgs; [
 
 		rustup
+		sccache
 		rust-analyzer
 
 	];
