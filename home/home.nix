@@ -21,9 +21,9 @@ in rec {
 	home.sessionVariables = { #FIXME:not working at with nix-darwin
 		EDITOR = "nvim";
 		GPG_TTY = "$(tty)";
-		PATH = "$HOME/Sync/bin:$PATH";
 		ftx_API_KEY = "${config.private.ftxApiKey}";
 		ftx_SEC_KEY = "${config.private.ftxSecKey}";
+		PATH = "$HOME/Sync/bin:$HOME/.cargo/bin:$PATH";
 		GCALAPI = "${config.private.googleCalendarApiKey}";
 		BINANCE_API_KEY = "${config.private.binanceApiKey}";
 		BINANCE_SEC_KEY = "${config.private.binanceSecKey}";
