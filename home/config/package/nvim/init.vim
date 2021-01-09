@@ -9,6 +9,7 @@ set laststatus=1
 set colorcolumn=80
 set relativenumber
 set ignorecase smartcase
+set formatoptions+=tcqjrn
 set tabstop=3 shiftwidth=3
 set listchars=tab:\┊\ ,trail:•,nbsp:+
 set virtualedit+=block " select beyond end of the line

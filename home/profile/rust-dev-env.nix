@@ -11,6 +11,7 @@
 		plugins = with pkgs.vimPlugins; [
 
 			ale
+			rust-vim
 			vim-toml
 
 		];
