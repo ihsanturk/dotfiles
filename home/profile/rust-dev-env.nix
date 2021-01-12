@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
 	home.packages = with pkgs; [
 
@@ -17,5 +17,8 @@
 
 		];
 	};
+
+	# FIXME: can't access config.home from this file
+	# config.home.sessionVariables.PATH = "$HOME/.cargo/bin:$PATH";
 
 }

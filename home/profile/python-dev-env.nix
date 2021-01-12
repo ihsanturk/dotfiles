@@ -22,4 +22,7 @@
 
 	};
 
+	# FIXME: can't access config.home from this file
+	# home.sessionVariables.PATH = "$HOME/Library/Python/3.8/bin$PATH";
+
 }

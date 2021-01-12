@@ -21,9 +21,8 @@ in rec {
 	home.sessionVariables = { #FIXME:not working at with nix-darwin
 		EDITOR = "nvim";
 		GPG_TTY = "$(tty)";
-		ftx_API_KEY = "${config.private.ftxApiKey}";
-		ftx_SEC_KEY = "${config.private.ftxSecKey}";
-		PATH = "$HOME/Sync/bin:$HOME/.cargo/bin:$PATH";
+		FTX_API_KEY = "${config.private.ftxApiKey}";
+		FTX_SEC_KEY = "${config.private.ftxSecKey}";
 		GCALAPI = "${config.private.googleCalendarApiKey}";
 		BINANCE_API_KEY = "${config.private.binanceApiKey}";
 		BINANCE_SEC_KEY = "${config.private.binanceSecKey}";
@@ -31,6 +30,7 @@ in rec {
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		# CODESTATS_API_KEY = "${config.private.codeStatsAPIKey}";
 		GCALCLIENTID = "${config.private.googleCalendarClientId}";
+		PATH = "$HOME/Sync/bin:$HOME/.cargo/bin:$HOME/Library/Python/3.8/bin:$PATH";
 	};
 
 	nixpkgs.overlays = [

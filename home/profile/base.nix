@@ -36,10 +36,8 @@
 		ffmpeg
 		ranger
 		stdman
-		# vlang
 		ripgrep
 		tmpmail
-		# tinycc
 		pinentry
 		mitmproxy
 		syncthing
@@ -50,14 +48,18 @@
 		neovim-remote
 		translate-shell
 		ncdu # clear out your storage devices
+		# image_optim # darwin is not supported
 		poppler_utils # pdftotext # ripgrep-all
 		ledger # delete one of ledger or hledger
 		hledger # delete one of ledger or hledger
-		# quickjs # installed impurely /usr/local/bin/qjs
 		gitAndTools.delta # for: git diff # long compile time
 
 		# personal packages
 		# img2txt # requires docopts
+
+		# impurely installed
+		# quickjs  # location: /usr/local/bin/qjs
+		# tinycc  # location /usr/local/bin/tcc
 
 	];
 
@@ -79,6 +81,7 @@
 	# 	niv
 	# 	w3m
 	# 	tree
+	# 	vlang
 	# 	cachix
 	# 	igraph
 	# 	docopts
