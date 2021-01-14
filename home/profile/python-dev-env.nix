@@ -4,6 +4,7 @@
 
 		# mypy
 		python38Packages.flake8
+		python38Packages.ipython
 		# python-language-server # not supported on darwin
 
 	];
