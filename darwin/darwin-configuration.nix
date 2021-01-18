@@ -9,6 +9,7 @@
 
 	# programs.fish.enable = true;
 	programs.zsh.enable = true;
+	programs.zsh.promptInit = ""; # using starship.
 	programs.zsh.enableSyntaxHighlighting = true;
 	environment.shells = [ pkgs.fish pkgs.zsh ];
 	environment.systemPackages = with pkgs; [
