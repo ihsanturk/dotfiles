@@ -8,8 +8,8 @@ in {
 			window = {
 
 				dimensions = {
-					columns = 169; # 86;
-					lines = 47; # 34;
+					columns = 86; # 169;
+					lines = 34; # 47;
 				};
 
 				padding = {
