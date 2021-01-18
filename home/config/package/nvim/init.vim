@@ -5,7 +5,6 @@ set mouse=a
 set hlsearch
 set incsearch
 set noexpandtab
-set laststatus=1
 set colorcolumn=80
 set relativenumber
 set ignorecase smartcase
@@ -109,3 +108,6 @@ cabbrev s8t s/        /\t/g
 
 " word search
 nn g/ /\<\><left><left><c-r>/<cr>
+
+" fucking annoying <c-c> sql completion
+let g:omni_sql_no_default_maps = 1
