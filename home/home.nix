@@ -30,7 +30,7 @@ in rec {
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		# CODESTATS_API_KEY = "${config.private.codeStatsAPIKey}";
 		GCALCLIENTID = "${config.private.googleCalendarClientId}";
-		PATH = "$HOME/Sync/bin:$HOME/.cargo/bin:$HOME/Library/Python/3.8/bin:$PATH";
+		PATH = "/usr/local/mysql/bin:$HOME/Sync/bin:$HOME/.cargo/bin:$HOME/Library/Python/3.8/bin:$PATH";
 	};
 
 	nixpkgs.overlays = [
@@ -47,9 +47,11 @@ in rec {
 		./module
 		./profile/base.nix
 		# ./profile/c-dev-env.nix
+		./profile/asm-dev-env.nix
 		./profile/rust-dev-env.nix
 		./profile/python-dev-env.nix
 		./profile/haskell-dev-env.nix
+		# ./profile/mysql-php-dev-env.nix
 		# ./profile/tmp.nix # beta softwares (dd if things broke)
 		# ./profile/impure.nix # beta softwares (dd if things broke)
 	]
