@@ -36,8 +36,10 @@
 		ffmpeg
 		ranger
 		stdman
+		httrack
 		ripgrep
 		tmpmail
+		graphviz
 		pinentry
 		mitmproxy
 		syncthing
