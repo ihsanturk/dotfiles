@@ -13,6 +13,7 @@
 		plugins = with pkgs.vimPlugins; [
 
 			ale
+			# coc
 			# vim-cute-python # I didn't like that.
 
 		];
