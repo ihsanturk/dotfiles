@@ -9,6 +9,7 @@ let g:fzf_layout = { 'down': '~40%' }
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 " nm <silent> <m-2> :call fzf#run({'sink': 'e', 'left': '30%'})<cr>
+let g:fzf_preview_window = [] " do not show preview window
 let g:fzf_commands_expect = 'alt-enter'
 let g:fzf_colors = {
 	\ 'fg':      ['fg', 'Normal'],
