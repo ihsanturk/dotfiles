@@ -4,6 +4,7 @@ set number
 set mouse=a
 set hlsearch
 set incsearch
+set autoindent
 set noexpandtab
 set colorcolumn=80
 set relativenumber
@@ -95,11 +96,15 @@ func! CnoreaOnlyPattern(lhs, rhs, pattern)
 		\ ' (getcmdtype() == ":" && getcmdline() =~ "'.a:pattern.
 		\ '")? "'.a:rhs.'" : "'.a:lhs.'"'
 endf
+func! UnixExecutable(name)
+	call CnoreaOnlyPattern(a:name, '!'.a:name, '^'.a:name.'$')
+endf
 
-call CnoreaOnlyPattern('mkdir', '!mkdir', '^mkdir$')
-call CnoreaOnlyPattern('rm', '!rm', '^rm$')
-call CnoreaOnlyPattern('t', '!tweet', '^t$')
-call CnoreaOnlyPattern('learn', 'tcd '.$DIR_LEARN.'/', '^learn$')
+call UnixExecutable('mv')
+call UnixExecutable('rm')
+call UnixExecutable('open')
+call UnixExecutable('mkdir')
+call CnoreaOnlyPattern('learn', 'tcd '.$DIR_LEARN.'/', '^learn$') " use: C-]
 
 " spaces to tabs
 cabbrev s2t s/  /\t/g
