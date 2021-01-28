@@ -27,20 +27,25 @@
 		sd
 		exa
 		nnn
+		pup
 		ddgr
 		jump
 		mosh
 		pass
+		s3fs
 		tldr
+		cmake
 		hlint
 		ffmpeg
 		ranger
 		stdman
+		awscli2
 		httrack
 		ripgrep
 		tmpmail
 		graphviz
 		pinentry
+		tectonic
 		mitmproxy
 		syncthing
 		trash-cli
