@@ -35,6 +35,7 @@ in {
 			# supertab
 			delimitMate
 			targets-vim
+			vim-closetag
 			vim-fugitive
 			vim-sayonara
 			vim-sensible
