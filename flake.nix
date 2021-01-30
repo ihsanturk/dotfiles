@@ -9,17 +9,21 @@
 
 	};
 
-	outputs = inputs @ { self, darwin, nixpkgs }:
+	outputs = { self, darwin, nixpkgs }:
 	let
 
-		configuration = { config, lib, pkgs, ... }: {
+		# overlays = [
+		# 	(import ./overlay)
+		# ];
+
+		mba = { config, lib, pkgs, ... }: {
 			programs.zsh.enable = true;
 			programs.zsh.promptInit = ""; # using starship.
 			programs.zsh.enableSyntaxHighlighting = true;
 			environment.shells = [ pkgs.zsh ];
 
-			nixpkgs.overlays = ./overlay;
 			nix.package = pkgs.nixFlakes; # NOTE: EXPERIMENTAL.
+
 			nix.extraOptions =
 				lib.optionalString (config.nix.package == pkgs.nixFlakes)
 				"experimental-features = nix-command flakes";
@@ -27,8 +31,9 @@
 			fonts = {
 				enableFontDir = true;
 				fonts = with pkgs; [ # quit from font book app
-					fira-code-symbols
-					nerd-fonts.firacode
+					(nerdfonts.override {fonts = ["FiraCode"];})
+					# fira-code-symbols
+					# nerd-fonts.firacode
 				];
 			};
 
@@ -45,7 +50,7 @@
 			system.defaults.NSGlobalDomain.KeyRepeat = 1;
 			system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
 			system.defaults.NSGlobalDomain._HIHideMenuBar = false;
-			system.defaults.finder._FXShowPosixPathInTitle = false; # full path on finder
+			system.defaults.finder._FXShowPosixPathInTitle = false;
 
 			system.stateVersion = 4;
 		};
@@ -54,10 +59,11 @@
 	{
 
 		darwinConfigurations."MacBookAir" = darwin.lib.darwinSystem {
-			modules = [ configuration ]; # darwin.darwinModules.simple 
+			modules = [ mba # { nixpkgs.overlays = overlays; } ];
 		};
 
 		darwinPackages = self.darwinConfigurations."simple".pkgs;
-
 	};
+
+
 }
