@@ -2,29 +2,62 @@
 	description = "ihsanturk's personal machine configurations.";
 
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
+
 		darwin.url = "github:lnl7/nix-darwin";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
+		nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
+
 	};
 
-	outputs = { self, darwin, nixpkgs }:
+	outputs = inputs @ { self, darwin, nixpkgs }:
 	let
-		configuration = { pkgs, ... }: {
-			nix.package = pkgs.nixFlakes;
 
-			# FIXME: for github actions, this shouldn't be in the example.
-			services.nix-daemon.enable = true;
+		configuration = { config, lib, pkgs, ... }: {
+			programs.zsh.enable = true;
+			programs.zsh.promptInit = ""; # using starship.
+			programs.zsh.enableSyntaxHighlighting = true;
+			environment.shells = [ pkgs.zsh ];
+
+			nixpkgs.overlays = ./overlay;
+			nix.package = pkgs.nixFlakes; # NOTE: EXPERIMENTAL.
+			nix.extraOptions =
+				lib.optionalString (config.nix.package == pkgs.nixFlakes)
+				"experimental-features = nix-command flakes";
+
+			fonts = {
+				enableFontDir = true;
+				fonts = with pkgs; [ # quit from font book app
+					fira-code-symbols
+					nerd-fonts.firacode
+				];
+			};
+
+			# nix.nixPath = [
+			# 	"darwin-config=$HOME/.nixpkgs/darwin-configuration.nix"
+			# 	"darwin=$HOME/.nix-defexpr/channels/darwin"
+			# 	"$HOME/.nix-defexpr/channels"
+			# ];
+
+			# defaults
+			system.defaults.dock.tilesize = 33;
+			system.defaults.dock.show-recents = false;
+			system.defaults.finder.QuitMenuItem = true;
+			system.defaults.NSGlobalDomain.KeyRepeat = 1;
+			system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
+			system.defaults.NSGlobalDomain._HIHideMenuBar = false;
+			system.defaults.finder._FXShowPosixPathInTitle = false; # full path on finder
+
+			system.stateVersion = 4;
 		};
+
 	in
 	{
-		# Build darwin flake using:
-		# $ darwin-rebuild build --flake ./modules/examples#darwinConfigurations.simple.system \
-		#			 --override-input darwin .
-		darwinConfigurations."simple" = darwin.lib.darwinSystem {
-			modules = [ configuration darwin.darwinModules.simple ];
+
+		darwinConfigurations."MacBookAir" = darwin.lib.darwinSystem {
+			modules = [ configuration ]; # darwin.darwinModules.simple 
 		};
 
-		# Expose the package set, including overlays, for convenience.
 		darwinPackages = self.darwinConfigurations."simple".pkgs;
+
 	};
 }
