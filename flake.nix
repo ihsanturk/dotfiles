@@ -59,7 +59,7 @@
 	{
 
 		darwinConfigurations."MacBookAir" = darwin.lib.darwinSystem {
-			modules = [ mba # { nixpkgs.overlays = overlays; } ];
+			modules = [ mba ]; # { nixpkgs.overlays = overlays; } ];
 		};
 
 		darwinPackages = self.darwinConfigurations."simple".pkgs;
