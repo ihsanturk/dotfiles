@@ -31,8 +31,9 @@ nix-env -iA cachix -f https://cachix.org/api/v1/install && cachix use nix-commun
 *can take half an hour depending on your network connection speed.*
 
 ### run
+build process is based on the hostname. So change your hostname repsectively.
 ```sh
-nix build '.#darwinConfiguration.MacBookAir.system'
+nix build
 ```
 - delete etc/nix/nix.conf because nix-darwin will overwrite that file.
 ./result/sw/bin/darwin-rebuild switch --flake .
@@ -45,8 +46,6 @@ nix build '.#darwinConfiguration.MacBookAir.system'
 1. update config
 2. build
 ```sh
-cd ~/dot;
-nix build '.#darwinConfigurations.MacBookAir.system' &&
-	./result/sw/bin/darwin-rebuild switch --flake .
+darwin-rebuild switch --flake ~/dot
 ```
 3. repeat

@@ -5,11 +5,11 @@
 	inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
 	inputs.darwin.url = "github:lnl7/nix-darwin";
 	inputs.darwin.inputs.nixpkgs.follows = "nixpkgs";
-	# inputs.home-manager.url = "github:nix-community/home-manager/master";
-	# inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
+	inputs.home-manager.url = "github:nix-community/home-manager/master";
+	inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 	# inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-	outputs =  { self, darwin, nixpkgs, ... }@inputs:
+	outputs =  { self, darwin, nixpkgs, home-manager, ... }@inputs:
 	let
 
 		pkgs = nixpkgs.legacyPackages."x86_64-darwin";
@@ -25,11 +25,12 @@
 			programs.zsh.enableSyntaxHighlighting = true;
 			environment.shells = [ pkgs.zsh ];
 
+			nix.gc.user = "ihsan";
+			nix.gc.automatic = true;
 			nix.package = pkgs.nixFlakes; # NOTE: EXPERIMENTAL.
-
 			nix.extraOptions =
 				lib.optionalString (config.nix.package == pkgs.nixFlakes)
-				"experimental-features = nix-command flakes";
+					"experimental-features = nix-command flakes";
 
 			fonts = {
 				enableFontDir = true;
@@ -61,13 +62,10 @@
 	in {
 
 		darwinConfigurations = {
-			macbookair = darwin.lib.darwinSystem {
+			MacBookAir = darwin.lib.darwinSystem {
 				modules = [
 					mba
-					# home-manager.darwinModules.home-manager {
-					# 	home-manager.useGlobalPkgs = true;
-					# 	home-manager.useUserPkgs = true;
-					# }
+					home-manager.darwinModules.home-manager
 				];
 			};
 		};
@@ -98,10 +96,7 @@
 		# };
 
 		darwinPackages = self.darwinConfigurations."simple".pkgs;
-		mba-darwin = self.darwinConfigurations.macbookair.system;
-		# mba-home = self.homeConfigurations.macbookair.activationPackage;
-
-		defaultPackage.x86_64-darwin = self.mba-darwin;
+		defaultPackage.x86_64-darwin = self.darwinConfigurations.MacBookAir.system;
 
 	};
 
