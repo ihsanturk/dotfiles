@@ -1,20 +1,22 @@
 {
 	description = "ihsanturk's personal machine configurations.";
 
-	inputs = {
 
-		darwin.url = "github:lnl7/nix-darwin";
-		darwin.inputs.nixpkgs.follows = "nixpkgs";
-		nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
+	inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
+	inputs.darwin.url = "github:lnl7/nix-darwin";
+	inputs.darwin.inputs.nixpkgs.follows = "nixpkgs";
+	inputs.home-manager.url = "github:nix-community/home-manager/master";
+	inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
+	inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-	};
-
-	outputs = { self, darwin, nixpkgs }:
+	outputs =  { self, darwin, nixpkgs, home-manager, ... }@inputs:
 	let
 
-		# overlays = [
-		# 	(import ./overlay)
-		# ];
+		pkgs = nixpkgs.legacyPackages."x86_64-darwin";
+
+		overlays = [
+			inputs.neovim-nightly-overlay.overlay
+		];
 
 		mba = { config, lib, pkgs, ... }: {
 			programs.zsh.enable = true;
@@ -30,7 +32,7 @@
 
 			fonts = {
 				enableFontDir = true;
-				fonts = with pkgs; [ # quit from font book app
+				fonts = with pkgs; [ # quit from Font Book app
 					(nerdfonts.override {fonts = ["FiraCode"];})
 					# fira-code-symbols
 					# nerd-fonts.firacode
@@ -55,14 +57,51 @@
 			system.stateVersion = 4;
 		};
 
-	in
-	{
+	in {
 
-		darwinConfigurations."MacBookAir" = darwin.lib.darwinSystem {
-			modules = [ mba ]; # { nixpkgs.overlays = overlays; } ];
+		darwinConfigurations = {
+			macbookair = darwin.lib.darwinSystem {
+				modules = [
+					mba
+					# home-manager.darwinModules.home-manager {
+					# 	home-manager.useGlobalPkgs = true;
+					# 	home-manager.useUserPkgs = true;
+					# }
+				];
+			};
+		};
+
+		homeConfigurations = rec {
+
+			base = inputs.home-manager.lib.homeManagerConfiguration {
+
+				configuration = {...}: {
+
+					nixpkgs.overlays = overlays;
+					# home.packages = with pkgs; [ neovim-nightly ];
+	
+				};
+
+				system = "x86_64-darwin";
+				homeDirectory = "/Users/ihsan";
+				# home.stateVersion = "20.09";
+				username = "ihsan";
+
+			};
+
+			macbookair = base;
+
+			# linode-server = inputs.home-manager.lib.homeManagerConfiguration {
+			# }
+
 		};
 
 		darwinPackages = self.darwinConfigurations."simple".pkgs;
+		mba-darwin = self.darwinConfigurations.macbookair.system;
+		# mba-home = self.homeConfigurations.macbookair.activationPackage;
+
+		defaultPackage.x86_64-darwin = self.mba-darwin;
+
 	};
 
 
