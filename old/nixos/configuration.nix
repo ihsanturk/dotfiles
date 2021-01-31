@@ -2,7 +2,7 @@
 let
 
 	# config
-	profile = "laptop-casper"; # "server-linode"
+	profile = "server-linode"; # "laptop-casper";
 
 	optionals = lib.optionals;
 	importFilesFrom = dir: lib.mapAttrsToList

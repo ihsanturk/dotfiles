@@ -15,11 +15,13 @@ experimental-features = nix-command flakes
 
 ## install
 ### nix
-through [nix-flakes-installer](https://github.com/numtide/nix-flakes-installer/releases/tag/nix-2.4pre20210126_f15f0b8)
+through [nix-flakes-installer](https://github.com/numtide/nix-flakes-installer/releases)
 ```sh
 https://github.com/numtide/nix-flakes-installer#readme
 ```
-I commented out the big sur detection block of the code in the installer script. If you are in the feature and flakes are stable version of the nix. Just install nix from `curl -L https://nixos.org/nix/install | sh`
+I commented out the big sur version detection block of the code in the
+installer script. If you are in the feature and flakes are stable version of
+the nix, just install nix from `curl -L https://nixos.org/nix/install | sh`
 
 ### caches
 with cachix

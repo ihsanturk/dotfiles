@@ -5,11 +5,11 @@
 	inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-20.09-darwin";
 	inputs.darwin.url = "github:lnl7/nix-darwin";
 	inputs.darwin.inputs.nixpkgs.follows = "nixpkgs";
-	inputs.home-manager.url = "github:nix-community/home-manager/master";
-	inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
-	inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+	# inputs.home-manager.url = "github:nix-community/home-manager/master";
+	# inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
+	# inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-	outputs =  { self, darwin, nixpkgs, home-manager, ... }@inputs:
+	outputs =  { self, darwin, nixpkgs, ... }@inputs:
 	let
 
 		pkgs = nixpkgs.legacyPackages."x86_64-darwin";
@@ -19,6 +19,7 @@
 		];
 
 		mba = { config, lib, pkgs, ... }: {
+			environment.systemPackages = with pkgs; [ neovim ];
 			programs.zsh.enable = true;
 			programs.zsh.promptInit = ""; # using starship.
 			programs.zsh.enableSyntaxHighlighting = true;
@@ -71,30 +72,30 @@
 			};
 		};
 
-		homeConfigurations = rec {
+		# homeConfigurations = rec {
 
-			base = inputs.home-manager.lib.homeManagerConfiguration {
+		# 	base = inputs.home-manager.lib.homeManagerConfiguration {
 
-				configuration = {...}: {
+		# 		configuration = {...}: {
 
-					nixpkgs.overlays = overlays;
-					# home.packages = with pkgs; [ neovim-nightly ];
+		# 			nixpkgs.overlays = overlays;
+		# 			# home.packages = with pkgs; [ neovim-nightly ];
 	
-				};
+		# 		};
 
-				system = "x86_64-darwin";
-				homeDirectory = "/Users/ihsan";
-				# home.stateVersion = "20.09";
-				username = "ihsan";
+		# 		system = "x86_64-darwin";
+		# 		homeDirectory = "/Users/ihsan";
+		# 		# home.stateVersion = "20.09";
+		# 		username = "ihsan";
 
-			};
+		# 	};
 
-			macbookair = base;
+		# 	macbookair = base;
 
-			# linode-server = inputs.home-manager.lib.homeManagerConfiguration {
-			# }
+		# 	# linode-server = inputs.home-manager.lib.homeManagerConfiguration {
+		# 	# }
 
-		};
+		# };
 
 		darwinPackages = self.darwinConfigurations."simple".pkgs;
 		mba-darwin = self.darwinConfigurations.macbookair.system;
