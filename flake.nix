@@ -6,7 +6,6 @@
 	inputs.darwin.url = "github:lnl7/nix-darwin";
 	inputs.darwin.inputs.nixpkgs.follows = "nixpkgs";
 	inputs.home-manager.url = "github:nix-community/home-manager/master";
-	inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 	# inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
 	outputs =  { self, darwin, nixpkgs, home-manager, ... }@inputs:
@@ -65,7 +64,9 @@
 			MacBookAir = darwin.lib.darwinSystem {
 				modules = [
 					mba
-					home-manager.darwinModules.home-manager
+					home-manager.darwinModules.home-manager {
+						home-manager.users.ihsan = import ./home/home.nix;
+					}
 				];
 			};
 		};
