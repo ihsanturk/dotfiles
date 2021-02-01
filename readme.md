@@ -6,13 +6,6 @@
 git clone https://github.com/ihsanturk/dotfiles ~/dot
 ```
 
-## activate experimental features
-for flakes and nix-command
-`/etc/nix/nix.conf`
-```
-experimental-features = nix-command flakes
-```
-
 ## install
 ### nix
 through [nix-flakes-installer](https://github.com/numtide/nix-flakes-installer/releases)
@@ -33,7 +26,7 @@ nix-env -iA cachix -f https://cachix.org/api/v1/install && cachix use nix-commun
 ### run
 build process is based on the hostname. So change your hostname repsectively.
 ```sh
-nix build
+nix --experimental-features 'flakes nix-command' build
 ```
 - delete etc/nix/nix.conf because nix-darwin will overwrite that file.
 ./result/sw/bin/darwin-rebuild switch --flake .
