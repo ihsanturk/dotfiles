@@ -7,17 +7,19 @@ let
 	# utilities
 	util = import ./util lib;
 	optionals = lib.optionals;
-	os = builtins.currentSystem;
-	isLinux = os == "x86_64-linux";
-	isDarwin = os == "x86_64-darwin";
+	# os = builtins.currentSystem;
+	# isLinux = os == "x86_64-linux";
+	# isDarwin = os == "x86_64-darwin";
 
 in rec {
 
 	home.username = "ihsan";
 	programs.home-manager.enable = true;
-	home.homeDirectory = if isDarwin then
-		/. + ("/Users/" + config.home.username)
-	else /. + ("/home/" + config.home.username);
+
+	# home.homeDirectory = if isDarwin then
+	# 	/. + ("/Users/" + config.home.username)
+	# else /. + ("/home/" + config.home.username);
+
 	home.sessionVariables = { #FIXME:not working at with nix-darwin
 		EDITOR = "nvim";
 		GPG_TTY = "$(tty)";
@@ -38,26 +40,28 @@ in rec {
 		(import ./overlay/st)
 	];
 	
-	nixpkgs.config.trustedUsers = [
-		config.home.username
-		(optionals isLinux [ "root" ])
-	];
+	# nixpkgs.config.trustedUsers = [
+	# 	config.home.username
+	# 	(optionals isLinux [ "root" ])
+	# ];
 
 	imports = [
 		./module
 		./profile/base.nix
 		# ./profile/c-dev-env.nix
-		./profile/asm-dev-env.nix
+		# ./profile/asm-dev-env.nix
 		./profile/rust-dev-env.nix
 		./profile/python-dev-env.nix
-		./profile/haskell-dev-env.nix
+		# ./profile/haskell-dev-env.nix
 		# ./profile/mysql-php-dev-env.nix
 		# ./profile/tmp.nix # beta softwares (dd if things broke)
 		# ./profile/impure.nix # beta softwares (dd if things broke)
+
+		./profile/darwin.nix # TODO make optional
 	]
 		++ (import ./config util)
-		++ (optionals isDarwin [ ./profile/darwin.nix ])
-		++ (optionals isGraphical [ ./profile/base-graphical.nix ])
-		++ (optionals (isGraphical && isLinux) [./profile/linux-graphical.nix]);
+		;# ++ (optionals isDarwin [ ./profile/darwin.nix ])
+		# ++ (optionals isGraphical [ ./profile/base-graphical.nix ])
+		# ++ (optionals (isGraphical && isLinux) [./profile/linux-graphical.nix]);
 
 }
