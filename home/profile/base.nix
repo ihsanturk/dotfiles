@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
 
-	nixpkgs.config.allowUnfree = true; # for slack;
+	# nixpkgs.config.allowUnfree = true; # for slack;
 
 	# TODO: install using flakes
 	home.packages = with pkgs; [
