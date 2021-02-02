@@ -1,7 +1,13 @@
 { pkgs, ... }:
 {
 
-	imports = [ ./home-base.nix ];
+	imports = [
+		./home-base.nix
+
+		../module/alacritty.nix
+
+	];
+
 
 	home.packages = with pkgs; [
 		

@@ -2,6 +2,7 @@
 {
 
 	# programs.lf = {
+	#	enable = true;
 	# 	settings = {
 	# 		icons = true;
 	# 		color256 = true;

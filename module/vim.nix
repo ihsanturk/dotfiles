@@ -15,5 +15,5 @@
 	# 	# ];
 	# 	# extraConfig = builtins.readFile ./nvim/init.vim;
 	# };
-	config.home.file.".vimrc".text = builtins.readFile ./nvim/init.vim;
+	# config.home.file.".vimrc".text = builtins.readFile ./nvim/init.vim;
 }

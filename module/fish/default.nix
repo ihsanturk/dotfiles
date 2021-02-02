@@ -1,11 +1,12 @@
 { config, lib, pkgs, ... }:
 let
 
-	if_ = lib.optionalString;
+	# if_ = lib.optionalString;
+	# fishEnabledThen = config.programs.fish.enable;
+
 	functions = import ./fish-functions.nix;
-	fishEnabledThen = config.programs.fish.enable;
-	# codeStatsAPIKey = config.private.codeStatsAPIKey;
 	shellAliases = import ../../shell-aliases.nix config;
+	# codeStatsAPIKey = config.private.codeStatsAPIKey;
 
 	# {
 	# 	conf = "$EDITOR (find ~/dot/ -type f | ${pkgs.fzf}/bin/fzf)";
@@ -14,6 +15,7 @@ let
 in {
 
 	programs.fish = {
+		enable = true;
 		inherit shellAliases;
 		inherit functions;
 		shellInit = ''
@@ -22,6 +24,7 @@ in {
 		'';
 	};
 
-	programs.neovim.extraConfig = if_ fishEnabledThen "set shell=fish";
+	# programs.neovim.extraConfig = if_ fishEnabledThen "set shell=fish";
+	programs.neovim.extraConfig = "set shell=fish";
 
 }

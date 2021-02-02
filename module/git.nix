@@ -1,16 +1,23 @@
 { config, pkgs, ... }:
-{
+let
+
+	githubusername = "ihsanturk";
+	email = "ihsanl@pm.me"; # TODO: take this from env.nix
+	gpgkey = "467DD48CFC891A65"; # TODO: take this from env.nix
+
+in {
 	programs.git = {
 
+		enable = true;
 		userName = config.home.username;
-		userEmail = config.settings.email;
-		signing.key = config.settings.gpgkey;
+		userEmail = email;
+		signing.key = gpgkey;
 
 		extraConfig = {
-			signing.key = config.settings.gpgkey;
-			user.signingkey = config.settings.gpgkey;
+			signing.key = gpgkey;
+			user.signingkey = gpgkey;
 			commit.gpgsign = true;
-			github.user = "ihsanturk";
+			github.user = githubusername;
 			mergetool.keepBackup = true;
 			# signing.gpgPath = "${pkgs.gnupg}/bin/gpg2";
 			interactive.diffFilter = "${pkgs.gitAndTools.delta}/bin/delta --color-only";

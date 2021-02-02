@@ -7,6 +7,7 @@ in {
 
 	# TODO: SEE: ~/.nixpkgs/darwin-configuration.nix
 	programs.zsh = {
+		enable = true;
 		inherit shellAliases;
 		defaultKeymap = "emacs";
 		enableCompletion = false;

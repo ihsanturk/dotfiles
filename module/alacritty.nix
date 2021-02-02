@@ -4,6 +4,7 @@ let
 in {
 
 	programs.alacritty = {
+		enable = true;
 		settings = {
 			window = {
 
@@ -246,5 +247,6 @@ in {
 	};
 
 	programs.neovim.extraConfig = lib.optionalString config.programs.alacritty.enable "set termguicolors";
+	# programs.neovim.extraConfig = lib.optionalString config.programs.alacritty.enable "set termguicolors";
 
 }

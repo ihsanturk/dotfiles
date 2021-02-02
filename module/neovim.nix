@@ -2,6 +2,7 @@
 
 	home.packages = with pkgs; [
 		rnix-lsp
+		neovim-remote
 		neovim-nightly
 		vimPlugins.packer-nvim
 	];

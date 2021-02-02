@@ -6,12 +6,13 @@ let
 		rev = "60a36d6f7adddfb68d68349dce3081e7d5c4d4ab";
 	};
 
-	if_ = lib.optionalString;
-	tmuxEnabledThen = config.programs.tmux.enable;
+	# if_ = lib.optionalString;
+	# tmuxEnabledThen = config.programs.tmux.enable;
 
 in {
 
 	programs.tmux = {
+		enable = true;
 		baseIndex = 1;
 		keyMode = "vi";
 		shortcut = "g"; #maybe: ";" #do not choose: qwertyuiop[] asdfhjkl b x
@@ -81,7 +82,8 @@ in {
 
 	home.file.".tmux/plugins/tpm".source = "${tpm}/";
 
-	programs.zsh.shellAliases = if_ tmuxEnabledThen {
+	# programs.zsh.shellAliases = if_ tmuxEnabledThen {
+	programs.zsh.shellAliases = {
 		ta = "tmux new-session -ADs main";
 	};
 

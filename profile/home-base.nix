@@ -26,7 +26,6 @@
 		syncthing
 		trash-cli
 		shellcheck
-		neovim-remote
 		coreutils # tac
 		translate-shell
 		# image_optim # darwin is not supported
@@ -35,7 +34,17 @@
 
 	];
 
+	home.sessionVariables = {
+		EDITOR = "nvim";
+		GPG_TTY = "$(tty)";
+		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
+		PATH = "/usr/local/mysql/bin:$HOME/Sync/bin:$HOME/.cargo/bin:$HOME/Library/Python/3.8/bin:$PATH";
+	};
+
 	imports = [
+
+		../private.nix
+
 		../module/bat.nix
 		../module/fzf.nix
 		../module/git.nix
@@ -44,6 +53,7 @@
 		../module/ledger.nix
 		../module/neovim.nix
 		../module/starship.nix
+
 	];
 
 	# impurely installed
