@@ -8,6 +8,7 @@
 
 		mpv
 		ffmpeg
+		ledger
 		qrencode
 		youtube-dl
 		imagemagick

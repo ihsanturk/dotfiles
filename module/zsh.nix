@@ -1,9 +1,7 @@
 { config, lib, pkgs, ... }:
 let
 
-	if_ = lib.optionalString;
-	zshEnabledThen = config.programs.zsh.enable;
-	shellAliases = import ../shell-aliases.nix config;
+	shellAliases = import ./shell-aliases.nix config;
 
 in {
 
@@ -24,9 +22,9 @@ in {
 		# ];
 	};
 
-	programs.neovim.extraConfig = if_ zshEnabledThen "set shell=zsh";
+	programs.neovim.extraConfig = "set shell=zsh";
 
-	home.packages = with pkgs; if_ zshEnabledThen [
+	home.packages = with pkgs; [
 		zsh-history-substring-search
 	];
 
