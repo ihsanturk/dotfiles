@@ -1,9 +1,13 @@
 { config, lib, pkgs, ... }: {
+
 	# environment.systemPackages = with pkgs; [ neovim ];
+	environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
+
 	programs.zsh.enable = true;
 	programs.zsh.promptInit = ""; # using starship.
 	programs.zsh.enableSyntaxHighlighting = true;
 	environment.shells = [ pkgs.zsh ];
+
 
 	nix.gc.user = "ihsan";
 	nix.gc.automatic = true;
