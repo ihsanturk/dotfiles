@@ -1,8 +1,9 @@
+# { pkgs, private, ... }:
 { pkgs, ... }:
 {
 
 	imports = [
-		./home-base.nix
+		./home-base.nix # { inherit private; }
 
 		../module/alacritty.nix
 

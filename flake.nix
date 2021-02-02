@@ -7,6 +7,8 @@
 	inputs.darwin.inputs.nixpkgs.follows = "nixpkgs";
 	inputs.home-manager.url = "github:nix-community/home-manager";
 	inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+	# inputs.private.url = "path:./private.nix";
+	# inputs.private.flake = false;
 
 
 	outputs =  { self,
@@ -34,6 +36,7 @@
 						home-manager.users.ihsan = import ./profile/home-mba.nix;
 					}
 				];
+				# specialArgs = { inherit (self.inputs.private); };
 			};
 		};
 
