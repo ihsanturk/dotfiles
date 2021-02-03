@@ -9,7 +9,7 @@ in {
 			window = {
 
 				dimensions = {
-					columns = 86; # 169;
+					columns = 84; # 169;
 					lines = 34; # 47;
 				};
 

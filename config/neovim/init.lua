@@ -9,26 +9,31 @@ end
 
 require 'plugins'
 
-vim.o.signcolumn = "number"
+vim.wo.wrap = false
+vim.wo.number = true
+vim.wo.signcolumn = 'number'
+vim.wo.relativenumber = true
+vim.wo.colorcolumn = vim.wo.colorcolumn .. '+' .. 0 -- of textwidth
+
+vim.o.mouse = 'a'
+vim.o.tabstop = 3
+vim.o.syntax = 'on'
+vim.o.shiftwidth = 3
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.smartcase = true
+vim.o.autoindent = true
+vim.o.ignorecase = true
+vim.o.expandtab = false
+
+vim.o.formatoptions = 'tcqjrn'
+vim.o.listchars = 'tab:┊ ,trail:•,nbsp:+'
+vim.o.virtualedit = vim.o.virtualedit .. 'block' -- select beyond end of the line
+vim.o.textwidth = 79 -- TODO: make 50 when gitcommit files
 
 -- TODO: luaify config.vim
-vim.cmd [[
-syntax on
-set nowrap
-set number
-set mouse=a
-set hlsearch
-set incsearch
-set autoindent
-set noexpandtab
-set colorcolumn=80
-set relativenumber
-set ignorecase smartcase
-set formatoptions+=tcqjrn
-set tabstop=3 shiftwidth=3
-set listchars=tab:\┊\ ,trail:•,nbsp:+
-set virtualedit+=block " select beyond end of the line
 
+vim.cmd [[
 au FileType nix,python,vim,rust set ts=3 sts=3 sw=3 tw=79 noet
 
 " live search change
@@ -130,4 +135,5 @@ nn g/ /\<\><left><left><c-r>/<cr>
 
 " fucking annoying <c-c> sql completion
 let g:omni_sql_no_default_maps = 1
+
 ]]

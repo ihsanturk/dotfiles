@@ -24,7 +24,6 @@ return require('packer').startup(function()
 	use 'ap/vim-css-color'
 	use 'reedes/vim-wheel'
 	use 'ziman/ledger-vim'
-	use 'mkitt/tabline.vim'
 	use 'alvan/vim-closetag'
 	use 'fiatjaf/neuron.vim'
 	use 'mhinz/vim-sayonara'
