@@ -20,6 +20,7 @@ return require('packer').startup(function()
 
 	use 'vito-c/jq.vim'
 	use 'ap/vim-css-color'
+	use 'mkitt/tabline.vim'
 	use 'alvan/vim-closetag'
 	use 'wellle/targets.vim'
 	use 'airblade/vim-gitgutter'
