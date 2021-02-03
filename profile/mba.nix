@@ -8,6 +8,20 @@
 	programs.zsh.enableSyntaxHighlighting = true;
 	environment.shells = [ pkgs.zsh ];
 
+	environment.etc = {
+		"sudoers.d/10-nix-commands".text = let
+			commands = [
+				"/run/current-system/sw/bin/darwin-rebuild"
+				"/run/current-system/sw/bin/nix*"
+				"/run/current-system/sw/bin/ln"
+				"/nix/store/*/activate"
+				"/bin/launchctl"
+			];
+			commandsString = builtins.concatStringsSep ", " commands;
+		in ''
+%admin ALL=(ALL:ALL) NOPASSWD: ${commandsString}
+		'';
+	};
 
 	nix.gc.user = "ihsan";
 	nix.gc.automatic = true;

@@ -99,7 +99,6 @@ endf
 func! UnixExecutable(name)
 	call CnoreaOnlyPattern(a:name, '!'.a:name, '^'.a:name.'$')
 endf
-
 call UnixExecutable('mv')
 call UnixExecutable('rm')
 call UnixExecutable('open')
