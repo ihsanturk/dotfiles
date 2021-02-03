@@ -36,6 +36,7 @@ return require('packer').startup(function()
 	use {'morhetz/gruvbox',      config = require('config.gruvbox')}
 	use {'mhinz/vim-sayonara',   config = require('config.sayonara')}
 	use {'reedes/vim-wheel',     config = require('config.vim-wheel')}
+	use {'neovim/nvim-lspconfig', config = require('config.lspconfig')}
 	use {'Raimondi/delimitMate', config = require('config.delimitMate')}
 
 	-- use {'itchyny/lightline.vim', config = require('config.lightline')}
