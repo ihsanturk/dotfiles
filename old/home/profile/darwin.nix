@@ -6,7 +6,7 @@
 		mpv
 		m-cli
 		ffmpeg
-		swiftbar  # NOTE: uninstall manually: "/Applications/SwiftBar.app"
+		# swiftbar  # NOTE: uninstall manually: "/Applications/SwiftBar.app"
 		qrencode
 		coreutils
 		imagemagick
