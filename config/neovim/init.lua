@@ -15,6 +15,11 @@ vim.wo.signcolumn     = 'number'
 vim.wo.relativenumber = true
 vim.wo.colorcolumn    = vim.wo.colorcolumn .. '+' .. 1 -- of textwidth
 
+vim.g.loaded_node_provider   = 0
+vim.g.loaded_perl_provider   = 0
+vim.g.loaded_python_provider = 0
+vim.g.loaded_ruby_provider   = 0
+
 vim.o.shiftwidth             = 3
 vim.o.tabstop                = 3
 vim.bo.textwidth             = 79

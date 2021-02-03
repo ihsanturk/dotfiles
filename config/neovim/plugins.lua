@@ -28,16 +28,16 @@ return require('packer').startup(function()
 	use 'nvim-lua/completion-nvim'
 	use 'PeterRincker/vim-searchlight'
 	use 'tweekmonster/startuptime.vim'
-	use {'HiPhish/info.vim',     config = require('config.info')}
-	use {'fiatjaf/neuron.vim',   config = require('config.neuron')}
-	use {'ziman/ledger-vim',     config = require('config.ledger')}
-	use {'LnL7/vim-nix',         config = require('config.vim-nix')}
-	use {'hoob3rt/lualine.nvim', config = require('config.lualine')}
-	use {'morhetz/gruvbox',      config = require('config.gruvbox')}
-	use {'mhinz/vim-sayonara',   config = require('config.sayonara')}
-	use {'reedes/vim-wheel',     config = require('config.vim-wheel')}
-	use {'neovim/nvim-lspconfig', config = require('config.lspconfig')}
-	use {'Raimondi/delimitMate', config = require('config.delimitMate')}
+	use {'neovim/nvim-lspconfig', config = require('config.lsp')}
+	use {'HiPhish/info.vim',      config = require('config.info')}
+	use {'fiatjaf/neuron.vim',    config = require('config.neuron')}
+	use {'ziman/ledger-vim',      config = require('config.ledger')}
+	use {'LnL7/vim-nix',          config = require('config.vim-nix')}
+	use {'hoob3rt/lualine.nvim',  config = require('config.lualine')}
+	use {'morhetz/gruvbox',       config = require('config.gruvbox')}
+	use {'mhinz/vim-sayonara',    config = require('config.sayonara')}
+	use {'reedes/vim-wheel',      config = require('config.vim-wheel')}
+	use {'Raimondi/delimitMate',  config = require('config.delimitMate')}
 
 	-- use {'itchyny/lightline.vim', config = require('config.lightline')}
 
