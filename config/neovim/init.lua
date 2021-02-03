@@ -9,25 +9,25 @@ end
 
 require 'plugins'
 
-vim.wo.wrap = false
-vim.wo.number = true
-vim.wo.signcolumn = 'number'
+vim.wo.wrap           = false
+vim.wo.number         = true
+vim.wo.signcolumn     = 'number'
 vim.wo.relativenumber = true
-vim.wo.colorcolumn = vim.wo.colorcolumn .. '+' .. 1 -- of textwidth
+vim.wo.colorcolumn    = vim.wo.colorcolumn .. '+' .. 1 -- of textwidth
 
-vim.o.mouse = 'a'
-vim.o.tabstop = 3
-vim.o.syntax = 'on'
-vim.o.shiftwidth = 3
-vim.o.hlsearch = true
-vim.o.updatetime = 100
-vim.o.incsearch = true
-vim.o.smartcase = true
-vim.o.autoindent = true
-vim.o.ignorecase = true
-vim.o.expandtab = false
-vim.o.textwidth = 79 -- TODO: make 50 when gitcommit files
-vim.bo.textwidth = 79 -- TODO: make 50 when gitcommit files
+vim.o.shiftwidth             = 3
+vim.o.tabstop                = 3
+vim.bo.textwidth             = 79
+vim.o.textwidth              = 79
+vim.o.mouse                  = 'a'
+vim.o.updatetime             = 100
+vim.o.autoindent             = true
+vim.o.hlsearch               = true
+vim.o.ignorecase             = true
+vim.o.incsearch              = true
+vim.o.smartcase              = true
+vim.o.syntax                 = 'on'
+vim.o.expandtab              = false
 
 vim.o.formatoptions = 'tcqjrn'
 vim.o.listchars = 'tab:┊ ,trail:•,nbsp:+'
