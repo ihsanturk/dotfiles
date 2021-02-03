@@ -35,6 +35,6 @@ return require('packer').startup(function()
 	use 'farmergreg/vim-lastplace'
 	use 'nvim-lua/completion-nvim'
 	use 'PeterRincker/vim-searchlight'
-	-- use {'morhetz/gruvbox', config = vim.cmd [[ color gruvbox ]]}
+	use {'morhetz/gruvbox', config = vim.cmd [[ source config-plugin/gruvbox.vim ]]}
 
 end)
