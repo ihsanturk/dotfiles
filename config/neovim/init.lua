@@ -9,4 +9,4 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require 'plugins'
-vim.cmd [[ source init.vim ]]
+-- vim.cmd [[ source init.vim ]]
