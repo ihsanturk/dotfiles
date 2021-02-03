@@ -1,18 +1,39 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
-
--- Only if your version of Neovim doesn't have https://github.com/neovim/neovim/pull/12632 merged
--- vim._update_package_paths()
 
 return require('packer').startup(function()
 
 	use {'wbthomason/packer.nvim', opt = true}
 
-	use 'lifepillar/vim-gruvbox8'
-	use '9mm/vim-closer'
+	use 'ihsanturk/vim-ihsensible'
+	use 'ihsanturk/vim-grave-navigation'
+
+	use 'tpope/vim-rsi'
+	use 'tpope/vim-fugitive'
+	use 'tpope/vim-sensible'
+	use 'tpope/vim-surround'
+	use 'tpope/vim-commentary'
+
+	use 'junegunn/fzf'
+	use 'junegunn/fzf.vim'
+	use 'junegunn/vim-easy-align'
+
 	use 'LnL7/vim-nix'
+	use 'vito-c/jq.vim'
+	use 'HiPhish/info.vim'
+	use 'ap/vim-css-color'
+	use 'reedes/vim-wheel'
+	use 'ziman/ledger-vim'
+	use 'mkitt/tabline.vim'
+	use 'alvan/vim-closetag'
+	use 'fiatjaf/neuron.vim'
+	use 'mhinz/vim-sayonara'
+	use 'wellle/targets.vim'
+	use 'Raimondi/delimitMate'
+	use 'itchyny/lightline.vim'
+	use 'airblade/vim-gitgutter'
+	use 'farmergreg/vim-lastplace'
+	use 'PeterRincker/vim-searchlight'
+	use {'morhetz/gruvbox' } --, config = vim.cmd [[ color gruvbox ]] }
 
 end)
-
