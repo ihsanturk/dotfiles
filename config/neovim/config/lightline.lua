@@ -1,11 +1,11 @@
 vim.g.lightline = {
 	colorscheme = 'gruvbox',
 	active = {
-		left = [ [ 'mode', 'paste' ], [ 'fugitive', 'relativepath' ] ],
+		left = { { 'mode', 'paste' }, { 'fugitive', 'relativepath' } },
 	},
 	component_function = {
-		fugitive = lightline_fugitive,
-		relativepath = lightline_relativepath,
+		fugitive = lightline_fugitive, -- FIXME
+		relativepath = lightline_relativepath, -- FIXME
 	},
 }
 
