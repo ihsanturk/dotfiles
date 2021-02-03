@@ -5,7 +5,6 @@
 		# clangd
 		# vimPlugins.packer-nvim
 
-		rnix-lsp
 		neovim-remote
 		neovim-nightly
 

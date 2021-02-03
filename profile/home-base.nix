@@ -53,6 +53,8 @@
 		../module/neovim.nix
 		../module/starship.nix
 
+		../dev-env/nix.nix
+
 	];
 
 	# impurely installed
