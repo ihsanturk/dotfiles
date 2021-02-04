@@ -34,6 +34,7 @@ in {
 		ripgrep
 		pinentry
 		tectonic
+		termeter
 		mitmproxy
 		syncthing
 		trash-cli
