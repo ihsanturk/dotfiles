@@ -17,6 +17,7 @@
 		mosh
 		tldr
 		gnupg
+		cachix
 		ranger
 		stdman
 		httrack
