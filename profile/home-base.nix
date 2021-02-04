@@ -1,4 +1,3 @@
-# { pkgs, private, ... }:
 { pkgs, ... }:
 {
 
@@ -36,11 +35,20 @@
 
 	];
 
+	impurePaths = [
+
+		"$HOME/Sync/bin"
+		"$HOME/.cargo/bin"
+		"/usr/local/mysql/bin"
+		"$HOME/Library/Python/3.8/bin"
+
+	];
+
 	home.sessionVariables = {
 		EDITOR = "nvim";
 		GPG_TTY = "$(tty)";
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
-		PATH = "/usr/local/mysql/bin:$HOME/Sync/bin:$HOME/.cargo/bin:$HOME/Library/Python/3.8/bin:$PATH";
+		PATH = (builtins.concatStringsSep ":" impurePaths) + ":$PATH";
 	}; # // private.sessionVariables;
 
 	imports = [
