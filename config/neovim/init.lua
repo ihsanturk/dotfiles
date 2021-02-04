@@ -63,23 +63,22 @@ vim.cmd('hi! link ColorColumn Visual')
 vim.fn.nvim_set_keymap('n', '<c-c>', ':noh<cr>', {noremap=true, silent=true})
 
 -- sort text-objects " TODO: pluginize-vip
-vim.fn.nvim_set_keymap('n', 'gss', ':set ep=sort<cr>=', {silent = true})
-vim.fn.nvim_set_keymap('n', 'gsr', ':set ep=sort\\ -R<cr>=', {silent = true})
-vim.fn.nvim_set_keymap('n', 'gsl', ':set ep=sortlength<cr>=', {silent = true})
+vim.fn.nvim_set_keymap('n', 'gss', ':set ep=sort<cr>=', {silent=true})
+vim.fn.nvim_set_keymap('n', 'gsr', ':set ep=sort\\ -R<cr>=', {silent=true})
+vim.fn.nvim_set_keymap('n', 'gsl', ':set ep=sortlength<cr>=', {silent=true})
 vim.fn.nvim_set_keymap(
-	'x', 'gss', ':<C-U>set ep=sort<cr>gv=', {silent = true, noremap = true})
+	'x', 'gss', ':<C-U>set ep=sort<cr>gv=', {silent=true, noremap=true})
 vim.fn.nvim_set_keymap(
-	'x', 'gsr', ':<C-U>set ep=sort\\ -R<cr>gv=', {silent = true, noremap = true})
+	'x', 'gsr', ':<C-U>set ep=sort\\ -R<cr>gv=', {silent=true, noremap=true})
 vim.fn.nvim_set_keymap(
-	'x', 'gsl', ':<C-U>set ep=sortlength<cr>gv=', {silent = true, noremap = true})
+	'x', 'gsl', ':<C-U>set ep=sortlength<cr>gv=', {silent=true, noremap=true})
+vim.fn.nvim_set_keymap('n','<leader>g',':set ep=gt<cr>=',{})
+vim.fn.nvim_set_keymap('n','<leader>w',':exe "!wikipedia ".expand("<cword>")<cr>',{})
+vim.fn.nvim_set_keymap('x','<leader>g',':<C-U>set ep=gt<cr>gv=',{noremap=true})
+vim.fn.nvim_set_keymap('x','<leader>w',':!xargs wikipedia 2>/dev/null<cr>',{noremap=true})
 
-vim.fn.nvim_set_keymap('n', '<leader>g', ':set ep=gt<cr>=', {})
-vim.fn.nvim_set_keymap('n', '<leader>w', ':exe "!wikipedia ".expand("<cword>")<cr>', {})
-vim.fn.nvim_set_keymap('x', '<leader>g', ':<C-U>set ep=gt<cr>gv=', {noremap = true})
-vim.fn.nvim_set_keymap('x', '<leader>w', ':!xargs wikipedia 2>/dev/null<cr>', {noremap = true})
-
--- vim.fn.nvim_set_keymap('x', '<leader>s', ':!sozlukgovtr<cr>', {noremap = true})
--- vim.fn.nvim_set_keymap('n', '<leader>s', ':exe "!sozlukgovtr ".expand("<cword>")<cr>', {noremap = true})
+-- vim.fn.nvim_set_keymap('x', '<leader>s', ':!sozlukgovtr<cr>', {noremap=true})
+-- vim.fn.nvim_set_keymap('n', '<leader>s', ':exe "!sozlukgovtr ".expand("<cword>")<cr>', {noremap=true})
 
 -- abbrv
 vim.cmd('ia teh the')
