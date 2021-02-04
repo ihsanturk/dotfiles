@@ -1,6 +1,5 @@
 local lualine = require('lualine')
 lualine.theme = 'gruvbox'
-lualine.sections.lualine_b = { relativepath }
 
 local function relativepath()
 	if vim.fn.mode() == 't' then
@@ -10,4 +9,5 @@ local function relativepath()
 	end
 end
 
+lualine.sections.lualine_b = { relativepath }
 lualine.status()
