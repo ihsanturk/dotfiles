@@ -24,6 +24,7 @@ in {
 		pup
 		gawk
 		jump
+		lynx
 		mosh
 		tldr
 		gnupg
@@ -34,13 +35,13 @@ in {
 		ripgrep
 		pinentry
 		tectonic
-		termeter
 		mitmproxy
 		syncthing
 		trash-cli
 		shellcheck
 		coreutils # tac
 		translate-shell
+		# termeter # TODO: add this package
 		# image_optim # darwin is not supported
 		emv # rename files with your favourite text editor
 		gitAndTools.delta # for: git diff # long compile time
