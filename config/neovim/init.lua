@@ -52,11 +52,11 @@ vim.cmd('autocmd CompleteDone * pclose')
 if vim.env.COLORTERM == 'truecolor' then
 	vim.o.termguicolors = true
 end
-if vim.env.TERM ~= '^\\(rxvt\\|screen\\|interix\\|putty\\)\\(-.*\\)\\?$' then
-	vim.o.termguicolors = false
-elseif vim.env.TERM ~= '^\\(tmux\\|iterm\\|vte\\|gnome\\)\\(-.*\\)\\?$' then
-	vim.o.termguicolors = true
-end
+-- if vim.env.TERM ~= '^\\(rxvt\\|screen\\|interix\\|putty\\)\\(-.*\\)\\?$' then
+-- 	vim.o.termguicolors = false
+-- elseif vim.env.TERM ~= '^\\(tmux\\|iterm\\|vte\\|gnome\\)\\(-.*\\)\\?$' then
+-- 	vim.o.termguicolors = true
+-- end
 
 vim.cmd('hi! link ColorColumn Visual')
 
