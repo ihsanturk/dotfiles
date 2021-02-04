@@ -50,6 +50,9 @@ for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 
+-- disable fucking annoying diagnostics they are ruining my view.
+vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+
 -- require'lspconfig'.rnix.setup{}
 -- require'lspconfig'.pyls.setup{}
 -- require'lspconfig'.rls.setup{}

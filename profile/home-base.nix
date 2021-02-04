@@ -1,5 +1,16 @@
 { pkgs, ... }:
-{
+let
+
+	impurePaths = [
+
+		"$HOME/Sync/bin"
+		"$HOME/.cargo/bin"
+		"/usr/local/mysql/bin"
+		"$HOME/Library/Python/3.8/bin"
+
+	];
+
+in {
 
 	programs.home-manager.enable = true;
 
@@ -32,15 +43,6 @@
 		# image_optim # darwin is not supported
 		emv # rename files with your favourite text editor
 		gitAndTools.delta # for: git diff # long compile time
-
-	];
-
-	impurePaths = [
-
-		"$HOME/Sync/bin"
-		"$HOME/.cargo/bin"
-		"/usr/local/mysql/bin"
-		"$HOME/Library/Python/3.8/bin"
 
 	];
 
