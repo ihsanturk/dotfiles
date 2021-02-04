@@ -6,8 +6,8 @@ config.home.file.".ledgerrc".text = ''
 --start-of-week=1
 --date-format %Y-%m-%d
 --input-date-format %Y-%m-%d
---price-db ${config.home.homeDirectory}/Sync/log/price.db
---file ${config.home.homeDirectory}/Sync/log/money/main.ledger
+--price-db $HOME/Sync/log/price.db
+--file $HOME/Sync/log/money/main.ledger
 '';
 
 }
