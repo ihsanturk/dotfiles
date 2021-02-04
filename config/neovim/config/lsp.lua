@@ -46,10 +46,8 @@ for _, lsp in ipairs(servers) do
 end
 
 -- disable diagnostics, they are ruining my view.
-vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
-
--- require'lspconfig'.rnix.setup{}
--- require'lspconfig'.pyls.setup{}
--- require'lspconfig'.rls.setup{}
--- require'lspconfig'.html.setup{}
-
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = false
+	}
+)
