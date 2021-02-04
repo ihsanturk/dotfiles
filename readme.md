@@ -6,8 +6,7 @@
 git clone https://github.com/ihsanturk/dotfiles ~/dot
 ```
 
-## install
-### nix
+## install nix
 through [nix-flakes-installer](https://github.com/numtide/nix-flakes-installer/releases)
 ```sh
 https://github.com/numtide/nix-flakes-installer#readme
@@ -16,27 +15,27 @@ I commented out the big sur version detection block of the code in the
 installer script. If you are in the feature and flakes are stable version of
 the nix, just install nix from `curl -L https://nixos.org/nix/install | sh`
 
-### caches
-with cachix
+## install caches
+using cachix
 ```sh
 nix-env -iA cachix -f https://cachix.org/api/v1/install && cachix use nix-community
 ```
 *can take half an hour depending on your network connection speed.*
 
-### run
-build process is based on the hostname. So change your hostname repsectively.
+### build
+Build process is based on the hostname. So change your hostname repsectively.
+Available hostnames are
+* MacBook-Air
+
 ```sh
 nix --experimental-features 'flakes nix-command' build
-```
-- delete etc/nix/nix.conf because nix-darwin will overwrite that file.
 ./result/sw/bin/darwin-rebuild switch --flake .
 ```
 
----
-
 ## now don't do these above anymore
+do these instead
 ### loop
-1. update config
+1. change your config however you want
 2. build
 ```sh
 darwin-rebuild switch --flake ~/dot
