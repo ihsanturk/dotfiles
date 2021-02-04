@@ -18,3 +18,5 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 typeset -U fpath
 autoload -Uz compinit && compinit
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
+
+. ~/Sync/private/env

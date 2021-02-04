@@ -14,13 +14,6 @@ in {
 		enableAutosuggestions = true;
 		initExtra = builtins.readFile ./zshinit.sh
 		          + builtins.readFile ./function.sh;
-		# plugins = [
-		# 	{
-		# 		name = "code-stats";
-		# 		src = builtins.fetchGit
-		# 			"https://gitlab.com/code-stats/code-stats-zsh";
-		# 	}
-		# ];
 	};
 
 	programs.neovim.extraConfig = "set shell=zsh";
