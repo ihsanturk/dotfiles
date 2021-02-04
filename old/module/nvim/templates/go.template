@@ -1,9 +1,0 @@
-package {{NAME}}
-
-import (
-	"fmt"
-)
-
-func main() {
-	fmt.Println("{{CURSOR}}")
-}

@@ -1,4 +1,0 @@
-set titlecolor brightblue
-set statuscolor brightblue
-set keycolor brightgreen
-include "/usr/share/nano/*.nanorc"
