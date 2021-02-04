@@ -11,25 +11,25 @@ aug fugitive
 	ca Ga  Git add
 	ca GA  Git add
 
-	ca gl  vert Git log
-	ca Gl  vert Git log
-	ca GL  vert Git log
+	ca gl  Git log
+	ca Gl  Git log
+	ca GL  Git log
 
 	ca grm GRemove
 	ca Grm GRemove
 	ca GRm GRemove
 
-	ca gd  vert Git diff
-	ca Gd  vert Git diff
-	ca GD  vert Git diff
+	ca gd  Git diff
+	ca Gd  Git diff
+	ca GD  Git diff
 
 	ca gp  Gpush
 	ca Gp  Gpush
 	ca GP  Gpush
 
-	ca gs  vert Gstatus
-	ca Gs  vert Gstatus
-	ca GS  vert Gstatus
+	ca gs  Gstatus
+	ca Gs  Gstatus
+	ca GS  Gstatus
 
 	ca gc  tab Git commit
 	ca Gc  tab Git commit

@@ -26,7 +26,7 @@
 	in {
 
 		darwinConfigurations = {
-			MacBookAir = darwin.lib.darwinSystem {
+			MacBook-Air = darwin.lib.darwinSystem {
 				modules = [
 					(import ./profile/mba.nix)
 					home-manager.darwinModules.home-manager {

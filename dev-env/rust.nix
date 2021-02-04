@@ -4,7 +4,7 @@
 
 		rustup # includes rls
 		sccache
-		# rust-analyzer
+		rust-analyzer
 
 	];
 

@@ -7,6 +7,7 @@
 
 		neovim-remote
 		neovim-nightly
+		nodePackages_latest.vscode-html-languageserver-bin
 
 		# lua51Packages.lua-lsp
 		luajitPackages.lua-lsp
