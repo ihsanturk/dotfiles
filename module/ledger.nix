@@ -9,7 +9,7 @@ config.home.file.".ledgerrc".text = ''
 --date-format %Y-%m-%d
 --input-date-format %Y-%m-%d
 --price-db /Users/ihsan/Sync/log/price.db
---file /User/ihsans/Sync/log/money/main.ledger
+--file /Users/ihsan/Sync/log/money/main.ledger
 '';
 
 }
