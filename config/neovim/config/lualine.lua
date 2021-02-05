@@ -1,5 +1,5 @@
 local lualine = require('lualine')
-lualine.theme = 'gruvbox'
+-- lualine.theme = 'gruvbox'
 
 local function relativepath()
 	if vim.fn.mode() == 't' then
