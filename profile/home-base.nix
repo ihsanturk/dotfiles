@@ -54,7 +54,7 @@ in {
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		DIR_CODE = "$HOME/Sync/code/github.com/ihsanturk";
 		PATH = (builtins.concatStringsSep ":" impurePaths) + ":$PATH";
-	}; # // private.sessionVariables;
+	};
 
 	imports = [
 
