@@ -67,13 +67,13 @@ end
 if vim.env.COLORTERM == 'truecolor' then
 	vim.o.termguicolors = true
 	if vim.o.bg == 'light' then
-		vim.cmd [[ color solarized8 ]]
+		vim.cmd [[ color solarized8_high ]]
 	else
 		vim.cmd [[ color gruvbox-custom ]]
 	end
 else
 	vim.o.termguicolors = false
-	vim.cmd [[ color solarized8 ]]
+	vim.cmd [[ color solarized8_high ]]
 end
 vim.cmd('hi! link ColorColumn Visual')
 map('n', '<c-c>', ':noh<cr>', sn)
