@@ -1,5 +1,6 @@
--- vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme gruvbox-custom]]
 
+-- not works with gruvbox-custom but they are here anyway
 vim.g.gruvbox_italic = 1
 vim.g.gruvbox_termcolors=16
 vim.g.gruvbox_invert_selection = 0
