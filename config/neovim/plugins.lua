@@ -11,7 +11,7 @@ return require('packer').startup(function()
 	use 'tpope/vim-rsi'
 	use 'tpope/vim-sensible'
 	use 'tpope/vim-surround'
-	use 'tpope/vim-commentary'
+	use 'b3nj5m1n/kommentary'
 	use {'tpope/vim-fugitive', config = require('config.vim-fugitive')}
 
 	use 'junegunn/fzf'
