@@ -7,6 +7,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute 'packadd packer.nvim'
 end
 
+local s = { silent = true }
+local n = { noremap = true }
+local sn = { silent = true, noremap = true }
+local map = fn.nvim_set_keymap
+
 require 'plugins'
 
 vim.wo.wrap           = false
@@ -20,19 +25,19 @@ vim.g.loaded_perl_provider   = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_ruby_provider   = 0
 
-vim.o.shiftwidth             = 3
-vim.o.tabstop                = 3
-vim.bo.textwidth             = 79
-vim.o.textwidth              = 79
-vim.o.mouse                  = 'a'
-vim.o.updatetime             = 100
-vim.o.autoindent             = true
-vim.o.hlsearch               = true
-vim.o.ignorecase             = true
-vim.o.incsearch              = true
-vim.o.smartcase              = true
-vim.o.syntax                 = 'on'
-vim.o.expandtab              = false
+vim.bo.textwidth = 79
+vim.o.autoindent = true
+vim.o.expandtab  = false
+vim.o.hlsearch   = true
+vim.o.ignorecase = true
+vim.o.incsearch  = true
+vim.o.mouse      = 'a'
+vim.o.shiftwidth = 3
+vim.o.smartcase  = true
+vim.o.syntax     = 'on'
+vim.o.tabstop    = 3
+vim.o.textwidth  = 79
+vim.o.updatetime = 100
 
 vim.o.formatoptions = 'tcqjrn'
 vim.o.listchars = 'tab:┊ ,trail:•,nbsp:+'
@@ -40,7 +45,7 @@ vim.o.virtualedit = vim.o.virtualedit .. 'block' -- beyond end of the line
 
 vim.cmd('au FileType nix,python,vim,rust set ts=3 sts=3 sw=3 tw=79 noet')
 
-if vim.fn.has('inccommand') then
+if fn.has('inccommand') then
 	vim.o.inccommand = 'nosplit'
 end
 
@@ -60,29 +65,26 @@ end
 
 vim.cmd('hi! link ColorColumn Visual')
 
-vim.fn.nvim_set_keymap('n', '<c-c>', ':noh<cr>', {noremap=true, silent=true})
+map('n', '<c-c>', ':noh<cr>', sn)
 
 -- sort text-objects " TODO: pluginize-vip
-vim.fn.nvim_set_keymap('n', 'gss', ':set ep=sort<cr>=', {silent=true})
-vim.fn.nvim_set_keymap('n', 'gsr', ':set ep=sort\\ -R<cr>=', {silent=true})
-vim.fn.nvim_set_keymap('n', 'gsl', ':set ep=sortlength<cr>=', {silent=true})
-vim.fn.nvim_set_keymap(
-	'x', 'gss', ':<C-U>set ep=sort<cr>gv=', {silent=true, noremap=true})
-vim.fn.nvim_set_keymap(
-	'x', 'gsr', ':<C-U>set ep=sort\\ -R<cr>gv=', {silent=true, noremap=true})
-vim.fn.nvim_set_keymap(
-	'x', 'gsl', ':<C-U>set ep=sortlength<cr>gv=', {silent=true, noremap=true})
-vim.fn.nvim_set_keymap('n','<leader>g',':set ep=gt<cr>=',{})
-vim.fn.nvim_set_keymap('n','<leader>w',':exe "!wikipedia ".expand("<cword>")<cr>',{})
-vim.fn.nvim_set_keymap('x','<leader>g',':<C-U>set ep=gt<cr>gv=',{noremap=true})
-vim.fn.nvim_set_keymap('x','<leader>w',':!xargs wikipedia 2>/dev/null<cr>',{noremap=true})
+map('n', 'gss',       ':set ep=sort<cr>=', s)
+map('n', 'gsr',       ':set ep=sort\\ -R<cr>=', s)
+map('n', 'gsl',       ':set ep=sortlength<cr>=', s)
+map('x', 'gss',       ':<C-U>set ep=sort<cr>gv=', sn)
+map('x', 'gsr',       ':<C-U>set ep=sort\\ -R<cr>gv=', sn)
+map('x', 'gsl',       ':<C-U>set ep=sortlength<cr>gv=', sn)
+map('n', '<leader>g', ':set ep=gt<cr>=', {})
+map('n', '<leader>w', ':exe "!wikipedia ".expand("<cword>")<cr>', {})
+map('x', '<leader>g', ':<C-U>set ep=gt<cr>gv=', n)
+map('x', '<leader>w', ':!xargs wikipedia 2>/dev/null<cr>', n)
 
--- vim.fn.nvim_set_keymap('x', '<leader>s', ':!sozlukgovtr<cr>', {noremap=true})
--- vim.fn.nvim_set_keymap('n', '<leader>s', ':exe "!sozlukgovtr ".expand("<cword>")<cr>', {noremap=true})
+-- map('x', '<leader>s', ':!sozlukgovtr<cr>', n)
+-- map('n', '<leader>s', ':exe "!sozlukgovtr ".expand("<cword>")<cr>', n)
 
 -- abbrv
 vim.cmd('ia teh the')
-if vim.fn.exists("*strftime") then
+if fn.exists("*strftime") then
 	vim.cmd("ia timestamp <c-r>=strftime('%s')<cr>")
 	vim.cmd("ia ts <c-r>=strftime('%s')<cr>")
 	vim.cmd("ia today <c-r>=strftime('%Y %b %d')<cr>")
@@ -107,9 +109,9 @@ vim.cmd('ca Sp sp')
 vim.cmd('ca SP sp')
 
 -- pivot scroll for vim
-if vim.fn.has('nvim') == 0 then -- apply just for vim
-	vim.fn.nvim_set_keymap('n','<c-j>','<esc><c-e>j',{silent=true,noremap=true})
-	vim.fn.nvim_set_keymap('n','<c-k>','<esc><c-y>k',{silent=true,noremap=true})
+if fn.has('nvim') == 0 then -- apply just for vim
+	map('n','<c-j>','<esc><c-e>j',sn)
+	map('n','<c-k>','<esc><c-y>k',sn)
 end
 
 -- write and buffer delete/close/kill buffer
@@ -124,7 +126,7 @@ vim.cmd('cabbrev s4t s/    /\t/g')
 vim.cmd('cabbrev s8t s/        /\t/g')
 
 -- word search
-vim.fn.nvim_set_keymap('n','g/','/\\<\\><left><left><c-r>/<cr>',{noremap=true})
+map('n', 'g/', '/\\<\\><left><left><c-r>/<cr>', n)
 
 -- fucking annoying <c-c> sql completion
 vim.g.omni_sql_no_default_maps = 1
@@ -144,5 +146,5 @@ UnixExecutable('mv')
 UnixExecutable('rm')
 UnixExecutable('open')
 UnixExecutable('mkdir')
-CnoreaOnlyPattern('learn','tcd '..vim.env.DIR_LEARN..'/','^learn$') -- use: C-]
+CnoreaOnlyPattern('learn', 'tcd '..vim.env.DIR_LEARN..'/', '^learn$') --use: C-]
 
