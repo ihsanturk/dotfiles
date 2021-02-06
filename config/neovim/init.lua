@@ -156,4 +156,5 @@ UnixExecutable('rm')
 UnixExecutable('open')
 UnixExecutable('mkdir')
 CnoreaOnlyPattern('learn', 'tcd '..vim.env.DIR_LEARN..'/', '^learn$') --use: C-]
+CnoreaOnlyPattern('code', 'tcd '..vim.env.DIR_CODE..'/', '^code$') --use: C-]
 
