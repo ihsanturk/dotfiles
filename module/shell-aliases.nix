@@ -15,11 +15,11 @@ config: {
 	gs = "git status -s";
 
 	# exa
-	l = "exa";
+	ls = "exa";
 	sl = "exa";
+	l = "exa -l";
 	ll = "exa -l";
-	ls = "clear;echo;exa -l";
-	lsd = "clear;echo;exa -D";
+	lsd = "exa -D";
 
 	# vim
 	":q" = "exit";
