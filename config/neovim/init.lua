@@ -64,17 +64,16 @@ if  now >= lower and now <=upper then
 else
 	vim.o.bg = 'dark'
 end
-
 if vim.env.COLORTERM == 'truecolor' then
 	vim.o.termguicolors = true
 	if vim.o.bg == light then
-		vim.cmd [[ color PaperColor ]]
+		vim.cmd [[ color solarized8 ]]
 	else
 		vim.cmd [[ color gruvbox ]]
 	end
 else
 	vim.o.termguicolors = false
-	vim.cmd [[ color PaperColor ]]
+	vim.cmd [[ color solarized8 ]]
 end
 vim.cmd('hi! link ColorColumn Visual')
 map('n', '<c-c>', ':noh<cr>', sn)

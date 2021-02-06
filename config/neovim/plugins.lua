@@ -24,10 +24,9 @@ return require('packer').startup(function()
 	use 'alvan/vim-closetag'
 	use 'rust-lang/rust.vim'
 	use 'wellle/targets.vim'
-	use 'rafcamlet/nvim-luapad'
 	use 'airblade/vim-gitgutter'
 	use 'farmergreg/vim-lastplace'
-	use 'NLKNguyen/papercolor-theme'
+	use 'lifepillar/vim-solarized8'
 	use 'PeterRincker/vim-searchlight'
 	use 'tweekmonster/startuptime.vim'
 	use {'neovim/nvim-lspconfig',      config = require('config.lsp')}
@@ -41,6 +40,7 @@ return require('packer').startup(function()
 	use {'reedes/vim-wheel',           config = require('config.vim-wheel')}
 	use {'nvim-lua/completion-nvim',   config = require('config.completion')}
 	use {'Raimondi/delimitMate',       config = require('config.delimitMate')}
+	use{'rafcamlet/nvim-luapad',config=vim.g.luapad_print_highlight='DiffChange'}
 
 	-- use {'itchyny/lightline.vim', config = require('config.lightline')}
 
