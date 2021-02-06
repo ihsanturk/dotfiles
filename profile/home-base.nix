@@ -51,8 +51,8 @@ in {
 	home.sessionVariables = {
 		EDITOR = "nvim";
 		GPG_TTY = "$(tty)";
-		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		DIR_CODE = "$HOME/Sync/code/github.com/ihsanturk";
+		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		PATH = (builtins.concatStringsSep ":" impurePaths) + ":$PATH";
 	};
 
