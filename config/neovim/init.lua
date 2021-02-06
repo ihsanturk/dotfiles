@@ -54,17 +54,29 @@ vim.o.completeopt = 'menu,preview'
 vim.cmd('autocmd CompleteDone * pclose')
 
 -- appearance
+local light_hour = 07; local light_min = 30
+local dark_hour = 16; local dark_min = 20
+local now = os.date('%H') * 3600 + os.date('%M') * 60
+local lower = light_hour * 3600 + light_min * 60
+local upper = dark_hour * 3600 + dark_min * 60
+if  now >= lower and now <=upper then
+	vim.o.bg = 'light'
+else
+	vim.o.bg = 'dark'
+end
+
 if vim.env.COLORTERM == 'truecolor' then
 	vim.o.termguicolors = true
+	if vim.o.bg == light then
+		vim.cmd [[ color PaperColor ]]
+	else
+		vim.cmd [[ color gruvbox ]]
+	end
+else
+	vim.o.termguicolors = false
+	vim.cmd [[ color PaperColor ]]
 end
--- if vim.env.TERM ~= '^\\(rxvt\\|screen\\|interix\\|putty\\)\\(-.*\\)\\?$' then
--- 	vim.o.termguicolors = false
--- elseif vim.env.TERM ~= '^\\(tmux\\|iterm\\|vte\\|gnome\\)\\(-.*\\)\\?$' then
--- 	vim.o.termguicolors = true
--- end
-
 vim.cmd('hi! link ColorColumn Visual')
-
 map('n', '<c-c>', ':noh<cr>', sn)
 
 -- sort text-objects " TODO: pluginize-vip
