@@ -15,9 +15,9 @@ config: {
 	gs = "git status -s";
 
 	# exa
+	l = "exa";
 	ls = "exa";
 	sl = "exa";
-	l = "exa -l";
 	ll = "exa -l";
 	lsd = "exa -D";
 
