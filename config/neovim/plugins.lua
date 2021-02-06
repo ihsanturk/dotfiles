@@ -24,8 +24,10 @@ return require('packer').startup(function()
 	use 'alvan/vim-closetag'
 	use 'rust-lang/rust.vim'
 	use 'wellle/targets.vim'
+	use 'rafcamlet/nvim-luapad'
 	use 'airblade/vim-gitgutter'
 	use 'farmergreg/vim-lastplace'
+	use 'NLKNguyen/papercolor-theme'
 	use 'PeterRincker/vim-searchlight'
 	use 'tweekmonster/startuptime.vim'
 	use {'neovim/nvim-lspconfig',      config = require('config.lsp')}
@@ -37,8 +39,8 @@ return require('packer').startup(function()
 	use {'rafikdraoui/gruvbox-custom', config = require('config.gruvbox')}
 	use {'mhinz/vim-sayonara',         config = require('config.sayonara')}
 	use {'reedes/vim-wheel',           config = require('config.vim-wheel')}
-	use {'Raimondi/delimitMate',       config = require('config.delimitMate')}
 	use {'nvim-lua/completion-nvim',   config = require('config.completion')}
+	use {'Raimondi/delimitMate',       config = require('config.delimitMate')}
 
 	-- use {'itchyny/lightline.vim', config = require('config.lightline')}
 
