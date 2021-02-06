@@ -66,10 +66,10 @@ else
 end
 if vim.env.COLORTERM == 'truecolor' then
 	vim.o.termguicolors = true
-	if vim.o.bg == light then
+	if vim.o.bg == 'light' then
 		vim.cmd [[ color solarized8 ]]
 	else
-		vim.cmd [[ color gruvbox ]]
+		vim.cmd [[ color gruvbox-custom ]]
 	end
 else
 	vim.o.termguicolors = false
