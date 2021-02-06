@@ -55,7 +55,7 @@ vim.cmd('autocmd CompleteDone * pclose')
 
 -- appearance
 local light_hour = 07; local light_min = 30
-local dark_hour = 16; local dark_min = 20
+local dark_hour = 17; local dark_min = 00
 local now = os.date('%H') * 3600 + os.date('%M') * 60
 local lower = light_hour * 3600 + light_min * 60
 local upper = dark_hour * 3600 + dark_min * 60

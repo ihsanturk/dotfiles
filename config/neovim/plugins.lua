@@ -32,6 +32,7 @@ return require('packer').startup(function()
 	use {'neovim/nvim-lspconfig',      config = require('config.lsp')}
 	use {'HiPhish/info.vim',           config = require('config.info')}
 	use {'fiatjaf/neuron.vim',         config = require('config.neuron')}
+	use {'rafcamlet/nvim-luapad',      config = require('config.luapad')}
 	use {'ziman/ledger-vim',           config = require('config.ledger')}
 	use {'LnL7/vim-nix',               config = require('config.vim-nix')}
 	use {'hoob3rt/lualine.nvim',       config = require('config.lualine')}
@@ -40,7 +41,6 @@ return require('packer').startup(function()
 	use {'reedes/vim-wheel',           config = require('config.vim-wheel')}
 	use {'nvim-lua/completion-nvim',   config = require('config.completion')}
 	use {'Raimondi/delimitMate',       config = require('config.delimitMate')}
-	use{'rafcamlet/nvim-luapad',config=vim.g.luapad_print_highlight='DiffChange'}
 
 	-- use {'itchyny/lightline.vim', config = require('config.lightline')}
 
