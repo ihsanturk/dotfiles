@@ -29,6 +29,7 @@ in {
 		tldr
 		gnupg
 		cachix
+		nixfmt
 		ranger
 		stdman
 		httrack

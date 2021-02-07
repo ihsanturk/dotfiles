@@ -64,6 +64,7 @@ if  now >= lower and now <=upper then
 else
 	vim.o.bg = 'dark'
 end
+vim.cmd [[ color solarized8 ]]
 if vim.env.COLORTERM == 'truecolor' then
 	vim.o.termguicolors = true
 	if vim.o.bg == 'dark' then
@@ -71,7 +72,6 @@ if vim.env.COLORTERM == 'truecolor' then
 	end
 else
 	vim.o.termguicolors = false
-	vim.cmd [[ color solarized8 ]]
 end
 vim.cmd('hi! link ColorColumn Visual')
 map('n', '<c-c>', ':noh<cr>', sn)

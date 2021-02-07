@@ -1,4 +1,4 @@
-vim.cmd [[ color gruvbox-custom ]]
+-- vim.cmd [[ color gruvbox-custom ]]
 
 -- not works with gruvbox-custom but they are here anyway
 vim.g.gruvbox_italic = 1
