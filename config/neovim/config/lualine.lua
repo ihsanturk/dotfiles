@@ -24,7 +24,7 @@ lualine.inactive_sections = {
   lualine_c = { 'filename' },
   lualine_x = { 'location' },
   lualine_y = {  },
-  lualine_z = {   }
+  lualine_z = {  }
 }
 
 lualine.status()

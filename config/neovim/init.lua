@@ -54,6 +54,7 @@ vim.o.completeopt = 'menu,noselect,preview'
 vim.cmd('autocmd CompleteDone * pclose')
 
 -- appearance
+local lualine = require('lualine')
 local light_hour, light_min = 07,30 -- hh:mm
 local dark_hour, dark_min   = 17,00 -- hh:mm
 local now = os.date('%H') * 3600 + os.date('%M') * 60
@@ -65,10 +66,12 @@ else
 	vim.o.bg = 'dark'
 end
 vim.cmd [[ color solarized8 ]]
+lualine.theme = 'solarized_light'
 if vim.env.COLORTERM == 'truecolor' then
 	vim.o.termguicolors = true
 	if vim.o.bg == 'dark' then
 		vim.cmd [[ color gruvbox-custom ]]
+		lualine.theme = 'gruvbox'
 	end
 else
 	vim.o.termguicolors = false
