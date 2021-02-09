@@ -36,8 +36,24 @@
 						home-manager.users.ihsan = import ./profile/home-mba.nix;
 					}
 				];
-				# specialArgs = { inherit (self.inputs.private); };
 			};
+		};
+
+		packages.x86_64-darwin = {
+
+			# source: https://github.com/LnL7/dotfiles/flake.nix
+			cpp = pkgs.callPackage
+				({ buildEnv, clang-unwrapped }:
+				buildEnv {
+					name = "${clang-unwrapped.name}-tools";
+					paths = [ ];
+					pathsToLink = [ "/bin" ];
+					postBuild = ''
+						mkdir -p $out/bin
+						ln -s ${clang-unwrapped}/bin/clangd $out/bin
+					'';
+				}) { inherit (pkgs.llvmPackages_9) clang-unwrapped; };
+
 		};
 
 		darwinPackages = self.darwinConfigurations."simple".pkgs;

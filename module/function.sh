@@ -1,4 +1,9 @@
-code() { cd $DIR_CODE/$1; }
+# code() { # using github.com/zimbatm/h
+# 	target=$(echo "$1" | sed 's:^ihsanturk/::g')
+# 	target=$DIR_CODE/ihsanturk/$1
+# 	[ -d $target ] || $target | expand gitrepo
+# 	cd "$target"
+# }
 learn() { cd $DIR_LEARN/$1; }
 zk() {
 	cd ~/zk && case $1 in
