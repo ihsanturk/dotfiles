@@ -16,13 +16,13 @@ in {
 
 	home.packages = with pkgs; [
 		
-		cachix            # fetch cache
-		coreutils         # tac
-		emv               # rename files with your favourite text editor
+		cachix            # fetch cache.
+		coreutils         # tac.
+		emv               # rename files with your favourite text editor.
 		exa               # `ls` alternative.
 		fd                # `find` alternative written in rust.
 		gawk              # manipulate text. `awk` alternative.
-		gitAndTools.delta # for: git diff (long compile time)
+		gitAndTools.delta # git diff (long compile time).
 		gnupg             # encrypt/decrypt files or data.
 		jq                # query json.
 		mosh              # `ssh` alternative.
@@ -37,16 +37,17 @@ in {
 		syncthing         # synchronise files between remote machines
 		tldr              # get quick examples about usage of the program.
 		translate-shell   # google translate in cli written in awk.
-		trash-cli         # trash files instead of bare rm
+		trash-cli         # trash files instead of bare rm.
 
 		# [rare]
-		# termeter    # TODO: add this
-		# httrack     # download whole websites
-		# image_optim # darwin is not supported
-		# lynx        # browser runs in cli, supports gopher://
-		# mitmproxy   # sniff requests
-		# nixfmt      # format nix expressions.
-		# tectonic    # [don't know]
+		# git-dit         # decentralized issue tracking for git.
+		# httrack         # download whole websites
+		# image_optim     # darwin is not supported
+		# lynx            # browser runs in cli, supports gopher://
+		# mitmproxy       # sniff requests
+		# nixfmt          # format nix expressions.
+		# tectonic        # [don't know]
+		# termeter        # TODO: add this
 
 	];
 
