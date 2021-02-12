@@ -19,4 +19,6 @@ typeset -U fpath
 autoload -Uz compinit && compinit
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 
+fignore=lock # do not complete flake.lock files beacuse that slows me down.
+
 . ~/Sync/private/env
