@@ -11,7 +11,7 @@ config: {
 	gc = "git commit -v";
 	gs = "git status -s";
 	gitopen = "open $(git remote get-url --push origin)";
-	# gitopen = "xdg-open $(git remote get-url --push origin)";
+	# gitopen = "xdg-open $(git remote get-url --push origin)"; # for linux;
 
 	# exa
 	l = "exa";
