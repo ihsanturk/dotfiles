@@ -30,8 +30,8 @@ in {
 		pinentry          # password taker... i guess?
 		pup               # query html.
 		ranger            # file manager written in python.
-		ripgrep           # `grep` alternative
-		sd                # `sed` alternative.
+		ripgrep           # `grep` alternative written in rust.
+		sd                # `sed` alternative written in rust.
 		shellcheck        # shell code suggester/linter. helps you write better.
 		stdman            # std libary man pages
 		syncthing         # synchronise files between remote machines
