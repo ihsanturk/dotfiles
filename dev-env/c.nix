@@ -4,6 +4,7 @@
 
 		# valgrind # broken :/
 		clang_10
+		llvmPackages.clang-unwrapped
 
 	];
 

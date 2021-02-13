@@ -50,7 +50,7 @@ if fn.has('inccommand') then
 end
 
 -- completion
-vim.o.completeopt = 'menu,noselect,preview'
+vim.o.completeopt = 'menuone,noselect,preview'
 vim.cmd('autocmd CompleteDone * pclose')
 
 -- appearance

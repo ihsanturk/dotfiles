@@ -46,6 +46,10 @@ for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 
+nvim_lsp.clangd.setup {
+	cmd = { "clangd" },
+}
+
 -- disable diagnostics, they are ruining my view.
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics, {
