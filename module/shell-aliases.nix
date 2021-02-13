@@ -1,8 +1,5 @@
 config: {
 
-	# nix
-	ns = "nix-shell --command zsh";
-
 	# git
 	g = "git";
 	ga = "git add";
@@ -73,6 +70,7 @@ config: {
 	teixt="exit";
 
 	# stale
+	# ns = "nix-shell --command zsh"; 
 	# nixpkgs="nix-env -qaP | cut -d' ' -f1";
 	# watch="watch -cn0.1"; # not compatible with fish
 	# captiveloop="until captive -i | grep -m 1 \"Success\";do:;done";

@@ -2,10 +2,12 @@
 {
 	home.packages = with pkgs; [
 
+		cargo-generate
+		rust-analyzer
 		rustup # includes rls
 		sccache
-		rust-analyzer
 		wasm-bindgen-cli
+		wasm-pack
 
 	];
 
