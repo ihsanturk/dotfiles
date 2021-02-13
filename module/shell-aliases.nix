@@ -1,18 +1,20 @@
 config: {
 
 	# nix
-	ns = "nix-shell --command zsh"; # FIXME: make pure;
+	ns = "nix-shell --command zsh";
 
 	# git
 	g = "git";
 	ga = "git add";
-	gd = "git diff";
 	gl = "git log";
+	gd = "git diff";
 	gb = "git branch";
 	gcl = "git clone";
 	gp = "git push -u";
 	gc = "git commit -v";
 	gs = "git status -s";
+	gitopen = "open $(git remote get-url --push origin)";
+	# gitopen = "xdg-open $(git remote get-url --push origin)";
 
 	# exa
 	l = "exa";
@@ -38,7 +40,6 @@ config: {
 	"..." = "cd ..; cd ..";
 
 	# base
-	t="tweet";
 	la="ls -a";
 	mv="mv -n";
 	rm="trash";
@@ -50,11 +51,8 @@ config: {
 	grep="grep --color=auto";
 	timestamp="date +%s"; ts="date +%s";
 	mp3="youtube-dl -x --audio-format mp3";
-	nixpkgs="nix-env -qaP | cut -d' ' -f1";
 	find-executables="find . -perm +111 -type f";
-	# watch="watch -cn0.1"; # not compatible with fish
-	captiveloop="until captive -i | grep -m 1 \"Success\";do:;done";
-	homemanagerpkgs="open https://github.com/rycee/home-manager/find/master";
+	t="tweet"; # not acutally twitter.com! Just a custom log script.
 
 	# typo
 	c="cd";
@@ -73,5 +71,11 @@ config: {
 	rtee="tree";
 	xeit="exit";
 	teixt="exit";
+
+	# stale
+	# nixpkgs="nix-env -qaP | cut -d' ' -f1";
+	# watch="watch -cn0.1"; # not compatible with fish
+	# captiveloop="until captive -i | grep -m 1 \"Success\";do:;done";
+	# homemanagerpkgs="open https://github.com/rycee/home-manager/find/master";
 
 }
