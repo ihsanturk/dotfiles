@@ -3,6 +3,7 @@
 	home.packages = with pkgs; [
 
 		# valgrind # broken :/
+		clang-unwrapped
 
 	];
 
