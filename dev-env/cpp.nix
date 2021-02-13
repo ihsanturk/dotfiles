@@ -3,7 +3,7 @@
 	home.packages = with pkgs; [
 
 		llvm
-		clang-unwrapped
+		clang_10
 
 	];
 

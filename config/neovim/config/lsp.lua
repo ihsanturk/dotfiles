@@ -40,7 +40,7 @@ local on_attach = function(client, bufnr)
 
 end
 
--- see: https://github.com/neovim/nvim-lspconfig
+-- full list: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 local servers = { "rnix", "pyls", "rls", "html", "rust_analyzer", "clangd" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup { on_attach = on_attach }
