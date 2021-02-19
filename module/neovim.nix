@@ -2,15 +2,11 @@
 
 	home.packages = with pkgs; [
 
-		# clangd
-		# vimPlugins.packer-nvim
-
 		neovim-remote
 		neovim-nightly
 		nodePackages_latest.vscode-html-languageserver-bin
 
-		# lua51Packages.lua-lsp
-		luajitPackages.lua-lsp
+		# sumneko-lua-language-server # FIXME: add overlay
 
 	];
 
