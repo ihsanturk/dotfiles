@@ -13,6 +13,7 @@ local sn = { silent = true, noremap = true }
 local map = fn.nvim_set_keymap
 
 require 'plugins'
+util = require('custom.util')
 
 vim.wo.wrap           = false
 vim.wo.number         = true
@@ -143,21 +144,10 @@ map('n', 'g/', '/\\<\\><left><left><c-r>/<cr>', n)
 -- fucking annoying <c-c> sql completion
 vim.g.omni_sql_no_default_maps = 1
 
--- external commands
-local function CnoreaOnlyPattern(lhs, rhs, pattern)
-	vim.api.nvim_command('cnoreabbrev <expr> '..lhs..
-		' (getcmdtype() == ":" && getcmdline() =~ "'..pattern..
-		'")? "'..rhs..'" : "'..lhs..'"')
-end
-
-local function UnixExecutable(name)
-	CnoreaOnlyPattern(name, '!'..name, '^'..name..'$')
-end
-
-UnixExecutable('mv')
-UnixExecutable('rm')
-UnixExecutable('open')
-UnixExecutable('mkdir')
-CnoreaOnlyPattern('learn', 'tcd '..vim.env.DIR_LEARN..'/', '^learn$') --use: C-]
-CnoreaOnlyPattern('code', 'tcd '..vim.env.DIR_CODE..'/', '^code$') --use: C-]
+util.unixexe('mv')
+util.unixexe('rm')
+util.unixexe('open')
+util.unixexe('mkdir')
+util.cnoreapattern('learn', 'tcd '..vim.env.DIR_LEARN..'/', '^learn$') --use: C-]
+util.cnoreapattern('code', 'tcd '..vim.env.DIR_CODE..'/', '^code$') --use: C-]
 

@@ -4,6 +4,7 @@ vim.fn.nvim_set_keymap('n', '<m-b>', ':Buffers<cr>', {})
 vim.fn.nvim_set_keymap('n', '<m-r>', ':History<cr>', {})
 vim.fn.nvim_set_keymap('n', '<m-x>', ':Commands<cr>', {})
 vim.fn.nvim_set_keymap('n', '<m-h>', ':Helptags!<cr>', {})
+-- vim.fn.nvim_set_keymap('n', '<m-s-r>', fzf#run({'source': old_dirs()}), {})
 vim.fn.nvim_set_keymap('t', '<m-r>', '<c-\\><c-n>:History<cr>', {})
 
 vim.fn.nvim_set_keymap('i', '<c-x><c-k>', '<plug>(fzf-complete-word)', {})

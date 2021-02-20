@@ -1,6 +1,5 @@
 { pkgs, ... }:
 let
-
 	impurePaths = [
 
 		"$HOME/.cargo/bin"
@@ -9,11 +8,8 @@ let
 		"/usr/local/mysql/bin"
 
 	];
-
 in {
-
 	programs.home-manager.enable = true;
-
 	home.packages = with pkgs; [
 		
 		cachix            # fetch cache.
@@ -25,6 +21,7 @@ in {
 		gitAndTools.delta # git diff (long compile time).
 		gnupg             # encrypt/decrypt files or data.
 		jq                # query json.
+		lynx              # text-mode web browser
 		mosh              # `ssh` alternative.
 		nnn               # file manager written in c.
 		pinentry          # password taker... i guess?
@@ -50,7 +47,6 @@ in {
 		# termeter        # TODO: add this
 
 	];
-
 	home.sessionVariables = {
 
 		DIR_CODE = "$HOME/Sync/code";
@@ -60,7 +56,6 @@ in {
 		PATH = (builtins.concatStringsSep ":" impurePaths) + ":$PATH";
 
 	};
-
 	imports = [
 
 		../module/bat.nix

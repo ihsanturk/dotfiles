@@ -1,6 +1,9 @@
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
 
+-- custom scripts
+require('script.lynx') -- means: ~/.config/nvim/lua/script/lynx.lua
+
 return require('packer').startup(function()
 
 	use {'wbthomason/packer.nvim', opt = true}
