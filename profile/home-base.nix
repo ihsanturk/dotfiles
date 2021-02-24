@@ -32,6 +32,7 @@ in {
 		shellcheck        # shell code suggester/linter. helps you write better.
 		stdman            # std libary man pages
 		syncthing         # synchronise files between remote machines
+		tesseract         # convert images to text
 		tldr              # get quick examples about usage of the program.
 		translate-shell   # google translate in cli written in awk.
 		trash-cli         # trash files instead of bare rm.

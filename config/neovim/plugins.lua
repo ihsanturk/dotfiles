@@ -20,6 +20,13 @@ return require('packer').startup(function()
 	use {'junegunn/fzf.vim', config = require('config.fzf')}
 	use {'junegunn/vim-easy-align', config = require('config.easy-align')}
 
+	--[[ -- (has couple of problems)
+	-- zettelkasten style note taking using neuron
+	use "nvim-lua/plenary.nvim"
+	use "nvim-telescope/telescope.nvim"
+	use 'nvim-lua/popup.nvim'
+	use {'oberblastmeister/neuron.nvim', config = require('config.neuron-nvim')} ]]
+
 	use 'PeterRincker/vim-searchlight'   -- make active search a different color
 	use 'airblade/vim-gitgutter'         -- display git diff in signcolumn
 	use 'alvan/vim-closetag'             -- auto close html tags
@@ -34,18 +41,67 @@ return require('packer').startup(function()
 	use 'tweekmonster/startuptime.vim'   -- measure startup time
 	use 'vito-c/jq.vim'                  -- jq mode
 	use 'wellle/targets.vim'             -- better text objects
-	use {'HiPhish/info.vim',           config = require('config.info')}
-	use {'LnL7/vim-nix',               config = require('config.vim-nix')}
-	use {'Raimondi/delimitMate',       config = require('config.delimitMate')}
-	use {'fiatjaf/neuron.vim',         config = require('config.neuron')}
-	use {'hoob3rt/lualine.nvim',       config = require('config.lualine')}
-	use {'mhinz/vim-sayonara',         config = require('config.sayonara')}
-	use {'neovim/nvim-lspconfig',      config = require('config.lsp')}
-	use {'nvim-lua/completion-nvim',   config = require('config.completion')}
-	use {'rafcamlet/nvim-luapad',      config = require('config.luapad')}
-	use {'rafikdraoui/gruvbox-custom', config = require('config.gruvbox')}
-	use {'reedes/vim-wheel',           config = require('config.vim-wheel')}
-	use {'ziman/ledger-vim',           config = require('config.ledger')}
+
+	use {
+		'fiatjaf/neuron.vim',             -- zettelkasten style note taking
+		-- 'chiefnoah/neuron-v2.vim',        -- zettelkasten style note taking
+		config = require('config.neuron')
+	}
+
+	use {
+		'HiPhish/info.vim',               -- info mode
+		config=require('config.info')
+	}
+
+	use {
+		'LnL7/vim-nix',                   -- nix mode
+		config=require('config.vim-nix')
+	}
+
+	use {
+		'hoob3rt/lualine.nvim',           -- status line
+		config=require('config.lualine')
+	}
+
+	use {
+		'nvim-lua/completion-nvim',       -- auto completion
+		config=require('config.completion')
+	}
+
+	use {
+		'rafikdraoui/gruvbox-custom',     -- favorite color scheme
+		config=require('config.gruvbox')
+	}
+
+	use {
+		'reedes/vim-wheel',                -- pivot scroll
+		config=require('config.vim-wheel')
+	}
+
+	use {
+		'ziman/ledger-vim',                -- ledger-cli mode
+		config=require('config.ledger')
+	}
+
+	use {
+		'Raimondi/delimitMate',            -- smart close parentheses and braces
+		config = require('config.delimitMate')
+	}
+
+	use {
+		'mhinz/vim-sayonara',               -- close buffer without closing window
+		config = require('config.sayonara')
+	}
+
+	use {
+		'neovim/nvim-lspconfig',            -- language server protocol
+		config = require('config.lsp')
+	}
+
+	use { -- (BE CAREFUL, it runs everything you paste in scratch pad)
+		'rafcamlet/nvim-luapad',            -- live code in lua
+		config = require('config.luapad')
+	}
 
 	-- use {'itchyny/lightline.vim', config = require('config.lightline')}
 
