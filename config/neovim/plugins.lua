@@ -93,10 +93,10 @@ return require('packer').startup(function()
 		config = require('config.sayonara')
 	}
 
-	use {
+	--[[ use {
 		'neovim/nvim-lspconfig',            -- language server protocol
 		config = require('config.lsp')
-	}
+	} ]]
 
 	use { -- (BE CAREFUL, it runs everything you paste in scratch pad)
 		'rafcamlet/nvim-luapad',            -- live code in lua
