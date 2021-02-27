@@ -3,7 +3,7 @@ local lualine = require('lualine')
 
 local function relativepath()
 	if vim.fn.mode() == 't' then
-		return ''
+		return '' -- hide filename in terminal buffers
 	else
 		return vim.fn.expand('%')
 	end
