@@ -51,7 +51,7 @@ in {
 
 			colors = {
 				primary = {
-					background = "0x282828"; # color.bg;
+					background = "0x1D2021"; # color.bg;
 					foreground = "0xEBDBB2"; # color.fg;
 				};
 
