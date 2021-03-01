@@ -23,6 +23,7 @@
 		graphviz        # visualize graphs
 		groff           # process text and rendering
 		imagemagick     # manipulate/convert images
+		iterm2          # alternative terminal to default os terminal
 		ledger          # manage money and budgets
 		m-cli           # swiss army knife for macos
 		mpv             # play video, image or audio
