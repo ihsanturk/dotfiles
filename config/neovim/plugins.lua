@@ -27,25 +27,31 @@ return require('packer').startup(function()
 	use 'nvim-lua/popup.nvim'
 	use {'oberblastmeister/neuron.nvim', config = require('config.neuron-nvim')} ]]
 
-	use 'PeterRincker/vim-searchlight'   -- make active search a different color
-	use 'airblade/vim-gitgutter'         -- display git diff in signcolumn
-	use 'alvan/vim-closetag'             -- auto close html tags
-	use 'ap/vim-css-color'               -- colorize css hex/rgb colors
-	use 'b3nj5m1n/kommentary'            -- comment text objects
-	use 'chrisbra/Colorizer'             -- colorize ansi escape codes in buffer
-	use 'darfink/vim-plist'              -- plist mode
-	use 'farmergreg/vim-lastplace'       -- continue from where you left off
-	use 'lifepillar/vim-solarized8'      -- solarized8 color scheme
-	use 'mkitt/tabline.vim'              -- more readable tab titles
-	use 'rust-lang/rust.vim'             -- rust mode
-	use 'tweekmonster/startuptime.vim'   -- measure startup time
-	use 'vito-c/jq.vim'                  -- jq mode
-	use 'wellle/targets.vim'             -- better text objects
+	use 'PeterRincker/vim-searchlight'    -- make active search different color
+	use 'airblade/vim-gitgutter'          -- display git diff in signcolumn
+	use 'alvan/vim-closetag'              -- auto close html tags
+	use 'ap/vim-css-color'                -- colorize css hex/rgb colors
+	use 'b3nj5m1n/kommentary'             -- comment text objects
+	use 'chrisbra/Colorizer'              -- colorize ansi escapes in buffer
+	use 'darfink/vim-plist'               -- plist mode
+	use 'farmergreg/vim-lastplace'        -- continue from where you left off
+	use 'lifepillar/vim-solarized8'       -- solarized8 color scheme
+	use 'mkitt/tabline.vim'               -- more readable tab titles
+	use 'rust-lang/rust.vim'              -- rust mode
+	use 'tweekmonster/startuptime.vim'    -- measure startup time
+	use 'vito-c/jq.vim'                   -- jq mode
+	use 'wellle/targets.vim'              -- better text objects
+
+	use {
+		'nvim-treesitter/nvim-treesitter', -- better syntax highlighter
+		run = ':TSUpdate'
+	}
 
 	use {
 		'fiatjaf/neuron.vim',             -- zettelkasten style note taking
-		-- 'chiefnoah/neuron-v2.vim',        -- zettelkasten style note taking
-		config = require('config.neuron')
+		-- 'chiefnoah/neuron-v2.vim',
+		config = require('config.neuron'),
+		ft = "markdown"
 	}
 
 	use {
@@ -55,7 +61,8 @@ return require('packer').startup(function()
 
 	use {
 		'LnL7/vim-nix',                   -- nix mode
-		config=require('config.vim-nix')
+		config=require('config.vim-nix'),
+		ft = "nix"
 	}
 
 	use {
@@ -63,10 +70,10 @@ return require('packer').startup(function()
 		config=require('config.lualine')
 	}
 
-	use {
+	--[[ use {
 		'nvim-lua/completion-nvim',       -- auto completion
 		config=require('config.completion')
-	}
+	} ]]
 
 	use {
 		'rafikdraoui/gruvbox-custom',     -- favorite color scheme
@@ -80,7 +87,8 @@ return require('packer').startup(function()
 
 	use {
 		'ziman/ledger-vim',                -- ledger-cli mode
-		config=require('config.ledger')
+		config=require('config.ledger'),
+		ft = 'ledger'
 	}
 
 	use {
