@@ -19,7 +19,7 @@ in {
 				};
 
 				dynamic_padding = false;
-				decorations = "full";
+				decorations = "Buttonless";
 
 			};
 
