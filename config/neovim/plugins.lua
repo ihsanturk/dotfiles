@@ -52,7 +52,7 @@ return require('packer').startup(function()
 		'fiatjaf/neuron.vim',             -- zettelkasten style note taking
 		-- 'chiefnoah/neuron-v2.vim',
 		config = require('config.neuron'),
-		ft = "markdown"
+		-- ft = "markdown"
 	}
 
 	use {
