@@ -45,7 +45,7 @@ return require('packer').startup(function()
 	use {
 		'nvim-treesitter/nvim-treesitter', -- better syntax highlighter
 		config = require('config.treesitter'),
-		run = ':TSUpdate'
+		-- run = ':TSUpdate' -- some parsers can't be compiled, so do not update
 	}
 
 	use {
