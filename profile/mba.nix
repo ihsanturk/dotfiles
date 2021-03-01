@@ -4,7 +4,7 @@
 	environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
 
 	programs.zsh.enable = true;
-	programs.zsh.enableFzfCompletion = true;
+	programs.zsh.enableFzfCompletion = true; # FIXME: not working
 	programs.zsh.enableSyntaxHighlighting = true;
 	programs.zsh.promptInit = ""; # using starship.
 	environment.shells = [ pkgs.zsh ];
