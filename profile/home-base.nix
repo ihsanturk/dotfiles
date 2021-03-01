@@ -12,7 +12,7 @@ in {
 	programs.home-manager.enable = true;
 	home.packages = with pkgs; [
 		
-		cachix            # fetch cache.
+		cachix            # fetch cached nix packages.
 		coreutils         # tac.
 		emv               # rename files with your favourite text editor.
 		exa               # `ls` alternative.
