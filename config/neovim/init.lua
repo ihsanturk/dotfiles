@@ -66,7 +66,7 @@ if  now >= lower and now <=upper then
 else
 	vim.o.bg = 'dark'
 end
-vim.cmd [[ color solarized8 ]]
+vim.cmd [[ color solarized8_high ]]
 lualine.theme = 'solarized_light'
 if vim.env.COLORTERM == 'truecolor' then
 	vim.o.termguicolors = true
