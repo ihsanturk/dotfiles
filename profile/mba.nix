@@ -29,7 +29,8 @@
 		enable = true;
 		package = pkgs.yabai;
 		config = {
-			top_padding    = 40;
+			layout = "bsp";
+			top_padding    = 30;
 			bottom_padding = 30;
 			left_padding   = 30;
 			right_padding  = 30;
@@ -41,12 +42,13 @@
 	};
 
 	# defaults
-	system.defaults.dock.tilesize = 33;
-	system.defaults.dock.show-recents = false;
-	system.defaults.finder.QuitMenuItem = true;
-	system.defaults.NSGlobalDomain.KeyRepeat = 1;
 	system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
+	system.defaults.NSGlobalDomain.KeyRepeat = 1;
 	system.defaults.NSGlobalDomain._HIHideMenuBar = false;
+	system.defaults.NSGlobalDomain._HIHideMenuBar = true;
+	system.defaults.dock.show-recents = false;
+	system.defaults.dock.tilesize = 33;
+	system.defaults.finder.QuitMenuItem = true;
 	system.defaults.finder._FXShowPosixPathInTitle = false;
 
 	environment.etc = {
