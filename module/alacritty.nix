@@ -43,7 +43,7 @@ in {
 					family = "FiraCode Nerd Font";
 					style = "Italic";
 				};
-				size = 13.55;
+				size = 12;
 				use_thin_strokes = true;
 			};
 
