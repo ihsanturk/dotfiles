@@ -23,7 +23,6 @@
 		graphviz        # visualize graphs
 		groff           # process text and rendering
 		imagemagick     # manipulate/convert images
-		iterm2          # alternative terminal to default os terminal
 		ledger          # manage money and budgets
 		m-cli           # swiss army knife for macos
 		mpv             # play video, image or audio
@@ -37,6 +36,7 @@
 		youtube-dl      # download video from web
 
 		# # problematic
+		iterm2          # alternative terminal to default os terminal
 		# img2txt       # (personal) requires docopts 
 		# tmpmail       # FIXME: make this flake compatible
 		# swiftbar      # NOTE: uninstall manually: "/Applications/SwiftBar.app"

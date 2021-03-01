@@ -8,21 +8,6 @@
 	programs.zsh.enableSyntaxHighlighting = true;
 	environment.shells = [ pkgs.zsh ];
 
-	environment.etc = {
-		"sudoers.d/10-nix-commands".text = let
-			commands = [
-				"/run/current-system/sw/bin/darwin-rebuild"
-				"/run/current-system/sw/bin/nix*"
-				"/run/current-system/sw/bin/ln"
-				"/nix/store/*/activate"
-				"/bin/launchctl"
-			];
-			commandsString = builtins.concatStringsSep ", " commands;
-		in ''
-%admin ALL=(ALL:ALL) NOPASSWD: ${commandsString}
-		'';
-	};
-
 	nix.gc.user = "ihsan";
 	nix.gc.automatic = true;
 	nix.package = pkgs.nixFlakes; # NOTE: EXPERIMENTAL.
@@ -39,11 +24,21 @@
 		];
 	};
 
-	# nix.nixPath = [
-	# 	"darwin-config=$HOME/.nixpkgs/darwin-configuration.nix"
-	# 	"darwin=$HOME/.nix-defexpr/channels/darwin"
-	# 	"$HOME/.nix-defexpr/channels"
-	# ];
+	# services
+	services.yabai = {
+		enable = true;
+		package = pkgs.yabai;
+		config = {
+			top_padding    = 40;
+			bottom_padding = 30;
+			left_padding   = 30;
+			right_padding  = 30;
+			window_gap     = 30;
+		};
+		extraConfig = ''
+			yabai -m rule --add app='System Preferences' manage=off
+		'';
+	};
 
 	# defaults
 	system.defaults.dock.tilesize = 33;
@@ -53,6 +48,21 @@
 	system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
 	system.defaults.NSGlobalDomain._HIHideMenuBar = false;
 	system.defaults.finder._FXShowPosixPathInTitle = false;
+
+	environment.etc = {
+		"sudoers.d/10-nix-commands".text = let
+			commands = [
+				"/run/current-system/sw/bin/darwin-rebuild"
+				"/run/current-system/sw/bin/nix*"
+				"/run/current-system/sw/bin/ln"
+				"/nix/store/*/activate"
+				"/bin/launchctl"
+			];
+			commandsString = builtins.concatStringsSep ", " commands;
+		in ''
+%admin ALL=(ALL:ALL) NOPASSWD: ${commandsString}
+		'';
+	};
 
 	system.stateVersion = 4;
 }
