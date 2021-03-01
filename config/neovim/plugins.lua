@@ -63,7 +63,7 @@ return require('packer').startup(function()
 	use {
 		'LnL7/vim-nix',                   -- nix mode
 		config=require('config.vim-nix'),
-		ft = "nix"
+		-- ft = "nix"
 	}
 
 	use {
