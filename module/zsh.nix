@@ -10,7 +10,6 @@ in {
 		inherit shellAliases;
 		defaultKeymap = "emacs";
 		enableCompletion = false;
-		enableFzfCompletion = true;
 		enableAutosuggestions = true;
 		initExtra = builtins.readFile ./zshinit.sh
 		          + builtins.readFile ./function.sh;

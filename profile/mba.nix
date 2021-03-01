@@ -4,8 +4,9 @@
 	environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
 
 	programs.zsh.enable = true;
-	programs.zsh.promptInit = ""; # using starship.
+	programs.zsh.enableFzfCompletion = true;
 	programs.zsh.enableSyntaxHighlighting = true;
+	programs.zsh.promptInit = ""; # using starship.
 	environment.shells = [ pkgs.zsh ];
 
 	nix.gc.user = "ihsan";
