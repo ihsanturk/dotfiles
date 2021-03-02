@@ -31,11 +31,11 @@
 		package = pkgs.yabai;
 		config = {
 			# layout = "bsp";
-			top_padding    = 30 + 20;
-			bottom_padding = 30;
-			left_padding   = 30;
-			right_padding  = 30;
-			window_gap     = 30;
+			top_padding    = 35 + 20;
+			bottom_padding = 35;
+			left_padding   = 35;
+			right_padding  = 35;
+			window_gap     = 35;
 			# disableForApps = [
 			# 	"Logic Pro"
 			# 	"ProtonVPN"
