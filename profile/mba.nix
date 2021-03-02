@@ -59,6 +59,7 @@
 			${modkey} - k: ${prefix} window --focus prev || ${prefix} window --focus "$((yabai -m query --spaces --display prev || ${prefix} query --spaces --display last) | ${pkgs.jq}/bin/jq -re '.[] | select(.visible == 1)."last-window"')" || ${prefix} display --focus prev || ${prefix} display --focus last
 			${modkey} - c: ${prefix} window --toggle float; ${prefix} window --grid 13:4:1:1:2:11;
 			${modkey} - f: ${prefix} window --toggle float; ${prefix} window --grid 1:1:0:0:1:1;
+			${modkey} - return: open -a Alacritty;
 		'';
 	};
 
