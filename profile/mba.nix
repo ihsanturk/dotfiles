@@ -31,7 +31,7 @@
 		package = pkgs.yabai;
 		config = {
 			# layout = "bsp";
-			top_padding    = 100;
+			top_padding    = 30 + 20;
 			bottom_padding = 30;
 			left_padding   = 30;
 			right_padding  = 30;
@@ -57,9 +57,9 @@
 		in ''
 			${modkey} - j: ${prefix} window --focus next || ${prefix} window --focus "$((${prefix} query --spaces --display next || ${prefix} query --spaces --display first) |${pkgs.jq}/bin/jq -re '.[] | select(.visible == 1)."first-window"')" || ${prefix} display --focus next || ${prefix} display --focus first
 			${modkey} - k: ${prefix} window --focus prev || ${prefix} window --focus "$((yabai -m query --spaces --display prev || ${prefix} query --spaces --display last) | ${pkgs.jq}/bin/jq -re '.[] | select(.visible == 1)."last-window"')" || ${prefix} display --focus prev || ${prefix} display --focus last
+			${modkey} - c: ${prefix} window --toggle float; ${prefix} window --grid 13:4:1:1:2:11;
+			${modkey} - f: ${prefix} window --toggle float; ${prefix} window --grid 1:1:0:0:1:1;
 		'';
-			# ${modkey} - c: center # TODO
-			# ${modkey} - f: full screen # TODO
 	};
 
 	# defaults
