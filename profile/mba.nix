@@ -37,17 +37,19 @@
 			right_padding  = 30;
 			window_gap     = 30;
 			# disableForApps = [
+			# 	"Logic Pro"
+			# 	"ProtonVPN"
+			# 	"Spotify"
 			# 	"System Preferences"
 			# 	"Telegram"
-			# 	"Spotify"
-			# 	"ProtonVPN"
+			# 	"Messages"
 			# ];
 		};
 		# extraConfig = "yabai -m rule --add app='${item}' manage=off\n";
 	};
 
 	services.skhd = {
-		enable = false;
+		enable = true;
 		package = pkgs.skhd;
 		skhdConfig = let
 			modkey = /*caps lock*/ "cmd + ctrl + alt + shift"; # see: Karabiner
