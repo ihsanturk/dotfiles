@@ -1,5 +1,7 @@
 { config, pkgs, lib, ... }:
 
+# NOTE: NOT TESTED
+
 with import <home-manager/modules/lib/dag.nix> { inherit lib; };
 with lib;
 with builtins;
@@ -10,8 +12,10 @@ let
 
 	package = pkgs.stdenv.mkDerivation rec {
 		name = appName;
+		version = "13.3.0";
 		src = pkgs.fetchurl {
-			url = "https://pqrs.org/osx/karabiner/files/Karabiner-Elements-11.5.0.dmg";
+			url =
+      "https://pqrs.org/osx/karabiner/files/Karabiner-Elements-${version}.dmg";
 			sha256 = "0iza7vpaa3rikrg0bq80zdf62i6y1lpx71zfknwidr8zsamms6bk";
 		};
 
