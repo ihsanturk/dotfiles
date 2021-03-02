@@ -54,13 +54,21 @@
 		skhdConfig = let
 			modkey = /*caps lock*/ "cmd + ctrl + alt + shift"; # see: Karabiner
 			prefix = "${pkgs.yabai}/bin/yabai -m";
+			d  = "$(${prefix} query --displays --display)";
+			w  = "$(${prefix} query --windows --window)";
+			dw = "$(${d}|jq '.frame.w')"; dh = "$(${d}|jq '.frame.h')";
+			wx = "$(${w}|jq '.frame.x')"; wy = "$(${w}|jq '.frame.y')";
+			ww = "$(${w}|jq '.frame.w')"; wh = "$(${w}|jq '.frame.h')";
+			distanceToCenterX = "$((-(${wx} - ((${dw}/2) - (${ww}/2)))))";
+			distanceToCenterY = "$((-(${wy} - ((${dh}/2) - (${wh}/2)))))";
 		in ''
 			${modkey} - j: ${prefix} window --focus next || ${prefix} window --focus "$((${prefix} query --spaces --display next || ${prefix} query --spaces --display first) |${pkgs.jq}/bin/jq -re '.[] | select(.visible == 1)."first-window"')" || ${prefix} display --focus next || ${prefix} display --focus first
 			${modkey} - k: ${prefix} window --focus prev || ${prefix} window --focus "$((yabai -m query --spaces --display prev || ${prefix} query --spaces --display last) | ${pkgs.jq}/bin/jq -re '.[] | select(.visible == 1)."last-window"')" || ${prefix} display --focus prev || ${prefix} display --focus last
-			${modkey} - c: ${prefix} window --toggle float; ${prefix} window --grid 13:4:1:1:2:11;
+			${modkey} - c: ${prefix} window --toggle float; ${prefix} window --move rel:${distanceToCenterX}:${distanceToCenterY};
 			${modkey} - f: ${prefix} window --toggle float; ${prefix} window --grid 1:1:0:0:1:1;
 			${modkey} - return: open -a Alacritty;
 		'';
+		# ${modkey} - c: ${prefix} window --toggle float; ${prefix} window --grid 13:4:1:1:2:11;
 	};
 
 	# defaults
