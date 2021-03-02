@@ -23,6 +23,8 @@
 		];
 	};
 
+	# system.keyboard.keybindings."caps lock" = "ctrl + cmd + alt + shift";
+
 	# services
 	services.yabai = {
 		enable = false;
@@ -45,17 +47,14 @@
 		enable = false;
 		package = pkgs.skhd;
 		skhdConfig = let
-			modkey = "cmd";
+			modkey = /*caps lock*/ "ctrl + cmd + alt + shift";
 			prefix = "${pkgs.yabai}/bin/yabai -m";
-			fstOrSnd = {fst, snd}: domain: "${prefix} ${domain} --focus ${fst} || ${prefix} ${domain} --focus ${snd}";
-			nextOrFirst = fstOrSnd { fst = "next"; snd = "first";};
-			prevOrLast = fstOrSnd { fst = "prev"; snd = "last";};
 		in ''
 			${modkey} - j: ${prefix} window --focus next || ${prefix} window --focus "$((${prefix} query --spaces --display next || ${prefix} query --spaces --display first) |${pkgs.jq}/bin/jq -re '.[] | select(.visible == 1)."first-window"')" || ${prefix} display --focus next || ${prefix} display --focus first
 			${modkey} - k: ${prefix} window --focus prev || ${prefix} window --focus "$((yabai -m query --spaces --display prev || ${prefix} query --spaces --display last) | ${pkgs.jq}/bin/jq -re '.[] | select(.visible == 1)."last-window"')" || ${prefix} display --focus prev || ${prefix} display --focus last
-			${modkey} + alt - j: ${prevOrLast "space"}
-			${modkey} + alt - k: ${nextOrFirst "space"}
 		'';
+			# ${modkey} - c: center # TODO
+			# ${modkey} - f: full screen # TODO
 	};
 
 	# defaults
