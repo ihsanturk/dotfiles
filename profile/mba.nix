@@ -27,27 +27,30 @@
 
 	# services
 	services.yabai = {
-		enable = false;
+		enable = true;
 		package = pkgs.yabai;
 		config = {
-			layout = "bsp";
-			top_padding    = 30;
+			# layout = "bsp";
+			top_padding    = 100;
 			bottom_padding = 30;
 			left_padding   = 30;
 			right_padding  = 30;
 			window_gap     = 30;
+			# disableForApps = [
+			# 	"System Preferences"
+			# 	"Telegram"
+			# 	"Spotify"
+			# 	"ProtonVPN"
+			# ];
 		};
-		extraConfig = ''
-			yabai -m rule --add app='System Preferences' manage=off
-			yabai -m rule --add app='Telegram' manage=off
-		'';
+		# extraConfig = "yabai -m rule --add app='${item}' manage=off\n";
 	};
 
 	services.skhd = {
 		enable = false;
 		package = pkgs.skhd;
 		skhdConfig = let
-			modkey = /*caps lock*/ "ctrl + cmd + alt + shift";
+			modkey = /*caps lock*/ "cmd + ctrl + alt + shift"; # see: Karabiner
 			prefix = "${pkgs.yabai}/bin/yabai -m";
 		in ''
 			${modkey} - j: ${prefix} window --focus next || ${prefix} window --focus "$((${prefix} query --spaces --display next || ${prefix} query --spaces --display first) |${pkgs.jq}/bin/jq -re '.[] | select(.visible == 1)."first-window"')" || ${prefix} display --focus next || ${prefix} display --focus first

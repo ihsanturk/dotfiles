@@ -6,7 +6,7 @@
 		./home-base.nix # { inherit private; }
 
 		../module/alacritty.nix
-		../module/karabiner-elements.nix # NOTE: not tested yet.
+		# ../module/karabiner-elements.nix # NOTE: not tested yet.
 
 		../dev-env/c.nix
 		../dev-env/cpp.nix
