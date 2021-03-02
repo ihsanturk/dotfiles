@@ -32,11 +32,11 @@
 		enableScriptingAddition = true;
 		config = {
 			# layout = "bsp";
-			top_padding    = 35 + 20;
+			top_padding    = 65;
 			bottom_padding = 35;
-			left_padding   = 35;
-			right_padding  = 35;
-			window_gap     = 35;
+			left_padding   = 44;
+			right_padding  = 44;
+			window_gap     = 30;
 			# disableForApps = [
 			# 	"Logic Pro"
 			# 	"ProtonVPN"
