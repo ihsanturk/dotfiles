@@ -73,6 +73,7 @@
 			${modkey} - a: open -a Authy\ Desktop;
 			${modkey} - m: open -a Mail;
 			${modkey} - t: open -a Telegram;
+			${modkey} - g: open -a Calendar;
 		'';
 		# ${modkey} - c: ${prefix} window --toggle float; ${prefix} window --grid 13:4:1:1:2:11;
 	};
