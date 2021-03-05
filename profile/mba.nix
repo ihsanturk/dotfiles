@@ -31,12 +31,13 @@
 		package = pkgs.yabai;
 		enableScriptingAddition = true;
 		config = {
+			top_padding    = 40;
+			bottom_padding = 40;
+			left_padding   = 40;
+			right_padding  = 40;
+			window_gap     = 24;
+			mouse_action1  = "move";
 			# layout = "bsp";
-			top_padding    = 65;
-			bottom_padding = 35;
-			left_padding   = 44;
-			right_padding  = 44;
-			window_gap     = 30;
 			# disableForApps = [ # NOTE: Not implemented
 			# 	"Logic Pro"
 			# 	"ProtonVPN"
@@ -65,6 +66,12 @@
 		in ''
 			${modkey} - c: ${prefix} window --toggle float; ${prefix} window --move rel:${distanceToCenterX}:${distanceToCenterY};
 			${modkey} - f: ${prefix} window --toggle float; ${prefix} window --grid 1:1:0:0:1:1;
+
+			${modkey} - j: ${prefix} window --toggle float; ${prefix} window --grid 2:1:2:1:1:1;
+			${modkey} - k: ${prefix} window --toggle float; ${prefix} window --grid 2:1:1:0:1:1;
+			${modkey} - l: ${prefix} window --toggle float; ${prefix} window --grid 1:2:1:2:1:1;
+			${modkey} - h: ${prefix} window --toggle float; ${prefix} window --grid 1:2:0:1:1:1;
+
 			${modkey} - return: open -a Alacritty;
 			${modkey} - w: open -a Safari;
 			${modkey} - s: open -a Spotify;
