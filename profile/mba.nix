@@ -79,6 +79,7 @@
 			${modkey} - m: open -a Mail;
 			${modkey} - t: open -a Telegram;
 			${modkey} - g: open -a Calendar;
+			${modkey} - b: open -a Bitwarden;
 		'';
 	};
 
