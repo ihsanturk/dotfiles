@@ -8,8 +8,8 @@ in {
 	programs.bat = {
 
 		enable = true;
-		config.theme = "gruvbox";
-		# paging = "never";
+		config.style = "plain";
+		config.theme = "ansi-dark";
 
 	};
 	
