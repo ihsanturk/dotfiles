@@ -6,7 +6,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 	execute 'packadd packer.nvim'
 end
-
 local s = { silent = true }
 local n = { noremap = true }
 local sn = { silent = true, noremap = true }
@@ -88,10 +87,11 @@ map('x', 'gss',       ':<C-U>set ep=sort<cr>gv=', sn)
 map('x', 'gsr',       ':<C-U>set ep=sort\\ -R<cr>gv=', sn)
 map('x', 'gsl',       ':<C-U>set ep=sortlength<cr>gv=', sn)
 map('n', '<leader>g', ':set ep=gt<cr>=', {})
-map('n', '<leader>w', ':exe "!wikipedia ".expand("<cword>")<cr>', {})
 map('x', '<leader>g', ':<C-U>set ep=gt<cr>gv=', n)
-map('x', '<leader>w', ':!xargs wikipedia 2>/dev/null<cr>', n)
-
+map('n', '<leader>s', ":set ep=tr\\ -s\\ '\\ '<cr>=", {})
+map('x', '<leader>s', ":<C-U>set ep=tr\\ -s\\ '\\ '<cr>gv=", n)
+-- map('n', '<leader>w', ':exe "!wikipedia ".expand("<cword>")<cr>', {})
+-- map('x', '<leader>w', ':!xargs wikipedia 2>/dev/null<cr>', n)
 -- map('x', '<leader>s', ':!sozlukgovtr<cr>', n)
 -- map('n', '<leader>s', ':exe "!sozlukgovtr ".expand("<cword>")<cr>', n)
 
