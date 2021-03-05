@@ -85,7 +85,7 @@
 	# defaults
 	system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
 	system.defaults.NSGlobalDomain.KeyRepeat = 1;
-	system.defaults.NSGlobalDomain._HIHideMenuBar = true;
+	system.defaults.NSGlobalDomain._HIHideMenuBar = false;
 	system.defaults.dock.show-recents = false;
 	system.defaults.dock.tilesize = 33;
 	system.defaults.finder.QuitMenuItem = true;
