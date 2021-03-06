@@ -89,7 +89,7 @@ return require('packer').startup(function()
 	use {
 		'ziman/ledger-vim',                -- ledger-cli mode
 		config=require('config.ledger'),
-		ft = 'ledger'
+		-- ft = 'ledger' -- this breaks the detection
 	}
 
 	use {
