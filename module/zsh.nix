@@ -9,7 +9,7 @@ in {
 		enable = true;
 		inherit shellAliases;
 		defaultKeymap = "emacs";
-		enableCompletion = true;     # added in ./zshinit.sh manually
+		enableCompletion = false;     # added in ./zshinit.sh manually
 		# enableAutosuggestions = true; # shadow completion
 		initExtra = builtins.readFile ./zshinit.sh
 		          + builtins.readFile ./function.sh;
