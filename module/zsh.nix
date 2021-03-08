@@ -6,7 +6,7 @@ let
 in {
 
 	programs.zsh = {
-		enable = false;
+		enable = true;
 		inherit shellAliases;
 		defaultKeymap = "emacs";
 		enableCompletion = true;     # added in ./zshinit.sh manually
