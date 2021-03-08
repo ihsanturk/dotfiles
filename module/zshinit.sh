@@ -22,3 +22,4 @@ export WORDCHARS='*?_[]~=&;!#$%^(){}'
 fignore=lock # do not complete flake.lock files beacuse that slows me down.
 
 . ~/Sync/private/env
+instant-zsh-post
