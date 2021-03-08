@@ -14,30 +14,32 @@ local map = fn.nvim_set_keymap
 require 'plugins'
 util = require('custom.util')
 
-vim.wo.wrap           = false
-vim.wo.number         = true
-vim.wo.signcolumn     = 'number'
-vim.wo.relativenumber = true
 vim.wo.colorcolumn    = vim.wo.colorcolumn .. '+' .. 1 -- of textwidth
+vim.wo.number         = true
+vim.wo.relativenumber = true
+vim.wo.signcolumn     = 'number'
+vim.wo.wrap           = false
 
 vim.g.loaded_node_provider   = 0
 vim.g.loaded_perl_provider   = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_ruby_provider   = 0
 
-vim.bo.textwidth = 79
-vim.o.autoindent = true
-vim.o.expandtab  = false
-vim.o.hlsearch   = true
-vim.o.ignorecase = true
-vim.o.incsearch  = true
-vim.o.mouse      = 'a'
-vim.o.shiftwidth = 3
-vim.o.smartcase  = true
-vim.o.syntax     = 'on'
-vim.o.tabstop    = 3
-vim.o.textwidth  = 79
-vim.o.updatetime = 100
+vim.bo.textwidth    = 79
+vim.o.autoindent    = true
+vim.o.expandtab     = false
+vim.o.hlsearch      = true
+vim.o.ignorecase    = true
+vim.o.incsearch     = true
+vim.o.mouse         = 'a'
+vim.o.shiftwidth    = 3
+vim.o.sidescroll    = 0
+vim.o.sidescrolloff = 0
+vim.o.smartcase     = true
+vim.o.syntax        = 'on'
+vim.o.tabstop       = 3
+vim.o.textwidth     = 79
+vim.o.updatetime    = 100
 
 vim.o.formatoptions = 'tcqjrn'
 vim.o.listchars = 'tab:┊ ,trail:•,nbsp:+'
@@ -55,8 +57,8 @@ vim.cmd('autocmd CompleteDone * pclose')
 
 -- appearance
 local lualine = require('lualine')
-local light_hour, light_min = 07,30 -- hh:mm
-local dark_hour, dark_min   = 17,00 -- hh:mm
+local light_hour, light_min = 07,30 -- hh:mm       -- light and dark themes for
+local dark_hour, dark_min   = 17,00 -- hh:mm       -- day and night
 local now = os.date('%H') * 3600 + os.date('%M') * 60
 local lower = light_hour * 3600 + light_min * 60
 local upper = dark_hour * 3600 + dark_min * 60
@@ -97,6 +99,7 @@ map('x', '<leader>s', ":<C-U>set ep=tr\\ -s\\ '\\ '<cr>gv=", n)
 
 -- abbrv
 vim.cmd('ia teh the')
+vim.cmd('ia treu true')
 if fn.exists("*strftime") then
 	vim.cmd("ia timestamp <c-r>=strftime('%s')<cr>")
 	vim.cmd("ia ts <c-r>=strftime('%s')<cr>")

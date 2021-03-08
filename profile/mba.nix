@@ -1,13 +1,14 @@
 { config, lib, pkgs, ... }: {
 
 	# environment.systemPackages = with pkgs; [ neovim ];
-	environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
 
-	programs.zsh.enable = true;
-	programs.zsh.enableFzfCompletion = true; # FIXME: not working
+	programs.bash.enable = true;
+	programs.zsh.enable = false;
 	programs.zsh.enableSyntaxHighlighting = true;
 	programs.zsh.promptInit = ""; # using starship.
-	environment.shells = [ pkgs.zsh ];
+
+	environment.shells = [ pkgs.bash pkgs.zsh ];
+	environment.variables.SHELL = "${pkgs.bash}/bin/bash";
 
 	nix.gc.user = "ihsan";
 	nix.gc.automatic = true;
@@ -22,8 +23,6 @@
 			(nerdfonts.override {fonts = ["FiraCode"];})
 		];
 	};
-
-	# system.keyboard.keybindings."caps lock" = "ctrl + cmd + alt + shift";
 
 	# services
 	services.yabai = {
@@ -94,8 +93,8 @@
 
 	environment.etc = {
 
-		# Not working becuase the file already exists and if I move it then I
-		# can't update the system because I can't use sudo! :/
+		# NOTE: Not working becuase the file already exists and if I move it then
+		# I can't update the system because I can't use sudo! :/
 # 		"pam.d/sudo".text = ''
 # # sudo: auth account password session
 # auth       sufficient     pam_tid.so
