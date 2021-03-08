@@ -17,6 +17,8 @@ util = require('custom.util')
 vim.wo.colorcolumn    = vim.wo.colorcolumn .. '+' .. 1 -- of textwidth
 vim.wo.number         = true
 vim.wo.relativenumber = true
+vim.wo.sidescroll     = 0
+vim.wo.sidescrolloff  = 0
 vim.wo.signcolumn     = 'number'
 vim.wo.wrap           = false
 
@@ -33,8 +35,6 @@ vim.o.ignorecase    = true
 vim.o.incsearch     = true
 vim.o.mouse         = 'a'
 vim.o.shiftwidth    = 3
-vim.o.sidescroll    = 0
-vim.o.sidescrolloff = 0
 vim.o.smartcase     = true
 vim.o.syntax        = 'on'
 vim.o.tabstop       = 3
