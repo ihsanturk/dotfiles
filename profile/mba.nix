@@ -2,6 +2,7 @@
 
 	# environment.systemPackages = with pkgs; [ neovim ];
 
+	programs.zsh.enable = true;
 	programs.zsh.enableSyntaxHighlighting = true;
 	programs.zsh.promptInit = ""; # using starship.
 
