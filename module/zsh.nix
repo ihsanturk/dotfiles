@@ -7,7 +7,7 @@ in {
 
 	programs.zsh = {
 		enable = false;
-		# inherit shellAliases;
+		inherit shellAliases;
 		defaultKeymap = "emacs";
 		enableCompletion = true;     # added in ./zshinit.sh manually
 		# enableAutosuggestions = true; # shadow completion
