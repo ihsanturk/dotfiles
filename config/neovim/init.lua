@@ -1,15 +1,14 @@
 -- install packer.nvim automatically
 local execute = vim.api.nvim_command
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 	execute 'packadd packer.nvim'
 end
 local s = { silent = true }
 local n = { noremap = true }
 local sn = { silent = true, noremap = true }
-local map = fn.nvim_set_keymap
+local map = vim.fn.nvim_set_keymap
 
 require 'plugins'
 util = require('custom.util')
@@ -17,7 +16,6 @@ util = require('custom.util')
 vim.wo.colorcolumn    = vim.wo.colorcolumn .. '+' .. 1 -- of textwidth
 vim.wo.number         = true
 vim.wo.relativenumber = true
-vim.wo.sidescrolloff  = 0
 vim.wo.signcolumn     = 'number'
 vim.wo.wrap           = false
 
@@ -26,20 +24,21 @@ vim.g.loaded_perl_provider   = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_ruby_provider   = 0
 
-vim.bo.textwidth = 79
-vim.o.autoindent = true
-vim.o.expandtab  = false
-vim.o.hlsearch   = true
-vim.o.sidescroll = 0
-vim.o.ignorecase = true
-vim.o.incsearch  = true
-vim.o.mouse      = 'a'
-vim.o.shiftwidth = 3
-vim.o.smartcase  = true
-vim.o.syntax     = 'on'
-vim.o.tabstop    = 3
-vim.o.textwidth  = 79
-vim.o.updatetime = 100
+vim.bo.textwidth    = 79
+vim.o.autoindent    = true
+vim.o.expandtab     = false
+vim.o.hlsearch      = true
+vim.o.ignorecase    = true
+vim.o.incsearch     = true
+vim.o.mouse         = 'a'
+vim.o.shiftwidth    = 3
+vim.o.sidescroll    = 0
+vim.o.sidescrolloff = 0
+vim.o.smartcase     = true
+vim.o.syntax        = 'on'
+vim.o.tabstop       = 3
+vim.o.textwidth     = 79
+vim.o.updatetime    = 100
 
 vim.o.formatoptions = 'tcqjrn'
 vim.o.listchars = 'tab:┊ ,trail:•,nbsp:+'
@@ -47,7 +46,7 @@ vim.o.virtualedit = vim.o.virtualedit .. 'block' -- beyond end of the line
 
 vim.cmd('au FileType nix,python,vim,rust set ts=3 sts=3 sw=3 tw=79 noet')
 
-if fn.has('inccommand') then
+if vim.fn.has('inccommand') then
 	vim.o.inccommand = 'nosplit'
 end
 
@@ -100,7 +99,7 @@ map('x', '<leader>s', ":<C-U>set ep=tr\\ -s\\ '\\ '<cr>gv=", n)
 -- abbrv
 vim.cmd('ia teh the')
 vim.cmd('ia treu true')
-if fn.exists("*strftime") then
+if vim.fn.exists("*strftime") then
 	vim.cmd("ia timestamp <c-r>=strftime('%s')<cr>")
 	vim.cmd("ia ts <c-r>=strftime('%s')<cr>")
 	vim.cmd("ia today <c-r>=strftime('%Y %b %d')<cr>")
@@ -125,7 +124,7 @@ vim.cmd('ca Sp sp')
 vim.cmd('ca SP sp')
 
 -- pivot scroll for vim
-if fn.has('nvim') == 0 then -- apply just for vim
+if vim.fn.has('nvim') == 0 then -- apply just for vim
 	map('n','<c-j>','<esc><c-e>j',sn)
 	map('n','<c-k>','<esc><c-y>k',sn)
 end
