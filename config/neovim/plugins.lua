@@ -9,10 +9,10 @@ return require('packer').startup(function()
 	use {'wbthomason/packer.nvim', opt = true}
 
 	use 'ihsanturk/vim-grave-navigation' -- navigate windows and tabs using "`"
-	use 'ihsanturk/vim-ihsensible'       -- better defaults
+	use 'ihsanturk/vim-ihsensible'       -- sane defaults
 
 	use 'tpope/vim-rsi'                  -- readline shortcuts in insert modes
-	use 'tpope/vim-sensible'             -- better defaults
+	use 'tpope/vim-sensible'             -- sane defaults
 	use 'tpope/vim-surround'             -- add chars around text objects
 	use {'tpope/vim-fugitive', config = require('config.vim-fugitive')}
 
