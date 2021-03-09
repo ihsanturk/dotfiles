@@ -5,6 +5,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 	execute 'packadd packer.nvim'
 end
+require('config.packer')
 local s = { silent = true }
 local n = { noremap = true }
 local sn = { silent = true, noremap = true }
