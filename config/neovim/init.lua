@@ -79,7 +79,7 @@ else
 	vim.o.termguicolors = false
 end
 vim.cmd('hi! link ColorColumn Visual')
-map('n', '<c-c>', ':noh<cr>', sn)
+map('n', '<c-c>', '<c-[>:noh<cr>', sn)
 
 -- sort text-objects " TODO: pluginize-vip
 map('n', 'gss',       ':set ep=sort<cr>=', s)
