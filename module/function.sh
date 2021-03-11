@@ -6,3 +6,7 @@ zk() {
 		(s|se|sea|sear|search) nvim +norm\ gzz;;
 	esac
 }
+
+ls-() {
+	ls -$1
+}

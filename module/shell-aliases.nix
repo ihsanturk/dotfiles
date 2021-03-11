@@ -17,7 +17,6 @@ config: {
 	l = "exa";
 	ls = "exa";
 	sl = "exa";
-	ls- = "exa";
 	ll = "exa -l";
 	lsd = "exa -D";
 
