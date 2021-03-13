@@ -12,7 +12,7 @@ return require('packer').startup(function()
 	use 'ihsanturk/vim-ihsensible'       -- sane defaults
 
 	use 'tpope/vim-rsi'                  -- readline shortcuts in insert modes
-	use 'tpope/vim-sensible'             -- sane defaults
+	-- use 'tpope/vim-sensible'             -- sane defaults
 	use 'tpope/vim-surround'             -- add chars around text objects
 	use {'tpope/vim-fugitive', config = require('config.vim-fugitive')}
 
