@@ -65,8 +65,10 @@
 			${modkey} - c: ${prefix} window --toggle float; ${prefix} window --move rel:${distanceToCenterX}:${distanceToCenterY};
 			${modkey} - f: ${prefix} window --toggle float; ${prefix} window --grid 1:1:0:0:1:1;
 
-			${modkey} - j: ${prefix} window --toggle float; ${prefix} window --grid 2:1:2:1:1:1;
-			${modkey} - k: ${prefix} window --toggle float; ${prefix} window --grid 2:1:1:0:1:1;
+			${modkey} - j: ${prefix} space --focus next
+			${modkey} - k: ${prefix} space --focus prev
+			${modkey} - o: ${prefix} space --focus recent
+
 			${modkey} - l: ${prefix} window --toggle float; ${prefix} window --grid 1:2:1:2:1:1;
 			${modkey} - h: ${prefix} window --toggle float; ${prefix} window --grid 1:2:0:1:1:1;
 
