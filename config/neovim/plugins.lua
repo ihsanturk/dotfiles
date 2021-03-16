@@ -42,11 +42,11 @@ return require('packer').startup(function()
 	use 'vito-c/jq.vim'                   -- jq mode
 	use 'wellle/targets.vim'              -- better text objects
 
-	use {
+	--[[ use {
 		'nvim-treesitter/nvim-treesitter', -- better syntax highlighter
 		config = require('config.treesitter'),
 		-- run = ':TSUpdate' -- some parsers can't be compiled, so do not update
-	}
+	} ]]
 
 	use {
 		'fiatjaf/neuron.vim',             -- zettelkasten style note taking
