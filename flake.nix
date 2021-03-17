@@ -41,7 +41,7 @@
 
 		packages.x86_64-darwin = {
 
-			solar = inputs.solar;#.solar;
+			solar = inputs.solar.defaultPackage;#.solar;
 
 			# source: https://github.com/LnL7/dotfiles/flake.nix
 			cpp = pkgs.callPackage
@@ -59,7 +59,7 @@
 		};
 
 		darwinPackages = self.darwinConfigurations."simple".pkgs;
-		defaultPackage.x86_64-darwin = self.darwinConfigurations.MacBookAir.system;
+		defaultPackage.x86_64-darwin = self.darwinConfigurations.MacBook-Air.system;
 
 	};
 
