@@ -2,17 +2,17 @@
 	description = "ihsanturk's personal machine configurations.";
 
 
-	inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-	inputs.darwin.url = "github:lnl7/nix-darwin";
 	inputs.darwin.inputs.nixpkgs.follows = "nixpkgs";
+	inputs.darwin.url = "github:lnl7/nix-darwin";
 	inputs.home-manager.url = "github:nix-community/home-manager";
 	inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-	# inputs.private.url = "path:./private.nix";
-	# inputs.private.flake = false;
+	inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+	inputs.solar.url = "github:ihsanturk/solar";
 
 
 	outputs =  { self,
 		darwin,
+		solar,  # TODO: make this to a custom nixpkgs repo like (ihsanpkgs)?
 		nixpkgs,
 		home-manager,
 		neovim-nightly-overlay,
@@ -40,6 +40,8 @@
 		};
 
 		packages.x86_64-darwin = {
+
+			solar = inputs.solar;#.solar;
 
 			# source: https://github.com/LnL7/dotfiles/flake.nix
 			cpp = pkgs.callPackage
