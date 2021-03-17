@@ -1,14 +1,14 @@
-vim.fn.nvim_set_keymap('n', '<m-f>', ':Files<cr>', {})
-vim.fn.nvim_set_keymap('n', '<m-s>', ':BLines<cr>', {})
-vim.fn.nvim_set_keymap('n', '<m-b>', ':Buffers<cr>', {})
-vim.fn.nvim_set_keymap('n', '<m-r>', ':History<cr>', {})
-vim.fn.nvim_set_keymap('n', '<m-x>', ':Commands<cr>', {})
-vim.fn.nvim_set_keymap('n', '<m-h>', ':Helptags!<cr>', {})
--- vim.fn.nvim_set_keymap('n', '<m-s-r>', fzf#run({'source': old_dirs()}), {})
-vim.fn.nvim_set_keymap('t', '<m-r>', '<c-\\><c-n>:History<cr>', {})
+vim.api.nvim_set_keymap('n', '<m-f>', ':Files<cr>', {})
+vim.api.nvim_set_keymap('n', '<m-s>', ':BLines<cr>', {})
+vim.api.nvim_set_keymap('n', '<m-b>', ':Buffers<cr>', {})
+vim.api.nvim_set_keymap('n', '<m-r>', ':History<cr>', {})
+vim.api.nvim_set_keymap('n', '<m-x>', ':Commands<cr>', {})
+vim.api.nvim_set_keymap('n', '<m-h>', ':Helptags!<cr>', {})
+-- vim.api.nvim_set_keymap('n', '<m-s-r>', fzf#run({'source': old_dirs()}), {})
+vim.api.nvim_set_keymap('t', '<m-r>', '<c-\\><c-n>:History<cr>', {})
 
-vim.fn.nvim_set_keymap('i', '<c-x><c-k>', '<plug>(fzf-complete-word)', {})
-vim.fn.nvim_set_keymap('i','<c-x><c-l>','<plug>(fzf-complete-buffer-line)', {})
+vim.api.nvim_set_keymap('i', '<c-x><c-k>', '<plug>(fzf-complete-word)', {})
+vim.api.nvim_set_keymap('i','<c-x><c-l>','<plug>(fzf-complete-buffer-line)', {})
 
 -- nm <silent> <m-2> :call fzf#run({'sink': 'e', 'left': '30%'})<cr>
 

@@ -9,7 +9,7 @@ require('config.packer')
 local s = { silent = true }
 local n = { noremap = true }
 local sn = { silent = true, noremap = true }
-local map = vim.fn.nvim_set_keymap
+local map = vim.api.nvim_set_keymap
 
 require 'plugins'
 util = require('custom.util')
