@@ -2,10 +2,10 @@
 {
 	home.packages = with pkgs; [
 
+		# rust-analyzer
+		# sccache # not supported on darwin
 		cargo-generate
-		rust-analyzer
 		rustup # includes rls
-		sccache
 		wasm-bindgen-cli
 		wasm-pack
 

@@ -2,12 +2,19 @@
 
 	# environment.systemPackages = with pkgs; [ neovim ];
 
+	# See this: (add homebrew packages through nix)
+	# 2021-01-16
+	# - Added `homebrew` module, to manage formulas installed by Homebrew via
+	#   `brew bundle`.
+
 	programs.zsh.enable = true;
 	programs.zsh.enableSyntaxHighlighting = true;
 	programs.zsh.promptInit = ""; # using starship.
 
 	environment.shells = [ pkgs.bash pkgs.zsh ];
 	environment.variables.SHELL = "${pkgs.bash}/bin/bash";
+
+	users.nix.configureBuildUsers = true;
 
 	nix.gc.user = "ihsan";
 	nix.gc.automatic = true;
