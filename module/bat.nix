@@ -9,7 +9,7 @@ in {
 
 		enable = true;
 		config.style = "plain";
-		config.theme = "ansi-dark";
+		config.theme = "ansi";
 
 	};
 	
