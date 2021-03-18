@@ -19,6 +19,7 @@ config: {
 	sl = "exa";
 	ll = "exa -l";
 	lsd = "exa -D";
+	ls-l = "exa -l";
 
 	# vim
 	":q" = "exit";
