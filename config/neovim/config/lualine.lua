@@ -1,5 +1,4 @@
 local lualine = require('lualine')
--- lualine.theme = 'gruvbox'
 
 local function relativepath()
 	if vim.fn.mode() == 't' then
@@ -9,22 +8,29 @@ local function relativepath()
 	end
 end
 
-lualine.sections = {
-  lualine_a = { 'mode' },
-  lualine_b = { 'branch' },
-  lualine_c = { relativepath }, -- { 'filename' },
-  lualine_x = { 'encoding', 'fileformat', 'filetype' },
-  lualine_y = { 'progress' },
-  lualine_z = { 'location'  },
-}
+lualine.setup{
 
-lualine.inactive_sections = {
-  lualine_a = {  },
-  lualine_b = {  },
-  lualine_c = { relativepath }, -- { 'filename' },
-  lualine_x = { 'location' },
-  lualine_y = {  },
-  lualine_z = {  }
-}
+	options = {
+	-- theme = 'gruvbox',
+		icons_enabled = true,
+	},
 
-lualine.status()
+	sections = {
+		lualine_a = { 'mode' },
+		lualine_b = { 'branch' },
+		lualine_c = { relativepath }, -- { 'filename' },
+		lualine_x = { 'encoding', 'fileformat', 'filetype' },
+		lualine_y = { 'progress' },
+		lualine_z = { 'location'  },
+	},
+
+	inactive_sections = {
+		lualine_a = {  },
+		lualine_b = {  },
+		lualine_c = { relativepath }, -- { 'filename' },
+		lualine_x = { 'location' },
+		lualine_y = {  },
+		lualine_z = {  }
+	}
+
+}
