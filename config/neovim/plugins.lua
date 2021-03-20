@@ -35,6 +35,7 @@ return require('packer').startup(function()
 	use 'chrisbra/Colorizer'              -- colorize ansi escapes in buffer
 	use 'darfink/vim-plist'               -- plist mode
 	use 'farmergreg/vim-lastplace'        -- continue from where you left off
+	use 'jbmorgado/vim-pine-script'       -- tradingview pinescript mode
 	use 'lifepillar/vim-solarized8'       -- solarized8 color scheme
 	use 'mkitt/tabline.vim'               -- more readable tab titles
 	use 'rust-lang/rust.vim'              -- rust mode
