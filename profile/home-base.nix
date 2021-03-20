@@ -26,6 +26,7 @@ in {
 		nnn               # file manager written in c.
 		pinentry          # password taker... i guess?
 		pup               # query html.
+		python38Packages.titlecase # convert regular text to its title form.
 		ranger            # file manager written in python.
 		ripgrep           # `grep` alternative written in rust.
 		sd                # `sed` alternative written in rust.
