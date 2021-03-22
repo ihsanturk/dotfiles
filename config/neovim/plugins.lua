@@ -30,6 +30,7 @@ return require('packer').startup(function()
 	use 'PeterRincker/vim-searchlight'    -- make active search different color
 	use 'airblade/vim-gitgutter'          -- display git diff in signcolumn
 	use 'alvan/vim-closetag'              -- auto close html tags
+	use 'TovarishFin/vim-solidity'        -- solidity mode
 	use 'ap/vim-css-color'                -- colorize css hex/rgb colors
 	use 'b3nj5m1n/kommentary'             -- comment text objects
 	use 'chrisbra/Colorizer'              -- colorize ansi escapes in buffer
