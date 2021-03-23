@@ -68,10 +68,10 @@ return require('packer').startup(function()
 		-- ft = "nix"
 	}
 
-	use {
+	--[[ use {
 		'hoob3rt/lualine.nvim',           -- status line
 		config=require('config.lualine')
-	}
+	} ]]
 
 	--[[ use {
 		'nvim-lua/completion-nvim',       -- auto completion
