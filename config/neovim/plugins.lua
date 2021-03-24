@@ -50,12 +50,12 @@ return require('packer').startup(function()
 		-- run = ':TSUpdate' -- some parsers can't be compiled, so do not update
 	} ]]
 
-	use {
+	--[[ use {
 		'fiatjaf/neuron.vim',             -- zettelkasten style note taking
 		-- 'chiefnoah/neuron-v2.vim',
 		config = require('config.neuron'),
 		-- ft = "markdown"
-	}
+	} ]]
 
 	use {
 		'HiPhish/info.vim',               -- info mode
