@@ -44,6 +44,7 @@ config: {
 	E="$EDITOR";
 	e="$EDITOR";
 	pup="pup -p";
+	aco="ansicolor";
 	tp="todaysplan";
 	cpwd="pwd | pbcopy";
 	grep="grep --color=auto";
