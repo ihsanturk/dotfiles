@@ -12,7 +12,7 @@
 	programs.zsh.promptInit = ""; # using starship.
 
 	environment.shells = [ pkgs.bash pkgs.zsh ];
-	environment.variables.SHELL = "${pkgs.bash}/bin/bash";
+	environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
 
 	users.nix.configureBuildUsers = true;
 
