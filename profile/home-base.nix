@@ -37,6 +37,7 @@ in {
 		tldr              # get quick examples about usage of the program.
 		translate-shell   # google translate in cli written in awk.
 		trash-cli         # trash files instead of bare rm.
+		websocat          # websocket client
 
 		# [rare]
 		# git-dit         # decentralized issue tracking for git.
