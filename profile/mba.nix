@@ -31,6 +31,11 @@
 	};
 
 	# services
+
+	services.spotifyd = {
+		enable = true;
+	};
+
 	services.yabai = {
 		enable = true;
 		package = pkgs.yabai;
@@ -101,35 +106,6 @@
 	system.defaults.dock.tilesize = 33;
 	system.defaults.finder.QuitMenuItem = true;
 	system.defaults.finder._FXShowPosixPathInTitle = false;
-
-	environment.etc = {
-
-		# NOTE: Not working becuase the file already exists and if I move it then
-		# I can't update the system because I can't use sudo! :/
-# 		"pam.d/sudo".text = ''
-# # sudo: auth account password session
-# auth       sufficient     pam_tid.so
-# auth       sufficient     pam_smartcard.so
-# auth       required       pam_opendirectory.so
-# account    required       pam_permit.so
-# password   required       pam_deny.so
-# session    required       pam_permit.so
-# 		'';
-
-# 		"sudoers.d/10-nix-commands".text = let
-# 			commands = [
-# 				"/run/current-system/sw/bin/darwin-rebuild"
-# 				"/run/current-system/sw/bin/nix*"
-# 				"/run/current-system/sw/bin/ln"
-# 				"/nix/store/*/activate"
-# 				"/bin/launchctl"
-# 			];
-# 			commandsString = builtins.concatStringsSep ", " commands;
-# 		in ''
-# %admin ALL=(ALL:ALL) NOPASSWD: ${commandsString}
-# 		'';
-
-	};
 
 	system.stateVersion = 4;
 }

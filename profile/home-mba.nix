@@ -28,7 +28,7 @@
 		m-cli           # swiss army knife for macos
 		mpv             # play video, image or audio
 		ncdu            # clear out your storage devices
-		neuron-notes    # manage zettelkasten notes
+		# neuron-notes    # manage zettelkasten notes
 		pandoc          # convert across text formats
 		poppler_utils   # pdftotext # for ripgrep-all
 		qrencode        # encode data to qr codes
