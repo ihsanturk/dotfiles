@@ -3,7 +3,7 @@
 
 
 	inputs.darwin.inputs.nixpkgs.follows = "nixpkgs";
-	inputs.darwin.url = "github:lnl7/nix-darwin";
+	inputs.darwin.url = "github:ihsanturk/nix-darwin";
 	inputs.home-manager.url = "github:nix-community/home-manager";
 	inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 	inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
