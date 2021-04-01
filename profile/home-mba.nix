@@ -18,6 +18,7 @@
 
 	home.packages = with pkgs; [
 
+		# neuron-notes    # manage zettelkasten notes
 		awscli2         # manage aws
 		coreutils       # extra coreutils
 		ffmpeg          # manipulate/edit video or image
@@ -28,10 +29,10 @@
 		m-cli           # swiss army knife for macos
 		mpv             # play video, image or audio
 		ncdu            # clear out your storage devices
-		# neuron-notes    # manage zettelkasten notes
 		pandoc          # convert across text formats
 		poppler_utils   # pdftotext # for ripgrep-all
 		qrencode        # encode data to qr codes
+		spotify-tui     # spotify client
 		svgbob          # convert ascii to closest svg
 		unixtools.watch # better `watch`
 		youtube-dl      # download video from web

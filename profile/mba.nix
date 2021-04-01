@@ -1,4 +1,7 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+let
+	credential = import ../credential.nix;
+in {
 
 	# environment.systemPackages = with pkgs; [ neovim ];
 
@@ -34,6 +37,10 @@
 
 	services.spotifyd = {
 		enable = true;
+		settings = {
+			username = credential.spotify.username;
+			password = credential.spotify.password;
+		};
 	};
 
 	services.yabai = {
@@ -89,7 +96,7 @@
 
 			${modkey} - return: open -a Alacritty;
 			${modkey} - w: open -a Safari;
-			${modkey} - s: open -a Spotify;
+			${modkey} - s: spt playback --toggle;
 			${modkey} - a: open -a Authy\ Desktop;
 			${modkey} - m: open -a Mail;
 			${modkey} - t: open -a Telegram;
