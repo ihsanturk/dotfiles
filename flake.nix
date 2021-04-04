@@ -2,6 +2,7 @@
 	description = "ihsanturk's personal machine configurations.";
 
 
+	# inputs.sops-nix.url = "github:Mic92/sops-nix";
 	inputs.darwin.inputs.nixpkgs.follows = "nixpkgs";
 	inputs.darwin.url = "github:ihsanturk/nix-darwin";
 	inputs.home-manager.url = "github:nix-community/home-manager";
@@ -16,6 +17,7 @@
 		nixpkgs,
 		home-manager,
 		neovim-nightly-overlay,
+		# sops-nix,
 		...
 	}@inputs:
 	let
@@ -29,6 +31,7 @@
 			MacBook-Air = darwin.lib.darwinSystem {
 				modules = [
 					(import ./profile/mba.nix)
+					# sops-nix.nixosModules.sops
 					home-manager.darwinModules.home-manager {
 						nixpkgs.overlays = overlays;
 						home-manager.useGlobalPkgs = true;

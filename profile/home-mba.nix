@@ -18,8 +18,8 @@
 
 	home.packages = with pkgs; [
 
-		# neuron-notes    # manage zettelkasten notes
 		awscli2         # manage aws
+		cordless        # minimal discrod client cli
 		coreutils       # extra coreutils
 		ffmpeg          # manipulate/edit video or image
 		graphviz        # visualize graphs

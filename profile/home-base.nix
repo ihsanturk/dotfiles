@@ -16,6 +16,7 @@ in {
 		coreutils         # tac.
 		emv               # rename files with your favourite text editor.
 		exa               # `ls` alternative.
+		exiftool          # view exif data of files
 		fd                # `find` alternative written in rust.
 		gawk              # manipulate text. `awk` alternative.
 		gitAndTools.delta # git diff (long compile time).

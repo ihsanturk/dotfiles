@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-	credential = import ../credential.nix;
+	# credential = import ../credential.nix;
 in {
 
 	# environment.systemPackages = with pkgs; [ neovim ];
@@ -35,13 +35,13 @@ in {
 
 	# services
 
-	services.spotifyd = {
-		enable = true;
-		settings = {
-			username = credential.spotify.username;
-			password = credential.spotify.password;
-		};
-	};
+	# services.spotifyd = {
+	# 	enable = true;
+	# 	settings = {
+	# 		username = credential.spotify.username;
+	# 		password = credential.spotify.password;
+	# 	};
+	# };
 
 	services.yabai = {
 		enable = true;
