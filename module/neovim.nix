@@ -2,10 +2,10 @@
 
 	home.packages = with pkgs; [
 
-		luajitPackages.ldoc # lua documentation tool
+		# luajitPackages.ldoc # lua documentation tool
 		neovim-nightly      # beta versions of neovim
 		neovim-remote       # remote acces to neovim
-		nodePackages_latest.vscode-html-languageserver-bin # html lsp
+		# nodePackages_latest.vscode-html-languageserver-bin # html lsp
 
 		# sumneko-lua-language-server # FIXME: add custom overlay
 
