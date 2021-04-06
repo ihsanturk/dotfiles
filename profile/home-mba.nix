@@ -18,24 +18,27 @@
 
 	home.packages = with pkgs; [
 
-		awscli2         # manage aws
-		cordless        # minimal discrod client cli
-		coreutils       # extra coreutils
 		ffmpeg          # manipulate/edit video or image
 		graphviz        # visualize graphs
-		groff           # process text and rendering
-		imagemagick     # manipulate/convert images
 		ledger          # manage money and budgets
 		m-cli           # swiss army knife for macos
 		mpv             # play video, image or audio
 		ncdu            # clear out your storage devices
-		pandoc          # convert across text formats
 		poppler_utils   # pdftotext # for ripgrep-all
 		qrencode        # encode data to qr codes
-		spotify-tui     # spotify client
-		svgbob          # convert ascii to closest svg
 		unixtools.watch # better `watch`
 		youtube-dl      # download video from web
+
+		# [rare]
+		# awscli2         # manage aws
+		# cordless        # minimal discrod client cli
+		# coreutils       # extra coreutils
+		# groff           # process text and rendering
+		# imagemagick     # manipulate/convert images
+		# pandoc          # convert across text formats
+		# spotify-tui     # spotify client
+		# svgbob          # convert ascii to closest svg
+
 
 		# # problematic
 		# (let trends = builtins.fetchTarball "https://github.com/ihsanturk/trends/archive/master.tar.gz"; in import trends {})

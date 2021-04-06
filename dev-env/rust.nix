@@ -4,10 +4,11 @@
 
 		# rust-analyzer
 		# sccache # not supported on darwin
-		cargo-generate
+
+		# cargo-generate
 		rustup # includes rls
-		wasm-bindgen-cli
-		wasm-pack
+		# wasm-bindgen-cli
+		# wasm-pack
 
 	];
 
