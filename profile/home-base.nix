@@ -12,47 +12,48 @@ in {
 	programs.home-manager.enable = true;
 	home.packages = with pkgs; [
 		
-		cachix            # fetch cached nix packages.
-		coreutils         # tac.
 		emv               # rename files with your favourite text editor.
 		exa               # `ls` alternative.
-		exiftool          # view exif data of files
 		fd                # `find` alternative written in rust.
 		gawk              # manipulate text. `awk` alternative.
 		gitAndTools.delta # git diff (long compile time).
 		gnupg             # encrypt/decrypt files or data.
 		jq                # query json.
-		lynx              # text-mode web browser
-		mosh              # `ssh` alternative.
-		nnn               # file manager written in c.
 		pinentry          # password taker... i guess?
 		pup               # query html.
 		python38Packages.titlecase # convert regular text to its title form.
 		ranger            # file manager written in python.
 		ripgrep           # `grep` alternative written in rust.
 		sd                # `sed` alternative written in rust.
-		shellcheck        # shell code suggester/linter. helps you write better.
 		stdman            # std libary man pages
-		syncthing         # synchronise files between remote machines
-		tesseract         # convert images to text
 		tldr              # get quick examples about usage of the program.
 		translate-shell   # google translate in cli written in awk.
 		trash-cli         # trash files instead of bare rm.
 		websocat          # websocket client
 
 		# [rare]
+		# cachix          # fetch cached nix packages.
+		# coreutils       # tac.
+		# exiftool        # view exif data of files
 		# git-dit         # decentralized issue tracking for git.
 		# httrack         # download whole websites
 		# image_optim     # darwin is not supported
 		# lynx            # browser runs in cli, supports gopher://
+		# lynx            # text-mode web browser
 		# mitmproxy       # sniff requests
+		# mosh            # `ssh` alternative.
 		# nixfmt          # format nix expressions.
+		# nnn             # file manager written in c.
+		# shellcheck      # shell code suggester/linter. helps you write better.
+		# syncthing       # synchronise files between remote machines
 		# tectonic        # [don't know]
 		# termeter        # TODO: add this
+		# tesseract       # convert images to text
 
 	];
 	home.sessionVariables = {
 
+		LANG = "en_GB.UTF-8";
 		DIR_CODE = "$HOME/Sync/code";
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		EDITOR = "nvim";
