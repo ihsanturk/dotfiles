@@ -14,6 +14,8 @@ local map = vim.api.nvim_set_keymap
 require 'plugins'
 util = require('custom.util')
 
+vim.cmd('lang en_GB.UTF-8')
+
 vim.wo.colorcolumn    = vim.wo.colorcolumn .. '+' .. 1 -- of textwidth
 vim.wo.number         = true
 vim.wo.relativenumber = true
