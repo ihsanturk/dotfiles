@@ -7,7 +7,7 @@
 	inputs.darwin.url = "github:ihsanturk/nix-darwin";
 	inputs.home-manager.url = "github:nix-community/home-manager";
 	inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-	inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+	inputs.nixpkgs.url = "/Users/ihsan/code/github.com/nixos/nixpkgs";
 	inputs.solar.url = "github:ihsanturk/solar";
 
 
