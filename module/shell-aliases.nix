@@ -13,13 +13,20 @@ config: {
 	gitopen = "open $(git remote get-url --push origin)";
 	# gitopen = "xdg-open $(git remote get-url --push origin)"; # for linux;
 
-	# exa
-	l = "exa";
-	ls = "exa";
-	sl = "exa";
-	ll = "exa -l";
-	lsd = "exa -D";
-	ls-l = "exa -l";
+	# # exa
+	# l = "exa";
+	# ls = "exa";
+	# sl = "exa";
+	# ll = "exa -l";
+	# lsd = "exa -D";
+	# ls-l = "exa -l";
+
+	# ls (-G only works for macOS)
+	l = "ls -G";
+	ls = "ls -G";
+	sl = "ls -G";
+	ll = "ls -Gl";
+	ls-l = "ls -Gl";
 
 	# vim
 	":q" = "exit";
