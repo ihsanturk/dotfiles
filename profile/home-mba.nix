@@ -18,6 +18,7 @@
 
 	home.packages = with pkgs; [
 
+		coreutils       # extra coreutils
 		ffmpeg          # manipulate/edit video or image
 		graphviz        # visualize graphs
 		ledger          # manage money and budgets
@@ -32,7 +33,6 @@
 		# [rare]
 		# awscli2         # manage aws
 		# cordless        # minimal discrod client cli
-		# coreutils       # extra coreutils
 		# groff           # process text and rendering
 		# imagemagick     # manipulate/convert images
 		# pandoc          # convert across text formats
