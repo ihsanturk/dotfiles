@@ -13,6 +13,7 @@ in {
 	home.packages = with pkgs; [
 		
 		emv               # rename files with your favourite text editor.
+		vscodium          # code editor.
 		# exa             # `ls` alt. (FUCK you exa, such a bloat) (sucks)
 		fd                # `find` alternative written in rust.
 		gawk              # manipulate text. `awk` alternative.
