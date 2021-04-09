@@ -22,11 +22,11 @@ config: {
 	# ls-l = "exa -l";
 
 	# ls (-G only works for macOS)
-	l = "ls -G";
-	ls = "ls -G";
-	sl = "ls -G";
-	ll = "ls -Gl";
-	ls-l = "ls -Gl";
+	l = "ls --color=auto";
+	ls = "ls --color=auto";
+	sl = "ls --color=auto";
+	ll = "ls --color=auto -l";
+	ls-l = "ls --color=auto -l";
 
 	# vim
 	":q" = "exit";
