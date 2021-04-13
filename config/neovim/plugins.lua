@@ -37,6 +37,7 @@ return require('packer').startup(function()
 	use 'darfink/vim-plist'               -- plist mode
 	use 'farmergreg/vim-lastplace'        -- continue from where you left off
 	use 'jbmorgado/vim-pine-script'       -- tradingview pinescript mode
+	use 'keith/swift.vim'                 -- swift mode
 	use 'mkitt/tabline.vim'               -- more readable tab titles
 	use 'rust-lang/rust.vim'              -- rust mode
 	use 'tweekmonster/startuptime.vim'    -- measure startup time
