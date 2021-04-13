@@ -28,21 +28,27 @@ return require('packer').startup(function()
 	use {'oberblastmeister/neuron.nvim', config = require('config.neuron-nvim')} ]]
 
 	use 'PeterRincker/vim-searchlight'    -- make active search different color
+	use 'TovarishFin/vim-solidity'        -- solidity mode
 	use 'airblade/vim-gitgutter'          -- display git diff in signcolumn
 	use 'alvan/vim-closetag'              -- auto close html tags
-	use 'TovarishFin/vim-solidity'        -- solidity mode
 	use 'ap/vim-css-color'                -- colorize css hex/rgb colors
 	use 'b3nj5m1n/kommentary'             -- comment text objects
 	use 'chrisbra/Colorizer'              -- colorize ansi escapes in buffer
 	use 'darfink/vim-plist'               -- plist mode
 	use 'farmergreg/vim-lastplace'        -- continue from where you left off
 	use 'jbmorgado/vim-pine-script'       -- tradingview pinescript mode
-	use 'lifepillar/vim-solarized8'       -- solarized8 color scheme
 	use 'mkitt/tabline.vim'               -- more readable tab titles
 	use 'rust-lang/rust.vim'              -- rust mode
 	use 'tweekmonster/startuptime.vim'    -- measure startup time
 	use 'vito-c/jq.vim'                   -- jq mode
 	use 'wellle/targets.vim'              -- better text objects
+
+	-- use 'lifepillar/vim-solarized8'    -- solarized8 color scheme
+
+	use {
+		'chriskempson/base16-vim',     -- favorite color scheme
+		config=require('config.base16')
+	}
 
 	--[[ use {
 		'nvim-treesitter/nvim-treesitter', -- better syntax highlighter
@@ -78,10 +84,10 @@ return require('packer').startup(function()
 		config=require('config.completion')
 	} ]]
 
-	use {
+	--[[ use {
 		'rafikdraoui/gruvbox-custom',     -- favorite color scheme
 		config=require('config.gruvbox')
-	}
+	} ]]
 
 	use {
 		'reedes/vim-wheel',                -- pivot scroll

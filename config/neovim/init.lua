@@ -60,7 +60,7 @@ vim.cmd('autocmd CompleteDone * pclose')
 -- appearance
 -- local lualine = require('lualine')
 local light_hour, light_min = 07,30 -- hh:mm       -- light and dark themes for
-local dark_hour, dark_min   = 17,00 -- hh:mm       -- day and night
+local dark_hour, dark_min   = 16,30 -- hh:mm       -- day and night
 local now = os.date('%H') * 3600 + os.date('%M') * 60
 local lower = light_hour * 3600 + light_min * 60
 local upper = dark_hour * 3600 + dark_min * 60
@@ -69,13 +69,11 @@ if  now >= lower and now <=upper then
 else
 	vim.o.bg = 'dark'
 end
-vim.cmd [[ color solarized8_high ]]
--- lualine.theme = 'solarized_light'
+vim.cmd [[ color base16-harmonic-light ]]
 if vim.env.COLORTERM == 'truecolor' then
 	vim.o.termguicolors = true
 	if vim.o.bg == 'dark' then
-		vim.cmd [[ color gruvbox-custom ]]
-		-- lualine.theme = 'gruvbox'
+		vim.cmd [[ color base16-gruvbox-dark-medium ]]
 	end
 else
 	vim.o.termguicolors = false
