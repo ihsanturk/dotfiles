@@ -1,4 +1,5 @@
 learn() { cd $DIR_LEARN/$1; }
+ls-() { ls --color=auto -$1; }
 
 zk() {
 	cd ~/zk && case $1 in
@@ -7,6 +8,3 @@ zk() {
 	esac
 }
 
-ls-() {
-	ls -$1
-}
