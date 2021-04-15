@@ -1,5 +1,11 @@
 learn() { cd $DIR_LEARN/$1; }
-ls-() { ls --color=auto -$1; }
+ls-() {
+	if [ -n "$1" ]; then
+		ls --color=auto -$1;
+	else
+		ls --color=auto;
+	fi
+}
 
 zk() {
 	cd ~/zk && case $1 in
