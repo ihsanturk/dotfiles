@@ -25,6 +25,7 @@
 		m-cli           # swiss army knife for macos
 		mpv             # play video, image or audio
 		ncdu            # clear out your storage devices
+		pinentry_mac    # pinentry for macos (gpg encrpytion stuff)
 		poppler_utils   # pdftotext # for ripgrep-all
 		qrencode        # encode data to qr codes
 		unixtools.watch # better `watch`
