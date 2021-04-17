@@ -12,9 +12,9 @@ in {
 	programs.home-manager.enable = true;
 	home.packages = with pkgs; [
 		
-		emv               # rename files with your favourite text editor.
-		vscodium          # code editor.
 		# exa             # `ls` alt. (FUCK you exa, such a bloat) (sucks)
+		emv               # rename files with your favourite text editor.
+		entr              # some kind of watcher and runner
 		fd                # `find` alternative written in rust.
 		gawk              # manipulate text. `awk` alternative.
 		gitAndTools.delta # git diff (long compile time).
@@ -30,6 +30,7 @@ in {
 		tldr              # get quick examples about usage of the program.
 		translate-shell   # google translate in cli written in awk.
 		trash-cli         # trash files instead of bare rm.
+		vscodium          # code editor.
 		websocat          # websocket client
 
 		# [rare]
