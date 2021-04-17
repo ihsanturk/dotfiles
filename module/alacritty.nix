@@ -43,7 +43,7 @@ in {
 					family = "FiraCode Nerd Font";
 					style = "Italic";
 				};
-				size = 13.65;
+				size = 13; # not float aware :/
 				use_thin_strokes = true;
 			};
 
@@ -193,55 +193,6 @@ in {
 				{ key = "Key9"; mods = "Alt|Shift"; chars = "\\x1B("; }
 				{ key = "Key0"; mods = "Alt"; chars = "\\x1B0"; }
 				{ key = "Key0"; mods = "Alt|Shift"; chars = "\\x1B)"; }
-
-				# { key = "PageUp"; action = "ScrollPageUp"; }
-				# { key = "PageUp"; mode = "Alt"; chars = "\\x1B[5~"; }
-				# { key = "PageUp"; mods = "Shift"; chars = "\\x1B[5~"; }
-				# { key = "PageDown"; action = "ScrollPageDown"; }
-				# { key = "PageDown"; mode = "Alt"; chars = "\\x1B[6~"; }
-				# { key = "PageDown"; mods = "Shift"; chars = "\\x1B[6~"; }
-				# { key = "Home"; action = "ScrollToTop"; }
-				# { key = "Home"; mode = "Alt"; chars = "\\x1BOH"; }
-				# { key = "Home"; mods = "Shift"; chars = "\\x1B[H"; }
-				# { key = "End"; action = "ScrollToBottom"; }
-				# { key = "End"; mode = "Alt"; chars = "\\x1BOF"; }
-				# { key = "End"; mods = "Shift"; chars = "\\x1B[F"; }
-				# { key = "Tab"; mods = "Alt"; chars = "\\x1B\t"; }
-				# { key = "Tab"; mods = "Alt|Shift"; chars = "\\x1B\\x1B[Z"; }
-				# { key = "Back"; chars = "\\x7F"; }
-				# { key = "Back"; mods = "Alt"; chars = "\\x1B\\x7F"; }
-				# { key = "Back"; mods = "Alt|Shift"; chars = "\\x1B\\x08"; }
-				# { key = "Space"; mods = "Control"; chars = "\\x00"; }
-				# { key = "Space"; mods = "Alt"; chars = "\\x20"; }
-				# { key = "Left"; mods = "Alt"; chars = "\\x1Bb"; }
-				# { key = "Left"; mods = "Alt|Shift"; chars = "\\x1B\\x1B[D"; }
-				# { key = "Right"; mods = "Alt"; chars = "\\x1Bf"; }
-				# { key = "Right"; mods = "Alt|Shift"; chars = "\\x1B\\x1B[C"; }
-				# { key = "Down"; mods = "Alt"; chars = "\\x1B\\x1B[B"; }
-				# { key = "Down"; mods = "Alt|Shift"; chars = "\\x1B\\x1B[B"; }
-				# { key = "Up"; mods = "Alt"; chars = "\\x1B\\x1B[A"; }
-				# { key = "Up"; mods = "Alt|Shift"; chars = "\\x1B\\x1B[A"; }
-				# { key = "Minus"; mods = "Alt"; chars = "\\x1B-"; }
-				# { key = "Minus"; mods = "Alt|Shift"; chars = "\\x1B_"; }
-				# { key = "Equals"; mods = "Alt"; chars = "\\x1B="; }
-				# { key = "Equals"; mods = "Alt|Shift"; chars = "\\x1B+"; }
-				# { key = "LBracket"; mods = "Alt"; chars = "\\x1B["; }
-				# { key = "LBracket"; mods = "Alt|Shift"; chars = "\\x1B{"; }
-				# { key = "RBracket"; mods = "Alt"; chars = "\\x1B]"; }
-				# { key = "RBracket"; mods = "Alt|Shift"; chars = "\\x1B}"; }
-				# { key = "Backslash"; mods = "Alt"; chars = "\\x1B\\"; }
-				# { key = "Backslash"; mods = "Alt|Shift"; chars = "\\x1B|"; }
-				# { key = "Semicolon"; mods = "Alt"; chars = "\\x1B;"; }
-				# { key = "Semicolon"; mods = "Alt|Shift"; chars = "\\x1B:"; }
-				# { key = "Apostrophe"; mods = "Alt"; chars = "\\x1B'"; }
-				# { key = "Apostrophe"; mods = "Alt|Shift"; chars = "\\x1B\""; }
-				# { key = "Comma"; mods = "Alt"; chars = "\\x1B;"; }
-				# { key = "Comma"; mods = "Alt|Shift"; chars = "\\x1B<"; }
-				# { key = "Slash"; mods = "Alt"; chars = "\\x1B/"; }
-				# { key = "Slash"; mods = "Alt|Shift"; chars = "\\x1B?"; }
-				# { key = "Grave"; mods = "Alt"; chars = "\\x1B`"; }
-				# { key = "Grave"; mods = "Alt|Shift"; chars = "\\x1B~"; }
-			];
 
 		};
 	};
