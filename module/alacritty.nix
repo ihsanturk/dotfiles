@@ -10,7 +10,7 @@ in {
 
 				dimensions = {
 					columns = 84; # 169;
-					lines = 34; # 47;
+					lines   = 34; # 47;
 				};
 
 				padding = {
@@ -19,7 +19,7 @@ in {
 				};
 
 				dynamic_padding = false;
-				decorations = "Buttonless";
+				decorations     = "Buttonless";
 
 			};
 
@@ -33,17 +33,17 @@ in {
 			font = {
 				normal = {
 					family = "FiraCode Nerd Font";
-					style = "Regular";
+					style  = "Regular";
 				};
 				bold = {
 					family = "FiraCode Nerd Font";
-					style = "Bold";
+					style  = "Bold";
 				};
 				italic = {
 					family = "FiraCode Nerd Font";
-					style = "Italic";
+					style  = "Italic";
 				};
-				size = 13; # not float aware :/
+				size             = 13; # not float aware :/
 				use_thin_strokes = true;
 			};
 
@@ -56,25 +56,25 @@ in {
 				};
 
 				normal = {
-					black	 = "0x282828";
-					red		 = "0xCC241D";
-					green	 = "0x98971A";
-					yellow	= "0xD79921";
-					blue		= "0x458588";
+					black   = "0x282828";
+					red     = "0xCC241D";
+					green   = "0x98971A";
+					yellow  = "0xD79921";
+					blue    = "0x458588";
 					magenta = "0xB16286";
-					cyan		= "0x689D6A";
-					white	 = "0xA89984";
+					cyan    = "0x689D6A";
+					white   = "0xA89984";
 				};
 
 				bright = {
-					black	 = "0x928374";
-					red		 = "0xFB4934";
-					green	 = "0xB8BB26";
-					yellow	= "0xFABD2F";
-					blue		= "0x83A598";
+					black   = "0x928374";
+					red     = "0xFB4934";
+					green   = "0xB8BB26";
+					yellow  = "0xFABD2F";
+					blue    = "0x83A598";
 					magenta = "0xD3869B";
-					cyan		= "0x8EC07C";
-					white	 = "0xEBDBB2";
+					cyan    = "0x8EC07C";
+					white   = "0xEBDBB2";
 				};
 			};
 
@@ -194,6 +194,7 @@ in {
 				{ key = "Key0"; mods = "Alt"; chars = "\\x1B0"; }
 				{ key = "Key0"; mods = "Alt|Shift"; chars = "\\x1B)"; }
 
+			];
 		};
 	};
 
