@@ -27,7 +27,7 @@ vim.g.loaded_perl_provider   = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_ruby_provider   = 0
 
-vim.bo.textwidth    = 79
+vim.bo.textwidth    = 80
 vim.o.autoindent    = true
 vim.o.expandtab     = false
 vim.o.hlsearch      = true
@@ -40,14 +40,14 @@ vim.o.sidescrolloff = 0
 vim.o.smartcase     = true
 vim.o.syntax        = 'on'
 vim.o.tabstop       = 3
-vim.o.textwidth     = 79
+vim.o.textwidth     = 80
 vim.o.updatetime    = 100
 
 vim.o.formatoptions = 'tcqjrn'
 vim.o.listchars = 'tab:┊ ,trail:•,nbsp:+'
 vim.o.virtualedit = vim.o.virtualedit .. 'block' -- beyond end of the line
 
-vim.cmd('au FileType nix,python,vim,rust set ts=3 sts=3 sw=3 tw=79 noet')
+vim.cmd('au FileType nix,python,vim,rust set ts=3 sts=3 sw=3 tw=80 noet')
 
 if vim.fn.has('inccommand') then
 	vim.o.inccommand = 'nosplit'
