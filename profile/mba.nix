@@ -94,14 +94,15 @@ in {
 			${modkey} - l: ${prefix} window --toggle float; ${prefix} window --grid 1:2:1:2:1:1;
 			${modkey} - h: ${prefix} window --toggle float; ${prefix} window --grid 1:2:0:1:1:1;
 
+			${modkey} - x: app-launcher;
 			${modkey} - return: open -a Alacritty;
 			${modkey} - w: open -a Safari;
-			${modkey} - s: spt playback --toggle;
 			${modkey} - a: open -a Authy\ Desktop;
 			${modkey} - m: open -a Mail;
 			${modkey} - t: open -a Telegram;
 			${modkey} - g: open -a Calendar;
 			${modkey} - b: open -a Bitwarden;
+
 		'';
 	};
 
