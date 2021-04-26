@@ -65,9 +65,9 @@ in {
 			# ];
 		};
 		# extraConfig = "yabai -m rule --add app='${item}' manage=off\n";
-		extraConfig = ''
-			yabai -m config window_shadow off
-		'';
+		# extraConfig = ''
+		# 	yabai -m config window_shadow off
+		# '';
 	};
 
 	services.skhd = {
