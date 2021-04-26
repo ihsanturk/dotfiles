@@ -94,7 +94,7 @@ in {
 			${modkey} - l: ${prefix} window --toggle float; ${prefix} window --grid 1:2:1:2:1:1;
 			${modkey} - h: ${prefix} window --toggle float; ${prefix} window --grid 1:2:0:1:1:1;
 
-			${modkey} - x: app-launcher;
+			${modkey} - x: ~/bin/app-launcher;
 			${modkey} - return: open -a Alacritty;
 			${modkey} - w: open -a Safari;
 			${modkey} - a: open -a Authy\ Desktop;
