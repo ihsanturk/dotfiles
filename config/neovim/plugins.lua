@@ -28,7 +28,7 @@ return require('packer').startup(function()
 	use {'oberblastmeister/neuron.nvim', config = require('config.neuron-nvim')} ]]
 
 	use 'PeterRincker/vim-searchlight'    -- make active search different color
-	use 'TovarishFin/vim-solidity'        -- solidity mode
+	use 'sheerun/vim-polyglot'            -- syntax highlighting for languages
 	use 'airblade/vim-gitgutter'          -- display git diff in signcolumn
 	use 'alvan/vim-closetag'              -- auto close html tags
 	use 'ap/vim-css-color'                -- colorize css hex/rgb colors
