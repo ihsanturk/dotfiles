@@ -29,6 +29,7 @@ in {
 			"bitwarden"             # password manager
 			"dynamic-dark-mode"     # change dark/light based on brightness level
 			"imageoptim"            # image optimizer
+			"inkscape"              # vector graphics editor
 			"karabiner-elements"    # key binder / remap tool
 			"protonvpn"             # vpn
 			"qlstephen"             # show unknown formats as text in quick look
