@@ -11,8 +11,9 @@ return require('packer').startup(function()
 	use 'ihsanturk/vim-grave-navigation' -- navigate windows and tabs using "`"
 	use 'ihsanturk/vim-ihsensible'       -- sane defaults
 
-	use 'tpope/vim-rsi'                  -- readline shortcuts in insert modes
 	-- use 'tpope/vim-sensible'             -- sane defaults
+	use 'tpope/vim-rsi'                  -- readline shortcuts in insert modes
+	use 'tpope/vim-speeddating'          -- {inc,dec}rement dates with <c-{a,x}>
 	use 'tpope/vim-surround'             -- add chars around text objects
 	use {'tpope/vim-fugitive', config = require('config.vim-fugitive')}
 
@@ -28,7 +29,6 @@ return require('packer').startup(function()
 	use {'oberblastmeister/neuron.nvim', config = require('config.neuron-nvim')} ]]
 
 	use 'PeterRincker/vim-searchlight'    -- make active search different color
-	use 'sheerun/vim-polyglot'            -- syntax highlighting for languages
 	use 'airblade/vim-gitgutter'          -- display git diff in signcolumn
 	use 'alvan/vim-closetag'              -- auto close html tags
 	use 'ap/vim-css-color'                -- colorize css hex/rgb colors
@@ -40,6 +40,7 @@ return require('packer').startup(function()
 	use 'keith/swift.vim'                 -- swift mode
 	use 'mkitt/tabline.vim'               -- more readable tab titles
 	use 'rust-lang/rust.vim'              -- rust mode
+	use 'sheerun/vim-polyglot'            -- syntax highlighting for languages
 	use 'tweekmonster/startuptime.vim'    -- measure startup time
 	use 'vito-c/jq.vim'                   -- jq mode
 	use 'wellle/targets.vim'              -- better text objects
