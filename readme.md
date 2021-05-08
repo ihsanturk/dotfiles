@@ -41,3 +41,24 @@ do these instead
 darwin-rebuild switch --flake ~/dot
 ```
 3. repeat
+
+---
+
+## show stranger file formats as text in macos quick look
+(QLStephen)
+find the type of the file format with
+```
+mdls -name kMDItemContentType <filepath>
+```
+
+add the output above and these to `LSItemContentTypes` array in
+`~/Library/QuickLook/QLStephen.qlgenerator/Contents/Info.plist`
+```
+<string>public.unix-executable</string>
+<string>dyn.ah62d4rv4ge8064p2</string>
+```
+and run
+```
+xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
+qlmanage -r && qlmanage -r cache && pkill Finder && open /tmp
+```

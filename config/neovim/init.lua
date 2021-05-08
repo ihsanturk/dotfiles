@@ -78,7 +78,7 @@ function! ChangeColorscheme()
 		color base16-gruvbox-dark-medium
 	else
 		se bg=dark
-		color base16-harmonic-light
+		color base16-classic-light
 	end
 endf
 autocmd Signal SIGUSR1 call ChangeColorscheme()
