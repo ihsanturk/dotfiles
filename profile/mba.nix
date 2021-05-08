@@ -10,6 +10,59 @@ in {
 	# - Added `homebrew` module, to manage formulas installed by Homebrew via
 	#   `brew bundle`.
 
+	homebrew = {
+		enable = true;
+		cleanup = "zap";
+		autoUpdate = true;
+		brews = [
+
+			"clisp"       # lisp interpreter
+			"ripgrep-all" # ripgrep for pdf and other file formats
+			"tcc"         # tiny c compiler
+			"vlang"       # v compiler
+
+		];
+		casks = [
+
+			"alacritty"             # suckless minimal terminal
+			"authy"                 # replacement for google authenticator
+			"bitwarden"             # password manager
+			"dynamic-dark-mode"     # change dark/light based on brightness level
+			"imageoptim"            # image optimizer
+			"karabiner-elements"    # key binder / remap tool
+			"protonvpn"             # vpn
+			"qlstephen"             # show unknown formats as text in quick look
+			"refined-github-safari" # "better" github safari extension
+			"slack"                 # communication/chat app
+			"spotify"               # music streaming
+			"zoom"                  # conversations / video calls
+
+			# "android-file-transfer"
+			# "blender"
+			# "grap"
+			# "mysql"
+			# "quickjs"
+			# "recordit" # "gifcapture"
+			# "rustup-init"
+			# "spitfire-audio"
+			# "tuxera"
+			# "ubersicht"
+
+		];
+
+		# masApps = {
+		# 	Telegram =
+		# 	Keynote =
+		# 	GarageBand =
+		# 	iMovie =
+		# 	Xcode =
+		# 	Numbers =
+		# 	Pages =
+		# 	Vimari (Safari Extension) =
+		# };
+
+	};
+
 	programs.zsh.enable = true;
 	programs.zsh.enableSyntaxHighlighting = true;
 	programs.zsh.promptInit = ""; # using starship.
