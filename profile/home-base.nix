@@ -18,6 +18,7 @@ in {
 		fd                # `find` alternative written in rust.
 		gawk              # manipulate text. `awk` alternative.
 		gitAndTools.delta # git diff (long compile time).
+		gitui             # git terminal ui
 		gnupg             # encrypt/decrypt files or data.
 		jq                # query json.
 		pinentry          # password taker... i guess?
