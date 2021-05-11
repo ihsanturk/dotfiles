@@ -11,7 +11,7 @@
 		          + builtins.readFile ./zshinit.sh;
 	};
 
-	programs.neovim.extraConfig = "set shell=zsh";
+	# programs.neovim.extraConfig = "set shell=zsh";
 
 	# home.packages = with pkgs; [
 	# 	zsh-history-substring-search
