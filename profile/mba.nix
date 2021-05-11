@@ -74,6 +74,10 @@ in {
 	environment.etc."inputrc" = {
 		text = pkgs.lib.mkDefault(pkgs.lib.mkAfter ''
 			set completion-ignore-case on
+			set completion-prefix-display-length 2
+			set show-all-if-ambiguous on         # completion: show on first tab
+			set show-all-if-unmodified on        # completion: show on first tab
+			set completion-map-case on           # completion: hypens = underscores
 		'');
 	};
 
