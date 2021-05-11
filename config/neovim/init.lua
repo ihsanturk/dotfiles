@@ -59,18 +59,27 @@ vim.o.completeopt = 'menuone,noselect,preview'
 vim.cmd('autocmd CompleteDone * pclose')
 
 -- appearance
-local light_hour, light_min = 07,30 -- hh:mm       -- light and dark themes for
-local dark_hour, dark_min   = 17,00 -- hh:mm       -- day and night
-local now = os.date('%H') * 3600 + os.date('%M') * 60
-local lower = light_hour * 3600 + light_min * 60
-local upper = dark_hour * 3600 + dark_min * 60
-if  now >= lower and now <=upper then
+
+-- -- based on time
+-- local light_hour, light_min = 07,30 -- hh:mm       -- light and dark themes for
+-- local dark_hour, dark_min   = 17,00 -- hh:mm       -- day and night
+-- local now = os.date('%H') * 3600 + os.date('%M') * 60
+-- local lower = light_hour * 3600 + light_min * 60
+-- local upper = dark_hour * 3600 + dark_min * 60
+-- local isdark = not (now >= lower and now <=upper)
+
+-- based on macos preferneces
+response = vim.fn.system("defaults read -g AppleInterfaceStyle | tr -d '\n'")
+isdark = (response == "Dark") and true or false
+
+if isdark then
+	vim.cmd 'color base16-gruvbox-dark-medium'
+	vim.o.bg = 'dark'
+else
 	vim.cmd 'color base16-classic-light'
 	vim.o.bg = 'dark' -- light actually
-else
-	vim.o.bg = 'dark'
-	vim.cmd 'color base16-gruvbox-dark-medium'
 end
+
 vim.cmd [[
 function! ChangeColorscheme()
 	if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
