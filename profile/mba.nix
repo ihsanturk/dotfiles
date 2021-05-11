@@ -73,6 +73,8 @@ in {
 
 	environment.etc."inputrc" = {
 		text = pkgs.lib.mkDefault(pkgs.lib.mkAfter ''
+			set visible-stats On
+			set colored-stats On
 			set completion-ignore-case on
 			set completion-prefix-display-length 2
 			set show-all-if-ambiguous on

@@ -22,12 +22,11 @@
 	# lsd  = "exa -D";
 	# sl   = "exa";
 
-	# ls (-G only works for macOS)
-	l    = "ls --color=auto";
-	ll   = "ls --color=auto -l";
-	ls   = "ls --color=auto";
-	ls-l = "ls --color=auto -l";
-	sl   = "ls --color=auto";
+	l    = "ls -G";
+	ll   = "ls -Gl";
+	ls   = "ls -G";
+	ls-l = "ls -Gl";
+	sl   = "ls -G";
 
 	# cd
 	".."   = "cd ..";
