@@ -7,12 +7,9 @@
 	gc      = "git commit -v";
 	gcl     = "git clone";
 	gd      = "git diff";
-	gitopen = "open $(git remote get-url --push origin)";
 	gl      = "git log";
 	gp      = "git push -u";
 	gs      = "git status -s";
-
-	# gitopen = "xdg-open $(git remote get-url --push origin)"; # for linux;
 
 	# # exa
 	# l    = "exa";
