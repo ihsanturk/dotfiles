@@ -86,5 +86,8 @@ in {
 	programs.zsh.shellAliases = {
 		ta = "tmux new-session -ADs main";
 	};
+	programs.bash.shellAliases = {
+		ta = "tmux new-session -ADs main";
+	};
 
 }

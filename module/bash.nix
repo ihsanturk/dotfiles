@@ -1,16 +1,11 @@
 { config, lib, pkgs, ... }:
-let
-
-	shellAliases = import ./shell-aliases.nix config;
-
-in {
+{
 
 	programs.bash = {
-		enable = false;
-		inherit shellAliases;
+		enable = true;
 		initExtra = builtins.readFile ./function.sh;
 	};
 
-	programs.neovim.extraConfig = "set shell=bash";
+	# programs.neovim.extraConfig = "set shell=bash";
 
 }

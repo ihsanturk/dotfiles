@@ -6,4 +6,8 @@
 		initExtra = ''eval "$(h --setup $DIR_CODE)"'';
 	};
 
+	programs.bash = {
+		initExtra = ''eval "$(h --setup $DIR_CODE)"'';
+	};
+
 }

@@ -56,12 +56,12 @@ in {
 	];
 	home.sessionVariables = {
 
-		LANG = "en_GB.UTF-8";
-		DIR_CODE = "$HOME/Sync/code";
+		DIR_CODE  = "$HOME/Sync/code";
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
-		EDITOR = "nvim";
-		GPG_TTY = "$(tty)";
-		PATH = (builtins.concatStringsSep ":" impurePaths) + ":$PATH";
+		EDITOR    = "nvim";
+		GPG_TTY   = "$(tty)";
+		LANG      = "en_GB.UTF-8";
+		PATH      = (builtins.concatStringsSep ":" impurePaths) + ":$PATH";
 
 	};
 	imports = [
@@ -75,13 +75,10 @@ in {
 		../module/starship.nix
 		../module/tmux.nix
 		../module/zsh.nix
+		../module/bash.nix
 
 		../dev-env/nix.nix
 
 	];
-
-	# impurely installed
-	# quickjs  # location: /usr/local/bin/qjs
-	# tinycc   # location /usr/local/bin/tcc
 
 }

@@ -68,8 +68,19 @@ in {
 	programs.zsh.enableSyntaxHighlighting = true;
 	programs.zsh.promptInit = ""; # using starship.
 
-	environment.shells = [ pkgs.bash pkgs.zsh ];
-	environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
+	programs.bash.enable = true;
+	programs.bash.enableCompletion = true;
+
+	environment.etc."inputrc" = {
+		text = pkgs.lib.mkDefault(pkgs.lib.mkAfter ''
+			set completion-ignore-case on
+		'');
+	};
+
+	environment.loginShell = "bash";
+	environment.shellAliases = import ../module/shell-aliases.nix;
+	# environment.shells = [ pkgs.zsh pkgs.bash ];
+	environment.variables.SHELL = "bash";
 
 	users.nix.configureBuildUsers = true;
 
