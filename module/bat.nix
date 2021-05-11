@@ -15,6 +15,7 @@ in {
 	
 	programs.fish.shellAliases = if_ fishEnabledThen { cat = "bat"; };
 	programs.zsh.shellAliases =  if_ zshEnabledThen { cat = "bat"; };
+	programs.bash.shellAliases =  if_ zshEnabledThen { cat = "bat"; };
 	home.sessionVariables = {
 		MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat --paging=always -l man -p'";
 		MANROFFOPT = "-c";
