@@ -12,7 +12,6 @@ in {
 	programs.home-manager.enable = true;
 	home.packages = with pkgs; [
 		
-		# exa             # `ls` alt. (FUCK you exa, such a bloat) (sucks)
 		emv               # rename files with your favourite text editor.
 		entr              # some kind of watcher and runner
 		fd                # `find` alternative written in rust.
@@ -34,25 +33,6 @@ in {
 		vscodium          # code editor.
 		websocat          # websocket client
 
-		# [rare]
-		# cachix          # fetch cached nix packages.
-		# coreutils       # tac.
-		# exiftool        # view exif data of files
-		# git-dit         # decentralized issue tracking for git.
-		# httrack         # download whole websites
-		# image_optim     # darwin is not supported
-		# lynx            # browser runs in cli, supports gopher://
-		# lynx            # text-mode web browser
-		# mitmproxy       # sniff requests
-		# mosh            # `ssh` alternative.
-		# nixfmt          # format nix expressions.
-		# nnn             # file manager written in c.
-		# shellcheck      # shell code suggester/linter. helps you write better.
-		# syncthing       # synchronise files between remote machines
-		# tectonic        # [don't know]
-		# termeter        # TODO: add this
-		# tesseract       # convert images to text
-
 	];
 	home.sessionVariables = {
 
@@ -66,6 +46,8 @@ in {
 	};
 	imports = [
 
+		../module/autojump.nix
+		../module/bash.nix
 		../module/bat.nix
 		../module/fzf.nix
 		../module/git.nix
@@ -75,7 +57,6 @@ in {
 		../module/starship.nix
 		../module/tmux.nix
 		../module/zsh.nix
-		../module/bash.nix
 
 		../dev-env/nix.nix
 
