@@ -1,14 +1,11 @@
 { config, lib, pkgs, ... }:
-let
-	# credential = import ../credential.nix;
-in rec {
+{
 
 	# environment.systemPackages = with pkgs; [ neovim ];
 
-	# See this: (add homebrew packages through nix)
-	# 2021-01-16
-	# - Added `homebrew` module, to manage formulas installed by Homebrew via
-	#   `brew bundle`.
+	# sysctl -n hw.ncpu
+	nix.buildCores = 4;
+	nix.maxJobs = 4;
 
 	homebrew = {
 		enable = true;
@@ -55,7 +52,6 @@ in rec {
 	programs.zsh.enableSyntaxHighlighting = true;
 	programs.zsh.enableCompletion = false; # fuck you slow startup
 	programs.zsh.promptInit = ""; # using starship.
-
 	programs.bash.enable = true;
 	programs.bash.enableCompletion = true;
 
@@ -94,14 +90,6 @@ in rec {
 
 	# services
 
-	# services.spotifyd = {
-	# 	enable = true;
-	# 	settings = {
-	# 		username = credential.spotify.username;
-	# 		password = credential.spotify.password;
-	# 	};
-	# };
-
 	services.yabai = {
 		enable = true;
 		package = pkgs.yabai;
@@ -113,20 +101,7 @@ in rec {
 			right_padding  = 40;
 			window_gap     = 24;
 			mouse_action1  = "move";
-			# layout = "bsp";
-			# disableForApps = [ # NOTE: Not implemented
-			# 	"Logic Pro"
-			# 	"ProtonVPN"
-			# 	"Spotify"
-			# 	"System Preferences"
-			# 	"Telegram"
-			# 	"Messages"
-			# ];
 		};
-		# extraConfig = "yabai -m rule --add app='${item}' manage=off\n";
-		# extraConfig = ''
-		# 	yabai -m config window_shadow off
-		# '';
 	};
 
 	services.skhd = {

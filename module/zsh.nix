@@ -8,10 +8,9 @@ in {
 		defaultKeymap = "emacs";
 		enableCompletion = false;     # added in ./zshinit.sh manually
 		enableAutosuggestions = true; # shadow completion
-		initExtra = builtins.readFile ./instant-zsh.zsh
-		          + builtins.readFile ./function.sh
-		          + builtins.readFile ./zshinit.sh
+		initExtra = builtins.readFile ./zshinit.sh
 		          + builtins.readFile ./sh-init.sh;
+		# initExtra = builtins.readFile ./instant-zsh.zsh
 	};
 
 	# programs.neovim.extraConfig = "set shell=zsh";
@@ -21,3 +20,4 @@ in {
 	# ];
 
 }
+
