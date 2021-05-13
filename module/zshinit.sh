@@ -17,7 +17,7 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 
 unsetopt EXTENDED_HISTORY
 HISTFILE=~/.bash_history
-autoload -Uz compinit && compinit
+# autoload -Uz compinit && compinit
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 typeset -U fpath
 

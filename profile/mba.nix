@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
 	# credential = import ../credential.nix;
-in {
+in rec {
 
 	# environment.systemPackages = with pkgs; [ neovim ];
 
@@ -65,6 +65,7 @@ in {
 
 	programs.zsh.enable = true;
 	programs.zsh.enableSyntaxHighlighting = true;
+	programs.zsh.enableCompletion = false; # fuck you slow startup
 	programs.zsh.promptInit = ""; # using starship.
 
 	programs.bash.enable = true;
@@ -82,10 +83,10 @@ in {
 		'');
 	};
 
-	environment.loginShell = "bash";
+	environment.loginShell = "zsh";
 	environment.shellAliases = import ../module/shell-aliases.nix;
-	# environment.shells = [ pkgs.zsh pkgs.bash ];
-	environment.variables.SHELL = "bash";
+	environment.shells = [ pkgs.zsh pkgs.bash ];
+	environment.variables.SHELL = config.environment.loginShell;
 
 	users.nix.configureBuildUsers = true;
 

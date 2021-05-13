@@ -1,8 +1,10 @@
 { config, lib, pkgs, ... }:
-{
-
+let
+	shellAliases = import ./shell-aliases.nix;
+in {
 	programs.zsh = {
 		enable = true;
+		inherit shellAliases;
 		defaultKeymap = "emacs";
 		enableCompletion = false;     # added in ./zshinit.sh manually
 		enableAutosuggestions = true; # shadow completion
