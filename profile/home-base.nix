@@ -12,6 +12,7 @@ in {
 	programs.home-manager.enable = true;
 	home.packages = with pkgs; [
 		
+		bitwarden-cli     # password manager
 		emv               # rename files with your favourite text editor.
 		entr              # some kind of watcher and runner
 		fd                # `find` alternative written in rust.

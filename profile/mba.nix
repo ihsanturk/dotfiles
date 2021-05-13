@@ -26,7 +26,6 @@ in {
 
 			"alacritty"             # suckless minimal terminal
 			"authy"                 # replacement for google authenticator
-			"bitwarden"             # password manager
 			"dynamic-dark-mode"     # change dark/light based on brightness level
 			"imageoptim"            # image optimizer
 			"sketchbook"            # drawing app
@@ -172,7 +171,6 @@ in {
 			${modkey} - m: open -a Mail;
 			${modkey} - t: open -a Telegram;
 			${modkey} - g: open -a Calendar;
-			${modkey} - b: open -a Bitwarden;
 
 		'';
 	};
