@@ -15,9 +15,10 @@ bindkey '^W' x-bash-backward-kill-word
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
-typeset -U fpath
+HISTFILE=~/.bash_history
 autoload -Uz compinit && compinit
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
+typeset -U fpath
 
 fignore=lock # do not complete flake.lock files beacuse that slows me down.
 
