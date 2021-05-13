@@ -26,7 +26,6 @@ in rec {
 
 			"alacritty"             # suckless minimal terminal
 			"authy"                 # replacement for google authenticator
-			"dynamic-dark-mode"     # change dark/light based on brightness level
 			"imageoptim"            # image optimizer
 			"sketchbook"            # drawing app
 			"karabiner-elements"    # key binder / remap tool
@@ -37,6 +36,7 @@ in rec {
 			"spotify"               # music streaming
 			"zoom"                  # conversations / video calls
 
+			# "dynamic-dark-mode"     # fuck you location thing
 			# "android-file-transfer"
 			# "blender"
 			# "grap"
