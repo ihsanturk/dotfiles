@@ -11,19 +11,19 @@
 	gp      = "git push -u";
 	gs      = "git status -s";
 
-	# # exa
-	# l    = "exa";
-	# ll   = "exa -l";
-	# ls   = "exa";
-	# ls-l = "exa -l";
-	# lsd  = "exa -D";
-	# sl   = "exa";
+	# exa
+	l    = "exa";
+	ll   = "exa -l";
+	ls   = "exa";
+	ls-l = "exa -l";
+	lsd  = "exa -D";
+	sl   = "exa";
 
-	l    = "ls -G";
-	ll   = "ls -Gl";
-	ls   = "ls -G";
-	ls-l = "ls -Gl";
-	sl   = "ls -G";
+	# l    = "ls -G";
+	# ll   = "ls -Gl";
+	# ls   = "ls -G";
+	# ls-l = "ls -Gl";
+	# sl   = "ls -G";
 
 	# cd
 	".."   = "cd ..";
