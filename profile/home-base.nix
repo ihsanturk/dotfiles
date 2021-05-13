@@ -15,12 +15,14 @@ in {
 		bitwarden-cli     # password manager
 		emv               # rename files with your favourite text editor.
 		entr              # some kind of watcher and runner
+		exa               # fuck i need this, even if it requires bloat libs :/
 		fd                # `find` alternative written in rust.
 		gawk              # manipulate text. `awk` alternative.
 		gitAndTools.delta # git diff (long compile time).
 		gitui             # git terminal ui
 		gnupg             # encrypt/decrypt files or data.
 		jq                # query json.
+		nix-index         # quickly locate nix packages with specific files
 		pinentry          # password taker... i guess?
 		pup               # query html.
 		python38Packages.titlecase # convert regular text to its title form.
