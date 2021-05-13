@@ -36,18 +36,6 @@ in rec {
 			"spotify"               # music streaming
 			"zoom"                  # conversations / video calls
 
-			# "dynamic-dark-mode"     # fuck you location thing
-			# "android-file-transfer"
-			# "blender"
-			# "grap"
-			# "mysql"
-			# "quickjs"
-			# "recordit" # "gifcapture"
-			# "rustup-init"
-			# "spitfire-audio"
-			# "tuxera"
-			# "ubersicht"
-
 		];
 
 		# masApps = {
