@@ -16,7 +16,7 @@ zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
 unsetopt EXTENDED_HISTORY
-HISTFILE=~/.bash_history
+# HISTFILE=~/.bash_history
 
 fpath=($fpath "${zsh-autoload}")
 autoload -Uz learn
