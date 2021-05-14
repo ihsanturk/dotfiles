@@ -8,6 +8,14 @@ let
 		"/usr/local/mysql/bin"
 
 	];
+	completionIgnore = [
+
+		".egg-info"
+		".lock"
+		".o"
+		".pyc"
+
+	];
 in {
 	programs.home-manager.enable = true;
 	home.packages = with pkgs; [
@@ -39,10 +47,10 @@ in {
 	];
 	home.sessionVariables = {
 
-		FIGNORE   = "$FIGNORE:.lock:.egg-info:"; # ignore on completion
 		DIR_CODE  = "$HOME/Sync/code";
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		EDITOR    = "nvim";
+		FIGNORE   = (builtins.concatStringsSep ":" completionIgnore);
 		GPG_TTY   = "$(tty)";
 		LANG      = "en_GB.UTF-8";
 		PATH      = (builtins.concatStringsSep ":" impurePaths) + ":$PATH";
