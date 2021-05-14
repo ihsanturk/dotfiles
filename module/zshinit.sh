@@ -32,5 +32,3 @@ fi
 
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 typeset -U fpath
-
-fignore=lock # do not complete flake.lock files beacuse that slows me down.

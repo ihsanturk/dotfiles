@@ -39,6 +39,7 @@ in {
 	];
 	home.sessionVariables = {
 
+		FIGNORE   = "$FIGNORE:.lock:.egg-info:"; # ignore on completion
 		DIR_CODE  = "$HOME/Sync/code";
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		EDITOR    = "nvim";
