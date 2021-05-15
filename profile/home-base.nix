@@ -37,6 +37,7 @@ in {
 		ranger            # file manager written in python.
 		ripgrep           # `grep` alternative written in rust.
 		sd                # `sed` alternative written in rust.
+		srm               # secure remove
 		stdman            # std libary man pages
 		tldr              # get quick examples about usage of the program.
 		translate-shell   # google translate in cli written in awk.
