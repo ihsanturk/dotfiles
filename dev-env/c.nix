@@ -2,6 +2,7 @@
 {
 	home.packages = with pkgs; [
 
+		gcc
 		# valgrind # broken :/
 		# clang_10
 		# llvmPackages.clang-unwrapped
