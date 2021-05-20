@@ -44,7 +44,7 @@
 
 		packages.x86_64-darwin = {
 
-			solar = inputs.solar.defaultPackage;#.solar;
+			solar = inputs.solar.defaultPackage;
 
 			# source: https://github.com/LnL7/dotfiles/flake.nix
 			cpp = pkgs.callPackage

@@ -7,7 +7,7 @@
 		enableZshIntegration = true;
 		settings = {
 			scan_timeout = 10; # milliseconds
-			command_timeout = 100; # milliseconds
+			command_timeout = 50; # milliseconds
 		};
 	};
 }

@@ -4,20 +4,17 @@ let
 in {
 	programs.zsh = {
 		enable = true;
-		inherit shellAliases;
+
 		defaultKeymap = "emacs";
-		enableCompletion = false;     # added in ./zshinit.sh manually
 		enableAutosuggestions = true; # shadow completion
+		enableCompletion = false;     # added in ./zshinit.sh manually
+		inherit shellAliases;
+		prezto.enable = true;
+		prezto.prompt.theme = "pure";
+
 		initExtra = builtins.readFile ./zshinit.sh
 		          + builtins.readFile ./sh-init.sh;
-		# initExtra = builtins.readFile ./instant-zsh.zsh
 	};
-
-	# programs.neovim.extraConfig = "set shell=zsh";
-
-	# home.packages = with pkgs; [
-	# 	zsh-history-substring-search
-	# ];
 
 }
 

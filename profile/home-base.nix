@@ -67,7 +67,7 @@ in {
 		../module/h.nix
 		../module/ledger.nix
 		../module/neovim.nix
-		../module/starship.nix
+		# ../module/starship.nix
 		../module/tmux.nix
 		../module/zsh.nix
 
