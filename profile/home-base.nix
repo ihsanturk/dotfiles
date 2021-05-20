@@ -46,11 +46,12 @@ in {
 		websocat          # websocket client
 
 	];
-	home.sessionVariables = {
+	home.sessionVariables = rec {
 
 		DIR_CODE  = "$HOME/Sync/code";
 		DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
 		EDITOR    = "nvim";
+		VISUAL    = EDITOR;
 		FIGNORE   = (builtins.concatStringsSep ":" completionIgnore);
 		GPG_TTY   = "$(tty)";
 		LANG      = "en_GB.UTF-8";
