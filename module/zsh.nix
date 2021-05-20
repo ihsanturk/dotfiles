@@ -11,6 +11,7 @@ in {
 		inherit shellAliases;
 		prezto.enable = true;
 		prezto.prompt.theme = "pure";
+		prezto.pmodules = [ "prompt" ];
 
 		initExtra = builtins.readFile ./zshinit.sh
 		          + builtins.readFile ./sh-init.sh;
