@@ -22,13 +22,13 @@ fpath=($fpath "${zsh-autoload}")
 autoload -Uz learn
 autoload -Uz ls-
 
-# # check compinit's cache only once a day.
-# autoload -Uz compinit
-# if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
-#   compinit
-# else
-#   compinit -C
-# fi
+# check compinit's cache only once a day.
+autoload -Uz compinit
+if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
 
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 typeset -U fpath
