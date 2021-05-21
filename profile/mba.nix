@@ -13,6 +13,7 @@
 		autoUpdate = true;
 		brews = [
 
+			"valgrind"    # dynamic analysis tools (memory, debug, profiling)
 			"clisp"       # lisp interpreter
 			"ripgrep-all" # ripgrep for pdf and other file formats
 			"tcc"         # tiny c compiler
