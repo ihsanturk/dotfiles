@@ -11,6 +11,12 @@
 		enable = true;
 		cleanup = "zap";
 		autoUpdate = true;
+
+		taps = [
+
+			"LouisBrunner/valgrind"
+
+		];
 		brews = [
 
 			"valgrind"    # dynamic analysis tools (memory, debug, profiling)
