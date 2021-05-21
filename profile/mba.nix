@@ -147,8 +147,8 @@
 	};
 
 	# defaults
-	system.defaults.NSGlobalDomain.InitialKeyRepeat = 15;
-	system.defaults.NSGlobalDomain.KeyRepeat = 2;
+	system.defaults.NSGlobalDomain.InitialKeyRepeat = 12;
+	system.defaults.NSGlobalDomain.KeyRepeat = 1;
 	system.defaults.NSGlobalDomain._HIHideMenuBar = false;
 	system.defaults.dock.show-recents = false;
 	system.defaults.dock.tilesize = 33;
