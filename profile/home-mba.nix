@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, overlays, ... }:
 {
+
+	nixpkgs.overlays = overlays;
 
 	imports = [
 		./home-base.nix # { inherit private; }
