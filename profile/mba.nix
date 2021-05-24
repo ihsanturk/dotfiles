@@ -74,6 +74,7 @@
 	environment.shellAliases = import ../module/shell-aliases.nix;
 	environment.shells = [ pkgs.zsh pkgs.bash ];
 	environment.variables.SHELL = config.environment.loginShell;
+	environment.variables.EDITOR = "nvim";
 
 	users.nix.configureBuildUsers = true;
 

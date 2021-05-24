@@ -71,6 +71,8 @@ in {
 		# ../module/starship.nix
 		../module/tmux.nix
 		../module/zsh.nix
+		../module/neomutt.nix
+		../module/pass.nix
 
 		../dev-env/nix.nix
 
