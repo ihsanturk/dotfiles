@@ -4,6 +4,7 @@
 
 	inputs.darwin.inputs.nixpkgs.follows = "nixpkgs";
 	inputs.darwin.url = "github:ihsanturk/nix-darwin";
+	inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 	inputs.home-manager.url = "/Users/ihsan/code/github.com/nix-community/home-manager";
 	inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 	inputs.nixpkgs.url = "/Users/ihsan/code/github.com/nixos/nixpkgs";
@@ -22,18 +23,61 @@
 
 		overlays = [ inputs.neovim-nightly-overlay.overlay ];
 		pkgs = nixpkgs.legacyPackages."x86_64-darwin"; # TODO: use flake-utils.system
+		impurePaths = [
 
+			"$HOME/.cargo/bin"
+			"$HOME/Library/Python/3.8/bin"
+			"$HOME/Sync/bin"
+			"/usr/local/mysql/bin"
+
+		];
+		completionIgnore = [
+
+			".egg-info"
+			".lock"
+			".o"
+			".pyc"
+
+		];
 	in {
 
 		homeConfigurations = {
 
 			ihsan = home-manager.lib.homeManagerConfiguration {
-				configuration = import ./profile/home-mba.nix {
-					inherit pkgs overlays;
-				};
 				homeDirectory = /. + builtins.getEnv "HOME";
+				stateVersion = "21.05";
 				system = "x86_64-darwin";
 				username = "ihsan";
+				configuration = { pkgs, ... }: {
+					nixpkgs.overlays = overlays;
+					programs.home-manager.enable = true;
+					home.packages = import ./base.nix pkgs;
+					home.sessionVariables = rec {
+						DIR_CODE  = "$HOME/Sync/code";
+						DIR_LEARN = "$HOME/Sync/code/github.com/ihsanturk/learn";
+						EDITOR    = "nvim";
+						FIGNORE   = (builtins.concatStringsSep ":" completionIgnore);
+						GPG_TTY   = "$(tty)";
+						LANG      = "en_GB.UTF-8";
+						PATH      = (builtins.concatStringsSep ":" impurePaths) + ":$PATH";
+						VISUAL    = EDITOR;
+					};
+					imports = [
+						./module/autojump.nix
+						./module/bash.nix
+						./module/bat.nix
+						./module/fzf.nix
+						./module/git.nix
+						./module/h.nix
+						./module/ledger.nix
+						# ./module/neovim.nix
+						./module/tmux.nix
+						./module/zsh.nix
+						./module/neomutt.nix
+						./module/pass.nix
+						./dev-env/nix.nix
+					];
+				};
 			};
 
 		};
