@@ -45,10 +45,7 @@
 		# (let trends = builtins.fetchTarball "https://github.com/ihsanturk/trends/archive/master.tar.gz"; in import trends {})
 		# grap          # https://www.lunabase.org/~faber/Vault/software/grap/
 		# img2txt       # (personal) requires docopts
-		# iterm2        # alternative terminal to default os terminal
-		# swiftbar      # NOTE: uninstall manually: "/Applications/SwiftBar.app"
 		# tmpmail       # FIXME: make this flake compatible
-		# übersitch     # NOTE: uninstall manually: "/Applications/Übersicht.app"
 
 	];
 

@@ -1,5 +1,4 @@
-[
-	bitwarden-cli     # password manager
+pkgs: with pkgs; [
 	emv               # rename files with your favourite text editor.
 	entr              # some kind of watcher and runner
 	exa               # fuck i need this, even if it requires bloat libs :/

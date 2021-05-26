@@ -104,21 +104,16 @@
 
     };
 
-    packages.x86_64-darwin = {
+    core = pkgs.callPackage
+      ({ buildEnv, bat, exa }:
+      buildEnv {
+        name = "ihsan-coreutils";
+        paths = [ bat exa ];
+        pathsToLink = [ "/bin" ];
+      }) { };
 
-      core = pkgs.callPackage
-        ({ buildEnv, bat, exa }:
-        buildEnv {
-          name = "ihsan-coreutils";
-          paths = [ bat exa ];
-          pathsToLink = [ "/bin" ];
-        }) { };
-
-      cat = pkgs.bat;
-      solar = inputs.solar.defaultPackage;
-      vi = inputs.vi.defaultPackage;
-
-    };
+    solar = inputs.solar.defaultPackage;
+    vi = inputs.vi.defaultPackage;
 
     darwinPackages = self.darwinConfigurations."simple".pkgs;
     defaultPackage.x86_64-darwin = self.darwinConfigurations.MacBook-Air.system;
