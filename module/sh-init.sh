@@ -1,1 +1,0 @@
-. ~/Sync/private/env
