@@ -23,7 +23,7 @@ nix profile install github:ihsanturk/dotfiles
 ```
 nix flake update &&
   nix profile upgrade $(nix profile list |
-     grep -w ihsanturk/dotfiles | cut -d' ' -f1)
+     grep -w ihsan-env | cut -d' ' -f1)
 ```
 
 ---

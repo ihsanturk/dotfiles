@@ -13,7 +13,7 @@ self: super:
     ];
   };
 
-  userEnv = with self; super.buildEnv {
+  user-env = with self; super.buildEnv {
     name = "ihsan-env";
     paths = [
 

@@ -2,44 +2,33 @@
   description = "suckless user environment";
 
   inputs = rec {
-    nixpkgs.url = "github:nixos/nixpkgs";
 
-    # vi.url = "/Users/ihsan/Sync/code/github.com/ihsanturk/vi";
-    # vi.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
+
+    vi.url = "/Users/ihsan/Sync/code/github.com/ihsanturk/vi";
+    vi.inputs.nixpkgs.follows = "nixpkgs";
+    vi.inputs.flake-utils.follows = "flake-utils";
 
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, flake-utils, vi }@inputs:
+  flake-utils.lib.eachDefaultSystem (system:
   let
-    systems = [
-
-      "x86_64-darwin"
-      "x86_64-linux"
-
-    ];
-    forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
     overlays = [
 
-      # vi.overlay
+      vi.overlay
 
     ] ++
       map # all overlays in the overlays directory
       (name: import (./overlays + "/${name}"))
       (builtins.attrNames (builtins.readDir ./overlays));
 
-    pkg-import = pkgs: forAllSystems (system:
-      import pkgs {
-        inherit system overlays;
-        # config = { allowUnfree = true; };
-      }
-    );
-
-    nixpkgs-for = pkg-import nixpkgs;
+    pkgs = import nixpkgs { inherit system overlays; };
   in {
 
-    packages = forAllSystems (system: nixpkgs-for."${system}");
-    defaultPackage = forAllSystems (system: nixpkgs-for."${system}".user-env);
+    defaultPackage.${system} = pkgs.ihsan-env;
 
-  };
+  });
 }
 
