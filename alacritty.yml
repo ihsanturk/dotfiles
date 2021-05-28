@@ -1,11 +1,16 @@
 window:
   dimensions:
-    columns: 170 # 84
-    lines  : 48  # 34
+    columns: 171 # 84
+    lines  : 50  # 34
 
   padding:
-    x: 2
-    y: 2
+    x: 0
+    y: 0
+
+  position:
+    x: 72
+    y: 124
+
 
   dynamic_padding: false
   decorations    : "Buttonless"
@@ -32,7 +37,7 @@ font:
     family: "FiraCode Nerd Font"
     style : "Italic"
 
-  size            : 13.0 # not float aware :/
+  size            : 13.0
   use_thin_strokes: true
 
 
