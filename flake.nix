@@ -12,7 +12,7 @@
 
   };
 
-  outputs = { self, nixpkgs, flake-utils, neovim-nightly }@inputs:
+  outputs = { self, nixpkgs, flake-utils }@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
 

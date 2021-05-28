@@ -1,7 +1,7 @@
 self: super: {
-  zsh = super.buildEnv {
+  ihsan-zsh = super.buildEnv {
 
-    name = "zshWithConfig";
+    name = "ihsan-zsh";
     buildInputs = [ super.makeWrapper ];
     paths = [ self.zsh ];
     postBuild = ''

@@ -33,7 +33,7 @@ self: super: {
       trash-cli         # trash files instead of bare rm.
       vscodium          # code editor.
       websocat          # websocket client
-      zsh               # overlayed zsh personal configuration.
+      ihsan-zsh         # overlayed zsh personal configuration.
 
     ] ++ lib.optionals stdenv.isDarwin [
 
