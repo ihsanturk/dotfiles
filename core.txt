@@ -1,4 +1,2 @@
-neovim --HEAD
-tmux
 autojump
-telegram-cli
+tmux

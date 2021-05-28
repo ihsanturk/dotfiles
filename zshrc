@@ -7,8 +7,12 @@ mkdir -p "$(dirname "$HISTFILE")"
 unsetopt EXTENDED_HISTORY
 # HISTFILE=~/.bash_history
 
-# paths
-fpath+=$HOME/bin
+
+# environment
+PATH=$HOME/bin:$PATH
+EDITOR=nvim
+VISUAL=$EDITOR
+
 
 # zshoptions
 setopt HIST_FCNTL_LOCK
@@ -23,9 +27,9 @@ unsetopt HIST_EXPIRE_DUPS_FIRST
 
 . ~/.alias
 . ~/Sync/private/env
-# . autojump.zsh
-# . syntax-higlighter.zsh
-# . zsh-autosuggestions-0.6.4
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && . ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 autoload -U select-word-style
 select-word-style bash
