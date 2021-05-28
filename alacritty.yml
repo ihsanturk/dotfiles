@@ -1,6 +1,6 @@
 window:
   dimensions:
-    columns: 169 # 84
+    columns: 170 # 84
     lines  : 48  # 34
 
   padding:
@@ -32,7 +32,7 @@ font:
     family: "FiraCode Nerd Font"
     style : "Italic"
 
-  size            : 13.1 # not float aware :/
+  size            : 13.0 # not float aware :/
   use_thin_strokes: true
 
 
