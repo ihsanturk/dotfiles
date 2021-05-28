@@ -3,6 +3,7 @@ self: super: {
     name = "common";
     paths = [
 
+      # vihsan            # personal configured vi flake.
       curl              # requests using urls.
       emv               # rename files with your favourite text editor.
       entr              # some kind of watcher and runner.
@@ -15,7 +16,6 @@ self: super: {
       gitui             # git terminal ui
       gnupg             # encrypt/decrypt files or data.
       jq                # query json.
-      # vihsan            # personal configured vi flake.
       nix-index         # quickly locate nix packages with specific files
       nix-info          # https://github.com/NixOS/nix/issues/3085
       nixfmt            # nix code formatter, use it.
@@ -33,6 +33,7 @@ self: super: {
       trash-cli         # trash files instead of bare rm.
       vscodium          # code editor.
       websocat          # websocket client
+      zsh               # overlayed zsh personal configuration.
 
     ] ++ lib.optionals stdenv.isDarwin [
 
