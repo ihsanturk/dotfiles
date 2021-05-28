@@ -1,10 +1,9 @@
-self: super:
-{
+self: super: {
   my-pkgs = with self; super.buildEnv {
     name = "my-pkgs";
     paths = [
 
-      common-env
+      common
 
     ] ++ lib.optionals stdenv.isLinux [
 

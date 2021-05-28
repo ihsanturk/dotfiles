@@ -1,7 +1,6 @@
-self: super:
-{
-  common-env = with self; super.buildEnv {
-    name = "common-env";
+self: super: {
+  common = with self; super.buildEnv {
+    name = "common";
     paths = [
 
       curl              # requests using urls.
@@ -16,6 +15,7 @@ self: super:
       gitui             # git terminal ui
       gnupg             # encrypt/decrypt files or data.
       jq                # query json.
+      # vihsan            # personal configured vi flake.
       nix-index         # quickly locate nix packages with specific files
       nix-info          # https://github.com/NixOS/nix/issues/3085
       nixfmt            # nix code formatter, use it.
