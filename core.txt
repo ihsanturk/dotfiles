@@ -1,2 +1,6 @@
 autojump
+bat
+fzf
+pass
+pure
 tmux

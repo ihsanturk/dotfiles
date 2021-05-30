@@ -1,3 +1,8 @@
+# pure prompt
+autoload -U promptinit; promptinit
+prompt pure
+
+# zstyle :prompt:pure:git:stash show yes
 # History options should be set in .zshrc and after oh-my-zsh sourcing.
 # See https://github.com/nix-community/home-manager/issues/177.
 HISTSIZE="10000"
@@ -34,12 +39,6 @@ unsetopt HIST_EXPIRE_DUPS_FIRST
 autoload -U select-word-style
 select-word-style bash
 
-# pure prompt
-fpath+=$HOME/.zsh/pure
-autoload -U promptinit; promptinit
-prompt pure
-zstyle :prompt:pure:git:stash show yes
-
 # check compinit's cache only once a day.
 autoload -Uz compinit
 if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
@@ -69,4 +68,3 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 typeset -U path cdpath fpath manpath
-

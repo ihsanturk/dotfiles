@@ -1,3 +1,6 @@
+import:
+  - "/Users/ihsan/.config/alacritty/color.yml"
+
 window:
   dimensions:
     columns: 171 # 84
@@ -10,7 +13,6 @@ window:
   position:
     x: 72
     y: 124
-
 
   dynamic_padding: false
   decorations    : "Buttonless"
@@ -41,35 +43,8 @@ font:
   use_thin_strokes: true
 
 
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
-
-colors:
-  primary:
-    background: "0x1D2021"
-    foreground: "0xEBDBB2"
-
-
-  normal:
-    black  : "0x282828"
-    red    : "0xCC241D"
-    green  : "0x98971A"
-    yellow : "0xD79921"
-    blue   : "0x458588"
-    magenta: "0xB16286"
-    cyan   : "0x689D6A"
-    white  : "0xA89984"
-
-
-  bright:
-    black  : "0x928374"
-    red    : "0xFB4934"
-    green  : "0xB8BB26"
-    yellow : "0xFABD2F"
-    blue   : "0x83A598"
-    magenta: "0xD3869B"
-    cyan   : "0x8EC07C"
-    white  : "0xEBDBB2"
 
 bell:
   animation: "EaseOutExpo"
@@ -90,6 +65,7 @@ cursor:
 
 live_config_reload: true
 alt_send_esc: false
+
 
 key_bindings:
 
