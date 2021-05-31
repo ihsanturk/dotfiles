@@ -53,7 +53,10 @@ ca Vs vs
 ca W w
 ca WQ wq
 ca Wq w
-cabbrev cd tcd
+ca cd tcd
 
-cabbrev tp exe 'tabe ~/zk/'.strftime('%Y-%m-%d').'.md'
-cabbrev rc exe 'tabe ~/.vimrc'
+" configuration
+ca rc exe 'tabe ~/dot'
+
+" diary (todays plan)
+ca tp exe 'tabe ~/zk/'.strftime('%Y-%m-%d').'.md'  " diary
