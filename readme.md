@@ -1,5 +1,14 @@
 # dotfiles
 
+## requirements
+- [homebrew](https://brew.sh)
+
+## configure
+```
+vi config.mk
+```
+customize it to fit to your needs.
+
 ## install
 MAKE SURE YOU HAVE BACKED UP your `~/.zshrc` and other config files, because
 this will overwrite your existing configuration.
