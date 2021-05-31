@@ -15,7 +15,7 @@ unsetopt EXTENDED_HISTORY
 
 # environment
 PATH=$HOME/bin:$PATH
-EDITOR=nvim
+EDITOR=vi
 VISUAL=$EDITOR
 
 
