@@ -33,6 +33,7 @@ alias ll='exa -l'
 alias ls-l='exa -l'
 alias ls='exa'
 alias lsd='exa -D'
+alias make=gmake
 alias mp3='youtube-dl -x --audio-format mp3'
 alias mv='mv -n'
 alias pup='pup -p'

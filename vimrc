@@ -59,4 +59,4 @@ ca cd tcd
 ca rc exe 'tabe ~/dot'
 
 " diary (todays plan)
-ca tp exe 'tabe ~/zk/'.strftime('%Y-%m-%d').'.md'  " diary
+ca tp exe 'tabe ~/zk/'.strftime('%Y-%m-%d').'.md'

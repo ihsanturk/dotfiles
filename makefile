@@ -1,17 +1,12 @@
 include config.mk
 
 default: core
-core: zsh vim
+core: zsh vim alacritty
 
 pkgs:
 	xargs brew install < core.txt
 
 uninstall: uninstall-alacritty uninstall-zsh
-
-vim:
-	cp vimrc ${HOME}/.vimrc
-uninstall-vim:
-	rm -rf "${HOME}/.vimrc
 
 alacritty:
 	mkdir -p "${HOME}/.config/alacritty"
@@ -32,4 +27,9 @@ uninstall-zsh:
 	rm -rf "${HOME}/.zsh"
 	rm -rf ~/.zshrc
 	rm -rf ~/.alias
+
+vim:
+	cp vimrc ${HOME}/.vimrc
+uninstall-vim:
+	rm -rf "${HOME}/.vimrc
 

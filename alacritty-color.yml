@@ -45,4 +45,4 @@ schemes:
       cyan   : "0x8EC07C"
       white  : "0xEBDBB2"
 
-colors: *gruvbox_light
+colors: *gruvbox_dark
