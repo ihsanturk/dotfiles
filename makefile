@@ -5,7 +5,9 @@ core: zsh vim alacritty
 
 pkgs:
 	xargs brew install < core.txt
-	comm core.txt <(brew leaves) -13 | xargs brew uninstall
+	brew leaves > brew-leaves
+	comm core.txt brew-leaves -13 | xargs brew uninstall
+	rm -rf brew-leaves
 
 uninstall: uninstall-alacritty uninstall-zsh
 
