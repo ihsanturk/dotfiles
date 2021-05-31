@@ -60,3 +60,6 @@ ca rc exe 'tabe ~/dot'
 
 " diary (todays plan)
 ca tp exe 'tabe ~/zk/'.strftime('%Y-%m-%d').'.md'
+
+" ~/log/life
+ca log tabe ~/log/life \| norm G \| zz
