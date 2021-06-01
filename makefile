@@ -1,15 +1,19 @@
 include config.mk
 
 default: core
-core: zsh vim alacritty git
+core: zsh vim git gpg
+graphical: alacritty
 
 pkgs:
-	xargs brew install < core.txt
-	brew leaves > brew-leaves
-	comm core.txt brew-leaves -13 | xargs brew uninstall
-	rm -rf brew-leaves
+	uname -a | grep -q '^Darwin' && { /bin/cat pkgs-common pkgs-mac | xargs brew install; brew leaves > brew-leaves; comm core.txt brew-leaves -13 | xargs brew uninstall; rm -rf brew-leaves; } || true;
+	uname -a | grep -q 'Alpine' && { /bin/cat pkgs-common pkgs-alpine | xargs sudo apk add; };
 
-uninstall: uninstall-alacritty uninstall-zsh
+uninstall: uninstall-alacritty uninstall-zsh uninstall-git
+
+gpg:
+	cp gpg-agent.conf ~/.gnupg/
+uninstall-gpg:
+	rm -rf ~/.gnupg/gpg-agent.conf;
 
 git:
 	cp gitconfig ~/.gitconfig;
@@ -27,6 +31,7 @@ uninstall-alacritty:
 
 zsh:
 	mkdir -p "${HOME}/.zsh"
+	[ -d "${HOME}/.zsh/pure" ] || git clone https://github.com/sindresorhus/pure.git "${HOME}/.zsh/pure"
 	[ -d "${HOME}/.zsh/zsh-autosuggestions" ] || git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME}/.zsh/zsh-autosuggestions"
 	[ -d "${HOME}/.zsh/zsh-syntax-highlighting" ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting "${HOME}/.zsh/zsh-syntax-highlighting"
 	cp alias ~/.alias;

@@ -1,7 +1,4 @@
 autojump
-bat
-cmake
-fzf
 git
 make
 pass
@@ -9,5 +6,4 @@ pure
 ripgrep-all
 tcc
 telegram-cli
-tmux
 vlang
