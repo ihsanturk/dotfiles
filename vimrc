@@ -5,7 +5,6 @@ set ignorecase
 set incsearch
 set list
 set listchars=tab:\┊\ ,trail:•,nbsp:+
-set mouse=a
 set nocompatible
 set nu rnu
 set ru

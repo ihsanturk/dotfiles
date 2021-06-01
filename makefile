@@ -1,7 +1,7 @@
 include config.mk
 
 default: core
-core: zsh vim alacritty
+core: zsh vim alacritty git
 
 pkgs:
 	xargs brew install < core.txt
@@ -10,6 +10,11 @@ pkgs:
 	rm -rf brew-leaves
 
 uninstall: uninstall-alacritty uninstall-zsh
+
+git:
+	cp gitconfig ~/.gitconfig;
+uninstall-git:
+	rm -rf ~/.gitconfig;
 
 alacritty:
 	mkdir -p "${HOME}/.config/alacritty"
