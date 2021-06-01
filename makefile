@@ -5,8 +5,8 @@ core: zsh vim git gpg
 graphical: alacritty
 
 pkgs:
-	uname -a | grep -q '^Darwin' && { /bin/cat pkgs-common pkgs-mac | xargs brew install; brew leaves > brew-leaves; comm core.txt brew-leaves -13 | xargs brew uninstall; rm -rf brew-leaves; } || true;
-	uname -a | grep -q 'Alpine' && { /bin/cat pkgs-common pkgs-alpine | xargs sudo apk add; };
+	uname -a | grep -q '^Darwin' && { /bin/cat pkgs-common pkgs-mac | xargs brew install; brew leaves | sort > brew-leaves; /bin/cat pkgs-common pkgs-mac | sort | comm - brew-leaves -13 | xargs brew uninstall; rm -rf brew-leaves; } || true;
+	uname -a | grep -q 'Alpine' && { /bin/cat pkgs-common pkgs-alpine | xargs sudo apk add; } || true;
 
 uninstall: uninstall-alacritty uninstall-zsh uninstall-git
 

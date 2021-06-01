@@ -2,7 +2,7 @@ autojump
 git
 make
 pass
-pure
+qemu
 ripgrep-all
 tcc
 telegram-cli
