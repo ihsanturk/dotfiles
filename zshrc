@@ -15,9 +15,10 @@ unsetopt EXTENDED_HISTORY
 
 
 # environment
-PATH=$HOME/bin:$PATH
-EDITOR=vim
-VISUAL=$EDITOR
+export PATH=$HOME/bin:$PATH
+export EDITOR=vim
+export VISUAL=$EDITOR
+export GPG_TTY=$(tty)
 
 
 # zshoptions
