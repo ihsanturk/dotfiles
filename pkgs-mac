@@ -4,6 +4,8 @@ make
 pass
 qemu
 ripgrep-all
+rust
 tcc
 telegram-cli
 vlang
+weechat
