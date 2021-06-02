@@ -51,7 +51,7 @@ ca VS vs
 ca Vs vs
 ca W w
 ca WQ wq
-ca Wq w
+ca Wq wq
 ca cd tcd
 
 " configuration
