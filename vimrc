@@ -46,6 +46,7 @@ nn cp :cprev<cr>
 " readline
 cnor <c-a> <c-b>
 cnor <c-b> <left>
+cnor <c-d> <del>
 cnor <c-f> <right>
 imap <c-a> <c-o>0
 imap <c-b> <left>
