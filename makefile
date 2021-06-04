@@ -36,10 +36,12 @@ zsh:
 	[ -d "${HOME}/.zsh/zsh-syntax-highlighting" ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting "${HOME}/.zsh/zsh-syntax-highlighting"
 	cp alias ~/.alias;
 	cp zshrc ~/.zshrc;
+	cp funct ~/.funct;
 uninstall-zsh:
 	rm -rf "${HOME}/.zsh"
-	rm -rf ~/.zshrc
-	rm -rf ~/.alias
+	rm -rf "${HOME}/.zsh"
+	rm -rf "${HOME}/.zshrc"
+	rm -rf "${HOME}/.alias"
 
 vim:
 	cp vimrc ${HOME}/.vimrc

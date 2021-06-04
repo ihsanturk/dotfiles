@@ -15,10 +15,11 @@ unsetopt EXTENDED_HISTORY
 
 
 # environment
-export PATH=$HOME/bin:$PATH
+export DIR_CODE=${HOME}/code
 export EDITOR=vim
-export VISUAL=$EDITOR
 export GPG_TTY=$(tty)
+export PATH=$HOME/bin:$PATH
+export VISUAL=$EDITOR
 
 
 # zshoptions
@@ -32,6 +33,7 @@ setopt SHARE_HISTORY
 unsetopt EXTENDED_HISTORY
 unsetopt HIST_EXPIRE_DUPS_FIRST
 
+. ~/.funct
 . ~/.alias
 . ~/Sync/private/env
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
