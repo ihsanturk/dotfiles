@@ -17,6 +17,7 @@ set laststatus=2
 set list
 set listchars=tab:\┊\ ,trail:•,nbsp:+
 set nocompatible
+set noswapfile
 set nu rnu
 set ru
 set sw=3 ts=3
