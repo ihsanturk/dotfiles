@@ -102,3 +102,7 @@ ca make silent make \| unsilent redraw! \| bo cwindow
 
 " clear highlighting on start
 noh
+
+" [external snippet manager](https://github.com/ihsanturk/snip)
+nn <leader>e :exe ':set ep=snip\ -l'.&ft<cr>=
+xn <leader>e :<c-u>exe ':set ep=snip\ -l'.&ft<cr>gv=
