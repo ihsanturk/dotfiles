@@ -38,6 +38,7 @@ func! Level(l)
 		set list
 		set listchars=tab:\┊\ ,trail:•,nbsp:+
 		set noswapfile
+		set nowrap
 		set nu rnu
 		set ru
 		set signcolumn=number
@@ -54,6 +55,8 @@ func! Level(l)
 
 		if !has('nvim')
 			set nocompatible
+		else " has nvim
+			set inccommand=nosplit
 		end
 
 		" au commands
@@ -152,6 +155,7 @@ func! Level(l)
 		Plug('ihsanturk/vim-grave-navigation') " navigate tabs using '`'
 		Plug('ihsanturk/vim-ihsensible')       " sane defaults
 		Plug('jbmorgado/vim-pine-script')      " tradingview pinescript mode
+		Plug('chrisbra/Colorizer')             " colorize ansi escapes in buffer
 		Plug('junegunn/fzf')                   " fuzzy finder
 		Plug('keith/swift.vim')                " swift mode
 		Plug('mkitt/tabline.vim')              " more readable tab titles
@@ -263,6 +267,11 @@ func! Level(l)
 		nn <silent><m-k> :Sayonara!<cr>
 		tma <silent> <m-k> <c-\><c-n>:Sayonara!<cr>
 
+		Plug('morhetz/gruvbox')
+		set tgc
+		color gruvbox
+		hi! link Visual VisualNOS
+
 		if has('nvim')                         " comment text objects
 			Plug 'b3nj5m1n/kommentary'
 			Plug('rafcamlet/nvim-luapad')
@@ -270,26 +279,7 @@ func! Level(l)
 			Plug('tpope/vim-commentary')
 		end
 
-
 		if (a:l == 1)
-			call plug#end()
-		end
-
-	endif
-	if (a:l >= 2)
-
-		if has('nvim') " vim block the ui so don't notify
-			if (a:l == 2)
-				echo 'g:level: bloat (change with <leader>1)'
-			end
-		end
-
-		Plug('morhetz/gruvbox')
-		color gruvbox
-
-		Plug('chrisbra/Colorizer')             " colorize ansi escapes in buffer
-
-		if (a:l == 2)
 			call plug#end()
 		end
 
