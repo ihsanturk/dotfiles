@@ -183,7 +183,7 @@ func! Level(l)
 			nn <silent> gi        <cmd>lua vim.lsp.buf.implementation()<cr>
 			nn <silent> gr        <cmd>lua vim.lsp.buf.references()<cr>
 			nn <silent> gs        <cmd>lua vim.lsp.buf.signature_help()<cr>
-			xn <silent> <tab>     <cmd>lua vim.lsp.buf.range_formatting()<cr>
+			xn <silent> <tab>     :lua vim.lsp.buf.range_formatting()<cr>
 
 		else
 			Plug 'tpope/vim-commentary'        " comment text objects
