@@ -103,6 +103,7 @@ func! Level(l)
 		cnorea Wq wq
 		cnorea cd tcd
 		cnorea cdc tcd %:p:h<cr>
+		cnorea Cdc tcd %:p:h<cr>
 		cnorea man Man
 		cnorea wbd w\|:bd
 		cnorea wd w\|:bd
@@ -148,12 +149,12 @@ func! Level(l)
 		Plug 'airblade/vim-gitgutter'         " display git diff in signcolumn
 		Plug 'alvan/vim-closetag'             " auto close html tags
 		Plug 'ap/vim-css-color'               " colorize css hex/rgb colors
+		Plug 'chrisbra/Colorizer'             " colorize ansi escapes in buffer
 		Plug 'darfink/vim-plist'              " plist mode
 		Plug 'farmergreg/vim-lastplace'       " continue from where you left off
 		Plug 'ihsanturk/vim-grave-navigation' " navigate tabs using '`'
 		Plug 'ihsanturk/vim-ihsensible'       " sane defaults
 		Plug 'jbmorgado/vim-pine-script'      " tradingview pinescript mode
-		Plug 'chrisbra/Colorizer'             " colorize ansi escapes in buffer
 		Plug 'junegunn/fzf'                   " fuzzy finder
 		Plug 'keith/swift.vim'                " swift mode
 		Plug 'mkitt/tabline.vim'              " more readable tab titles
@@ -165,7 +166,19 @@ func! Level(l)
 		Plug 'vito-c/jq.vim'                  " jq mode
 		Plug 'wellle/targets.vim'             " better text objects
 
-		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+		if has('nvim')
+			Plug 'b3nj5m1n/kommentary'         " comment text objects
+			Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+			Plug 'p00f/nvim-ts-rainbow'        " different brace/parant. colors
+			Plug 'rafcamlet/nvim-luapad'
+		else
+			Plug 'tpope/vim-commentary'        " comment text objects
+
+			Plug 'luochen1990/rainbow'         " different brace/parant. colors
+			let g:rainbow_active = 1
+
+		end
+
 
 		Plug 'tpope/vim-fugitive'
 		aug fugitive
@@ -270,13 +283,6 @@ func! Level(l)
 		Plug 'morhetz/gruvbox'
 		let g:gruvbox_invert_selection = 0
 
-		if has('nvim')                         " comment text objects
-			Plug 'b3nj5m1n/kommentary'
-			Plug 'rafcamlet/nvim-luapad'
-		else
-			Plug 'tpope/vim-commentary'
-		end
-
 		if (a:l == 1)
 			call plug#end()
 		end
@@ -297,9 +303,15 @@ func! Level(l)
 		color gruvbox
 
 " WARNING: THIS SHOULD NOT BE INDENTED
+if has('nvim')
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
 	ensure_installed = "maintained",
+	rainbow = {
+		enable = true,
+		extended_mode = true,
+		max_file_lines = 1000, -- do not enable for files with more than 1000 loc
+	},
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		-- disable = { "c", "python", "bash", "rust" }, -- list of language that will be disabled
@@ -307,6 +319,7 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 " WARNING: THIS SHOULD NOT BE INDENTED
+end
 
 	endif
 endf
