@@ -171,6 +171,20 @@ func! Level(l)
 			Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 			Plug 'p00f/nvim-ts-rainbow'        " different brace/parant. colors
 			Plug 'rafcamlet/nvim-luapad'
+
+			Plug 'neovim/nvim-lspconfig'
+			nn <silent> <space>rn <cmd>lua vim.lsp.buf.rename()<cr>
+			nn <silent> <tab>     <cmd>lua vim.lsp.buf.formatting()<cr>
+			nn <silent> [d        <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+			nn <silent> ]d        <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+			nn <silent> gD        <cmd>lua vim.lsp.buf.declaration()<cr>
+			nn <silent> gd        <cmd>lua vim.lsp.buf.definition()<cr>
+			nn <silent> gh        <cmd>lua vim.lsp.buf.hover()<cr>
+			nn <silent> gi        <cmd>lua vim.lsp.buf.implementation()<cr>
+			nn <silent> gr        <cmd>lua vim.lsp.buf.references()<cr>
+			nn <silent> gs        <cmd>lua vim.lsp.buf.signature_help()<cr>
+			xn <silent> <tab>     <cmd>lua vim.lsp.buf.range_formatting()<cr>
+
 		else
 			Plug 'tpope/vim-commentary'        " comment text objects
 
@@ -305,6 +319,27 @@ func! Level(l)
 " WARNING: THIS SHOULD NOT BE INDENTED
 if has('nvim')
 lua <<EOF
+
+-- lsp
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+	vim.lsp.handlers.signature_help, {
+		-- Use a sharp border with `FloatBorder` highlights
+		border = "single"
+	}
+)
+local nvim_lsp = require('lspconfig')
+local on_attach = function(client, bufnr)
+	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+	-- See `:help vim.lsp.*` for documentation
+end
+local servers = { "clangd" }
+for _, lsp in ipairs(servers) do
+	nvim_lsp[lsp].setup { on_attach = on_attach }
+end
+
+-- incremental syntax highlighting
 require'nvim-treesitter.configs'.setup {
 	ensure_installed = "maintained",
 	rainbow = {
@@ -317,6 +352,7 @@ require'nvim-treesitter.configs'.setup {
 		-- disable = { "c", "python", "bash", "rust" }, -- list of language that will be disabled
 	},
 }
+
 EOF
 " WARNING: THIS SHOULD NOT BE INDENTED
 end
