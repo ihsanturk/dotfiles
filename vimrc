@@ -1,7 +1,6 @@
 " Autohor: ihsan <ihsanl [a_t] pm.me>
 " License: public domain, use however you want.
 
-
 let g:level = 0
 let g:levels = { 0: "tiny", 1: "full" }
 let mapleader = "\<space>"
@@ -10,7 +9,7 @@ if has('nvim')
 else
 	let g:vimplugpath='~/.vim/plugged'
 end
-nn <silent><leader>1 :let g:level = (g:level+1) % len(g:levels) \| call Level(g:level)<cr>
+nn <silent><leader>1 :let g:level=(g:level+1)%len(g:levels)\|call Level(g:level)<cr>
 
 
 func! Level(l)
@@ -31,7 +30,6 @@ func! Level(l)
 		set backupcopy=yes " entr twice, https://superuser.com/a/1569733/1229839
 		set cc=+1
 		set hlsearch
-		set ignorecase
 		set incsearch
 		set laststatus=2
 		set list
@@ -41,6 +39,7 @@ func! Level(l)
 		set nu rnu
 		set ru
 		set signcolumn=number
+		set smartcase
 		set sw=3 ts=3
 		set tw=80
 		set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico,*.o,*.pdf,*.psd,*.a
@@ -165,6 +164,8 @@ func! Level(l)
 		Plug 'tpope/vim-surround'             " add chars around text objects
 		Plug 'vito-c/jq.vim'                  " jq mode
 		Plug 'wellle/targets.vim'             " better text objects
+
+		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 		Plug 'tpope/vim-fugitive'
 		aug fugitive
@@ -295,8 +296,21 @@ func! Level(l)
 		set tgc
 		color gruvbox
 
+" WARNING: THIS SHOULD NOT BE INDENTED
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+	ensure_installed = "maintained",
+	highlight = {
+		enable = true, -- false will disable the whole extension
+		-- disable = { "c", "python", "bash", "rust" }, -- list of language that will be disabled
+	},
+}
+EOF
+" WARNING: THIS SHOULD NOT BE INDENTED
+
 	endif
 endf
 
 call Level(g:level)
+
 noh " clear highlighting on start
