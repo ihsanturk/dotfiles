@@ -1,7 +1,8 @@
 autojump
-emacs
+gdb
 git
 make
+neovim --HEAD
 pass
 qemu
 ripgrep-all
