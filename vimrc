@@ -48,6 +48,10 @@ func! Level(l)
 		set wildmenu
 		syn on
 
+		if has('unnamedplus')
+			clipboard=unnamedplus
+		end
+
 		if !has('nvim')
 			set nocompatible
 		end
@@ -105,27 +109,6 @@ func! Level(l)
 		hi! link ColorColumn CursorColumn
 		hi! link Search Todo
 		hi! link Visual VisualNOS
-
-		" grave navigation
-			for mapmode in [ 'nn', 'tmap' ]
-			if has('nvim')
-				exe mapmode.' <silent> `v <c-w>:vs +term<cr>'
-				exe mapmode.' <silent> `b <c-w>:sp +term<cr>'
-				exe mapmode.' <silent> `c <c-w>:tabe +term<cr>'
-			else
-				exe mapmode.' <silent> `v <c-w>:vert term<cr>'
-				exe mapmode.' <silent> `b <c-w>:term<cr>'
-				exe mapmode.' <silent> `c <c-w>:tab term<cr>'
-			end
-			exe mapmode.' <silent> `n <c-w>:tabnext<cr>'
-			exe mapmode.' <silent> `p <c-w>:tabprev<cr>'
-			exe mapmode.' <silent> `z <c-w>:0tabe<cr>'
-			exe mapmode.' <silent> `x <c-w>:$tabe<cr>'
-			for i in range(1, 8)
-				exe mapmode.' <silent>`'.i.' <c-w>'.i.'gt'
-			endfor
-			exe mapmode.' `9 <c-w>:$tabnext<cr>'
-		endfor
 
 		" better :make
 		nn <leader>c :silent make \| unsilent redraw! \| bo cwindow<cr>

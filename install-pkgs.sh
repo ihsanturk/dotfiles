@@ -5,12 +5,12 @@ uname -a | grep -q '^Darwin' && {
 	brew leaves | sort > brew-leaves && REMOVEBREWLEAVES=true
 
 	grep -o '^[^ ]*' pkgs-common pkgs-mac | cut -d: -f2 | sort -u |
-		comm - brew-leaves -23 |
+		comm -23 - brew-leaves |
 		xargs -I_ sh -c 'brew install _';
 
 	# # uninstall
 	# /bin/cat pkgs-common pkgs-mac | sort |
-	# 	comm - brew-leaves -13 |
+	# 	comm -13 - brew-leaves |
 	# 	xargs brew uninstall;
 
 	[ $REMOVEBREWLEAVES ] && rm -rf brew-leaves;
