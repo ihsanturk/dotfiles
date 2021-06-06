@@ -49,7 +49,7 @@ func! Level(l)
 		syn on
 
 		if has('unnamedplus')
-			clipboard=unnamedplus
+			set clipboard=unnamedplus
 		end
 
 		if !has('nvim')
@@ -284,7 +284,9 @@ func! Level(l)
 			end
 		end
 
-		" color gruvbox
+		Plug('morhetz/gruvbox')
+		color gruvbox
+
 		Plug('chrisbra/Colorizer')             " colorize ansi escapes in buffer
 
 		if (a:l == 2)
