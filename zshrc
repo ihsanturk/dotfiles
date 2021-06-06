@@ -18,7 +18,7 @@ unsetopt EXTENDED_HISTORY
 export DIR_CODE=${HOME}/code
 export EDITOR=vim
 export GPG_TTY=$(tty)
-export PATH=$HOME/bin:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$PATH
 export VISUAL=$EDITOR
 
 

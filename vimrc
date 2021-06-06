@@ -3,14 +3,14 @@
 
 
 let g:level = 0
-let g:levels = { 0: "tiny", 1: "middle", 2: "bloat" }
+let g:levels = { 0: "tiny", 1: "full" }
 let mapleader = "\<space>"
 if has('nvim')
 	let g:vimplugpath = stdpath('data') . '/plugged'
 else
 	let g:vimplugpath='~/.vim/plugged'
 end
-nn <silent><leader>1 :let g:level = (g:level+1) % 3 \| call Level(g:level)<cr>
+nn <silent><leader>1 :let g:level = (g:level+1) % len(g:levels) \| call Level(g:level)<cr>
 
 
 func! Level(l)
@@ -18,7 +18,7 @@ func! Level(l)
 	if (a:l >= 0)
 		if has('nvim') " vim block the ui so don't notify
 			if (a:l == 0)
-				echo 'g:level: tiny (change with <leader>1)'
+				echo 'g:level: '.g:levels[g:level].' (change with <leader>1)'
 			end
 		end
 
@@ -28,7 +28,6 @@ func! Level(l)
 
 		" settings
 		set autoindent
-		set background=light
 		set backupcopy=yes " entr twice, https://superuser.com/a/1569733/1229839
 		set cc=+1
 		set hlsearch
@@ -126,7 +125,7 @@ func! Level(l)
 
 		if has('nvim') " vim block the ui so don't notify
 			if (a:l == 1)
-				echo 'g:level: middle (change with <leader>1)'
+				echo 'g:level: '.g:levels[g:level].' (change with <leader>1)'
 			end
 		end
 
@@ -146,28 +145,28 @@ func! Level(l)
 		" Plug ('tpope/vim-sensible')            " sane defaults
 		" Plug ('tweekmonster/startuptime.vim')  " measure startup time
 
-		Plug('PeterRincker/vim-searchlight')   " make active search different color
-		Plug('airblade/vim-gitgutter')         " display git diff in signcolumn
-		Plug('alvan/vim-closetag')             " auto close html tags
-		Plug('ap/vim-css-color')               " colorize css hex/rgb colors
-		Plug('darfink/vim-plist')              " plist mode
-		Plug('farmergreg/vim-lastplace')       " continue from where you left off
-		Plug('ihsanturk/vim-grave-navigation') " navigate tabs using '`'
-		Plug('ihsanturk/vim-ihsensible')       " sane defaults
-		Plug('jbmorgado/vim-pine-script')      " tradingview pinescript mode
-		Plug('chrisbra/Colorizer')             " colorize ansi escapes in buffer
-		Plug('junegunn/fzf')                   " fuzzy finder
-		Plug('keith/swift.vim')                " swift mode
-		Plug('mkitt/tabline.vim')              " more readable tab titles
-		Plug('rust-lang/rust.vim')             " rust mode
-		Plug('sheerun/vim-polyglot')           " syntax highlighting for languages
-		Plug('tpope/vim-rsi')                  " readline shortcuts in insert modes
-		Plug('tpope/vim-speeddating')          " {in,de}crement dates: <c-{a,x}>
-		Plug('tpope/vim-surround')             " add chars around text objects
-		Plug('vito-c/jq.vim')                  " jq mode
-		Plug('wellle/targets.vim')             " better text objects
+		Plug 'PeterRincker/vim-searchlight'   " make active search different color
+		Plug 'airblade/vim-gitgutter'         " display git diff in signcolumn
+		Plug 'alvan/vim-closetag'             " auto close html tags
+		Plug 'ap/vim-css-color'               " colorize css hex/rgb colors
+		Plug 'darfink/vim-plist'              " plist mode
+		Plug 'farmergreg/vim-lastplace'       " continue from where you left off
+		Plug 'ihsanturk/vim-grave-navigation' " navigate tabs using '`'
+		Plug 'ihsanturk/vim-ihsensible'       " sane defaults
+		Plug 'jbmorgado/vim-pine-script'      " tradingview pinescript mode
+		Plug 'chrisbra/Colorizer'             " colorize ansi escapes in buffer
+		Plug 'junegunn/fzf'                   " fuzzy finder
+		Plug 'keith/swift.vim'                " swift mode
+		Plug 'mkitt/tabline.vim'              " more readable tab titles
+		Plug 'rust-lang/rust.vim'             " rust mode
+		Plug 'sheerun/vim-polyglot'           " syntax highlighting for languages
+		Plug 'tpope/vim-rsi'                  " readline shortcuts in insert modes
+		Plug 'tpope/vim-speeddating'          " {in,de}crement dates: <c-{a,x}>
+		Plug 'tpope/vim-surround'             " add chars around text objects
+		Plug 'vito-c/jq.vim'                  " jq mode
+		Plug 'wellle/targets.vim'             " better text objects
 
-		Plug('tpope/vim-fugitive')
+		Plug 'tpope/vim-fugitive'
 		aug fugitive
 			ca git Git
 			ca gw  Gwrite
@@ -196,7 +195,7 @@ func! Level(l)
 			ca GC  tab Git commit
 		aug end
 
-		Plug('junegunn/fzf.vim')
+		Plug 'junegunn/fzf.vim'
 		nm <m-f> :Files<cr>
 		nm <m-s> :BLines<cr>
 		nm <m-b> :Buffers<cr>
@@ -235,53 +234,66 @@ func! Level(l)
 		endf
 		nm <silent> <m-d> :call OldDirs()<cr>
 
-		Plug('junegunn/vim-easy-align')
+		Plug 'junegunn/vim-easy-align'
 		xm ga <Plug>(EasyAlign)
 		nm ga <Plug>(EasyAlign)
 
-		Plug('HiPhish/info.vim')
+		Plug 'HiPhish/info.vim'
 		aug InfoFileType
 			au FileType info nm <silent> <buffer> <space> :Follow<cr>
 		aug end
 
-		Plug('LnL7/vim-nix')
+		Plug 'LnL7/vim-nix'
 		let nix_recommended_style = 0
 
-		Plug('reedes/vim-wheel')
+		Plug 'reedes/vim-wheel'
 		let g:wheel#map#down = '<c-j>'
 		let g:wheel#map#up   = '<c-k>'
 
-		Plug('ziman/ledger-vim')
+		Plug 'ziman/ledger-vim'
 		au FileType ledger nm <silent><tab> :set ep=ledger\ -f\ -\ print<cr>=
 		au FileType ledger xn <silent><tab> :<c-u>set ep=ledger\ -f\ -\ print<cr>gv=
 		au FileType ledger se commentstring=;\ %s
 
-		Plug('Raimondi/delimitMate')
+		Plug 'Raimondi/delimitMate'
 		let delimitMate_expand_cr = 2
 		let delimitMate_expand_space = 1
 		au FileType markdown let b:delimitMate_nesting_quotes = ['`']
 		au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 		au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}" " vim-closetag
 
-		Plug('mhinz/vim-sayonara')
+		Plug 'mhinz/vim-sayonara'
 		nn <silent><m-k> :Sayonara!<cr>
 		tma <silent> <m-k> <c-\><c-n>:Sayonara!<cr>
 
-		Plug('morhetz/gruvbox')
-		set tgc
-		color gruvbox
-		hi! link Visual VisualNOS
+		Plug 'morhetz/gruvbox'
+		let g:gruvbox_invert_selection = 0
 
 		if has('nvim')                         " comment text objects
 			Plug 'b3nj5m1n/kommentary'
-			Plug('rafcamlet/nvim-luapad')
+			Plug 'rafcamlet/nvim-luapad'
 		else
-			Plug('tpope/vim-commentary')
+			Plug 'tpope/vim-commentary'
 		end
 
 		if (a:l == 1)
 			call plug#end()
 		end
+
+		function! ChangeBackground()
+			if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+				set bg=dark
+			else
+				set bg=light
+			endif
+			color gruvbox
+		endf
+
+		call ChangeBackground()
+		autocmd Signal SIGUSR1 call ChangeBackground()
+
+		set tgc
+		color gruvbox
 
 	endif
 endf
