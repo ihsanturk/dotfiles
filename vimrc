@@ -15,7 +15,7 @@ nn <silent><leader>1 :let g:level=(g:level+1)%len(g:levels)\|call Level(g:level)
 func! Level(l)
 
 	if (a:l >= 0)
-		if has('nvim') " vim block the ui so don't notify
+		if has('nvim') " vim blocks the ui so don't notify
 			if (a:l == 0)
 				echo 'g:level: '.g:levels[g:level].' (change with <leader>1)'
 			end
@@ -67,8 +67,9 @@ func! Level(l)
 
 		" basic mapping and abbreviation
 		ca log tabe ~/log/life \| norm G \| zz
-		ca rc exe 'tabe ~/dot'
-		ca tp exe 'tabe ~/zk/'.strftime('%Y-%m-%d').'.md'
+		ca rc exe 'tabe ~/dot \| tcd ~/dot'
+		ca tp exe 'tabe ~/zk/'.strftime('%Y-%m-%d').'.md \| tcd ~/zk/'
+		ca zk exe 'tabe ~/zk/ \| tcd ~/zk'
 		nn <c-c> <c-[>:noh<cr><c-[>
 		nn <c-j> <c-e>j
 		nn <c-k> <c-y>k
@@ -113,8 +114,8 @@ func! Level(l)
 		hi! link Visual VisualNOS
 
 		" better :make
-		nn <leader>c :silent make \| unsilent redraw! \| bo cwindow<cr>
-		ca make silent make \| unsilent redraw! \| bo cwindow
+		nn <leader>c :make \| unsilent redraw! \| bo cwindow<cr>
+		ca make make \| unsilent redraw! \| bo cwindow
 
 		" [external snippet manager](https://github.com/ihsanturk/snip)
 		nn <leader>e :exe ':set ep=snip\ -l'.&ft<cr>=
