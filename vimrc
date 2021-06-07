@@ -174,8 +174,8 @@ func! Level(l)
 			Plug 'rafcamlet/nvim-luapad'
 
 			Plug 'neovim/nvim-lspconfig'
+			nn <silent> <c-tab>   <cmd>lua vim.lsp.buf.formatting()<cr>
 			nn <silent> <space>rn <cmd>lua vim.lsp.buf.rename()<cr>
-			nn <silent> <tab>     <cmd>lua vim.lsp.buf.formatting()<cr>
 			nn <silent> [d        <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 			nn <silent> ]d        <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 			nn <silent> gD        <cmd>lua vim.lsp.buf.declaration()<cr>
@@ -184,7 +184,7 @@ func! Level(l)
 			nn <silent> gi        <cmd>lua vim.lsp.buf.implementation()<cr>
 			nn <silent> gr        <cmd>lua vim.lsp.buf.references()<cr>
 			nn <silent> gs        <cmd>lua vim.lsp.buf.signature_help()<cr>
-			xn <silent> <tab>     :lua vim.lsp.buf.range_formatting()<cr>
+			xn <silent> <c-tab>   :lua vim.lsp.buf.range_formatting()<cr>
 
 		else
 			Plug 'tpope/vim-commentary'        " comment text objects
