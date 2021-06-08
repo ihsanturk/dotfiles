@@ -5,8 +5,7 @@ core: zsh vim git gpg
 graphical: alacritty x
 
 pkgs:
-	uname -a | grep -q '^Darwin' && { /bin/cat pkgs-common pkgs-mac | xargs brew install; brew leaves | sort > brew-leaves; /bin/cat pkgs-common pkgs-mac | sort | comm - brew-leaves -13 | xargs brew uninstall; rm -rf brew-leaves; } || true;
-	uname -a | grep -q 'Alpine' && { /bin/cat pkgs-common pkgs-alpine | xargs sudo apk add; } || true;
+	./install-pkgs.sh
 
 uninstall: uninstall-alacritty uninstall-zsh uninstall-git uninstall-x
 
@@ -36,15 +35,19 @@ zsh:
 	[ -d "${HOME}/.zsh/zsh-syntax-highlighting" ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting "${HOME}/.zsh/zsh-syntax-highlighting"
 	cp alias ~/.alias;
 	cp zshrc ~/.zshrc;
+	cp funct ~/.funct;
 uninstall-zsh:
 	rm -rf "${HOME}/.zsh"
-	rm -rf ~/.zshrc
-	rm -rf ~/.alias
+	rm -rf "${HOME}/.zshrc"
+	rm -rf "${HOME}/.alias"
 
 vim:
 	cp vimrc ${HOME}/.vimrc
+	mkdir -p ${HOME}/.config/nvim/
+	ln -fs ~/.vimrc ${HOME}/.config/nvim/init.vim
 uninstall-vim:
 	rm -rf "${HOME}/.vimrc
+	rm -rf "${HOME}/.nvim
 
 x:
 	# # alpine

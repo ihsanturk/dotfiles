@@ -1,6 +1,11 @@
 autojump
+coreutils
+gawk
+gdb
 git
+llvm
 make
+neovim --HEAD
 pass
 qemu
 ripgrep-all

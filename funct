@@ -1,0 +1,32 @@
+#!/bin/sh
+# vi: set filetype=bash
+
+h() {
+
+# https://github.com/ihsanturk/repo    -> cd $1         || git clone and cd
+# github.com/ihsanturk/repo            -> cd $1         || git clone http and cd
+# ihsanturk/repo                       -> cd github.com || github clone and cd
+# gitlab repo                          -> find and cd first || fail
+# github repo                          -> find and cd first || fail
+# repo                                 -> find and cd first || fail
+# rep                                  -> find and cd first || fail
+
+	echo $1 | grep -q '^http[^/]*' && { # a url
+		targetdir="${DIR_CODE}/$(echo $1 | sed 's;http[^/]*//;;g')";
+		cd "$targetdir" - > /dev/null || {
+			mkdir -p "$targetdir" && git clone $1 $targetdir && cd "$targetdir";
+		}
+	} || { # not a url
+		phrase=$(echo $@ | sed 's/ /\.\*/g')
+		echo $phrase
+		# fd -d 3 -t d | sortlength
+		cd $DIR_CODE/$1 - >/dev/null || {
+			find $DIR_CODE -depth 2
+			cd $DIR_CODE/
+		}
+	}
+}
+
+expandgit() {
+	
+}

@@ -1,5 +1,7 @@
 bat
 cmake
+exa
 fzf
 gnupg
+ripgrep
 tmux
