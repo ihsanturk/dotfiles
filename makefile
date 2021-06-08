@@ -2,13 +2,13 @@ include config.mk
 
 default: core
 core: zsh vim git gpg
-graphical: alacritty
+graphical: alacritty x
 
 pkgs:
 	uname -a | grep -q '^Darwin' && { /bin/cat pkgs-common pkgs-mac | xargs brew install; brew leaves | sort > brew-leaves; /bin/cat pkgs-common pkgs-mac | sort | comm - brew-leaves -13 | xargs brew uninstall; rm -rf brew-leaves; } || true;
 	uname -a | grep -q 'Alpine' && { /bin/cat pkgs-common pkgs-alpine | xargs sudo apk add; } || true;
 
-uninstall: uninstall-alacritty uninstall-zsh uninstall-git
+uninstall: uninstall-alacritty uninstall-zsh uninstall-git uninstall-x
 
 gpg:
 	cp gpg-agent.conf ~/.gnupg/
@@ -45,4 +45,16 @@ vim:
 	cp vimrc ${HOME}/.vimrc
 uninstall-vim:
 	rm -rf "${HOME}/.vimrc
+
+x:
+	# # alpine
+	# setup-xorg-base dwm st xf86-video-intel
+	# rc-update add dbus
+	# rc-service dbus start
+
+	# apk add xf86-input-mouse xf86-input-keyboard
+
+	cp xinitrc ${HOME}/.xinitrc
+uninstall-x:
+	rm -rf ${HOME}/.xinitrc
 
