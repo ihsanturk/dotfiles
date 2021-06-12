@@ -25,6 +25,8 @@ func! Level(l)
 		runtime ftplugin/help.vim
 		runtime ftplugin/vim.vim
 
+		lang en_GB.UTF-8
+
 		" settings
 		set autoindent
 		set backupcopy=yes " entr twice, https://superuser.com/a/1569733/1229839
@@ -34,6 +36,7 @@ func! Level(l)
 		set laststatus=2
 		set list
 		set listchars=tab:\┊\ ,trail:•,nbsp:+
+		set mouse=
 		set noignorecase
 		set noswapfile
 		set nowrap
@@ -43,7 +46,7 @@ func! Level(l)
 		set smartcase
 		set sw=3 ts=3
 		set tw=80
-		set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico,*.o,*.pdf,*.psd,*.a
+		set wildignore+=*.bmp,*.gif,*.ico,*.ico,*.o,*.psd,*.a
 		set wildignore+=node_modules/*,bower_components/*
 		set wildmenu
 		syn on
@@ -70,12 +73,12 @@ func! Level(l)
 		ca log tabe ~/log/life \| norm G \| zz
 		ca rc exe 'tabe ~/dot \| tcd ~/dot'
 		ca tp exe 'tabe ~/zk/'.strftime('%Y-%m-%d').'.md \| tcd ~/zk/'
-		ca zk exe 'tabe ~/zk/ \| tcd ~/zk'
+		nn <silent>zk :tabe ~/zk/ \| tcd ~/zk<cr>
 		nn <c-c> <c-[>:noh<cr><c-[>
 		nn <c-j> <c-e>j
 		nn <c-k> <c-y>k
 		nn <leader>d :exe 'r!date -u'\|norm kJ<cr>$
-		nn <leader>t :exe 'r!date +\%H:\%M:\%S'\|norm kJ<cr>$
+		nn <leader>t :exe 'r!date +\%H:\%M'\|norm kJ<cr>$
 		nn <silent><leader>s :source %<cr>:exe ':echom "sourced: ".expand("%")'<cr>
 		nn cn :cnext<cr>
 		nn cp :cprev<cr>
@@ -161,7 +164,6 @@ func! Level(l)
 		Plug 'keith/swift.vim'                " swift mode
 		Plug 'mkitt/tabline.vim'              " more readable tab titles
 		Plug 'rust-lang/rust.vim'             " rust mode
-		Plug 'sheerun/vim-polyglot'           " syntax highlighting for languages
 		Plug 'tpope/vim-rsi'                  " readline shortcuts in insert modes
 		Plug 'tpope/vim-speeddating'          " {in,de}crement dates: <c-{a,x}>
 		Plug 'tpope/vim-surround'             " add chars around text objects
