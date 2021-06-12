@@ -3,5 +3,6 @@ cmake
 exa
 fzf
 gnupg
+jq
 ripgrep
 tmux

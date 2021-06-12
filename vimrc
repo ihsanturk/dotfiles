@@ -34,6 +34,7 @@ func! Level(l)
 		set laststatus=2
 		set list
 		set listchars=tab:\┊\ ,trail:•,nbsp:+
+		set noignorecase
 		set noswapfile
 		set nowrap
 		set nu rnu
@@ -322,13 +323,15 @@ if has('nvim')
 lua <<EOF
 
 -- lsp
-
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
 	vim.lsp.handlers.signature_help, {
 		-- Use a sharp border with `FloatBorder` highlights
 		border = "single"
 	}
 )
+-- disable diagnostcs globally
+vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
+
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end

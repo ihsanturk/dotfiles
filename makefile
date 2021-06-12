@@ -1,13 +1,20 @@
 include config.mk
 
 default: core
-core: zsh vim git gpg
+core: zsh vim git gpg tmux
 graphical: alacritty
 
 pkgs:
 	./install-pkgs.sh
 
 uninstall: uninstall-alacritty uninstall-zsh uninstall-git
+
+tmux:
+	mkdir -p "${HOME}/.tmux/plugins"
+	[ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm.git "${HOME}/.tmux/plugins/tpm"
+	cp tmux.conf ${HOME}/.tmux.conf
+uninstall-tmux:
+	rm -rf ~/.tmux.conf
 
 gpg:
 	cp gpg-agent.conf ~/.gnupg/
