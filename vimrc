@@ -115,7 +115,7 @@ func! Level(l)
 
 		hi! link ColorColumn CursorColumn
 		hi! link Search Todo
-		hi! link Visual VisualNOS
+		" hi! link Visual VisualNOS
 
 		" better :make
 		nn <leader>c :make \| unsilent redraw! \| bo cwindow<cr>
@@ -311,14 +311,15 @@ func! Level(l)
 			else
 				set bg=light
 			endif
-			color gruvbox
+			" color gruvbox
 		endf
 
 		call ChangeBackground()
 		autocmd Signal SIGUSR1 call ChangeBackground()
 
-		set tgc
-		color gruvbox
+		" set tgc
+		" let g:gruvbox_transparent_bg=1
+		" color gruvbox
 
 " WARNING: THIS SHOULD NOT BE INDENTED
 if has('nvim')
