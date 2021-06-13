@@ -3,6 +3,7 @@ coreutils
 gawk
 gdb
 git
+googler
 llvm
 lynx
 make
