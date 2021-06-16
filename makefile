@@ -1,13 +1,20 @@
 include config.mk
 
 default: core
-core: zsh vim git gpg tmux
+core: zsh vim git gpg tmux w3m
 graphical: alacritty
 
 pkgs:
 	./install-pkgs.sh
 
 uninstall: uninstall-alacritty uninstall-zsh uninstall-git
+
+w3m:
+	mkdir -p ~/.w3m
+	cp w3mrc ~/.w3m/keymap
+uninstall-w3m:
+	rm -rf ~/.w3m/keymap
+	[ -z "$(ls -A ${HOME}/.w3m/)" ] && rm -rf "${HOME}/.w3m"
 
 tmux:
 	mkdir -p "${HOME}/.tmux/plugins"
