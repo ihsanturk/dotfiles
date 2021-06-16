@@ -30,6 +30,7 @@ func! Level(l)
 		" settings
 		set autoindent
 		set backupcopy=yes " entr twice, https://superuser.com/a/1569733/1229839
+		set bg=light
 		set cc=+1
 		set hlsearch
 		set incsearch

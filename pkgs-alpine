@@ -1,3 +1,6 @@
+curl-dev
 gcc
 libc-dev
+neovim
+neovim-doc
 ripgrep
