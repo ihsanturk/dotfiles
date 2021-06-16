@@ -1,7 +1,7 @@
 " Autohor: ihsan <ihsanl [a_t] pm.me>
 " License: public domain, use however you want.
 
-let g:level = 0
+let g:level = 1
 let g:levels = { 0: "tiny", 1: "full" }
 let mapleader = "\<space>"
 if has('nvim')
@@ -50,6 +50,8 @@ func! Level(l)
 		set wildignore+=node_modules/*,bower_components/*
 		set wildmenu
 		syn on
+
+		let g:netrw_banner = 0 " hide netrw info section
 
 		if has('unnamedplus')
 			set clipboard=unnamedplus
@@ -309,17 +311,21 @@ func! Level(l)
 			if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
 				set bg=dark
 			else
-				set bg=light
+				"set bg=light
 			endif
 			" color gruvbox
+			color default
 		endf
-
-		call ChangeBackground()
-		autocmd Signal SIGUSR1 call ChangeBackground()
 
 		" set tgc
 		" let g:gruvbox_transparent_bg=1
 		" color gruvbox
+		color default
+
+		call ChangeBackground()
+		if has('nvim')
+			autocmd Signal SIGUSR1 call ChangeBackground()
+		end
 
 " WARNING: THIS SHOULD NOT BE INDENTED
 if has('nvim')
