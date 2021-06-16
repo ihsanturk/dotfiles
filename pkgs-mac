@@ -1,11 +1,11 @@
 autojump
 coreutils
+exiftool
 gawk
 gdb
 git
 googler
 llvm
-lynx
 make
 mpv
 neovim --HEAD
@@ -14,10 +14,12 @@ poppler
 qemu
 ripgrep-all
 rust
+srm
 tag                   # macos tag manager
 tcc
 telegram-cli
 trash-cli
 vlang
+w3m
 weechat
 xbar
