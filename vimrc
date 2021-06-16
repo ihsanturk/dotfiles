@@ -315,9 +315,9 @@ func! Level(l)
 
 		function! ChangeBackground()
 			if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-				set bg=dark
+				" set bg=dark
 			else
-				"set bg=light
+				set bg=light
 			endif
 			" color gruvbox
 			color default
