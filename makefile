@@ -1,13 +1,20 @@
 include config.mk
 
 default: core
-core: zsh vim git gpg
-graphical: alacritty x
+core: zsh vim git gpg tmux
+graphical: alacritty
 
 pkgs:
 	./install-pkgs.sh
 
 uninstall: uninstall-alacritty uninstall-zsh uninstall-git uninstall-x
+
+tmux:
+	mkdir -p "${HOME}/.tmux/plugins"
+	[ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm.git "${HOME}/.tmux/plugins/tpm"
+	cp tmux.conf ${HOME}/.tmux.conf
+uninstall-tmux:
+	rm -rf ~/.tmux.conf
 
 gpg:
 	cp gpg-agent.conf ~/.gnupg/
@@ -54,9 +61,7 @@ x:
 	# setup-xorg-base dwm st xf86-video-intel
 	# rc-update add dbus
 	# rc-service dbus start
-
 	# apk add xf86-input-mouse xf86-input-keyboard
-
 	cp xinitrc ${HOME}/.xinitrc
 uninstall-x:
 	rm -rf ${HOME}/.xinitrc

@@ -3,14 +3,21 @@ coreutils
 gawk
 gdb
 git
+googler
 llvm
+lynx
 make
+mpv
 neovim --HEAD
 pass
+poppler
 qemu
 ripgrep-all
 rust
+tag                   # macos tag manager
 tcc
 telegram-cli
+trash-cli
 vlang
 weechat
+xbar
