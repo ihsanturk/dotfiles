@@ -42,7 +42,6 @@ func! Level(l)
 		set nowrap
 		set nu rnu
 		set ru
-		set signcolumn=number
 		set smartcase
 		set sw=3 ts=3
 		set tw=80
@@ -51,7 +50,11 @@ func! Level(l)
 		set wildmenu
 		syn on
 
-		let g:netrw_banner = 0 " hide netrw info section
+		if has('nvim-0.5')
+			set signcolumn=number
+		else
+			set signcolumn=auto
+		end
 
 		if has('unnamedplus')
 			set clipboard=unnamedplus
@@ -62,6 +65,8 @@ func! Level(l)
 		else " has nvim
 			set inccommand=nosplit
 		end
+
+		let g:netrw_banner = 0 " hide netrw info section
 
 		" au commands
 		au FileType man setl nolist " better man
@@ -172,7 +177,7 @@ func! Level(l)
 		Plug 'vito-c/jq.vim'                  " jq mode
 		Plug 'wellle/targets.vim'             " better text objects
 
-		if has('nvim')
+		if has('nvim-0.5')
 			Plug 'b3nj5m1n/kommentary'         " comment text objects
 			Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 			Plug 'p00f/nvim-ts-rainbow'        " different brace/parant. colors
@@ -328,7 +333,7 @@ func! Level(l)
 		end
 
 " WARNING: THIS SHOULD NOT BE INDENTED
-if has('nvim')
+if has('nvim-0.5')
 lua <<EOF
 
 -- lsp
