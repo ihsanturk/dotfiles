@@ -17,7 +17,9 @@ unsetopt EXTENDED_HISTORY
 # environment
 export DIR_CODE=${HOME}/code
 export EDITOR=nvim
+export FIGNORE=".lock"
 export GPG_TTY=$(tty)
+export PATH=$HOME/.cargo/bin/:$PATH
 export PATH=/usr/local/opt/llvm/bin:/usr/local/bin:$HOME/bin:$PATH
 export VISUAL=$EDITOR
 

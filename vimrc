@@ -46,7 +46,7 @@ func! Level(l)
 		set smartcase
 		set sw=3 ts=3
 		set tw=80
-		set wildignore+=*.bmp,*.gif,*.ico,*.ico,*.o,*.psd,*.a
+		set wildignore+=*.bmp,*.gif,*.ico,*.ico,*.o,*.psd,*.a,*.lock
 		set wildignore+=node_modules/*,bower_components/*
 		set wildmenu
 		syn on
@@ -296,8 +296,8 @@ func! Level(l)
 		au FileType ledger se commentstring=;\ %s
 
 		Plug 'Raimondi/delimitMate'
-		let delimitMate_expand_cr = 2
-		let delimitMate_expand_space = 1
+		let g:delimitMate_expand_cr = 2
+		let g:delimitMate_expand_space = 1
 		au FileType markdown let b:delimitMate_nesting_quotes = ['`']
 		au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 		au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}" " vim-closetag
@@ -314,13 +314,13 @@ func! Level(l)
 		end
 
 		function! ChangeBackground()
+			color default
+			" color gruvbox
 			if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
 				" set bg=dark
 			else
 				set bg=light
 			endif
-			" color gruvbox
-			color default
 		endf
 
 		" set tgc
@@ -353,7 +353,7 @@ local on_attach = function(client, bufnr)
 	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 	-- See `:help vim.lsp.*` for documentation
 end
-local servers = { "clangd" }
+local servers = { "clangd", "rls" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup { on_attach = on_attach }
 end

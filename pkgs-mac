@@ -13,11 +13,11 @@ pass
 poppler
 qemu
 ripgrep-all
-rust
 srm
 tag                   # macos tag manager
 tcc
 telegram-cli
+titlecase
 trash-cli
 vlang
 w3m

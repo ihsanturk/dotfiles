@@ -9,6 +9,13 @@ pkgs:
 
 uninstall: uninstall-alacritty uninstall-zsh uninstall-git uninstall-x
 
+rust:
+	touch ${HOME}/.zshenv
+	touch ${HOME}/.profile
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+uninstall-rust:
+	rustup self uninstall
+
 w3m:
 	mkdir -p ~/.w3m
 	cp w3mrc ~/.w3m/keymap
