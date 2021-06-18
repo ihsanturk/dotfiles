@@ -1,6 +1,7 @@
 bat
-curl
 cmake
+curl
+entr
 exa
 fd
 fzf
