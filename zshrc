@@ -15,13 +15,18 @@ unsetopt EXTENDED_HISTORY
 
 
 # environment
+export BAT_STYLE=plain
+export BAT_THEME=ansi
 export DIR_CODE=${HOME}/code
 export EDITOR=nvim
 export FIGNORE=".lock"
 export GPG_TTY=$(tty)
 export PATH=$HOME/.cargo/bin/:$PATH
 export PATH=/usr/local/opt/llvm/bin:/usr/local/bin:$HOME/bin:$PATH
+export RUSTC_WRAPPER=$(which sccache)
 export VISUAL=$EDITOR
+export WORDCHARS='*?_[]~=&;!#$%^(){}'
+export ZLE_REMOVE_SUFFIX_CHARS=""
 
 
 # zshoptions
@@ -35,15 +40,21 @@ setopt SHARE_HISTORY
 unsetopt EXTENDED_HISTORY
 unsetopt HIST_EXPIRE_DUPS_FIRST
 
-. ~/.funct
+# external source
 . ~/.alias
+. ~/.funct
 . ~/Sync/private/env
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-[ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && . ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+autojump=/usr/local/etc/profile.d/autojump.sh
+autosuggestions=~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+syntaxhighlighting=~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f $autojump ] && . $autojump
+[ -f $autosuggestions ] && . $autosuggestions
+[ -f $syntaxhighlighting ] && . $syntaxhighlighting
+
 
 autoload -U select-word-style
 select-word-style bash
+
 
 # check compinit's cache only once a day.
 autoload -Uz compinit
@@ -53,8 +64,10 @@ else
   compinit -C
 fi
 
+
 # Use emacs keymap as the default.
 bindkey -e
+
 
 x-bash-backward-kill-word() {
 	WORDCHARS='*?_[]~=&;!#$%^(){}' zle backward-kill-word;
@@ -65,12 +78,10 @@ x-backward-kill-word() {
 	# WORDCHARS='/*?_-[]~\!#$%^(){}<>|`@#$%^*()+:?' zle backward-kill-word;
 }
 
+
+bindkey '^W' x-bash-backward-kill-word
+typeset -U path cdpath fpath manpath
 zle -N x-backward-kill-word
 zle -N x-bash-backward-kill-word
-bindkey '^W' x-bash-backward-kill-word
-
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-
-export WORDCHARS='*?_[]~=&;!#$%^(){}'
-typeset -U path cdpath fpath manpath
