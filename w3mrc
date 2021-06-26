@@ -57,7 +57,6 @@ keymap ESC-b NULL
 keymap c NULL
 keymap ESC-: NULL
 keymap C-h NULL
-keymap q NULL
 keymap Q NULL
 keymap C-w NULL
 keymap C-d NULL
