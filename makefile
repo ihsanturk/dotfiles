@@ -2,7 +2,7 @@ include config.mk
 
 default: core
 core: zsh vim git gpg tmux w3m
-graphical: alacritty
+graphical: alacritty mpv
 
 pkgs:
 	./install-pkgs.sh
@@ -12,9 +12,20 @@ uninstall: uninstall-alacritty uninstall-zsh uninstall-git uninstall-x
 rust:
 	touch ${HOME}/.zshenv
 	touch ${HOME}/.profile
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	which -s rustup || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	rustup component add rust-src rls rust-analysis rust-src
+	# TODO: detect os and install based on the pkg manager and system.
+	curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-apple-darwin.gz | gunzip -c - > ~/bin/rust-analyzer
+	chmod +x ~/bin/rust-analyzer
 uninstall-rust:
 	rustup self uninstall
+
+mpv:
+	mkdir -p ~/.config/mpv
+	cp mpv.conf ~/.config/mpv/
+uninstall-mpv:
+	rm -rf ~/.config/mpv/mpv.conf
+	[ -z "$(ls -A ${HOME}/.config/mpv/)" ] && rm -rf "${HOME}/.config/mpv"
 
 w3m:
 	mkdir -p ~/.w3m
@@ -42,8 +53,8 @@ uninstall-git:
 
 alacritty:
 	mkdir -p "${HOME}/.config/alacritty"
-	cp alacritty.yml ~/.config/alacritty/
-	cp alacritty-color.yml ~/.config/alacritty/color.yml
+	cp alacrittyrc.yml ~/.config/alacritty/alacritty.yml
+	sh -c 'cp alacritty-color.yml ~/.config/alacritty/color.yml'
 uninstall-alacritty:
 	rm -rf "${HOME}/.config/alacritty/alacritty.yaml"
 	rm -rf "${HOME}/.config/alacritty/color.yml"
@@ -80,3 +91,5 @@ x:
 uninstall-x:
 	rm -rf ${HOME}/.xinitrc
 
+
+.PHONY: all alacritty

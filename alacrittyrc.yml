@@ -4,7 +4,7 @@ import:
 window:
   dimensions:
     columns: 171 # 84
-    lines  : 50  # 34
+    lines  : 48  # 34
 
   padding:
     x: 0
@@ -52,7 +52,7 @@ bell:
   color: "0xeeeeee"
 
 
-background_opacity: 0.95
+background_opacity: 1.00
 
 
 mouse:
@@ -76,6 +76,7 @@ key_bindings:
   - { key: "S",    mods: "Command", chars: "\x07\x22" }
   - { key: "D",    mods: "Command", chars: "\x07\x25" }
   - { key: "L",    mods: "Command", chars: "\x07\x6c" }
+  - { key: "G",    mods: "Command", chars: "\x07\x6c" }
   # - { key: "Key0", mods: "Command", chars: "\x07\x30" }
   - { key: "Key1", mods: "Command", chars: "\x07\x31" }
   - { key: "Key2", mods: "Command", chars: "\x07\x32" }
