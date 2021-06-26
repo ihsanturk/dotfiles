@@ -18,8 +18,12 @@
 	sh = auto
 
 [merge]
+	tool = nvim
 	conflictstyle = "diff3";
 	stat = true;
+
+[mergetool "nvim"]
+	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [alias]
 	amend = "commit --amend -C HEAD";
