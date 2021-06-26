@@ -1,6 +1,7 @@
 autojump
 coreutils
 exiftool
+firefox
 gawk
 gdb
 git
@@ -13,13 +14,16 @@ pass
 poppler
 qemu
 ripgrep-all
-srm
+sccache
+so
 tag                   # macos tag manager
 tcc
 telegram-cli
 titlecase
+tldr
 trash-cli
 vlang
 w3m
 weechat
 xbar
+zola
