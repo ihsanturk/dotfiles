@@ -1,0 +1,4 @@
+```
+url bar -> about:config -> full-screen-api.warning.timeout = 0
+url bar -> about:config -> browser.compactmode.show = true
+```
