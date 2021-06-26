@@ -1,5 +1,6 @@
-" Autohor: ihsan <ihsanl [a_t] pm.me>
-" License: public domain, use however you want.
+" Author: ihsan <ihsanl [a_t] pm.me>
+" First Appeared: 2021
+" License: MIT
 
 let g:level = 1
 let g:levels = { 0: "tiny", 1: "full" }
@@ -30,7 +31,7 @@ func! Level(l)
 		" settings
 		set autoindent
 		set backupcopy=yes " entr twice, https://superuser.com/a/1569733/1229839
-		set bg=light
+		set bg=dark
 		set cc=+1
 		set hlsearch
 		set incsearch
@@ -67,8 +68,6 @@ func! Level(l)
 			set inccommand=nosplit
 		end
 
-		let g:netrw_banner = 0 " hide netrw info section
-
 		" au commands
 		au FileType man setl nolist " better man
 		if has('nvim') " better term
@@ -79,9 +78,9 @@ func! Level(l)
 
 		" basic mapping and abbreviation
 		ca log tabe ~/log/life \| norm G \| zz
-		ca rc exe 'tabe ~/dot \| tcd ~/dot'
+		ca rc exe 'tabe +tcd ~/dot \| FZF\ ~/dot'
 		ca tp exe 'tabe ~/zk/'.strftime('%Y-%m-%d').'.md \| tcd ~/zk/'
-		nn <silent>zk :tabe ~/zk/ \| tcd ~/zk<cr>
+		nn <silent>zk :tabe +tcd ~/zk \| FZF\ ~/zk/<cr>
 		nn <c-c> <c-[>:noh<cr><c-[>
 		nn <c-j> <c-e>j
 		nn <c-k> <c-y>k
@@ -90,6 +89,11 @@ func! Level(l)
 		nn <silent><leader>s :source %<cr>:exe ':echom "sourced: ".expand("%")'<cr>
 		nn cn :cnext<cr>
 		nn cp :cprev<cr>
+		nn <c-h><c-f> :w<cr>
+		nn <c-f><c-h> :wq<cr>
+		nn <m-x> :
+		tma <m-x> <c-\><c-n>:
+
 
 		" readline
 		cno <c-a> <c-b>
@@ -123,11 +127,15 @@ func! Level(l)
 
 		hi! link ColorColumn CursorColumn
 		hi! link Search Todo
+		hi! Comment ctermfg=7
 		" hi! link Visual VisualNOS
+		hi! Visual ctermfg=None ctermbg=8
 
 		" better :make
-		nn <leader>c :make \| unsilent redraw! \| bo cwindow<cr>
-		ca make make \| unsilent redraw! \| bo cwindow
+		if !has('nvim')
+			nn <leader>c :make \| unsilent redraw! \| bo cwindow<cr>
+			ca make make \| unsilent redraw! \| bo cwindow
+		end
 
 		" [external snippet manager](https://github.com/ihsanturk/snip)
 		nn <leader>e :exe ':set ep=snip\ -l'.&ft<cr>=
@@ -136,9 +144,9 @@ func! Level(l)
 	endif
 	if (a:l >= 1)
 
-		if has('nvim') " vim block the ui so don't notify
+		if has('nvim') " vim blocks the ui. so don't notify
 			if (a:l == 1)
-				echo 'g:level: '.g:levels[g:level].' (change with <leader>1)'
+				" echo 'g:level: '.g:levels[g:level].' (change with <leader>1)'
 			end
 		end
 
@@ -164,7 +172,9 @@ func! Level(l)
 		Plug 'ap/vim-css-color'               " colorize css hex/rgb colors
 		Plug 'chrisbra/Colorizer'             " colorize ansi escapes in buffer
 		Plug 'darfink/vim-plist'              " plist mode
+		Plug 'dense-analysis/ale'             " analyzer check syntax
 		Plug 'farmergreg/vim-lastplace'       " continue from where you left off
+		Plug 'ihsanturk/vim-gf'               " url support for gf mapping
 		Plug 'ihsanturk/vim-grave-navigation' " navigate tabs using '`'
 		Plug 'ihsanturk/vim-ihsensible'       " sane defaults
 		Plug 'jbmorgado/vim-pine-script'      " tradingview pinescript mode
@@ -189,12 +199,13 @@ func! Level(l)
 			nn <silent> <space>rn <cmd>lua vim.lsp.buf.rename()<cr>
 			nn <silent> [d        <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 			nn <silent> ]d        <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
-			nn <silent> gD        <cmd>lua vim.lsp.buf.declaration()<cr>
-			nn <silent> gd        <cmd>lua vim.lsp.buf.definition()<cr>
-			nn <silent> gh        <cmd>lua vim.lsp.buf.hover()<cr>
-			nn <silent> gi        <cmd>lua vim.lsp.buf.implementation()<cr>
-			nn <silent> gr        <cmd>lua vim.lsp.buf.references()<cr>
-			nn <silent> gs        <cmd>lua vim.lsp.buf.signature_help()<cr>
+			nn <silent> glD        <cmd>lua vim.lsp.buf.declaration()<cr>
+			nn <silent> gld        <cmd>lua vim.lsp.buf.definition()<cr>
+			nn <silent> glt        <cmd>lua vim.lsp.buf.type_definition()<cr>
+			nn <silent> glh        <cmd>lua vim.lsp.buf.hover()<cr>
+			nn <silent> gli        <cmd>lua vim.lsp.buf.implementation()<cr>
+			nn <silent> glr        <cmd>lua vim.lsp.buf.references()<cr>
+			nn <silent> gls        <cmd>lua vim.lsp.buf.signature_help()<cr>
 			xn <silent> <c-tab>   :lua vim.lsp.buf.range_formatting()<cr>
 
 		else
@@ -240,7 +251,6 @@ func! Level(l)
 		nm <m-s> :BLines<cr>
 		nm <m-b> :Buffers<cr>
 		nm <m-r> :History<cr>
-		nm <m-x> :Commands<cr>
 		nm <m-h> :Helptags!<cr>
 		tma <m-r> <c-\><c-n>:History<cr>
 		let g:fzf_layout = { 'down': '~40%' }
@@ -306,7 +316,7 @@ func! Level(l)
 		nn <silent><m-k> :Sayonara!<cr>
 		tma <silent> <m-k> <c-\><c-n>:Sayonara!<cr>
 
-		Plug 'morhetz/gruvbox'
+		Plug 'sainnhe/gruvbox-material'
 		let g:gruvbox_invert_selection = 0
 
 		if (a:l == 1)
@@ -314,19 +324,14 @@ func! Level(l)
 		end
 
 		function! ChangeBackground()
-			color default
-			" color gruvbox
 			if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-				" set bg=dark
+				set tgc bg=dark
+				color gruvbox-material
 			else
+				color default
 				set bg=light
 			endif
 		endf
-
-		" set tgc
-		" let g:gruvbox_transparent_bg=1
-		" color gruvbox
-		color default
 
 		call ChangeBackground()
 		if has('nvim')
@@ -353,7 +358,7 @@ local on_attach = function(client, bufnr)
 	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 	-- See `:help vim.lsp.*` for documentation
 end
-local servers = { "clangd", "rls" }
+local servers = { "clangd", "rust_analyzer", "rls" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup { on_attach = on_attach }
 end
@@ -364,11 +369,11 @@ require'nvim-treesitter.configs'.setup {
 	rainbow = {
 		enable = true,
 		extended_mode = true,
-		max_file_lines = 1000, -- do not enable for files with more than 1000 loc
+		max_file_lines = 1000, -- do not enable if more than x lines
 	},
 	highlight = {
-		enable = true, -- false will disable the whole extension
-		-- disable = { "c", "python", "bash", "rust" }, -- list of language that will be disabled
+		enable = true, -- the whole extension
+		disable = { "ledger", "html" },
 	},
 }
 
